@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="kaldi;声纹识别;ivector,">
+  <meta name="keywords" content="kaldi 声纹识别 ivector,">
 
 
 
@@ -80,7 +80,7 @@
 
 
 <meta name="description" content="&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;前段时间一直到在使用kaldi来做声纹识别，算是可以把整个i-vector的例程可以跑下来，也可以根据例程来改写脚本，使用自己的数据来训练和测试。接下来可能要去做其他的项目了，所以要趁着还记得的时候赶紧写个总结，也算是对之前的工作也算是归纳一下。 kaldi的安装&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;n">
-<meta name="keywords" content="kaldi;声纹识别;ivector">
+<meta name="keywords" content="kaldi 声纹识别 ivector">
 <meta property="og:type" content="article">
 <meta property="og:title" content="kaldi中的声纹识别">
 <meta property="og:url" content="http://yoursite.com/2019/01/31/kaldi中的声纹识别/index.html">
@@ -89,7 +89,7 @@
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="evernotecid://88B7D2F7-E308-49B2-989E-D5AE88784154/appyinxiangcom/4510133/ENResource/p3324">
 <meta property="og:image" content="evernotecid://88B7D2F7-E308-49B2-989E-D5AE88784154/appyinxiangcom/4510133/ENResource/p3354">
-<meta property="og:updated_time" content="2019-01-31T01:31:07.825Z">
+<meta property="og:updated_time" content="2019-01-31T01:36:04.440Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="kaldi中的声纹识别">
 <meta name="twitter:description" content="&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;前段时间一直到在使用kaldi来做声纹识别，算是可以把整个i-vector的例程可以跑下来，也可以根据例程来改写脚本，使用自己的数据来训练和测试。接下来可能要去做其他的项目了，所以要趁着还记得的时候赶紧写个总结，也算是对之前的工作也算是归纳一下。 kaldi的安装&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;n">
@@ -367,8 +367,7 @@
 <tr>
 <th>uttID</th>
 <th>spkID</th>
-<th>target\</th>
-<th>nontarget</th>
+<th>target/nontarget</th>
 </tr>
 </thead>
 <tbody>
@@ -402,7 +401,7 @@
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span>extract enroll ivector</span><br><span class="line">sid/extract_ivectors.sh --cmd "$train_cmd" --nj 10 \</span><br><span class="line">  exp/extractor_1024 data/test/enroll  exp/ivector_enroll_1024</span><br><span class="line"><span class="meta">#</span>extract eval ivector</span><br><span class="line">sid/extract_ivectors.sh --cmd "$train_cmd" --nj 10 \</span><br><span class="line">  exp/extractor_1024 data/test/eval  exp/ivector_eval_1024</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span>compute plda score</span><br><span class="line"><span class="meta">$</span>train_cmd exp/ivector_eval_1024/log/plda_score.log \</span><br><span class="line">  ivector-plda-scoring --num-utts=ark:exp/ivector_enroll_1024/num_utts.ark \</span><br><span class="line">  exp/ivector_train_1024/plda \</span><br><span class="line">  ark:exp/ivector_enroll_1024/spk_ivector.ark \</span><br><span class="line">  "ark:ivector-normalize-length scp:exp/ivector_eval_1024/ivector.scp ark:- |" \</span><br><span class="line">  "cat '$trials' | awk '&#123;print \\\$2, \\\$1&#125;' |" exp/trials_out</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span>compute eer</span><br><span class="line">awk '&#123;print $3&#125;' exp/trials_out | paste - $trials | awk '&#123;print $1, $4&#125;' | compute-eer -</span><br></pre></td></tr></table></figure>
 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;在将测试集分成注册集和评估集之后，就开始分别提取注册集和评估集的ivector，然后按照生成的trials打分，最终打分结果输出在trials_out中,最终跑出来的结果为eer为0.183%。</p>
 <h2 id="使用TIMIT数据库进行声纹识别"><a href="#使用TIMIT数据库进行声纹识别" class="headerlink" title="使用TIMIT数据库进行声纹识别"></a>使用TIMIT数据库进行声纹识别</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;在了解了kaldi中整个声纹识别的流程后，我们就可以AISHELL的例程来改写使用自己数据的声纹识别系统，这里我使用TIMIT数据库。<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;我们首先看下AISHELL和TIMIT数据库中的数据划分。AISHELL中一共有400人，默认分为train、dev和test集。其中train里面有340人；dev里面有40人；test里面有20人。在例程中，使用train作为训练集，test作为测试集，并没有使用dev。AISHELL里每个人大概有300多段语音，每段语音是一句话，每段语音大概在2~6s。在TIMIT数据库中一共有630人，分为train和test。训练集中有462人，测试集中有168人。每个人分别有10段语音，每段语音大概在2~4s。这里就直接使用TIMIT的原本的分配方式，用462人作为训练集，168人作为测试集。<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;不过使用TIMIT数据库还有一个问题就是，TIMIT数据库中文件存放以及命名的方式和AISHELL不太一样。TIMIT数据库下文件存放的结构是，/TRAIN/DR<em>/SPEARKER_ID/UTTERANCE_ID.wav，train代表是训练集或者测试集，DR\</em>（1～8）代表了说话人的方言类型，然后是说话人的ID文件夹，文件夹下存放了10段语音。TIMIT数据库中不同的人会说同一段话，说的话的内容是一样的话文件名就是一样的，我不知道如果有相同的文件名会不会引发错误，稳妥起见还是把每个文件都重新命名了。我写了个程序，将文件都重新命名为说话人的ID加上音频的序号，并且将其重新保存在/TRAIN/SPEAKER_ID这样的目录下，这样就在下面的程序就可以不用修改太多。<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;在了解完两个数据库的区别和整个声纹识别的流程之后，我们就可以开始改写我们的程序了。其实整个过程中需要改的地方并不多，主要就是在准备数据阶段和生成trials的过程需要修改一下。首先是数据准备阶段，我们就可以根据哈aishell_data_prepare.sh这个脚本来改写自己的timit_data_prepare.sh了。数据准备阶段就要生成utt2spk spk2utt和wav.scp这三个文件。这三个文件的格式如下：</p>
-<h2 id="table"><a href="#table" class="headerlink" title="table"></a>table</h2><table>
+<table>
 <thead>
 <tr>
 <th>文件名</th>
@@ -447,7 +446,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/kaldi-声纹识别-ivector/" rel="tag">🏷️ kaldi;声纹识别;ivector</a>
+            <a href="/tags/kaldi-声纹识别-ivector/" rel="tag">🏷️ kaldi 声纹识别 ivector</a>
           
         </div>
       
@@ -600,7 +599,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#kaldi的安装"><span class="nav-number">1.</span> <span class="nav-text">kaldi的安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#运行aishell例程"><span class="nav-number">2.</span> <span class="nav-text">运行aishell例程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用TIMIT数据库进行声纹识别"><span class="nav-number">3.</span> <span class="nav-text">使用TIMIT数据库进行声纹识别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#table"><span class="nav-number">4.</span> <span class="nav-text">table</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#kaldi中声纹识别的流程"><span class="nav-number">5.</span> <span class="nav-text">kaldi中声纹识别的流程</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#kaldi的安装"><span class="nav-number">1.</span> <span class="nav-text">kaldi的安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#运行aishell例程"><span class="nav-number">2.</span> <span class="nav-text">运行aishell例程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用TIMIT数据库进行声纹识别"><span class="nav-number">3.</span> <span class="nav-text">使用TIMIT数据库进行声纹识别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#kaldi中声纹识别的流程"><span class="nav-number">4.</span> <span class="nav-text">kaldi中声纹识别的流程</span></a></li></ol></div>
             
 
           </div>
