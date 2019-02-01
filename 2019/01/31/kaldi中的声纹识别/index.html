@@ -79,20 +79,20 @@
 
 
 
-<meta name="description" content="&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;前段时间一直到在使用kaldi来做声纹识别，算是可以把整个i-vector的例程可以跑下来，也可以根据例程来改写脚本，使用自己的数据来训练和测试。接下来可能要去做其他的项目了，所以要趁着还记得的时候赶紧写个总结，也算是对之前的工作也算是归纳一下。">
+<meta name="description" content="&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;前段时间一直到在使用kaldi来做声纹识别，算是可以把整个ivector的例程可以跑下来，也可以根据例程来改写脚本，使用自己的数据来训练和测试。接下来可能要去做其他的项目了，所以要趁着还记得的时候赶紧写个总结，也算是对之前的工作也算是归纳一下。">
 <meta name="keywords" content="kaldi,声纹识别,ivector">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Kaldi中的声纹识别">
 <meta property="og:url" content="http://yutouwd.github.io/2019/01/31/kaldi中的声纹识别/index.html">
 <meta property="og:site_name" content="yutouwd">
-<meta property="og:description" content="&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;前段时间一直到在使用kaldi来做声纹识别，算是可以把整个i-vector的例程可以跑下来，也可以根据例程来改写脚本，使用自己的数据来训练和测试。接下来可能要去做其他的项目了，所以要趁着还记得的时候赶紧写个总结，也算是对之前的工作也算是归纳一下。">
+<meta property="og:description" content="&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;前段时间一直到在使用kaldi来做声纹识别，算是可以把整个ivector的例程可以跑下来，也可以根据例程来改写脚本，使用自己的数据来训练和测试。接下来可能要去做其他的项目了，所以要趁着还记得的时候赶紧写个总结，也算是对之前的工作也算是归纳一下。">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://yutouwd.github.io/upload_image/1.png">
 <meta property="og:image" content="http://yutouwd.github.io/upload_image/2.png">
-<meta property="og:updated_time" content="2019-01-31T02:15:09.987Z">
+<meta property="og:updated_time" content="2019-02-01T13:33:14.624Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Kaldi中的声纹识别">
-<meta name="twitter:description" content="&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;前段时间一直到在使用kaldi来做声纹识别，算是可以把整个i-vector的例程可以跑下来，也可以根据例程来改写脚本，使用自己的数据来训练和测试。接下来可能要去做其他的项目了，所以要趁着还记得的时候赶紧写个总结，也算是对之前的工作也算是归纳一下。">
+<meta name="twitter:description" content="&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;前段时间一直到在使用kaldi来做声纹识别，算是可以把整个ivector的例程可以跑下来，也可以根据例程来改写脚本，使用自己的数据来训练和测试。接下来可能要去做其他的项目了，所以要趁着还记得的时候赶紧写个总结，也算是对之前的工作也算是归纳一下。">
 <meta name="twitter:image" content="http://yutouwd.github.io/upload_image/1.png">
 
 
@@ -301,8 +301,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-01-31T10:15:09+08:00">
-                2019-01-31
+              <time title="更新于" itemprop="dateModified" datetime="2019-02-01T21:33:14+08:00">
+                2019-02-01
               </time>
             
           </span>
@@ -399,7 +399,7 @@
       
 
       
-        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;前段时间一直到在使用kaldi来做声纹识别，算是可以把整个i-vector的例程可以跑下来，也可以根据例程来改写脚本，使用自己的数据来训练和测试。接下来可能要去做其他的项目了，所以要趁着还记得的时候赶紧写个总结，也算是对之前的工作也算是归纳一下。<br><a id="more"></a></p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;前段时间一直到在使用kaldi来做声纹识别，算是可以把整个ivector的例程可以跑下来，也可以根据例程来改写脚本，使用自己的数据来训练和测试。接下来可能要去做其他的项目了，所以要趁着还记得的时候赶紧写个总结，也算是对之前的工作也算是归纳一下。<br><a id="more"></a></p>
 <h2 id="kaldi的安装"><a href="#kaldi的安装" class="headerlink" title="kaldi的安装"></a>kaldi的安装</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;kaldi在Linux下的安装总的来说还是比较简单的，首先是先进入tools中运行extras/check_dependenices.sh看下还有哪些依赖项没有安装，然后就可以按照他的提示来安装依赖项目。安装完依赖项之后就分别进入tools目录和src目录下执行命令make -j8，其中8时cpu可以同时运行的线程数量。这个过程还是需要一定时间的。在make完之后就可以运行一个小的例程来看下有没有成功地安装kaldi，我们进入到egs/yesno/s5目录下然后运行run.sh脚本，这是一个判断语音中说的是yes还是no的程序，他会自动下载数据并训练和测试，最终可以有0.0%的WER，这就代表kaldi安装成功啦✌️</p>
 <h2 id="运行aishell例程"><a href="#运行aishell例程" class="headerlink" title="运行aishell例程"></a>运行aishell例程</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;首先我们来看下kaldi下的目录：<br><img src="/upload_image/1.png" alt=""></p>
 <ul>
