@@ -79,13 +79,13 @@
 
 
 
-<meta name="description" content="&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;随着深度学习的迅猛发展，神经网络在越来越多的方向得到了广泛的应用，说话人识别也不例外。有越来越多的使用神经网络的方法来进行说话人识别的文章，并且都取得了不错的效果。最近也看了挺多文章的，总的来说，大致可以分为两个方向：feature learning,大概就是训练一个神经网络当作特征提取器，然后使用提取出来代表说话人的特征再做">
+<meta name="description" content="&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;随着深度学习的迅猛发展，神经网络在越来越多的方向得到了广泛的应用，声纹识别也不例外。有越来越多的使用神经网络的方法来进行声纹识别的文章，并且都取得了不错的效果。最近也看了挺多文章的，总的来说，大致可以分为两个方向：feature learning,大概就是训练一个神经网络当作特征提取器，然后使用提取出来代表说话人的特征再做分类">
 <meta name="keywords" content="声纹识别,深度学习">
 <meta property="og:type" content="article">
 <meta property="og:title" content="深度学习在声纹识别中的应用">
 <meta property="og:url" content="http://yutouwd.github.io/2019/02/02/深度学习在声纹识别中的应用/index.html">
 <meta property="og:site_name" content="yutouwd">
-<meta property="og:description" content="&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;随着深度学习的迅猛发展，神经网络在越来越多的方向得到了广泛的应用，说话人识别也不例外。有越来越多的使用神经网络的方法来进行说话人识别的文章，并且都取得了不错的效果。最近也看了挺多文章的，总的来说，大致可以分为两个方向：feature learning,大概就是训练一个神经网络当作特征提取器，然后使用提取出来代表说话人的特征再做">
+<meta property="og:description" content="&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;随着深度学习的迅猛发展，神经网络在越来越多的方向得到了广泛的应用，声纹识别也不例外。有越来越多的使用神经网络的方法来进行声纹识别的文章，并且都取得了不错的效果。最近也看了挺多文章的，总的来说，大致可以分为两个方向：feature learning,大概就是训练一个神经网络当作特征提取器，然后使用提取出来代表说话人的特征再做分类">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://yutouwd.github.io/upload_image/3.png">
 <meta property="og:image" content="http://yutouwd.github.io/upload_image/4.png">
@@ -96,7 +96,7 @@
 <meta property="og:updated_time" content="2019-02-08T00:39:57.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="深度学习在声纹识别中的应用">
-<meta name="twitter:description" content="&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;随着深度学习的迅猛发展，神经网络在越来越多的方向得到了广泛的应用，说话人识别也不例外。有越来越多的使用神经网络的方法来进行说话人识别的文章，并且都取得了不错的效果。最近也看了挺多文章的，总的来说，大致可以分为两个方向：feature learning,大概就是训练一个神经网络当作特征提取器，然后使用提取出来代表说话人的特征再做">
+<meta name="twitter:description" content="&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;随着深度学习的迅猛发展，神经网络在越来越多的方向得到了广泛的应用，声纹识别也不例外。有越来越多的使用神经网络的方法来进行声纹识别的文章，并且都取得了不错的效果。最近也看了挺多文章的，总的来说，大致可以分为两个方向：feature learning,大概就是训练一个神经网络当作特征提取器，然后使用提取出来代表说话人的特征再做分类">
 <meta name="twitter:image" content="http://yutouwd.github.io/upload_image/3.png">
 
 
@@ -400,11 +400,11 @@
       
 
       
-        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;随着深度学习的迅猛发展，神经网络在越来越多的方向得到了广泛的应用，说话人识别也不例外。有越来越多的使用神经网络的方法来进行说话人识别的文章，并且都取得了不错的效果。最近也看了挺多文章的，总的来说，大致可以分为两个方向：feature learning,大概就是训练一个神经网络当作特征提取器，然后使用提取出来代表说话人的特征再做分类；End to end就是指直接输入两段语音，然后通过神经网络来判断这两段语音是否来自同一个人。<br><a id="more"></a></p>
-<h2 id="Feature-Learning"><a href="#Feature-Learning" class="headerlink" title="Feature Learning"></a>Feature Learning</h2><h3 id="d-vector"><a href="#d-vector" class="headerlink" title="d-vector"></a>d-vector</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;最早在2014年Google将神经网络用于说话人识别：<a href="http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.674.3686&amp;rep=rep1&amp;type=pdf" target="_blank" rel="noopener">Deep Neural Networks for Small Footprint Text-Dependent</a>。它使用了一个四层的全连接层的网络来完成文本相关的说话人识别任务。它的结构如下：<br><img src="/upload_image/3.png" alt=""><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;它使用40维的filterbank特征（和MFCC相比少了离散余弦变换），然后使用当前帧的以及它的前后两帧作为输入，即一个120维的一维向量作为输入。经过四层的全连接层，每层有256个节点，使用maxout作为激活函数，最后两层加入dropout。训练时使用帧级别（frame level）的特征，使用softmax分类。</p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;随着深度学习的迅猛发展，神经网络在越来越多的方向得到了广泛的应用，声纹识别也不例外。有越来越多的使用神经网络的方法来进行声纹识别的文章，并且都取得了不错的效果。最近也看了挺多文章的，总的来说，大致可以分为两个方向：feature learning,大概就是训练一个神经网络当作特征提取器，然后使用提取出来代表说话人的特征再做分类；End to end就是指直接输入两段语音，然后通过神经网络来判断这两段语音是否来自同一个人。<br><a id="more"></a></p>
+<h2 id="Feature-Learning"><a href="#Feature-Learning" class="headerlink" title="Feature Learning"></a>Feature Learning</h2><h3 id="d-vector"><a href="#d-vector" class="headerlink" title="d-vector"></a>d-vector</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;最早在2014年Google将神经网络用于声纹识别：<a href="http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.674.3686&amp;rep=rep1&amp;type=pdf" target="_blank" rel="noopener">Deep Neural Networks for Small Footprint Text-Dependent</a>。它使用了一个四层的全连接层的网络来完成文本相关的声纹识别任务。它的结构如下：<br><img src="/upload_image/3.png" alt=""><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;它使用40维的filterbank特征（和MFCC相比少了离散余弦变换），然后使用当前帧的以及它的前后两帧作为输入，即一个120维的一维向量作为输入。经过四层的全连接层，每层有256个节点，使用maxout作为激活函数，最后两层加入dropout。训练时使用帧级别（frame level）的特征，使用softmax分类。</p>
 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;在网络训练好之后，将之前的最后一层移除，使用隐藏层的最后一层作为输出，即使用这一层当作一段语音所提取出的特征。在注册和验证过程中，使用一段语音（utterance）进行分帧，提取filterbank特征，输入到神经网络，然后将全部帧所对应的隐藏层的最后一层求均值作为这一段语音的特征。在打分的过程中使用consine距离来判断两段语音是否来自同一个人。不过它取得的效果并不是很好，等错误率没有i-vector高。但是在加入噪声的情况下稳定性要稍微好一些。</p>
 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;这种结构的系统可以理解为使用神经网络来做一个特征提取的任务。在训练的过程中，使用softmax来对训练集中的不同说话人做一个分类。而到了注册和验证的阶段，就将这个softmax层去掉，使用倒数第二层（或者说隐藏层的最后一层）当作神经网络的输出，使用这一层当作说话人的特征，论文中也称为d-vector。然后再使用consine similarity来进行打分判别。</p>
-<h3 id="d-vector改进"><a href="#d-vector改进" class="headerlink" title="d-vector改进"></a>d-vector改进</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;前一篇文章虽然网络的结构比较简单，但是是第一篇完全使用神经网络用于说话人识别的文章。之后也有不少人在此基础上做了改进，下面一篇就是对d-vector对改进：<a href="https://arxiv.org/pdf/1705.03670.pdf" target="_blank" rel="noopener">Deep Speaker Feature Learning for Text-independent Speaker Verification</a>这篇文章改进了之前的结构，并且用于文本不相关的任务当中。他的结构如下：<br><img src="/upload_image/4.png" alt=""><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;它还是使用了40维filterbank作为输入特征，不过这里使用一帧以及它前后相邻的4帧，即一共九帧作为整个神经网络的输入（9*40）。然后经过两个卷积–池化层，然后再经过一个bottleneck层，之后再有两层time-delay层，以及一个全连接层，最后是一个5000维的softmax输出。</p>
+<h3 id="d-vector改进"><a href="#d-vector改进" class="headerlink" title="d-vector改进"></a>d-vector改进</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;前一篇文章虽然网络的结构比较简单，但是是第一篇完全使用神经网络用于声纹识别的文章。之后也有不少人在此基础上做了改进，下面一篇就是对d-vector对改进：<a href="https://arxiv.org/pdf/1705.03670.pdf" target="_blank" rel="noopener">Deep Speaker Feature Learning for Text-independent Speaker Verification</a>这篇文章改进了之前的结构，并且用于文本不相关的任务当中。他的结构如下：<br><img src="/upload_image/4.png" alt=""><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;它还是使用了40维filterbank作为输入特征，不过这里使用一帧以及它前后相邻的4帧，即一共九帧作为整个神经网络的输入（9*40）。然后经过两个卷积–池化层，然后再经过一个bottleneck层，之后再有两层time-delay层，以及一个全连接层，最后是一个5000维的softmax输出。</p>
 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;到了注册和测试阶段，同样是将最后的分类层去除，使用隐藏层的最后一层作为提取出来的特征，称为d-vector。并且将帧级别（frame level）的d-vector求均值得到utterance level的d-vector作为一段语音所代表的特征。最后文章也比较了几种分类器的效果，分别是consine、LDA和PLDA。在i-vector系统中PLDA有着最低的EER，而在d-vector中LDA则表现更加优异。（不太清楚这里是用LDA做降维后再接consine similarity还是用LDA做分类）（但是我现在还不太明白LDA是怎么进行分类的，不过找到一篇文章，分别介绍了使用LDA用于分类和降维的方法：<a href="https://towardsdatascience.com/is-lda-a-dimensionality-reduction-technique-or-a-classifier-algorithm-eeed4de9953a" target="_blank" rel="noopener">Is LDA a dimensionality reduction technique or a classifier algorithm?</a>）</p>
 <h3 id="x-vector"><a href="#x-vector" class="headerlink" title="x-vector"></a>x-vector</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;在18年David Snyder也就是kaldi的作者之一提出了<a href="http://www.danielpovey.com/files/2018_icassp_xvectors.pdf" target="_blank" rel="noopener">x-vector: Robust DNN Embedding for Speaker Recognition</a>，也是对于前面网络的改进，在训练的数据量较大时，可以有较低的EER。它的网络结构如下表：</p>
 <p><img src="/upload_image/5.png" alt=""></p>
