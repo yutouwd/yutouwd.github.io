@@ -577,7 +577,7 @@
     guest = guest.split(',').filter(item=>{
       return GUEST.indexOf(item)>-1;
     });
-    
+
     new Valine({
         el: '#comments' ,
         verify: false,
@@ -585,9 +585,9 @@
         app_id: 'IyLr0ozy6Xzdjq2JrDehrIn9-gzGzoHsz',
         app_key: 'FEqRgVoI4cMfVIGolcQ46n6G',
         placeholder: 'Just go go',
-        avatar:'identicon',
-        guest_info:guest,
-        pageSize:'10' || 10,
+        avatar: 'identicon',
+        guest_info: guest,
+        pageSize: '10' || 10,
     });
   </script>
 
