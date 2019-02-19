@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="yutouwd">
 <meta property="og:description" content="&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;之前一直没有记录修改&amp;amp;优化博客的过程，其实这是一个不太好的习惯，现在都忘了自己修改过哪些地方了(虽然vscode可以标出来)，哪些修改对应了网站哪些变化。所以还是要记录一下修改的记录，为方便日后对博客持续优化。 things to do  修改站点下博客文章存放目录  侧边栏toc自动展开  评论系统更换为valine">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-02-18T16:36:44.953Z">
+<meta property="og:updated_time" content="2019-02-19T10:49:10.804Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="博客折腾记录">
 <meta name="twitter:description" content="&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;之前一直没有记录修改&amp;amp;优化博客的过程，其实这是一个不太好的习惯，现在都忘了自己修改过哪些地方了(虽然vscode可以标出来)，哪些修改对应了网站哪些变化。所以还是要记录一下修改的记录，为方便日后对博客持续优化。 things to do  修改站点下博客文章存放目录  侧边栏toc自动展开  评论系统更换为valine">
@@ -298,7 +298,7 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-02-19T00:36:44+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2019-02-19T18:49:10+08:00">
                 2019-02-19
               </time>
             
@@ -407,7 +407,7 @@
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">permalink: posts/:abbrlink/</span><br><span class="line">abbrlink:</span><br><span class="line">  alg: crc32  <span class="comment">#support crc16(default) and crc32</span></span><br><span class="line">  rep: hex    <span class="comment">#support dec(default) and hex</span></span><br></pre></td></tr></table></figure>
 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;然后在<code>hexo clean</code>和<code>hexo g &amp;&amp; hexo d</code>即可。不过令人伤心的是，在重新生成文章链接后原来的阅读量也随之清零了😭，我这可怜的阅读量不知道什么时候才能四位数啊。</p>
 <h2 id="侧边栏toc自动展开"><a href="#侧边栏toc自动展开" class="headerlink" title="侧边栏toc自动展开"></a>侧边栏toc自动展开</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;目前在github上找到了几个issue:<a href="https://github.com/theme-next/hexo-theme-next/issues/307" target="_blank" rel="noopener">#307</a> <a href="https://github.com/iissnan/hexo-theme-next/issues/531" target="_blank" rel="noopener">#531</a> <a href="https://github.com/iissnan/hexo-theme-next/issues/710" target="_blank" rel="noopener">#710</a><br><a href="https://github.com/dongleizhang/blog/blob/hexo-source/themes/next/source/css/_custom/custom.styl" target="_blank" rel="noopener">https://github.com/dongleizhang/blog/blob/hexo-source/themes/next/source/css/_custom/custom.styl</a></p>
-<h2 id="评论系统更换为valine"><a href="#评论系统更换为valine" class="headerlink" title="评论系统更换为valine"></a>评论系统更换为valine</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;真的受不了disqus，首先被河蟹了，然后即使能加载也非常的满，界面也十分的丑。今天看到一些博客用了valine发现比disqus好看多了，抽时间赶紧把这个给改了。</p>
+<h2 id="评论系统更换为valine"><a href="#评论系统更换为valine" class="headerlink" title="评论系统更换为valine"></a>评论系统更换为valine</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;真的受不了disqus，首先被河蟹了，然后即使能加载也非常的慢，界面也十分的丑。今天看到一些博客用了valine发现比disqus好看多了，抽时间赶紧把这个给改了。</p>
 <h2 id="站点自动备份系统"><a href="#站点自动备份系统" class="headerlink" title="站点自动备份系统"></a>站点自动备份系统</h2><p><a href="https://notes.doublemine.me/2015-07-06-%E8%87%AA%E5%8A%A8%E5%A4%87%E4%BB%BDHexo%E5%8D%9A%E5%AE%A2%E6%BA%90%E6%96%87%E4%BB%B6.html" target="_blank" rel="noopener">https://notes.doublemine.me/2015-07-06-%E8%87%AA%E5%8A%A8%E5%A4%87%E4%BB%BDHexo%E5%8D%9A%E5%AE%A2%E6%BA%90%E6%96%87%E4%BB%B6.html</a></p>
 <h2 id="代码块优化"><a href="#代码块优化" class="headerlink" title="代码块优化"></a>代码块优化</h2><p>代码块mac风格<br><a href="https://blog.ihoey.com/posts/Hexo/2018-05-27-hexo-code-block.html" target="_blank" rel="noopener">https://blog.ihoey.com/posts/Hexo/2018-05-27-hexo-code-block.html</a><br>代码块复制<br><a href="https://qiming.info/Hexo%E5%8D%9A%E5%AE%A2%E4%B8%AD%E5%8A%A0%E5%85%A5%E4%BB%A3%E7%A0%81%E5%9D%97%E5%A4%8D%E5%88%B6%E5%8A%9F%E8%83%BD/" target="_blank" rel="noopener">https://qiming.info/Hexo%E5%8D%9A%E5%AE%A2%E4%B8%AD%E5%8A%A0%E5%85%A5%E4%BB%A3%E7%A0%81%E5%9D%97%E5%A4%8D%E5%88%B6%E5%8A%9F%E8%83%BD/</a></p>
 <h2 id="教程收藏"><a href="#教程收藏" class="headerlink" title="教程收藏"></a>教程收藏</h2><p><a href="http://yearito.cn/tags/Hexo/" target="_blank" rel="noopener">http://yearito.cn/tags/Hexo/</a></p>
@@ -513,14 +513,7 @@
 
   
     <div class="comments" id="comments">
-      <div id="disqus_thread">
-        <noscript>
-          Please enable JavaScript to view the
-          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
-        </noscript>
-      </div>
     </div>
-
   
 
 
@@ -807,26 +800,6 @@
 
   
 
-    
-      <script id="dsq-count-scr" src="https://yutouwd.disqus.com/count.js" async></script>
-    
-
-    
-      <script type="text/javascript">
-        var disqus_config = function () {
-          this.page.url = 'http://yutouwd.github.io/posts/87e6cb09/';
-          this.page.identifier = 'posts/87e6cb09/';
-          this.page.title = '博客折腾记录';
-        };
-        var d = document, s = d.createElement('script');
-        s.src = 'https://yutouwd.disqus.com/embed.js';
-        s.setAttribute('data-timestamp', '' + +new Date());
-        (d.head || d.body).appendChild(s);
-      </script>
-    
-
-  
-
 
 
 
@@ -842,12 +815,38 @@
 
 
 
+  
 
 
 
 
 
 
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'IyLr0ozy6Xzdjq2JrDehrIn9-gzGzoHsz',
+        appKey: 'FEqRgVoI4cMfVIGolcQ46n6G',
+        placeholder: 'Just go go',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
 
 
 
