@@ -2012,7 +2012,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #ff25ff;
+  background: #9d8e09;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2131,6 +2131,9 @@ pre .javascript .function {
 }
 .post-toc .nav .active-current > a:hover {
   color: #87daff;
+}
+.post-toc .nav .nav-level-1>.nav-child {
+  display: block;
 }
 .footer {
   font-size: 14px;
@@ -2778,4 +2781,7 @@ embed {
 }
 .links-of-blogroll-inline .links-of-blogroll-item {
   display: inline-block;
+}
+.post-toc .nav .nav-level-1>.nav-child {
+  display: block;
 }

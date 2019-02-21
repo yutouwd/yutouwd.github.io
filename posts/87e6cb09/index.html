@@ -108,7 +108,7 @@
 <meta property="og:site_name" content="yutouwd">
 <meta property="og:description" content="之前一直没有记录修改&amp;amp;优化博客的过程，其实这是一个不太好的习惯，现在都忘了自己修改过哪些地方了(虽然vscode可以标出来)，哪些修改对应了网站哪些变化。所以还是要记录一下修改的记录，为方便日后对博客持续优化。 things to do  修改站点下博客文章存放目录  侧边栏toc自动展开  评论系统更换为valine  站点自动备份系统  文章分类、归档页面优化  代码块优化  next">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-02-20T15:55:30.491Z">
+<meta property="og:updated_time" content="2019-02-21T16:14:11.039Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="博客折腾记录">
 <meta name="twitter:description" content="之前一直没有记录修改&amp;amp;优化博客的过程，其实这是一个不太好的习惯，现在都忘了自己修改过哪些地方了(虽然vscode可以标出来)，哪些修改对应了网站哪些变化。所以还是要记录一下修改的记录，为方便日后对博客持续优化。 things to do  修改站点下博客文章存放目录  侧边栏toc自动展开  评论系统更换为valine  站点自动备份系统  文章分类、归档页面优化  代码块优化  next">
@@ -393,7 +393,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-02-20 23:55:30" itemprop="dateModified" datetime="2019-02-20T23:55:30+08:00">2019-02-20</time>
+                <time title="修改时间：2019-02-22 00:14:11" itemprop="dateModified" datetime="2019-02-22T00:14:11+08:00">2019-02-22</time>
               
             
           </span>
@@ -504,7 +504,7 @@
         <p>之前一直没有记录修改&amp;优化博客的过程，其实这是一个不太好的习惯，现在都忘了自己修改过哪些地方了(虽然vscode可以标出来)，哪些修改对应了网站哪些变化。所以还是要记录一下修改的记录，为方便日后对博客持续优化。</p>
 <h2 id="things-to-do"><a href="#things-to-do" class="headerlink" title="things to do"></a>things to do</h2><ul>
 <li style="list-style: none"><input type="checkbox" checked> 修改站点下博客文章存放目录</li>
-<li style="list-style: none"><input type="checkbox"> 侧边栏toc自动展开</li>
+<li style="list-style: none"><input type="checkbox" checked> 侧边栏toc自动展开</li>
 <li style="list-style: none"><input type="checkbox" checked> 评论系统更换为valine</li>
 <li style="list-style: none"><input type="checkbox"> 站点自动备份系统</li>
 <li style="list-style: none"><input type="checkbox"> 文章分类、归档页面优化</li>
@@ -515,7 +515,7 @@
 <h2 id="修改站点下博客文章存放目录"><a href="#修改站点下博客文章存放目录" class="headerlink" title="修改站点下博客文章存放目录"></a>修改站点下博客文章存放目录</h2><p>这个其实是在找解决如何将侧边栏toc自动展开时，找到一篇<a href="https://blog.dongleizhang.com/posts/32005d86/" target="_blank" rel="noopener">博客</a>无意中发现的。原来那种年/月/日…的方式真的太挫了，于是就按照他的这种方式，生成一个永久链接。<br>首先安装hexo-abbrlink插件，使用命令 npm install hexo-abbrlink –save 即可。然后需要在站点配置文件，即hexo目录下的_config.yml文件中修改 permalink: :year/:month/:day/:title/ 为一下内容：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">permalink: posts/:abbrlink/</span><br><span class="line">abbrlink:</span><br><span class="line">  alg: crc32  <span class="comment">#support crc16(default) and crc32</span></span><br><span class="line">  rep: hex    <span class="comment">#support dec(default) and hex</span></span><br></pre></td></tr></table></figure>
 <p>然后在hexo clean和hexo g &amp;&amp; hexo d即可。不过令人伤心的是，在重新生成文章链接后原来的阅读量也随之清零了😭，我这可怜的阅读量不知道什么时候才能四位数啊。</p>
-<h2 id="侧边栏toc自动展开"><a href="#侧边栏toc自动展开" class="headerlink" title="侧边栏toc自动展开"></a>侧边栏toc自动展开</h2><p>目前在github上找到了几个issue:<a href="https://github.com/theme-next/hexo-theme-next/issues/307" target="_blank" rel="noopener">#307</a> <a href="https://github.com/iissnan/hexo-theme-next/issues/531" target="_blank" rel="noopener">#531</a> <a href="https://github.com/iissnan/hexo-theme-next/issues/710" target="_blank" rel="noopener">#710</a><br><a href="https://github.com/dongleizhang/blog/blob/hexo-source/themes/next/source/css/_custom/custom.styl" target="_blank" rel="noopener">https://github.com/dongleizhang/blog/blob/hexo-source/themes/next/source/css/_custom/custom.styl</a></p>
+<h2 id="侧边栏toc自动展开"><a href="#侧边栏toc自动展开" class="headerlink" title="侧边栏toc自动展开"></a>侧边栏toc自动展开</h2><p>目前在github上找到了几个issue:<a href="https://github.com/theme-next/hexo-theme-next/issues/307" target="_blank" rel="noopener">#307</a> <a href="https://github.com/iissnan/hexo-theme-next/issues/531" target="_blank" rel="noopener">#531</a> <a href="https://github.com/iissnan/hexo-theme-next/issues/710" target="_blank" rel="noopener">#710</a><br>具体的解决方法就是在themes/next/source/_custom/custom.styl中加入以下代码，可以自动展开二级标题。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.post-toc .nav .nav-level-1&gt;.nav-child &#123; </span><br><span class="line">   display: block; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <h2 id="评论系统更换为valine"><a href="#评论系统更换为valine" class="headerlink" title="评论系统更换为valine"></a>评论系统更换为valine</h2><p>真的受不了disqus，首先被河蟹了，然后即使能加载也非常的慢，界面也十分的丑。今天看到一些博客用了valine发现比disqus好看多了，抽时间赶紧把这个给改了。<br>一开始弄好了，但是发现刷新后评论就会消失。后来在github上问了下<a href="https://github.com/xCss/Valine/issues/159" target="_blank" rel="noopener">#159</a>，原来valine和next自带的统计阅读量会有冲突。然后还发现一个很严重的问题，一开始在选主题的时候没有仔细调研，就下了旧的next版本5.1.4。现在最新的next版本已经到6点多，并且在另外一个仓库中。所以又想把next换成最新的版本。</p>
 <h2 id="站点自动备份系统"><a href="#站点自动备份系统" class="headerlink" title="站点自动备份系统"></a>站点自动备份系统</h2><p><a href="https://notes.doublemine.me/2015-07-06-%E8%87%AA%E5%8A%A8%E5%A4%87%E4%BB%BDHexo%E5%8D%9A%E5%AE%A2%E6%BA%90%E6%96%87%E4%BB%B6.html" target="_blank" rel="noopener">https://notes.doublemine.me/2015-07-06-%E8%87%AA%E5%8A%A8%E5%A4%87%E4%BB%BDHexo%E5%8D%9A%E5%AE%A2%E6%BA%90%E6%96%87%E4%BB%B6.html</a></p>
 <h2 id="代码块优化"><a href="#代码块优化" class="headerlink" title="代码块优化"></a>代码块优化</h2><p>代码块mac风格<br><a href="https://blog.ihoey.com/posts/Hexo/2018-05-27-hexo-code-block.html" target="_blank" rel="noopener">https://blog.ihoey.com/posts/Hexo/2018-05-27-hexo-code-block.html</a><br>代码块复制(在next7.0中已经集成了代码块复制功能)<br><a href="https://qiming.info/Hexo%E5%8D%9A%E5%AE%A2%E4%B8%AD%E5%8A%A0%E5%85%A5%E4%BB%A3%E7%A0%81%E5%9D%97%E5%A4%8D%E5%88%B6%E5%8A%9F%E8%83%BD/" target="_blank" rel="noopener">https://qiming.info/Hexo%E5%8D%9A%E5%AE%A2%E4%B8%AD%E5%8A%A0%E5%85%A5%E4%BB%A3%E7%A0%81%E5%9D%97%E5%A4%8D%E5%88%B6%E5%8A%9F%E8%83%BD/</a></p>
