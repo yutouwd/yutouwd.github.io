@@ -100,22 +100,22 @@
 
 
 
-  <meta name="description" content="kaldi在Windows下的安装工具准备 git cmake Visual Studio 2017  vs2017要注意安装win8.1 SDK，如果已经安装了vs2017，也可以在上方的菜单栏中的工具-&amp;gt;获取工具和功能中来查看是否有安装。git和cmake的安装没有什么特别的，就不做介绍了。  编译Openfst首先从github上将openfst clone下来。然后这里用cmake的">
+  <meta name="description" content="其实不是特别推荐在Windows下使用kaldi，因为在egs下所有的脚本都无法运行，我也是弄了很久才在Windows下配置好kaldi，都一度差点弃坑。就连官方也说There is no commitment to support Windows. The Windows port of Kaldi is targeted at experienced developers who want t">
 <meta name="keywords" content="kaldi,声纹识别,Visual Studio">
 <meta property="og:type" content="article">
 <meta property="og:title" content="kaldi在Windows下的使用">
 <meta property="og:url" content="http://yutouwd.github.io/posts/3944650563/index.html">
 <meta property="og:site_name" content="yutouwd">
-<meta property="og:description" content="kaldi在Windows下的安装工具准备 git cmake Visual Studio 2017  vs2017要注意安装win8.1 SDK，如果已经安装了vs2017，也可以在上方的菜单栏中的工具-&amp;gt;获取工具和功能中来查看是否有安装。git和cmake的安装没有什么特别的，就不做介绍了。  编译Openfst首先从github上将openfst clone下来。然后这里用cmake的">
+<meta property="og:description" content="其实不是特别推荐在Windows下使用kaldi，因为在egs下所有的脚本都无法运行，我也是弄了很久才在Windows下配置好kaldi，都一度差点弃坑。就连官方也说There is no commitment to support Windows. The Windows port of Kaldi is targeted at experienced developers who want t">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://yutouwd.github.io/posts/3944650563/1.jpg">
 <meta property="og:image" content="http://yutouwd.github.io/posts/3944650563/2.jpg">
 <meta property="og:image" content="http://yutouwd.github.io/posts/3944650563/9.jpg">
 <meta property="og:image" content="http://yutouwd.github.io/posts/3944650563/3.png">
-<meta property="og:updated_time" content="2019-03-04T15:44:09.043Z">
+<meta property="og:updated_time" content="2019-03-04T15:51:36.120Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="kaldi在Windows下的使用">
-<meta name="twitter:description" content="kaldi在Windows下的安装工具准备 git cmake Visual Studio 2017  vs2017要注意安装win8.1 SDK，如果已经安装了vs2017，也可以在上方的菜单栏中的工具-&amp;gt;获取工具和功能中来查看是否有安装。git和cmake的安装没有什么特别的，就不做介绍了。  编译Openfst首先从github上将openfst clone下来。然后这里用cmake的">
+<meta name="twitter:description" content="其实不是特别推荐在Windows下使用kaldi，因为在egs下所有的脚本都无法运行，我也是弄了很久才在Windows下配置好kaldi，都一度差点弃坑。就连官方也说There is no commitment to support Windows. The Windows port of Kaldi is targeted at experienced developers who want t">
 <meta name="twitter:image" content="http://yutouwd.github.io/posts/3944650563/1.jpg">
 
 
@@ -398,7 +398,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-03-04 23:44:09" itemprop="dateModified" datetime="2019-03-04T23:44:09+08:00">2019-03-04</time>
+                <time title="修改时间：2019-03-04 23:51:36" itemprop="dateModified" datetime="2019-03-04T23:51:36+08:00">2019-03-04</time>
               
             
           </span>
@@ -467,7 +467,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="post.wordcount">
-                  2.6k
+                  2.7k
                 </span>
               
 
@@ -506,7 +506,8 @@
       
 
       
-        <h1 id="kaldi在Windows下的安装"><a href="#kaldi在Windows下的安装" class="headerlink" title="kaldi在Windows下的安装"></a>kaldi在Windows下的安装</h1><h2 id="工具准备"><a href="#工具准备" class="headerlink" title="工具准备"></a>工具准备</h2><ul>
+        <p>其实不是特别推荐在Windows下使用kaldi，因为在egs下所有的脚本都无法运行，我也是弄了很久才在Windows下配置好kaldi，都一度差点弃坑。就连官方也说<strong>There is no commitment to support Windows. The Windows port of Kaldi is targeted at experienced developers who want to program their own apps using the kaldi libraries and are able to do the troubleshooting on their own.</strong>就让我来把坑填平那么一点点吧🧐<br><a id="more"></a></p>
+<h1 id="kaldi在Windows下的安装"><a href="#kaldi在Windows下的安装" class="headerlink" title="kaldi在Windows下的安装"></a>kaldi在Windows下的安装</h1><h2 id="工具准备"><a href="#工具准备" class="headerlink" title="工具准备"></a>工具准备</h2><ul>
 <li>git</li>
 <li>cmake</li>
 <li>Visual Studio 2017</li>
@@ -839,7 +840,7 @@
     
       <span class="post-meta-item-text">文字总数&#58;</span>
     
-    <span title="post.totalcount">10.6k</span>
+    <span title="post.totalcount">10.8k</span>
   
 
   
