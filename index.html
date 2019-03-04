@@ -392,7 +392,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-03-04 23:07:43" itemprop="dateModified" datetime="2019-03-04T23:07:43+08:00">2019-03-04</time>
+                <time title="修改时间：2019-03-04 23:13:32" itemprop="dateModified" datetime="2019-03-04T23:13:32+08:00">2019-03-04</time>
               
             
           </span>
@@ -461,7 +461,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="post.wordcount">
-                  80
+                  795
                 </span>
               
 
@@ -477,7 +477,7 @@
                   <span class="post-meta-item-text">阅读时间 &asymp;</span>
                 
                 <span title="post.min2read">
-                  1
+                  4
                 </span>
               
             </div>
@@ -509,6 +509,17 @@
 </ul>
 <p>vs2017要注意安装win8.1 SDK，如果已经安装了vs2017，也可以在上方的菜单栏中的工具-&gt;获取工具和功能中来查看是否有安装。git和cmake的安装没有什么特别的，就不做介绍了。</p>
 <img src="/posts/3944650563/1.jpg">
+<h2 id="编译Openfst"><a href="#编译Openfst" class="headerlink" title="编译Openfst"></a>编译Openfst</h2><p>首先从github上将openfst clone下来。然后这里用cmake的方式来先编译出vs的工程文件，具体操作方法如下：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/kkm000/openfst.git</span><br><span class="line">cd openfst</span><br><span class="line">mkdir build64</span><br><span class="line">cd build64</span><br><span class="line">cmake -G "Visual Studio 15 2017 Win64" ../</span><br></pre></td></tr></table></figure>
+<p>如果这一步成功会显示以下提示：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">-- The C compiler identification is MSVC 19.11.25547.0</span><br><span class="line">-- The CXX compiler identification is MSVC 19.11.25547.0</span><br><span class="line">-- Check for working C compiler: C:/Program Files (x86)/Microsoft Visual Studio/2017/Community/VC/Tools/MSVC/14.11.25503/bin/Hostx86/x64/cl.exe</span><br><span class="line">-- Check for working C compiler: C:/Program Files (x86)/Microsoft Visual Studio/2017/Community/VC/Tools/MSVC/14.11.25503/bin/Hostx86/x64/cl.exe -- works</span><br><span class="line">-- Detecting C compiler ABI info</span><br><span class="line">-- Detecting C compiler ABI info - done</span><br><span class="line">-- Check for working CXX compiler: C:/Program Files (x86)/Microsoft Visual Studio/2017/Community/VC/Tools/MSVC/14.11.25503/bin/Hostx86/x64/cl.exe</span><br><span class="line">-- Check for working CXX compiler: C:/Program Files (x86)/Microsoft Visual Studio/2017/Community/VC/Tools/MSVC/14.11.25503/bin/Hostx86/x64/cl.exe -- works</span><br><span class="line">-- Detecting CXX compiler ABI info</span><br><span class="line">-- Detecting CXX compiler ABI info - done</span><br><span class="line">-- Detecting CXX compile features</span><br><span class="line">-- Detecting CXX compile features - done</span><br><span class="line">-- The following ICU libraries were not found:</span><br><span class="line">--   data (required)</span><br><span class="line">--   i18n (required)</span><br><span class="line">--   io (required)</span><br><span class="line">--   test (required)</span><br><span class="line">--   tu (required)</span><br><span class="line">--   uc (required)</span><br><span class="line">-- Failed to find all ICU components (missing: ICU_INCLUDE_DIR ICU_LIBRARY _ICU_REQUIRED_LIBS_FOUND)</span><br><span class="line">-- Could NOT find ZLIB (missing: ZLIB_LIBRARY ZLIB_INCLUDE_DIR)</span><br><span class="line">-- Configuring done</span><br><span class="line">-- Generating done</span><br><span class="line">-- Build files have been written to: C:/Users/jtrmal/Documents/openfst/build64</span><br></pre></td></tr></table></figure>
+<p>成功后会在build64目录下面生成一个openfst.sln文件，用vs2017打开这个文件，分别用 <figure class="highlight c++"><figcaption><span>Debug|x64``` 和 ```C++ Release|x64``` 来生成一遍，如下图，如果失败为0则代表编译通过。</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&#123;% asset_img <span class="number">2.</span>jpg %&#125;</span><br><span class="line"></span><br><span class="line">## 配置OpenBLAS</span><br><span class="line">首先也是从github上先将kaldi clone下来</span><br><span class="line"></span><br><span class="line">```Shell</span><br><span class="line">git clone https:<span class="comment">//github.com/kaldi-asr/kaldi.git kaldi</span></span><br></pre></td></tr></table></figure></p>
+<p>然后我们就需要去配置线性代数库，这里有两个选择，一个是Intel MKL，一个是OpenBLAS。这里我选用OpenBLAS。用下面的命令来下载OpenBLAS的二进制包（在kaldi/tools目录下）：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">curl -L -O http://sourceforge.net/projects/openblas/files/v0.2.14/OpenBLAS-v0.2.14-Win64-int32.zip</span><br><span class="line">unzip OpenBLAS-v0.2.14-Win64-int32.zip</span><br></pre></td></tr></table></figure>
+<p><strong>注意这里要下载Win64-int32版本，而不是Win64-int64版本</strong></p>
+<h2 id="修改配置文件"><a href="#修改配置文件" class="headerlink" title="修改配置文件"></a>修改配置文件</h2><p>进入kaldi/windows路径想，将varialbe.props.dev复制一份重命名为variables.props，打开后将刚刚配置好的库修改为自己的路径：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">    <span class="comment">&lt;!-- Change the following paths so they are correct on your machine --&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- Do not modify anything before this line --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">MKLDIR</span>&gt;</span>C:\Program Files </span><br><span class="line">(x86)\IntelSWTools\compilers_and_libraries\windows\mkl\<span class="tag">&lt;/<span class="name">MKLDIR</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">OPENBLASDIR</span>&gt;</span>C:\Users\Yenda\Downloads\kaldi-svn\tools\OpenBLAS-v0.2.14-Win64-int32<span class="tag">&lt;/<span class="name">OPENBLASDIR</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">OPENFST</span>&gt;</span>C:\Users\jtrmal\Documents\openfst<span class="tag">&lt;/<span class="name">OPENFST</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">OPENFSTLIB</span>&gt;</span>C:\Users\jtrmal\Documents\openfst\build64<span class="tag">&lt;/<span class="name">OPENFSTLIB</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- Do not modify anything after this line --&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>我们需要将OpenBLAS和Openfst修改为自己的路径，因为没有用到MKL就不用修改了。下面就是我修改后的路径：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">    <span class="comment">&lt;!-- Change the following paths so they are correct on your machine --&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- Do not modify anything before this line --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">MKLDIR</span>&gt;</span>C:\Program Files </span><br><span class="line">(x86)\IntelSWTools\compilers_and_libraries\windows\mkl\<span class="tag">&lt;/<span class="name">MKLDIR</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">OPENBLASDIR</span>&gt;</span>D:\git_home\kaldi\tools\OpenBLAS-v0.2.14-Win64-int32<span class="tag">&lt;/<span class="name">OPENBLASDIR</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">OPENFST</span>&gt;</span>D:\git_home\openfst<span class="tag">&lt;/<span class="name">OPENFST</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">OPENFSTLIB</span>&gt;</span>D:\git_home\openfst\build64<span class="tag">&lt;/<span class="name">OPENFSTLIB</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- Do not modify anything after this line --&gt;</span></span><br></pre></td></tr></table></figure>
           
         
       
@@ -1438,7 +1449,7 @@
     
       <span class="post-meta-item-text">文字总数&#58;</span>
     
-    <span title="post.totalcount">8.2k</span>
+    <span title="post.totalcount">8.9k</span>
   
 
   
