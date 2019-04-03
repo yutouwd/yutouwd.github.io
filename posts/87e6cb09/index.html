@@ -112,7 +112,7 @@
 <meta property="og:site_name" content="yutouwd">
 <meta property="og:description" content="之前一直没有记录修改&amp;amp;优化博客的过程，其实这是一个不太好的习惯，现在都忘了自己修改过哪些地方了(虽然vscode可以标出来)，哪些修改对应了网站哪些变化。所以还是要记录一下修改的记录，为方便日后对博客持续优化。 things to do  修改站点下博客文章存放目录  侧边栏toc自动展开  评论系统更换为valine  站点自动备份系统  文章分类、归档页面优化  代码块优化  next">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-04-03T08:20:17.486Z">
+<meta property="og:updated_time" content="2019-04-03T08:40:50.204Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="博客折腾记录">
 <meta name="twitter:description" content="之前一直没有记录修改&amp;amp;优化博客的过程，其实这是一个不太好的习惯，现在都忘了自己修改过哪些地方了(虽然vscode可以标出来)，哪些修改对应了网站哪些变化。所以还是要记录一下修改的记录，为方便日后对博客持续优化。 things to do  修改站点下博客文章存放目录  侧边栏toc自动展开  评论系统更换为valine  站点自动备份系统  文章分类、归档页面优化  代码块优化  next">
@@ -414,7 +414,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-04-03 16:20:17" itemprop="dateModified" datetime="2019-04-03T16:20:17+08:00">2019-04-03</time>
+                <time title="修改时间：2019-04-03 16:40:50" itemprop="dateModified" datetime="2019-04-03T16:40:50+08:00">2019-04-03</time>
               
             
           </span>
@@ -550,11 +550,11 @@
 <p>不过现在卡在百度的认证上了，下载认证文件放到next主题目录的路径下，会显示验证失败：“您的站点有链接未通过https校验“黑人问号？？？</p>
 <h2 id="leetcode文章归档"><a href="#leetcode文章归档" class="headerlink" title="leetcode文章归档"></a>leetcode文章归档</h2><p>想法是写leetcode的文章不会自动显示在主页上，然后新建一个page，里面专门收录写的关于leetcoede的文章。可以在scaffolds目录中新建一个leet.md，以后直接用hexo new leet [leet题目]这样方式来新建一个文章。将文章不显示在主页的方法参考这篇文章<a href="https://www.jianshu.com/p/79fe9fb9dfa0" target="_blank" rel="noopener">https://www.jianshu.com/p/79fe9fb9dfa0</a>，修改好之后，就在leet.md中加上notshow: true，以后新建就可以自动设置为不显示了。</p>
 <p>然后还想弄一个类似于github上个人主页那种日历表，如果有一天有做题的话，就会设置成绿色。找了下，发现可以通过baidu的echart或者google chart来实现。baidu的好处就是有中文的文档，google的例子似乎更好看一些，但是不知道会不会被emmmm，就还是先试试百度的吧。只要<strong>npm install hexo-tag-echarts3 –save</strong>就可以来，下面是一个echart测试：</p>
-<div id="echarts2037" style="width: 85%;height: 400px;margin: 0 auto"></div>
+<div id="echarts5654" style="width: 85%;height: 400px;margin: 0 auto"></div>
 <script src="https://cdn.bootcss.com/echarts/3.8.0/echarts.common.min.js"></script>
 <script type="text/javascript">
         // 基于准备好的dom，初始化echarts实例
-        var myChart = echarts.init(document.getElementById('echarts2037'));
+        var myChart = echarts.init(document.getElementById('echarts5654'));
         // 指定图表的配置项和数据
         var option = {
     tooltip : {
@@ -621,32 +621,53 @@
         myChart.setOption(option);
 </script>
 <p>可以点击上方的利润、收入、支出来设置显示和不显示，还是很炫酷滴🕶️，接下来试下日历表：</p>
-<div id="echarts7488" style="width: 100%;height: 300px;margin: 0 auto"></div>
+<div id="echarts8748" style="width: 85%;height: 400px;margin: 0 auto"></div>
 <script src="https://cdn.bootcss.com/echarts/3.8.0/echarts.common.min.js"></script>
 <script type="text/javascript">
         // 基于准备好的dom，初始化echarts实例
-        var myChart = echarts.init(document.getElementById('echarts7488'));
+        var myChart = echarts.init(document.getElementById('echarts8748'));
         // 指定图表的配置项和数据
-        var option = {
-  visualMap: {
-    show: false,
-    min: 0,
-    max: 100
-  }
-  calendar: {
-    range: '2019'
-  },
-  series: {
-    type: 'heatmap',
-    coordinateSystem: 'calendar',
-    data: [new Date(2019,3,1),100]
-  }
-
+        var option = 
+option = {
+    title: {
+        top: 30,
+        left: 'center',
+        text: '2016年某人每天的步数'
+    },
+    tooltip : {},
+    visualMap: {
+        min: 0,
+        max: 10000,
+        type: 'piecewise',
+        orient: 'horizontal',
+        left: 'center',
+        top: 65,
+        textStyle: {
+            color: '#000'
+        }
+    },
+    calendar: {
+        top: 120,
+        left: 30,
+        right: 30,
+        cellSize: ['auto', 13],
+        range: '2019',
+        itemStyle: {
+            normal: {borderWidth: 0.5}
+        },
+        yearLabel: {show: false}
+    },
+    series: {
+        type: 'heatmap',
+        coordinateSystem: 'calendar',
+        data: [Date(2019,1,1),10000]
+    }
 };
+
         // 使用刚指定的配置项和数据显示图表。
         myChart.setOption(option);
 </script>
-<p>好吧，好像不能显示…</p>
+<p>好吧，好像不能显示…不知道是因为echart没写好还是不支持…那就先搁置下来，以后有时间就试试google的吧。</p>
 <h2 id="教程收藏"><a href="#教程收藏" class="headerlink" title="教程收藏"></a>教程收藏</h2><p><a href="http://yearito.cn/tags/Hexo/" target="_blank" rel="noopener">http://yearito.cn/tags/Hexo/</a></p>
 
       
@@ -945,7 +966,7 @@
     
       <span class="post-meta-item-text">文字总数&#58;</span>
     
-    <span title="post.totalcount">11.7k</span>
+    <span title="post.totalcount">11.8k</span>
   
 
   
