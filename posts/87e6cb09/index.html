@@ -112,7 +112,7 @@
 <meta property="og:site_name" content="yutouwd">
 <meta property="og:description" content="之前一直没有记录修改&amp;amp;优化博客的过程，其实这是一个不太好的习惯，现在都忘了自己修改过哪些地方了(虽然vscode可以标出来)，哪些修改对应了网站哪些变化。所以还是要记录一下修改的记录，为方便日后对博客持续优化。 things to do  修改站点下博客文章存放目录  侧边栏toc自动展开  评论系统更换为valine  站点自动备份系统  文章分类、归档页面优化  代码块优化  next">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-04-03T01:07:23.193Z">
+<meta property="og:updated_time" content="2019-04-03T03:50:07.879Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="博客折腾记录">
 <meta name="twitter:description" content="之前一直没有记录修改&amp;amp;优化博客的过程，其实这是一个不太好的习惯，现在都忘了自己修改过哪些地方了(虽然vscode可以标出来)，哪些修改对应了网站哪些变化。所以还是要记录一下修改的记录，为方便日后对博客持续优化。 things to do  修改站点下博客文章存放目录  侧边栏toc自动展开  评论系统更换为valine  站点自动备份系统  文章分类、归档页面优化  代码块优化  next">
@@ -288,6 +288,23 @@
     <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
 
   </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-leet">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/leetcode/" rel="section"><i class="menu-item-icon fa fa-fw fa-laptop-code"></i> <br>leet</a>
+
+  </li>
 
       
       
@@ -397,7 +414,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-04-03 09:07:23" itemprop="dateModified" datetime="2019-04-03T09:07:23+08:00">2019-04-03</time>
+                <time title="修改时间：2019-04-03 11:50:07" itemprop="dateModified" datetime="2019-04-03T11:50:07+08:00">2019-04-03</time>
               
             
           </span>
@@ -466,7 +483,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="post.wordcount">
-                  1.5k
+                  1.6k
                 </span>
               
 
@@ -482,7 +499,7 @@
                   <span class="post-meta-item-text">阅读时间 &asymp;</span>
                 
                 <span title="post.min2read">
-                  6
+                  7
                 </span>
               
             </div>
@@ -515,6 +532,7 @@
 <li style="list-style: none"><input type="checkbox"> 代码块优化</li>
 <li style="list-style: none"><input type="checkbox" checked> next版本升级</li>
 <li style="list-style: none"><input type="checkbox"> SEO优化</li>
+<li style="list-style: none"><input type="checkbox"> leetcode文章归档</li>
 </ul>
 <a id="more"></a>
 <h2 id="修改站点下博客文章存放目录"><a href="#修改站点下博客文章存放目录" class="headerlink" title="修改站点下博客文章存放目录"></a>修改站点下博客文章存放目录</h2><p>这个其实是在找解决如何将侧边栏toc自动展开时，找到一篇<a href="https://blog.dongleizhang.com/posts/32005d86/" target="_blank" rel="noopener">博客</a>无意中发现的。原来那种年/月/日…的方式真的太挫了，于是就按照他的这种方式，生成一个永久链接。<br>首先安装hexo-abbrlink插件，使用命令 npm install hexo-abbrlink –save 即可。然后需要在站点配置文件，即hexo目录下的_config.yml文件中修改 permalink: :year/:month/:day/:title/ 为一下内容：</p>
@@ -530,6 +548,7 @@
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">&#123;% if theme.post_wordcount.wordcount or theme.post_wordcount.min2read %&#125;</span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"post-wordcount"</span>&gt;</span></span><br><span class="line">    &#123;% if theme.post_wordcount.wordcount %&#125;</span><br><span class="line">      &#123;% if not theme.post_wordcount.separated_meta %&#125;</span><br><span class="line">        <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"post-meta-divider"</span>&gt;</span>|<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">      &#123;% endif %&#125;</span><br><span class="line">      <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"post-meta-item-icon"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">"fa fa-file-word-o"</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">      &#123;% if theme.post_wordcount.item_text %&#125;</span><br><span class="line">        <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"post-meta-item-text"</span>&gt;</span>&#123;&#123; __('字数统计') &#125;&#125;&amp;#58;<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">      &#123;% endif %&#125;</span><br><span class="line">      <span class="tag">&lt;<span class="name">span</span> <span class="attr">title</span>=<span class="string">"&#123;&#123; __('post.wordcount') &#125;&#125;"</span>&gt;</span></span><br><span class="line">        &#123;&#123; wordcount(post.content) &#125;&#125;</span><br><span class="line">      <span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">    &#123;% endif %&#125;</span><br><span class="line"></span><br><span class="line">    &#123;% if theme.post_wordcount.wordcount and theme.post_wordcount.min2read %&#125;</span><br><span class="line">      <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"post-meta-divider"</span>&gt;</span>|<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">    &#123;% endif %&#125;</span><br><span class="line"></span><br><span class="line">    &#123;% if theme.post_wordcount.min2read %&#125;</span><br><span class="line">      <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"post-meta-item-icon"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">"fa fa-clock-o"</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">      &#123;% if theme.post_wordcount.item_text %&#125;</span><br><span class="line">        <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"post-meta-item-text"</span>&gt;</span>&#123;&#123; __('阅读时间') &#125;&#125; &amp;asymp;<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">      &#123;% endif %&#125;</span><br><span class="line">      <span class="tag">&lt;<span class="name">span</span> <span class="attr">title</span>=<span class="string">"&#123;&#123; __('post.min2read') &#125;&#125;"</span>&gt;</span></span><br><span class="line">        &#123;&#123; min2read(post.content) &#125;&#125;</span><br><span class="line">      <span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">    &#123;% endif %&#125;</span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">&#123;% endif %&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="SEO优化"><a href="#SEO优化" class="headerlink" title="SEO优化"></a>SEO优化</h2><p>终于空下来有时间弄弄博客啦，首先就是感觉把SEO弄了，一直都拖了好久。SEO主要参考了这篇博客<a href="https://blog.csdn.net/qq_34149805/article/details/84894713" target="_blank" rel="noopener">https://blog.csdn.net/qq_34149805/article/details/84894713</a>和<a href="https://www.jianshu.com/p/c20bb9df1867" target="_blank" rel="noopener">https://www.jianshu.com/p/c20bb9df1867</a>以及<a href="https://felixxiong.github.io/2018/10/06/%E5%8D%9A%E5%AE%A2SEO%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E%E4%BC%98%E5%8C%96/" target="_blank" rel="noopener">https://felixxiong.github.io/2018/10/06/%E5%8D%9A%E5%AE%A2SEO%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E%E4%BC%98%E5%8C%96/</a></p>
 <p>不过现在卡在百度的认证上了，下载认证文件放到next主题目录的路径下，会显示验证失败：“您的站点有链接未通过https校验“黑人问号？？？</p>
+<h2 id="leetcode文章归档"><a href="#leetcode文章归档" class="headerlink" title="leetcode文章归档"></a>leetcode文章归档</h2><p>想法是写leetcode的文章不会自动显示在主页上，然后新建一个page，里面专门收录写的关于leetcoede的文章。可以在scaffolds目录中新建一个leet.md，以后直接用hexo new leet [leet题目]这样方式来新建一个文章。将文章不显示在主页的方法参考这篇文章<a href="https://www.jianshu.com/p/79fe9fb9dfa0" target="_blank" rel="noopener">https://www.jianshu.com/p/79fe9fb9dfa0</a>，修改好之后，就在leet.md中加上notshow: true，以后新建就可以自动设置为不显示了。</p>
 <h2 id="教程收藏"><a href="#教程收藏" class="headerlink" title="教程收藏"></a>教程收藏</h2><p><a href="http://yearito.cn/tags/Hexo/" target="_blank" rel="noopener">http://yearito.cn/tags/Hexo/</a></p>
 
       
@@ -792,7 +811,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#things-to-do"><span class="nav-text">things to do</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#修改站点下博客文章存放目录"><span class="nav-text">修改站点下博客文章存放目录</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#侧边栏toc自动展开"><span class="nav-text">侧边栏toc自动展开</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#评论系统更换为valine"><span class="nav-text">评论系统更换为valine</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#站点自动备份系统"><span class="nav-text">站点自动备份系统</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文章分类、归档页面优化"><span class="nav-text">文章分类、归档页面优化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码块优化"><span class="nav-text">代码块优化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#next版本升级"><span class="nav-text">next版本升级</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SEO优化"><span class="nav-text">SEO优化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#教程收藏"><span class="nav-text">教程收藏</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#things-to-do"><span class="nav-text">things to do</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#修改站点下博客文章存放目录"><span class="nav-text">修改站点下博客文章存放目录</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#侧边栏toc自动展开"><span class="nav-text">侧边栏toc自动展开</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#评论系统更换为valine"><span class="nav-text">评论系统更换为valine</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#站点自动备份系统"><span class="nav-text">站点自动备份系统</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文章分类、归档页面优化"><span class="nav-text">文章分类、归档页面优化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码块优化"><span class="nav-text">代码块优化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#next版本升级"><span class="nav-text">next版本升级</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SEO优化"><span class="nav-text">SEO优化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#leetcode文章归档"><span class="nav-text">leetcode文章归档</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#教程收藏"><span class="nav-text">教程收藏</span></a></li></ol></div>
             
 
           </div>
@@ -826,7 +845,7 @@
     
       <span class="post-meta-item-text">文字总数&#58;</span>
     
-    <span title="post.totalcount">11.2k</span>
+    <span title="post.totalcount">11.3k</span>
   
 
   
