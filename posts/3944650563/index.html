@@ -112,22 +112,10 @@
 <meta property="og:site_name" content="yutouwd">
 <meta property="og:description" content="其实不是特别推荐在Windows下使用kaldi，因为在egs下所有的脚本都无法运行，我也是弄了很久才在Windows下配置好kaldi，都一度差点弃坑。就连官方也说There is no commitment to support Windows. The Windows port of Kaldi is targeted at experienced developers who want t">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://yutouwd.github.io/posts/3944650563/1.jpg">
-<meta property="og:image" content="http://yutouwd.github.io/posts/3944650563/2.jpg">
-<meta property="og:image" content="http://yutouwd.github.io/posts/3944650563/11.jpg">
-<meta property="og:image" content="http://yutouwd.github.io/posts/3944650563/4.jpg">
-<meta property="og:image" content="http://yutouwd.github.io/posts/3944650563/5.jpg">
-<meta property="og:image" content="http://yutouwd.github.io/posts/3944650563/6.jpg">
-<meta property="og:image" content="http://yutouwd.github.io/posts/3944650563/7.jpg">
-<meta property="og:image" content="http://yutouwd.github.io/posts/3944650563/8.jpg">
-<meta property="og:image" content="http://yutouwd.github.io/posts/3944650563/10.jpg">
-<meta property="og:image" content="http://yutouwd.github.io/posts/3944650563/9.jpg">
-<meta property="og:image" content="http://yutouwd.github.io/posts/3944650563/3.png">
 <meta property="og:updated_time" content="2019-04-03T03:31:58.633Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="kaldi在Windows下的使用">
 <meta name="twitter:description" content="其实不是特别推荐在Windows下使用kaldi，因为在egs下所有的脚本都无法运行，我也是弄了很久才在Windows下配置好kaldi，都一度差点弃坑。就连官方也说There is no commitment to support Windows. The Windows port of Kaldi is targeted at experienced developers who want t">
-<meta name="twitter:image" content="http://yutouwd.github.io/posts/3944650563/1.jpg">
 
 
 
@@ -314,7 +302,7 @@
 
     
 
-    <a href="/leetcode/" rel="section"><i class="menu-item-icon fa fa-fw fa-laptop-code"></i> <br>leet</a>
+    <a href="/leetcode/" rel="section"><i class="menu-item-icon fa fa-fw fa-terminal"></i> <br>leet</a>
 
   </li>
 
@@ -541,13 +529,13 @@
 <li>Visual Studio 2017</li>
 </ul>
 <p>vs2017要注意安装win8.1 SDK，如果已经安装了vs2017，也可以在上方的菜单栏中的工具-&gt;获取工具和功能中来查看是否有安装。git和cmake的安装没有什么特别的，就不做介绍了。</p>
-<img src="/posts/3944650563/1.jpg">
+
 <h2 id="编译Openfst"><a href="#编译Openfst" class="headerlink" title="编译Openfst"></a>编译Openfst</h2><p>首先从github上将openfst clone下来。然后这里用cmake的方式来先编译出vs的工程文件，具体操作方法如下：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/kkm000/openfst.git</span><br><span class="line">cd openfst</span><br><span class="line">mkdir build64</span><br><span class="line">cd build64</span><br><span class="line">cmake -G "Visual Studio 15 2017 Win64" ../</span><br></pre></td></tr></table></figure>
 <p>如果这一步成功会显示以下提示：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">-- The C compiler identification is MSVC 19.11.25547.0</span><br><span class="line">-- The CXX compiler identification is MSVC 19.11.25547.0</span><br><span class="line">-- Check for working C compiler: C:/Program Files (x86)/Microsoft Visual Studio/2017/Community/VC/Tools/MSVC/14.11.25503/bin/Hostx86/x64/cl.exe</span><br><span class="line">-- Check for working C compiler: C:/Program Files (x86)/Microsoft Visual Studio/2017/Community/VC/Tools/MSVC/14.11.25503/bin/Hostx86/x64/cl.exe -- works</span><br><span class="line">-- Detecting C compiler ABI info</span><br><span class="line">-- Detecting C compiler ABI info - done</span><br><span class="line">-- Check for working CXX compiler: C:/Program Files (x86)/Microsoft Visual Studio/2017/Community/VC/Tools/MSVC/14.11.25503/bin/Hostx86/x64/cl.exe</span><br><span class="line">-- Check for working CXX compiler: C:/Program Files (x86)/Microsoft Visual Studio/2017/Community/VC/Tools/MSVC/14.11.25503/bin/Hostx86/x64/cl.exe -- works</span><br><span class="line">-- Detecting CXX compiler ABI info</span><br><span class="line">-- Detecting CXX compiler ABI info - done</span><br><span class="line">-- Detecting CXX compile features</span><br><span class="line">-- Detecting CXX compile features - done</span><br><span class="line">-- The following ICU libraries were not found:</span><br><span class="line">--   data (required)</span><br><span class="line">--   i18n (required)</span><br><span class="line">--   io (required)</span><br><span class="line">--   test (required)</span><br><span class="line">--   tu (required)</span><br><span class="line">--   uc (required)</span><br><span class="line">-- Failed to find all ICU components (missing: ICU_INCLUDE_DIR ICU_LIBRARY _ICU_REQUIRED_LIBS_FOUND)</span><br><span class="line">-- Could NOT find ZLIB (missing: ZLIB_LIBRARY ZLIB_INCLUDE_DIR)</span><br><span class="line">-- Configuring done</span><br><span class="line">-- Generating done</span><br><span class="line">-- Build files have been written to: C:/Users/jtrmal/Documents/openfst/build64</span><br></pre></td></tr></table></figure>
 <p>成功后会在build64目录下面生成一个openfst.sln文件，用vs2017打开这个文件，分别用Debug|x64和Release|x64来生成一遍，如下图，如果失败为0则代表编译通过。</p>
-<img src="/posts/3944650563/2.jpg">
+
 <h2 id="配置OpenBLAS"><a href="#配置OpenBLAS" class="headerlink" title="配置OpenBLAS"></a>配置OpenBLAS</h2><p>首先也是从github上先将kaldi clone下来</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/kaldi-asr/kaldi.git kaldi</span><br></pre></td></tr></table></figure>
 <p>然后我们就需要去配置线性代数库，这里有两个选择，一个是Intel MKL，一个是OpenBLAS。这里我选用OpenBLAS。用下面的命令来下载OpenBLAS的二进制包（在kaldi/tools目录下）：</p>
@@ -558,20 +546,20 @@
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- Change the following paths so they are correct on your machine --&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- Do not modify anything before this line --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">MKLDIR</span>&gt;</span>C:\Program Files(x86)\IntelSWTools\compilers_and_libraries\windows\mkl\<span class="tag">&lt;/<span class="name">MKLDIR</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">OPENBLASDIR</span>&gt;</span>D:\git_home\kaldi\tools\OpenBLAS-v0.2.14-Win64-int32<span class="tag">&lt;/<span class="name">OPENBLASDIR</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">OPENFST</span>&gt;</span>D:\git_home\openfst<span class="tag">&lt;/<span class="name">OPENFST</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">OPENFSTLIB</span>&gt;</span>D:\git_home\openfst\build64<span class="tag">&lt;/<span class="name">OPENFSTLIB</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- Do not modify anything after this line --&gt;</span></span><br></pre></td></tr></table></figure>
 <h2 id="产生工程文件"><a href="#产生工程文件" class="headerlink" title="产生工程文件"></a>产生工程文件</h2><p>同样还是在kaldi/windows路径下，因为我们是使用OpenBLAS所以就把kaldiwin_openblas.props复制一份重命名为kaldiwin.prosp。然后在windows路径下用git bash运行以下命令：<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">./generate_solution.pl --vsver vs2017 --enable-openblas</span><br><span class="line">./get_version.pl</span><br></pre></td></tr></table></figure></p>
 <h2 id="kaldi编译测试"><a href="#kaldi编译测试" class="headerlink" title="kaldi编译测试"></a>kaldi编译测试</h2><p>然后我们打开在kaldi/kaldiwin_vs2017_OPENBLAS这个新生成的文件夹，打卡里面的kaldiwin_vs2017.sln工程文件，这里面就包括了所有kaldi/src中*bin中的.cc文件。这时候需要来测试一下kaldi能否运行，首先要把Debug|Win32改为Debug|x64，然后右键选择online2-wav-nnet2-latgen-faster生成，如下图，如果生成成功则代表之前的工作都做对啦，kaldi已经配置好了✌️~exe文件会生成在kaldiwin_vs2017_OPENBLAS/x64/Debug中，不过当用命令行来运行刚刚生成的exe文件时，还是有可能会报错，如缺少dll等，解决方法见常见问题。</p>
-<img src="/posts/3944650563/11.jpg">
+
 <h1 id="kaldi在Windows下的调试"><a href="#kaldi在Windows下的调试" class="headerlink" title="kaldi在Windows下的调试"></a>kaldi在Windows下的调试</h1><h2 id="新建自己的kaldi项目"><a href="#新建自己的kaldi项目" class="headerlink" title="新建自己的kaldi项目"></a>新建自己的kaldi项目</h2><p>在配置好kaldi之后，就可以开始调试和编写自己的使用kaldi的程序了。不过原来的kaldi项目中有630个项目或者称为解决方案，每次打开都要加载很久。所以我们可以新建一个空项目：</p>
-<img src="/posts/3944650563/4.jpg">
+
 <h3 id="添加引用"><a href="#添加引用" class="headerlink" title="添加引用"></a>添加引用</h3><p>然后点击左上角文件-&gt;添加-&gt;现有项目，切换到kaldi/kaldiwin_vs2017_OPENBLAS/kaldiwin路径下。</p>
-<img src="/posts/3944650563/5.jpg">
+
 <p>最好把所有以kaldi开头的项目都添加进去（点进去具体的文件夹，添加.vcxproj文件），包含test的不用。不过如果你清楚你用的项目要用到哪些具体的引用，那么只添加特定的项目即可。那么要怎么看需要用到那些引用呢，这时就要回到之前那个包含630个项目的vs中去。</p>
-<img src="/posts/3944650563/6.jpg">
+
 <p>比如说我想要提取mfcc特征，就可以去看看compute-mfcc-feats这个项目中以用了那些项目，然后在自己的项目提取mfcc特征项目中，也要以用相同的项目，那么就把对应的项目添加到自己的项目中，如下图：</p>
-<img src="/posts/3944650563/7.jpg">
+
 <h3 id="添加工程属性表"><a href="#添加工程属性表" class="headerlink" title="添加工程属性表"></a>添加工程属性表</h3><p>配置好引用还需要我们去添加刚才配置好的vs工程属性表，点开左上菜单栏中的视图-&gt;其他窗口-&gt;属性管理器。</p>
-<img src="/posts/3944650563/8.jpg">
+
 <p>然后在自己的项目的Debug|64中添加variables.props kaldiwin.props openfst_debug.props（如果要release则添加对应的release版本）</p>
 <h3 id="修改附加包含目录"><a href="#修改附加包含目录" class="headerlink" title="修改附加包含目录"></a>修改附加包含目录</h3><p>还差一步就大功告成，首先要在自己的项目中添加一个cpp文件，然后右键属性-&gt;C/C++-&gt;所有选项-&gt;附加包含目录，需要把kaldi/src目录添加进去</p>
-<img src="/posts/3944650563/10.jpg">
+
 <p>配置好之后，就可以写自己的调用kaldi的程序了，之后也可以按照这样的方式来。总结一下：</p>
 <ul>
 <li>在当前项目中文件-&gt;添加-&gt;新建项目</li>
@@ -595,10 +583,10 @@
 <ul>
 <li style="list-style: none"><input type="checkbox"> 未完待续</li>
 </ul>
-<h1 id="遇到的问题记录"><a href="#遇到的问题记录" class="headerlink" title="遇到的问题记录"></a>遇到的问题记录</h1><h2 id="cmake生成Openfst工程文件失败"><a href="#cmake生成Openfst工程文件失败" class="headerlink" title="cmake生成Openfst工程文件失败"></a>cmake生成Openfst工程文件失败</h2><img src="/posts/3944650563/9.jpg">
+<h1 id="遇到的问题记录"><a href="#遇到的问题记录" class="headerlink" title="遇到的问题记录"></a>遇到的问题记录</h1><h2 id="cmake生成Openfst工程文件失败"><a href="#cmake生成Openfst工程文件失败" class="headerlink" title="cmake生成Openfst工程文件失败"></a>cmake生成Openfst工程文件失败</h2>
 <p>根据错误提示，应该是缺少了fst_test.h weight-tester.h algo_test.h，在openfst/src目录下搜索这几个文件，发现都在openfst\src\include\fst\test中，于是把几个文件都复制过来，然后再执行那条cmake的命令，就可以成功了~。</p>
 <h2 id="缺少libopenblas-dll"><a href="#缺少libopenblas-dll" class="headerlink" title="缺少libopenblas.dll"></a>缺少libopenblas.dll</h2><p>当在命令行或git bash中运行生成好的exe时，会报错缺少libopenblas.dll：</p>
-<img src="/posts/3944650563/3.png">
+
 <p>我们需要将之前下载的OpenBLAS中bin目录下的libopenblas.dll拷到和exe文件同一个文件夹中就可以执行了。</p>
 <h2 id="mingw-dll下载"><a href="#mingw-dll下载" class="headerlink" title="mingw dll下载"></a>mingw dll下载</h2><p>包括libgcc_s_seh-1.dll libgfortran-3.dll libquadmath-0.dll，下载后同样需要放到和exe同一目录下。<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">curl -L -O http://sourceforge.net/projects/openblas/files/v0.2.14/mingw64_dll.zip</span><br><span class="line">unzip mingw64_dll.zip</span><br></pre></td></tr></table></figure></p>
 <h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p>官方Windows下安装指南：<br><a href="https://github.com/kaldi-asr/kaldi/blob/master/windows/INSTALL.md" target="_blank" rel="noopener">https://github.com/kaldi-asr/kaldi/blob/master/windows/INSTALL.md</a><br>一个中文的安装说明：<br><a href="https://www.jianshu.com/p/5494d6607789" target="_blank" rel="noopener">https://www.jianshu.com/p/5494d6607789</a><br>Windows下安装常见的问题：<br><a href="https://blog.csdn.net/qq_25867649/article/details/78356474?locationNum=8&amp;fps=1" target="_blank" rel="noopener">https://blog.csdn.net/qq_25867649/article/details/78356474?locationNum=8&amp;fps=1</a><br>kaldi中IO接口介绍：<br><a href="http://kaldi-asr.org/doc/io.html" target="_blank" rel="noopener">http://kaldi-asr.org/doc/io.html</a></p>
@@ -672,6 +660,10 @@
 
           <div class="post-nav-prev post-nav-item">
             
+              <a href="/posts/1289854973/" rel="prev" title="Leet_test">
+                Leet_test <i class="fa fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
       
@@ -744,7 +736,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">4</span>
+                    <span class="site-state-item-count">5</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
