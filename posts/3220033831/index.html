@@ -112,7 +112,7 @@
 <meta property="og:site_name" content="yutouwd">
 <meta property="og:description" content="Best Time to Buy and Sell Stock I题目描述Say you have an array for which the ith element is the price of a given stock on day i. If you were only permitted to complete at most one transaction (i.e., buy o">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-07-12T09:18:07.734Z">
+<meta property="og:updated_time" content="2019-07-12T09:28:59.921Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Best Time to Buy and Sell Stock">
 <meta name="twitter:description" content="Best Time to Buy and Sell Stock I题目描述Say you have an array for which the ith element is the price of a given stock on day i. If you were only permitted to complete at most one transaction (i.e., buy o">
@@ -397,7 +397,7 @@
                 
               
 
-              <time title="创建时间：2019-07-12 16:57:20 / 修改时间：17:18:07" itemprop="dateCreated datePublished" datetime="2019-07-12T16:57:20+08:00">2019-07-12</time>
+              <time title="创建时间：2019-07-12 16:57:20 / 修改时间：17:28:59" itemprop="dateCreated datePublished" datetime="2019-07-12T16:57:20+08:00">2019-07-12</time>
             
 
             
@@ -471,7 +471,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="post.wordcount">
-                  300
+                  467
                 </span>
               
 
@@ -487,7 +487,7 @@
                   <span class="post-meta-item-text">阅读时间 &asymp;</span>
                 
                 <span title="post.min2read">
-                  1
+                  2
                 </span>
               
             </div>
@@ -519,7 +519,11 @@
 <p>Runtime: 828 ms, faster than 8.10% of C++ online submissions for Best Time to Buy and Sell Stock.<br>Memory Usage: 9.6 MB, less than 14.91% of C++ online submissions for Best Time to Buy and Sell Stock.</p>
 <hr>
 <p>但是结果并不是很理想，时间用的太多了。有两个循环时间复杂读为O(n^2)</p>
-<h2 id="优化方法"><a href="#优化方法" class="headerlink" title="优化方法"></a>优化方法</h2><p>看评论有一种方法，</p>
+<h2 id="优化方法"><a href="#优化方法" class="headerlink" title="优化方法"></a>优化方法</h2><p>看评论有一种方法，其实只用记录之前都最小值和最大利润即可。如果当前值小于最小值就更新最小值，否则计算当前值与最小值都差值是不是大于最大利润。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">maxProfit</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; prices)</span> </span>&#123;   </span><br><span class="line">        <span class="keyword">if</span> (prices.size() &lt; <span class="number">2</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> maxPro = <span class="number">0</span>, minPrice = prices[<span class="number">0</span>];</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; prices.size(); i++)&#123;</span><br><span class="line">            <span class="keyword">if</span> (prices[i] - minPrice &gt; maxPro)</span><br><span class="line">                maxPro = prices[i] - minPrice;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span> (prices[i] &lt; minPrice)</span><br><span class="line">                minPrice = prices[i];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> maxPro;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>Runtime: 8 ms, faster than 78.13% of C++ online submissions for Best Time to Buy and Sell Stock.<br>Memory Usage: 9.5 MB, less than 60.83% of C++ online submissions for Best Time to Buy and Sell Stock.</p>
+<hr>
+<p>速度一下就快了很多～</p>
 
       
     </div>
@@ -839,7 +843,7 @@
     
       <span class="post-meta-item-text">文字总数&#58;</span>
     
-    <span title="post.totalcount">15.3k</span>
+    <span title="post.totalcount">15.4k</span>
   
 
   
