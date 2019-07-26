@@ -104,18 +104,18 @@
 
 
 
-  <meta name="description" content="题目描述我的解法解题思路实现代码高票解法实现代码代码分析知识总结">
+  <meta name="description" content="题目描述Determine if a 9x9 Sudoku board is valid. Only the filled cells need to be validated according to the following rules: Each row must contain the digits 1-9 without repetition.Each column must cont">
 <meta name="keywords" content="leetcode,vector,hashmap">
 <meta property="og:type" content="article">
 <meta property="og:title" content="36.Valid Sudoku">
 <meta property="og:url" content="http://yutouwd.github.io/posts/404733104/index.html">
 <meta property="og:site_name" content="yutouwd">
-<meta property="og:description" content="题目描述我的解法解题思路实现代码高票解法实现代码代码分析知识总结">
+<meta property="og:description" content="题目描述Determine if a 9x9 Sudoku board is valid. Only the filled cells need to be validated according to the following rules: Each row must contain the digits 1-9 without repetition.Each column must cont">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-07-23T10:50:27.665Z">
+<meta property="og:updated_time" content="2019-07-23T11:15:01.742Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="36.Valid Sudoku">
-<meta name="twitter:description" content="题目描述我的解法解题思路实现代码高票解法实现代码代码分析知识总结">
+<meta name="twitter:description" content="题目描述Determine if a 9x9 Sudoku board is valid. Only the filled cells need to be validated according to the following rules: Each row must contain the digits 1-9 without repetition.Each column must cont">
 
 
 
@@ -397,7 +397,7 @@
                 
               
 
-              <time title="创建时间：2019-07-23 18:49:02 / 修改时间：18:50:27" itemprop="dateCreated datePublished" datetime="2019-07-23T18:49:02+08:00">2019-07-23</time>
+              <time title="创建时间：2019-07-23 18:49:02 / 修改时间：19:15:01" itemprop="dateCreated datePublished" datetime="2019-07-23T18:49:02+08:00">2019-07-23</time>
             
 
             
@@ -478,7 +478,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="post.wordcount">
-                  32
+                  270
                 </span>
               
 
@@ -517,7 +517,22 @@
       
 
       
-        <h1 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h1><h1 id="我的解法"><a href="#我的解法" class="headerlink" title="我的解法"></a>我的解法</h1><h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><h2 id="实现代码"><a href="#实现代码" class="headerlink" title="实现代码"></a>实现代码</h2><h1 id="高票解法"><a href="#高票解法" class="headerlink" title="高票解法"></a>高票解法</h1><h2 id="实现代码-1"><a href="#实现代码-1" class="headerlink" title="实现代码"></a>实现代码</h2><h2 id="代码分析"><a href="#代码分析" class="headerlink" title="代码分析"></a>代码分析</h2><h1 id="知识总结"><a href="#知识总结" class="headerlink" title="知识总结"></a>知识总结</h1>
+        <h1 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h1><p>Determine if a 9x9 Sudoku board is valid. Only the filled cells need to be validated according to the following rules:</p>
+<p>Each row must contain the digits 1-9 without repetition.<br>Each column must contain the digits 1-9 without repetition.<br>Each of the 9 3x3 sub-boxes of the grid must contain the digits 1-9 without repetition.</p>
+<p>A partially filled sudoku which is valid.</p>
+<p>The Sudoku board could be partially filled, where empty cells are filled with the character ‘.’.</p>
+<p>Example 1:</p>
+<p>Input:<br>[<br>  [“5”,”3”,”.”,”.”,”7”,”.”,”.”,”.”,”.”],<br>  [“6”,”.”,”.”,”1”,”9”,”5”,”.”,”.”,”.”],<br>  [“.”,”9”,”8”,”.”,”.”,”.”,”.”,”6”,”.”],<br>  [“8”,”.”,”.”,”.”,”6”,”.”,”.”,”.”,”3”],<br>  [“4”,”.”,”.”,”8”,”.”,”3”,”.”,”.”,”1”],<br>  [“7”,”.”,”.”,”.”,”2”,”.”,”.”,”.”,”6”],<br>  [“.”,”6”,”.”,”.”,”.”,”.”,”2”,”8”,”.”],<br>  [“.”,”.”,”.”,”4”,”1”,”9”,”.”,”.”,”5”],<br>  [“.”,”.”,”.”,”.”,”8”,”.”,”.”,”7”,”9”]<br>]<br>Output: true<br>Example 2:</p>
+<p>Input:<br>[<br>  [“8”,”3”,”.”,”.”,”7”,”.”,”.”,”.”,”.”],<br>  [“6”,”.”,”.”,”1”,”9”,”5”,”.”,”.”,”.”],<br>  [“.”,”9”,”8”,”.”,”.”,”.”,”.”,”6”,”.”],<br>  [“8”,”.”,”.”,”.”,”6”,”.”,”.”,”.”,”3”],<br>  [“4”,”.”,”.”,”8”,”.”,”3”,”.”,”.”,”1”],<br>  [“7”,”.”,”.”,”.”,”2”,”.”,”.”,”.”,”6”],<br>  [“.”,”6”,”.”,”.”,”.”,”.”,”2”,”8”,”.”],<br>  [“.”,”.”,”.”,”4”,”1”,”9”,”.”,”.”,”5”],<br>  [“.”,”.”,”.”,”.”,”8”,”.”,”.”,”7”,”9”]<br>]<br>Output: false<br>Explanation: Same as Example 1, except with the 5 in the top left corner being<br>    modified to 8. Since there are two 8’s in the top left 3x3 sub-box, it is invalid.</p>
+<p>Note:</p>
+<ul>
+<li>A Sudoku board (partially filled) could be valid but is not necessarily solvable.</li>
+<li>Only the filled cells need to be validated according to the mentioned rules.</li>
+<li>The given board contain only digits 1-9 and the character ‘.’.</li>
+<li>The given board size is always 9x9.</li>
+</ul>
+<h1 id="我的解法"><a href="#我的解法" class="headerlink" title="我的解法"></a>我的解法</h1><h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><p>这道题目还是比较难的</p>
+<h2 id="实现代码"><a href="#实现代码" class="headerlink" title="实现代码"></a>实现代码</h2><h1 id="高票解法"><a href="#高票解法" class="headerlink" title="高票解法"></a>高票解法</h1><h2 id="实现代码-1"><a href="#实现代码-1" class="headerlink" title="实现代码"></a>实现代码</h2><h2 id="代码分析"><a href="#代码分析" class="headerlink" title="代码分析"></a>代码分析</h2><h1 id="知识总结"><a href="#知识总结" class="headerlink" title="知识总结"></a>知识总结</h1>
       
     </div>
 
@@ -586,6 +601,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/posts/4098248511/" rel="prev" title="914.X of a Kind in a Deck of Cards">
+                914.X of a Kind in a Deck of Cards <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -659,7 +678,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">19</span>
+                    <span class="site-state-item-count">20</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -842,7 +861,7 @@
     
       <span class="post-meta-item-text">文字总数&#58;</span>
     
-    <span title="post.totalcount">17.7k</span>
+    <span title="post.totalcount">17.9k</span>
   
 
   
