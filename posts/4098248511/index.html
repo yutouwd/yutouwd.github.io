@@ -112,7 +112,7 @@
 <meta property="og:site_name" content="yutouwd">
 <meta property="og:description" content="题目描述In a deck of cards, each card has an integer written on it. Return true if and only if you can choose X &amp;gt;= 2 such that it is possible to split the entire deck into 1 or more groups of cards, wh">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-07-28T09:08:19.458Z">
+<meta property="og:updated_time" content="2019-07-28T09:16:26.025Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="914.X of a Kind in a Deck of Cards">
 <meta name="twitter:description" content="题目描述In a deck of cards, each card has an integer written on it. Return true if and only if you can choose X &amp;gt;= 2 such that it is possible to split the entire deck into 1 or more groups of cards, wh">
@@ -414,7 +414,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-07-28 17:08:19" itemprop="dateModified" datetime="2019-07-28T17:08:19+08:00">2019-07-28</time>
+                <time title="修改时间：2019-07-28 17:16:26" itemprop="dateModified" datetime="2019-07-28T17:16:26+08:00">2019-07-28</time>
               
             
           </span>
@@ -483,7 +483,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="post.wordcount">
-                  824
+                  976
                 </span>
               
 
@@ -543,8 +543,11 @@
 <h1 id="高票解法"><a href="#高票解法" class="headerlink" title="高票解法"></a>高票解法</h1><p>看了下高票的解法，发现居然能用5行就能实现的，太厉害了吧。</p>
 <h2 id="实现代码-1"><a href="#实现代码-1" class="headerlink" title="实现代码"></a>实现代码</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">hasGroupsSizeX</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; deck)</span> </span>&#123;</span><br><span class="line">    <span class="built_in">unordered_map</span>&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt; count;</span><br><span class="line">    <span class="keyword">int</span> res = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i : deck) count[i]++;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">auto</span> i : count) res = __gcd(i.second, res);</span><br><span class="line">    <span class="keyword">return</span> res &gt; <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="代码分析"><a href="#代码分析" class="headerlink" title="代码分析"></a>代码分析</h2><p>首先就是for (int i : deck)这种用法就没怎么见过了，测试了一下<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc,<span class="keyword">char</span> * argv[])</span></span>&#123;</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; testcase = &#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">4</span>,<span class="number">3</span>,<span class="number">2</span>,<span class="number">1</span>&#125;;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i : testcase)</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; i &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>可以依次输出testcase里面的数字，感觉用法和iterator差不多只不过iterator返回的是地址，这个可以直接返回元素。好像是C++11的用法，参考：<a href="https://en.cppreference.com/w/cpp/language/range-for" target="_blank" rel="noopener">https://en.cppreference.com/w/cpp/language/range-for</a><br>继续分析</p>
-<h1 id="知识总结"><a href="#知识总结" class="headerlink" title="知识总结"></a>知识总结</h1>
+<p>可以依次输出testcase里面的数字，感觉用法和iterator差不多只不过iterator返回的是地址，这个可以直接返回元素。好像是C++11的用法，参考：<a href="https://en.cppreference.com/w/cpp/language/range-for" target="_blank" rel="noopener">https://en.cppreference.com/w/cpp/language/range-for</a>第一个for循环，就将deck数组里面数字出现的频率统计了一遍，并放到map里。</p>
+<p>接下来第二个for循环遍历整个map，然后就一个求最大公约数的过程，__gcd就是可以求两个数的最大公约数，这个for循环就求了每个数字出现的频率的最大公约数。</p>
+<h1 id="知识总结"><a href="#知识总结" class="headerlink" title="知识总结"></a>知识总结</h1><p>继续学习了map的用法，可以用两三句就可以把一个数组里出现的数据的频率统计了：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">map</span>&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt; count;</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i : <span class="built_in">array</span>)</span><br><span class="line">    count[i]++;</span><br></pre></td></tr></table></figure></p>
+<p>还学了一种更简单的for循环的用法。</p>
+
       
     </div>
 
@@ -865,7 +868,7 @@
     
       <span class="post-meta-item-text">文字总数&#58;</span>
     
-    <span title="post.totalcount">18.7k</span>
+    <span title="post.totalcount">18.9k</span>
   
 
   
