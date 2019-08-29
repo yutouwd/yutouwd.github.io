@@ -104,18 +104,18 @@
 
 
 
-  <meta name="description" content="题目描述Given a non-empty array of digits representing a non-negative integer, plus one to the integer. The digits are stored such that the most significant digit is at the head of the list, and each elem">
-<meta name="keywords" content="leetcode,vector">
+  <meta name="description" content="题目描述我的解法解题思路实现代码高票解法实现代码代码分析知识总结">
+<meta name="keywords" content="leetcode">
 <meta property="og:type" content="article">
-<meta property="og:title" content="66.Plus One">
-<meta property="og:url" content="http://yutouwd.github.io/posts/353015550/index.html">
+<meta property="og:title" content="A242-Valid-Anagram">
+<meta property="og:url" content="http://yutouwd.github.io/posts/544546071/index.html">
 <meta property="og:site_name" content="yutouwd">
-<meta property="og:description" content="题目描述Given a non-empty array of digits representing a non-negative integer, plus one to the integer. The digits are stored such that the most significant digit is at the head of the list, and each elem">
+<meta property="og:description" content="题目描述我的解法解题思路实现代码高票解法实现代码代码分析知识总结">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-07-22T13:49:48.241Z">
+<meta property="og:updated_time" content="2019-08-29T09:39:09.335Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="66.Plus One">
-<meta name="twitter:description" content="题目描述Given a non-empty array of digits representing a non-negative integer, plus one to the integer. The digits are stored such that the most significant digit is at the head of the list, and each elem">
+<meta name="twitter:title" content="A242-Valid-Anagram">
+<meta name="twitter:description" content="题目描述我的解法解题思路实现代码高票解法实现代码代码分析知识总结">
 
 
 
@@ -124,7 +124,7 @@
 
 
 
-  <link rel="canonical" href="http://yutouwd.github.io/posts/353015550/">
+  <link rel="canonical" href="http://yutouwd.github.io/posts/544546071/">
 
 
 
@@ -134,7 +134,7 @@
   };
 </script>
 
-  <title>66.Plus One | yutouwd</title>
+  <title>A242-Valid-Anagram | yutouwd</title>
   
 
 
@@ -354,7 +354,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yutouwd.github.io/posts/353015550/">
+    <link itemprop="mainEntityOfPage" href="http://yutouwd.github.io/posts/544546071/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="yutouwd">
@@ -371,7 +371,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">66.Plus One
+          <h2 class="post-title" itemprop="name headline">A242-Valid-Anagram
 
               
             
@@ -397,13 +397,9 @@
                 
               
 
-              <time title="创建时间：2019-07-22 21:19:25 / 修改时间：21:49:48" itemprop="dateCreated datePublished" datetime="2019-07-22T21:19:25+08:00">2019-07-22</time>
+              <time title="创建时间：2019-08-29 17:39:09" itemprop="dateCreated datePublished" datetime="2019-08-29T17:39:09+08:00">2019-08-29</time>
             
 
-            
-              
-
-              
             
           </span>
 
@@ -423,13 +419,6 @@
 
                 
                 
-                  ，
-                
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/leetcode/Easy/" itemprop="url" rel="index"><span itemprop="name">Easy</span></a></span>
-
-                
-                
               
             </span>
           
@@ -444,8 +433,8 @@
                   <i class="fa fa-comment-o"></i>
                 </span>
             
-                <a href="/posts/353015550/#comments" itemprop="discussionUrl">
-                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/posts/353015550/" itemprop="commentCount"></span>
+                <a href="/posts/544546071/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/posts/544546071/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -453,7 +442,7 @@
 
           
           
-            <span id="/posts/353015550/" class="leancloud_visitors" data-flag-title="66.Plus One">
+            <span id="/posts/544546071/" class="leancloud_visitors" data-flag-title="A242-Valid-Anagram">
               <span class="post-meta-divider">|</span>
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
@@ -478,7 +467,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="post.wordcount">
-                  447
+                  32
                 </span>
               
 
@@ -494,7 +483,7 @@
                   <span class="post-meta-item-text">阅读时间 &asymp;</span>
                 
                 <span title="post.min2read">
-                  2
+                  1
                 </span>
               
             </div>
@@ -517,19 +506,7 @@
       
 
       
-        <h1 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h1><p>Given a non-empty array of digits representing a non-negative integer, plus one to the integer.</p>
-<p>The digits are stored such that the most significant digit is at the head of the list, and each element in the array contain a single digit.</p>
-<p>You may assume the integer does not contain any leading zero, except the number 0 itself.</p>
-<p>Example 1:</p>
-<p>Input: [1,2,3]<br>Output: [1,2,4]<br>Explanation: The array represents the integer 123.<br>Example 2:</p>
-<p>Input: [4,3,2,1]<br>Output: [4,3,2,2]<br>Explanation: The array represents the integer 4321.</p>
-<h1 id="我的解法"><a href="#我的解法" class="headerlink" title="我的解法"></a>我的解法</h1><h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><p>可以先设计一个函数，将输入值加一并且返回是否有进位，有进位就返回true，没有返回false。然后在主程序里写个for循环，如果一直有进位就循环继续，没有进位的话就跳出循环。最后还要判断下数组的第一位是不是零，如果是零就在数组的开头插入一个1。</p>
-<h2 id="实现代码"><a href="#实现代码" class="headerlink" title="实现代码"></a>实现代码</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">addOneCarry</span><span class="params">(<span class="keyword">int</span>&amp; digit)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (digit == <span class="number">9</span>)&#123;</span><br><span class="line">            digit = <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span>&#123;</span><br><span class="line">            digit++;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; plusOne(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; digits) &#123;</span><br><span class="line">        <span class="keyword">int</span> n = digits.size();</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = n<span class="number">-1</span>; i &gt;= <span class="number">0</span>; i--)&#123;</span><br><span class="line">            <span class="keyword">if</span> (addOneCarry(digits[i]))</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (digits[<span class="number">0</span>] == <span class="number">0</span>)</span><br><span class="line">            digits.insert(digits.begin(),<span class="number">1</span>);</span><br><span class="line">        <span class="keyword">return</span> digits;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p>Runtime: 4 ms, faster than 73.90% of C++ online submissions for Plus One.<br>Memory Usage: 8.6 MB, less than 49.35% of C++ online submissions for Plus One.</p>
-<h1 id="高票解法"><a href="#高票解法" class="headerlink" title="高票解法"></a>高票解法</h1><p>看了看评论，发现其实可以简化一下程序的。直接判断当前位是不是9就可以了。</p>
-<h2 id="实现代码-1"><a href="#实现代码-1" class="headerlink" title="实现代码"></a>实现代码</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; plusOne(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; digits) &#123;</span><br><span class="line">        <span class="keyword">int</span> n = digits.size();</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = n<span class="number">-1</span>; i &gt;= <span class="number">0</span>; i--)&#123;</span><br><span class="line">            <span class="keyword">if</span> (digits[i] == <span class="number">9</span>)</span><br><span class="line">                digits[i] = <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">else</span>&#123;</span><br><span class="line">                digits[i]++;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (digits[<span class="number">0</span>] == <span class="number">0</span>)</span><br><span class="line">            digits.insert(digits.begin(),<span class="number">1</span>);</span><br><span class="line">        <span class="keyword">return</span> digits;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p>Runtime: 4 ms, faster than 73.90% of C++ online submissions for Plus One.<br>Memory Usage: 8.5 MB, less than 69.58% of C++ online submissions for Plus One.</p>
-
+        <h1 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h1><h1 id="我的解法"><a href="#我的解法" class="headerlink" title="我的解法"></a>我的解法</h1><h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><h2 id="实现代码"><a href="#实现代码" class="headerlink" title="实现代码"></a>实现代码</h2><h1 id="高票解法"><a href="#高票解法" class="headerlink" title="高票解法"></a>高票解法</h1><h2 id="实现代码-1"><a href="#实现代码-1" class="headerlink" title="实现代码"></a>实现代码</h2><h2 id="代码分析"><a href="#代码分析" class="headerlink" title="代码分析"></a>代码分析</h2><h1 id="知识总结"><a href="#知识总结" class="headerlink" title="知识总结"></a>知识总结</h1>
       
     </div>
 
@@ -553,8 +530,6 @@
         <div class="post-tags">
           
             <a href="/tags/leetcode/" rel="tag"><i class="menu-item-icon fa fa-fw fa-tags"></i> leetcode</a>
-          
-            <a href="/tags/vector/" rel="tag"><i class="menu-item-icon fa fa-fw fa-tags"></i> vector</a>
           
         </div>
       
@@ -587,8 +562,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/posts/1550415194/" rel="next" title="136.Single Number">
-                <i class="fa fa-chevron-left"></i> 136.Single Number
+              <a href="/posts/1245254830/" rel="next" title="387.First Unique Character in a String">
+                <i class="fa fa-chevron-left"></i> 387.First Unique Character in a String
               </a>
             
           </div>
@@ -596,10 +571,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/posts/2335896064/" rel="prev" title="283.Move Zeroes">
-                283.Move Zeroes <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -822,7 +793,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#题目描述"><span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#我的解法"><span class="nav-text">我的解法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#解题思路"><span class="nav-text">解题思路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实现代码"><span class="nav-text">实现代码</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#高票解法"><span class="nav-text">高票解法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#实现代码-1"><span class="nav-text">实现代码</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#题目描述"><span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#我的解法"><span class="nav-text">我的解法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#解题思路"><span class="nav-text">解题思路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实现代码"><span class="nav-text">实现代码</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#高票解法"><span class="nav-text">高票解法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#实现代码-1"><span class="nav-text">实现代码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码分析"><span class="nav-text">代码分析</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#知识总结"><span class="nav-text">知识总结</span></a></li></ol></div>
             
 
           </div>
