@@ -2,9 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yutouwd.github.io/leetcode/index.html</loc>
+    
+    <lastmod>2019-09-04T15:08:19.079Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yutouwd.github.io/posts/3749239881/</loc>
     
-    <lastmod>2019-09-04T15:06:20.063Z</lastmod>
+    <lastmod>2019-09-04T15:07:12.824Z</lastmod>
     
   </url>
   
@@ -12,13 +19,6 @@
     <loc>http://yutouwd.github.io/posts/544546071/</loc>
     
     <lastmod>2019-08-29T10:36:11.700Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yutouwd.github.io/leetcode/index.html</loc>
-    
-    <lastmod>2019-08-29T09:40:11.982Z</lastmod>
     
   </url>
   
