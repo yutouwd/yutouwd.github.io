@@ -104,18 +104,18 @@
 
 
 
-  <meta name="description" content="题目描述Given a string, find the first non-repeating character in it and return it’s index. If it doesn’t exist, return -1. Examples: s = “leetcode”return 0. s = “loveleetcode”,return 2.Note: You may assu">
-<meta name="keywords" content="leetcode,string,hashmap">
+  <meta name="description" content="题目描述Write a function to delete a node (except the tail) in a singly linked list, given only access to that node. Given linked list – head = [4,5,1,9], which looks like following: Example 1:Input: head">
+<meta name="keywords" content="leetcode,List">
 <meta property="og:type" content="article">
-<meta property="og:title" content="387.First Unique Character in a String">
-<meta property="og:url" content="http://yutouwd.github.io/posts/1245254830/index.html">
+<meta property="og:title" content="A237-Delete-Node-in-a-List">
+<meta property="og:url" content="http://yutouwd.github.io/posts/3749239881/index.html">
 <meta property="og:site_name" content="yutouwd">
-<meta property="og:description" content="题目描述Given a string, find the first non-repeating character in it and return it’s index. If it doesn’t exist, return -1. Examples: s = “leetcode”return 0. s = “loveleetcode”,return 2.Note: You may assu">
+<meta property="og:description" content="题目描述Write a function to delete a node (except the tail) in a singly linked list, given only access to that node. Given linked list – head = [4,5,1,9], which looks like following: Example 1:Input: head">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-08-29T09:26:29.347Z">
+<meta property="og:updated_time" content="2019-09-04T15:06:20.063Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="387.First Unique Character in a String">
-<meta name="twitter:description" content="题目描述Given a string, find the first non-repeating character in it and return it’s index. If it doesn’t exist, return -1. Examples: s = “leetcode”return 0. s = “loveleetcode”,return 2.Note: You may assu">
+<meta name="twitter:title" content="A237-Delete-Node-in-a-List">
+<meta name="twitter:description" content="题目描述Write a function to delete a node (except the tail) in a singly linked list, given only access to that node. Given linked list – head = [4,5,1,9], which looks like following: Example 1:Input: head">
 
 
 
@@ -124,7 +124,7 @@
 
 
 
-  <link rel="canonical" href="http://yutouwd.github.io/posts/1245254830/">
+  <link rel="canonical" href="http://yutouwd.github.io/posts/3749239881/">
 
 
 
@@ -134,7 +134,7 @@
   };
 </script>
 
-  <title>387.First Unique Character in a String | yutouwd</title>
+  <title>A237-Delete-Node-in-a-List | yutouwd</title>
   
 
 
@@ -354,7 +354,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yutouwd.github.io/posts/1245254830/">
+    <link itemprop="mainEntityOfPage" href="http://yutouwd.github.io/posts/3749239881/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="yutouwd">
@@ -371,7 +371,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">387.First Unique Character in a String
+          <h2 class="post-title" itemprop="name headline">A237-Delete-Node-in-a-List
 
               
             
@@ -397,7 +397,7 @@
                 
               
 
-              <time title="创建时间：2019-08-29 17:07:56 / 修改时间：17:26:29" itemprop="dateCreated datePublished" datetime="2019-08-29T17:07:56+08:00">2019-08-29</time>
+              <time title="创建时间：2019-09-04 23:00:14 / 修改时间：23:06:20" itemprop="dateCreated datePublished" datetime="2019-09-04T23:00:14+08:00">2019-09-04</time>
             
 
             
@@ -444,8 +444,8 @@
                   <i class="fa fa-comment-o"></i>
                 </span>
             
-                <a href="/posts/1245254830/#comments" itemprop="discussionUrl">
-                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/posts/1245254830/" itemprop="commentCount"></span>
+                <a href="/posts/3749239881/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/posts/3749239881/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -453,7 +453,7 @@
 
           
           
-            <span id="/posts/1245254830/" class="leancloud_visitors" data-flag-title="387.First Unique Character in a String">
+            <span id="/posts/3749239881/" class="leancloud_visitors" data-flag-title="A237-Delete-Node-in-a-List">
               <span class="post-meta-divider">|</span>
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
@@ -478,7 +478,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="post.wordcount">
-                  416
+                  226
                 </span>
               
 
@@ -494,7 +494,7 @@
                   <span class="post-meta-item-text">阅读时间 &asymp;</span>
                 
                 <span title="post.min2read">
-                  2
+                  1
                 </span>
               
             </div>
@@ -517,17 +517,12 @@
       
 
       
-        <h1 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h1><p>Given a string, find the first non-repeating character in it and return it’s index. If it doesn’t exist, return -1.</p>
-<p>Examples:</p>
-<p>s = “leetcode”<br>return 0.</p>
-<p>s = “loveleetcode”,<br>return 2.<br>Note: You may assume the string contain only lowercase letters.</p>
-<h1 id="我的解法"><a href="#我的解法" class="headerlink" title="我的解法"></a>我的解法</h1><h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><p>题目要求判断一个字符串中第一个不重复的字符，可以用一个map来统计字符串中字符出现的次数，然后再找到第一个出现次数为1的字符就可以了</p>
-<h2 id="实现代码"><a href="#实现代码" class="headerlink" title="实现代码"></a>实现代码</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">firstUniqChar</span><span class="params">(<span class="built_in">string</span> s)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">unordered_map</span>&lt;<span class="keyword">char</span>, <span class="keyword">int</span>&gt; chara;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">char</span> i : s) chara[i]++;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; s.size(); i++)&#123;</span><br><span class="line">            <span class="keyword">if</span> (chara[s[i]] == <span class="number">1</span>)</span><br><span class="line">                <span class="keyword">return</span> i;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p>Runtime: 52 ms, faster than 59.91% of C++ online submissions for First Unique Character in a String.<br>Memory Usage: 12.9 MB, less than 68.75% of C++ online submissions for First Unique Character in a String.</p>
-<h1 id="高票解法"><a href="#高票解法" class="headerlink" title="高票解法"></a>高票解法</h1><p>用时稍微有些长，因为要遍历字符串两遍，如果字符串很长就要用时很久，看到一个只用遍历一变的方法，就是第一次遍历的时候同时也要储存字符的位置，然后之后直接遍历map找到出现一次且位置最前的字符就可以了。</p>
-<h2 id="实现代码-1"><a href="#实现代码-1" class="headerlink" title="实现代码"></a>实现代码</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">firstUniqChar</span><span class="params">(<span class="built_in">string</span> s)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">unordered_map</span>&lt;<span class="keyword">char</span>, pair&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt;&gt; m;</span><br><span class="line">        <span class="keyword">int</span> idx = s.size();</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; s.size(); i++) &#123;</span><br><span class="line">            m[s[i]].first++;</span><br><span class="line">            m[s[i]].second = i;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">auto</span> &amp;p : m) &#123;</span><br><span class="line">            <span class="keyword">if</span> (p.second.first == <span class="number">1</span>) idx = min(idx, p.second.second);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> idx == s.size() ? <span class="number">-1</span> : idx;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p>Runtime: 68 ms, faster than 31.77% of C++ online submissions for First Unique Character in a String.<br>Memory Usage: 13.3 MB, less than 10.94% of C++ online submissions for First Unique Character in a String.</p>
-<p>用时好像还更久一点。。。</p>
+        <h1 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h1><p>Write a function to delete a node (except the tail) in a singly linked list, given only access to that node.</p>
+<p>Given linked list – head = [4,5,1,9], which looks like following:</p>
+<p>Example 1:<br>Input: head = [4,5,1,9], node = 5<br>Output: [4,1,9]<br>Explanation: You are given the second node with value 5, the linked list should become 4 -&gt; 1 -&gt; 9 after calling your function.</p>
+<p>Example 2:<br>Input: head = [4,5,1,9], node = 1<br>Output: [4,5,9]<br>Explanation: You are given the third node with value 1, the linked list should become 4 -&gt; 5 -&gt; 9 after calling your function.</p>
+<p>Note:<br>The linked list will have at least two elements.<br>All of the nodes’ values will be unique.<br>The given node will not be the tail and it will always be a valid node of the linked list.<br>Do not return anything from your function.</p>
+<h1 id="我的解法"><a href="#我的解法" class="headerlink" title="我的解法"></a>我的解法</h1><h2 id="实现代码"><a href="#实现代码" class="headerlink" title="实现代码"></a>实现代码</h2><p>这道题真的很奇怪，没有给链表的head直接给了当前的节点🤔<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"> * struct ListNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     ListNode *next;</span></span><br><span class="line"><span class="comment"> *     ListNode(int x) : val(x), next(NULL) &#123;&#125;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">deleteNode</span><span class="params">(ListNode* node)</span> </span>&#123;</span><br><span class="line">        *node = *(node-&gt;next);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -553,9 +548,7 @@
           
             <a href="/tags/leetcode/" rel="tag"><i class="menu-item-icon fa fa-fw fa-tags"></i> leetcode</a>
           
-            <a href="/tags/string/" rel="tag"><i class="menu-item-icon fa fa-fw fa-tags"></i> string</a>
-          
-            <a href="/tags/hashmap/" rel="tag"><i class="menu-item-icon fa fa-fw fa-tags"></i> hashmap</a>
+            <a href="/tags/List/" rel="tag"><i class="menu-item-icon fa fa-fw fa-tags"></i> List</a>
           
         </div>
       
@@ -588,8 +581,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/posts/3640092658/" rel="next" title="344.Reverse String">
-                <i class="fa fa-chevron-left"></i> 344.Reverse String
+              <a href="/posts/544546071/" rel="next" title="242.Valid Anagram">
+                <i class="fa fa-chevron-left"></i> 242.Valid Anagram
               </a>
             
           </div>
@@ -597,10 +590,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/posts/544546071/" rel="prev" title="242.Valid Anagram">
-                242.Valid Anagram <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -825,7 +814,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#题目描述"><span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#我的解法"><span class="nav-text">我的解法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#解题思路"><span class="nav-text">解题思路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实现代码"><span class="nav-text">实现代码</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#高票解法"><span class="nav-text">高票解法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#实现代码-1"><span class="nav-text">实现代码</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#题目描述"><span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#我的解法"><span class="nav-text">我的解法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#实现代码"><span class="nav-text">实现代码</span></a></li></ol></li></ol></div>
             
 
           </div>

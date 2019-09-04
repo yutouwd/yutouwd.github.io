@@ -104,18 +104,18 @@
 
 
 
-  <meta name="description" content="题目描述我的解法解题思路实现代码高票解法实现代码代码分析知识总结">
-<meta name="keywords" content="leetcode">
+  <meta name="description" content="题目描述Given two strings s and t , write a function to determine if t is an anagram of s. Example 1:Input: s = “anagram”, t = “nagaram”Output: true Example 2:Input: s = “rat”, t = “car”Output: false Note">
+<meta name="keywords" content="leetcode,string,hashmap">
 <meta property="og:type" content="article">
-<meta property="og:title" content="A242-Valid-Anagram">
+<meta property="og:title" content="242.Valid Anagram">
 <meta property="og:url" content="http://yutouwd.github.io/posts/544546071/index.html">
 <meta property="og:site_name" content="yutouwd">
-<meta property="og:description" content="题目描述我的解法解题思路实现代码高票解法实现代码代码分析知识总结">
+<meta property="og:description" content="题目描述Given two strings s and t , write a function to determine if t is an anagram of s. Example 1:Input: s = “anagram”, t = “nagaram”Output: true Example 2:Input: s = “rat”, t = “car”Output: false Note">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-08-29T09:39:09.335Z">
+<meta property="og:updated_time" content="2019-08-29T10:36:11.700Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="A242-Valid-Anagram">
-<meta name="twitter:description" content="题目描述我的解法解题思路实现代码高票解法实现代码代码分析知识总结">
+<meta name="twitter:title" content="242.Valid Anagram">
+<meta name="twitter:description" content="题目描述Given two strings s and t , write a function to determine if t is an anagram of s. Example 1:Input: s = “anagram”, t = “nagaram”Output: true Example 2:Input: s = “rat”, t = “car”Output: false Note">
 
 
 
@@ -134,7 +134,7 @@
   };
 </script>
 
-  <title>A242-Valid-Anagram | yutouwd</title>
+  <title>242.Valid Anagram | yutouwd</title>
   
 
 
@@ -371,7 +371,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">A242-Valid-Anagram
+          <h2 class="post-title" itemprop="name headline">242.Valid Anagram
 
               
             
@@ -397,9 +397,13 @@
                 
               
 
-              <time title="创建时间：2019-08-29 17:39:09" itemprop="dateCreated datePublished" datetime="2019-08-29T17:39:09+08:00">2019-08-29</time>
+              <time title="创建时间：2019-08-29 17:39:09 / 修改时间：18:36:11" itemprop="dateCreated datePublished" datetime="2019-08-29T17:39:09+08:00">2019-08-29</time>
             
 
+            
+              
+
+              
             
           </span>
 
@@ -416,6 +420,13 @@
               
               
                 <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/leetcode/" itemprop="url" rel="index"><span itemprop="name">leetcode</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/leetcode/Easy/" itemprop="url" rel="index"><span itemprop="name">Easy</span></a></span>
 
                 
                 
@@ -442,7 +453,7 @@
 
           
           
-            <span id="/posts/544546071/" class="leancloud_visitors" data-flag-title="A242-Valid-Anagram">
+            <span id="/posts/544546071/" class="leancloud_visitors" data-flag-title="242.Valid Anagram">
               <span class="post-meta-divider">|</span>
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
@@ -467,7 +478,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="post.wordcount">
-                  32
+                  310
                 </span>
               
 
@@ -506,7 +517,18 @@
       
 
       
-        <h1 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h1><h1 id="我的解法"><a href="#我的解法" class="headerlink" title="我的解法"></a>我的解法</h1><h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><h2 id="实现代码"><a href="#实现代码" class="headerlink" title="实现代码"></a>实现代码</h2><h1 id="高票解法"><a href="#高票解法" class="headerlink" title="高票解法"></a>高票解法</h1><h2 id="实现代码-1"><a href="#实现代码-1" class="headerlink" title="实现代码"></a>实现代码</h2><h2 id="代码分析"><a href="#代码分析" class="headerlink" title="代码分析"></a>代码分析</h2><h1 id="知识总结"><a href="#知识总结" class="headerlink" title="知识总结"></a>知识总结</h1>
+        <h1 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h1><p>Given two strings s and t , write a function to determine if t is an anagram of s.</p>
+<p>Example 1:<br>Input: s = “anagram”, t = “nagaram”<br>Output: true</p>
+<p>Example 2:<br>Input: s = “rat”, t = “car”<br>Output: false</p>
+<p>Note:<br>You may assume the string contains only lowercase alphabets.</p>
+<p>Follow up:<br>What if the inputs contain unicode characters? How would you adapt your solution to such case?</p>
+<h1 id="我的解法"><a href="#我的解法" class="headerlink" title="我的解法"></a>我的解法</h1><h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><p>题目要求判断两个字符串是否是以同样的字符组成</p>
+<h2 id="实现代码"><a href="#实现代码" class="headerlink" title="实现代码"></a>实现代码</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">isAnagram</span><span class="params">(<span class="built_in">string</span> s, <span class="built_in">string</span> t)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (s.size() != t.size()) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        <span class="built_in">unordered_map</span>&lt;<span class="keyword">char</span>, <span class="keyword">int</span>&gt; m1,m2;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">auto</span> i : s) m1[i]++;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">auto</span> i : t) m2[i]++;</span><br><span class="line">        <span class="keyword">if</span> (m1 == m2) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>Runtime: 16 ms, faster than 55.14% of C++ online submissions for Valid Anagram.<br>Memory Usage: 9.5 MB, less than 74.63% of C++ online submissions for Valid Anagram.</p>
+<h1 id="高票解法"><a href="#高票解法" class="headerlink" title="高票解法"></a>高票解法</h1><p>因为只有小写的字母，所以可以用一个数组来统计每个字符出现的次数</p>
+<h2 id="实现代码-1"><a href="#实现代码-1" class="headerlink" title="实现代码"></a>实现代码</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">isAnagram</span><span class="params">(<span class="built_in">string</span> s, <span class="built_in">string</span> t)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (s.length() != t.length()) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        <span class="keyword">int</span> n = s.length();</span><br><span class="line">        <span class="keyword">int</span> counts[<span class="number">26</span>] = &#123;<span class="number">0</span>&#125;;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123; </span><br><span class="line">            counts[s[i] - <span class="string">'a'</span>]++;</span><br><span class="line">            counts[t[i] - <span class="string">'a'</span>]--;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">26</span>; i++)</span><br><span class="line">            <span class="keyword">if</span> (counts[i]) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>Runtime: 8 ms, faster than 97.83% of C++ online submissions for Valid Anagram.<br>Memory Usage: 9.6 MB, less than 55.22% of C++ online submissions for Valid Anagram.</p>
+
       
     </div>
 
@@ -530,6 +552,10 @@
         <div class="post-tags">
           
             <a href="/tags/leetcode/" rel="tag"><i class="menu-item-icon fa fa-fw fa-tags"></i> leetcode</a>
+          
+            <a href="/tags/string/" rel="tag"><i class="menu-item-icon fa fa-fw fa-tags"></i> string</a>
+          
+            <a href="/tags/hashmap/" rel="tag"><i class="menu-item-icon fa fa-fw fa-tags"></i> hashmap</a>
           
         </div>
       
@@ -571,6 +597,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/posts/3749239881/" rel="prev" title="A237-Delete-Node-in-a-List">
+                A237-Delete-Node-in-a-List <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -644,7 +674,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">23</span>
+                    <span class="site-state-item-count">24</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -724,7 +754,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">18</span>
+                      
+                    
+                    <span class="site-state-item-count">19</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -793,7 +825,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#题目描述"><span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#我的解法"><span class="nav-text">我的解法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#解题思路"><span class="nav-text">解题思路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实现代码"><span class="nav-text">实现代码</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#高票解法"><span class="nav-text">高票解法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#实现代码-1"><span class="nav-text">实现代码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码分析"><span class="nav-text">代码分析</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#知识总结"><span class="nav-text">知识总结</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#题目描述"><span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#我的解法"><span class="nav-text">我的解法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#解题思路"><span class="nav-text">解题思路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实现代码"><span class="nav-text">实现代码</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#高票解法"><span class="nav-text">高票解法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#实现代码-1"><span class="nav-text">实现代码</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -827,7 +859,7 @@
     
       <span class="post-meta-item-text">文字总数&#58;</span>
     
-    <span title="post.totalcount">19.7k</span>
+    <span title="post.totalcount">20.2k</span>
   
 
   
