@@ -105,14 +105,14 @@
 
 
   <meta name="description" content="题目描述Given an integer array nums, find the contiguous subarray (containing at least one number) which has the largest sum and return its sum. Example:Input: [-2,1,-3,4,-1,2,1,-5,4],Output: 6Explanation">
-<meta name="keywords" content="leetcode,分治法">
+<meta name="keywords" content="leetcode,math,分治法">
 <meta property="og:type" content="article">
 <meta property="og:title" content="A53-Maximum-Subarray">
 <meta property="og:url" content="http://yutouwd.github.io/posts/1411250823/index.html">
 <meta property="og:site_name" content="yutouwd">
 <meta property="og:description" content="题目描述Given an integer array nums, find the contiguous subarray (containing at least one number) which has the largest sum and return its sum. Example:Input: [-2,1,-3,4,-1,2,1,-5,4],Output: 6Explanation">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-09-12T13:40:13.008Z">
+<meta property="og:updated_time" content="2019-09-12T15:16:39.497Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="A53-Maximum-Subarray">
 <meta name="twitter:description" content="题目描述Given an integer array nums, find the contiguous subarray (containing at least one number) which has the largest sum and return its sum. Example:Input: [-2,1,-3,4,-1,2,1,-5,4],Output: 6Explanation">
@@ -414,7 +414,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-09-12 21:40:13" itemprop="dateModified" datetime="2019-09-12T21:40:13+08:00">2019-09-12</time>
+                <time title="修改时间：2019-09-12 23:16:39" itemprop="dateModified" datetime="2019-09-12T23:16:39+08:00">2019-09-12</time>
               
             
           </span>
@@ -490,7 +490,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="post.wordcount">
-                  241
+                  741
                 </span>
               
 
@@ -506,7 +506,7 @@
                   <span class="post-meta-item-text">阅读时间 &asymp;</span>
                 
                 <span title="post.min2read">
-                  1
+                  3
                 </span>
               
             </div>
@@ -535,8 +535,12 @@
 <h1 id="我的解法"><a href="#我的解法" class="headerlink" title="我的解法"></a>我的解法</h1><h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><p>今天笔试的时候遇到的一个题目，就想到了用暴力的做法，就是遍历数组两遍，把所有的可能都算出来</p>
 <h2 id="实现代码"><a href="#实现代码" class="headerlink" title="实现代码"></a>实现代码</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">maxSubArray</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> maxSum = INT_MIN;</span><br><span class="line">        <span class="keyword">int</span> curSum = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.size(); i++)&#123;</span><br><span class="line">            curSum = nums[i];</span><br><span class="line">            <span class="keyword">if</span> (curSum &gt; maxSum)</span><br><span class="line">                maxSum = curSum;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = i + <span class="number">1</span>; j &lt; nums.size(); j++)&#123;</span><br><span class="line">                curSum += nums[j];</span><br><span class="line">                <span class="keyword">if</span> (curSum &gt; maxSum)&#123;</span><br><span class="line">                    maxSum = curSum;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> maxSum;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <p>Runtime: 308 ms, faster than 5.00% of C++ online submissions for Maximum Subarray.<br>Memory Usage: 9.2 MB, less than 99.02% of C++ online submissions for Maximum Subarray.</p>
-<p>速度真的好慢。。。因为是O(n^2)吧</p>
-<h2 id="贪心算法"><a href="#贪心算法" class="headerlink" title="贪心算法"></a>贪心算法</h2>
+<p>速度真的好慢。。。因为时间复杂度是O(n^2)吧</p>
+<h1 id="一次遍历"><a href="#一次遍历" class="headerlink" title="一次遍历"></a>一次遍历</h1><p>看到一个<a href="https://leetcode-cn.com/problems/maximum-subarray/solution/bao-li-qiu-jie-by-pandawakaka/" target="_blank" rel="noopener">python实现</a>的一次遍历的方法，转成了C++代码。不得不说C++都没有大于两个max的函数，还要自己写一个，比python麻烦多了。<br>不过后来发现其实这个程序里不需要用到四个参数的max，自己也把程序简化了一下，去除了一些多余的判断。</p>
+<p>思路就是使用两个变量，一个记录当前子集的和，另一个记录最大子集的和。然后在遍历的过程中判断如果当前的子集（不包括当前值）是不是大于0：如果大于零就把当前值加到当前子集的和中，然后判断是当前子集大还是最大子集大，并更新最大子集；如果是小于等于零就可以认为这个子集对于构成一个最大和的子集是没有贡献的，然后就从当前值开始构成当前子集，并继续开始判断。<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">maxSubArray</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (nums.size() == <span class="number">1</span>) <span class="keyword">return</span> nums[<span class="number">0</span>];</span><br><span class="line">        <span class="comment">//使用两个变量，一个记录最大的和，一个记录当前的和</span></span><br><span class="line">        <span class="keyword">int</span> curSum = nums[<span class="number">0</span>]; <span class="comment">// 当前子集的和</span></span><br><span class="line">        <span class="keyword">int</span> maxSum = curSum;    <span class="comment">// 最大的和</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; nums.size(); i++)&#123;</span><br><span class="line">            <span class="comment">// 如果当前子集为正值，就把当前值加到当前子集中，再判断是之前的最大子集大还是当前子集大</span></span><br><span class="line">            <span class="keyword">if</span> (curSum &gt; <span class="number">0</span>)&#123;</span><br><span class="line">                curSum += nums[i];</span><br><span class="line">                maxSum = max(maxSum, curSum + nums[i]);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">// 如果当前子集为0或者负数那么从当前值开始往后求后面的子集</span></span><br><span class="line">            <span class="keyword">else</span>&#123;</span><br><span class="line">                maxSum = max(maxSum, nums[i]);</span><br><span class="line">                curSum = nums[i];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> max_;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<p>Runtime: 4 ms, faster than 98.58% of C++ online submissions for Maximum Subarray.<br>Memory Usage: 9.1 MB, less than 100.00% of C++ online submissions for Maximum Subarray.</p>
+<p>只用4ms了，快了真的不是一点半点，算法时间复杂度O(n)，空间复杂度O(1)。</p>
+<h1 id="分治法"><a href="#分治法" class="headerlink" title="分治法"></a>分治法</h1><h1 id="动态规划"><a href="#动态规划" class="headerlink" title="动态规划"></a>动态规划</h1><h1 id="贪心算法"><a href="#贪心算法" class="headerlink" title="贪心算法"></a>贪心算法</h1>
       
     </div>
 
@@ -560,6 +564,8 @@
         <div class="post-tags">
           
             <a href="/tags/leetcode/" rel="tag"><i class="menu-item-icon fa fa-fw fa-tags"></i> leetcode</a>
+          
+            <a href="/tags/math/" rel="tag"><i class="menu-item-icon fa fa-fw fa-tags"></i> math</a>
           
             <a href="/tags/分治法/" rel="tag"><i class="menu-item-icon fa fa-fw fa-tags"></i> 分治法</a>
           
@@ -831,7 +837,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#题目描述"><span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#我的解法"><span class="nav-text">我的解法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#解题思路"><span class="nav-text">解题思路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实现代码"><span class="nav-text">实现代码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#贪心算法"><span class="nav-text">贪心算法</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#题目描述"><span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#我的解法"><span class="nav-text">我的解法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#解题思路"><span class="nav-text">解题思路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实现代码"><span class="nav-text">实现代码</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#一次遍历"><span class="nav-text">一次遍历</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#分治法"><span class="nav-text">分治法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#动态规划"><span class="nav-text">动态规划</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#贪心算法"><span class="nav-text">贪心算法</span></a></li></ol></div>
             
 
           </div>
@@ -865,7 +871,7 @@
     
       <span class="post-meta-item-text">文字总数&#58;</span>
     
-    <span title="post.totalcount">21.4k</span>
+    <span title="post.totalcount">21.9k</span>
   
 
   
