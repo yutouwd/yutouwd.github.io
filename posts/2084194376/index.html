@@ -104,18 +104,18 @@
 
 
 
-  <meta name="description" content="题目描述我的解法解题思路实现代码高票解法实现代码代码分析知识总结">
+  <meta name="description" content="题目描述Given an integer, write a function to determine if it is a power of three. Example 1:Input: 27Output: true Example 2:Input: 0Output: false Example 3:Input: 9Output: true Example 4:Input: 45Output:">
 <meta name="keywords" content="leetcode,math">
 <meta property="og:type" content="article">
 <meta property="og:title" content="326.Power of Three">
 <meta property="og:url" content="http://yutouwd.github.io/posts/2084194376/index.html">
 <meta property="og:site_name" content="yutouwd">
-<meta property="og:description" content="题目描述我的解法解题思路实现代码高票解法实现代码代码分析知识总结">
+<meta property="og:description" content="题目描述Given an integer, write a function to determine if it is a power of three. Example 1:Input: 27Output: true Example 2:Input: 0Output: false Example 3:Input: 9Output: true Example 4:Input: 45Output:">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-09-14T10:26:47.023Z">
+<meta property="og:updated_time" content="2019-09-14T15:12:24.776Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="326.Power of Three">
-<meta name="twitter:description" content="题目描述我的解法解题思路实现代码高票解法实现代码代码分析知识总结">
+<meta name="twitter:description" content="题目描述Given an integer, write a function to determine if it is a power of three. Example 1:Input: 27Output: true Example 2:Input: 0Output: false Example 3:Input: 9Output: true Example 4:Input: 45Output:">
 
 
 
@@ -397,7 +397,7 @@
                 
               
 
-              <time title="创建时间：2019-09-14 18:26:08 / 修改时间：18:26:47" itemprop="dateCreated datePublished" datetime="2019-09-14T18:26:08+08:00">2019-09-14</time>
+              <time title="创建时间：2019-09-14 18:26:08 / 修改时间：23:12:24" itemprop="dateCreated datePublished" datetime="2019-09-14T18:26:08+08:00">2019-09-14</time>
             
 
             
@@ -478,7 +478,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="post.wordcount">
-                  32
+                  335
                 </span>
               
 
@@ -517,7 +517,21 @@
       
 
       
-        <h1 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h1><h1 id="我的解法"><a href="#我的解法" class="headerlink" title="我的解法"></a>我的解法</h1><h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><h2 id="实现代码"><a href="#实现代码" class="headerlink" title="实现代码"></a>实现代码</h2><h1 id="高票解法"><a href="#高票解法" class="headerlink" title="高票解法"></a>高票解法</h1><h2 id="实现代码-1"><a href="#实现代码-1" class="headerlink" title="实现代码"></a>实现代码</h2><h2 id="代码分析"><a href="#代码分析" class="headerlink" title="代码分析"></a>代码分析</h2><h1 id="知识总结"><a href="#知识总结" class="headerlink" title="知识总结"></a>知识总结</h1>
+        <h1 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h1><p>Given an integer, write a function to determine if it is a power of three.</p>
+<p>Example 1:<br>Input: 27<br>Output: true</p>
+<p>Example 2:<br>Input: 0<br>Output: false</p>
+<p>Example 3:<br>Input: 9<br>Output: true</p>
+<p>Example 4:<br>Input: 45<br>Output: false</p>
+<p>Follow up:<br>Could you do it without using any loop / recursion?</p>
+<h1 id="我的解法"><a href="#我的解法" class="headerlink" title="我的解法"></a>我的解法</h1><h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><p>求一个数是不是3的幂，想到的方法是将一个数不断的求模并且将n除以3，如果模不等于零就停止，判断n是不是等于1，如果不等于1那就不是3的幂。</p>
+<h2 id="实现代码"><a href="#实现代码" class="headerlink" title="实现代码"></a>实现代码</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">isPowerOfThree</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (n &lt;= <span class="number">0</span>) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        <span class="keyword">if</span> (n == <span class="number">1</span>) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        <span class="keyword">int</span> mod = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span> (mod == <span class="number">0</span>)&#123;</span><br><span class="line">            mod = n % <span class="number">3</span>;</span><br><span class="line">            n /= <span class="number">3</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (n == <span class="number">0</span> &amp;&amp; mod == <span class="number">1</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>Runtime: 16 ms, faster than 67.53% of C++ online submissions for Power of Three.<br>Memory Usage: 8.1 MB, less than 90.48% of C++ online submissions for Power of Three.</p>
+<p>题目中还要求程序中不使用循环或者递归</p>
+<h1 id="高票解法"><a href="#高票解法" class="headerlink" title="高票解法"></a>高票解法</h1><p>主要有两种方法<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="keyword">int</span> <span class="keyword">const</span> Max3PowerInt = <span class="number">1162261467</span>; <span class="comment">// 3^19, 3^20 = 3486784401 &gt; MaxInt32</span></span><br><span class="line">    <span class="keyword">int</span> <span class="keyword">const</span> MaxInt32 = <span class="number">2147483647</span>; <span class="comment">// 2^31 - 1</span></span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">isPowerOfThree</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (n &lt;= <span class="number">0</span> || n &gt; Max3PowerInt) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        <span class="keyword">return</span> Max3PowerInt % n == <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<p>利用int的上限，求最大的3的幂，它除以n的模为零就说明n是3的幂</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">isPowerOfThree</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(n == <span class="number">0</span>) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        <span class="keyword">double</span> x = <span class="built_in">log10</span>(n) / <span class="built_in">log10</span>(<span class="number">3</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">floor</span>(x) == x;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>通过换底公式来判断。</p>
+
       
     </div>
 
@@ -814,7 +828,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#题目描述"><span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#我的解法"><span class="nav-text">我的解法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#解题思路"><span class="nav-text">解题思路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实现代码"><span class="nav-text">实现代码</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#高票解法"><span class="nav-text">高票解法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#实现代码-1"><span class="nav-text">实现代码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码分析"><span class="nav-text">代码分析</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#知识总结"><span class="nav-text">知识总结</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#题目描述"><span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#我的解法"><span class="nav-text">我的解法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#解题思路"><span class="nav-text">解题思路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实现代码"><span class="nav-text">实现代码</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#高票解法"><span class="nav-text">高票解法</span></a></li></ol></div>
             
 
           </div>
@@ -848,7 +862,7 @@
     
       <span class="post-meta-item-text">文字总数&#58;</span>
     
-    <span title="post.totalcount">22.5k</span>
+    <span title="post.totalcount">22.8k</span>
   
 
   
