@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yutouwd.github.io/"/>
-  <updated>2019-09-19T03:27:40.072Z</updated>
+  <updated>2019-09-19T03:40:21.588Z</updated>
   <id>http://yutouwd.github.io/</id>
   
   <author>
@@ -21,9 +21,9 @@
     <link href="http://yutouwd.github.io/posts/3099514846/"/>
     <id>http://yutouwd.github.io/posts/3099514846/</id>
     <published>2019-09-19T03:27:40.000Z</published>
-    <updated>2019-09-19T03:27:40.072Z</updated>
+    <updated>2019-09-19T03:40:21.588Z</updated>
     
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><h1 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h1><h1 id="我的解法"><a href="#我的解法" class="headerlink" title="我的解法"></a>我的解法</h1><h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><h2 id="实现代码"><a href="#实现代码" class="headerlink" title="实现代码"></a>实现代码</h2><h1 id="高票解法"><a href="#高票解法" class="headerlink" title="高票解法"></a>高票解法</h1><h2 id="实现代码-1"><a href="#实现代码-1" class="headerlink" title="实现代码"></a>实现代码</h2><h2 id="代码分析"><a href="#代码分析" class="headerlink" title="代码分析"></a>代码分析</h2><h1 id="知识总结"><a href="#知识总结" class="headerlink" title="知识总结"></a>知识总结</h1>]]></content>
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><h1 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h1><p>Find the total area covered by two rectilinear rectangles in a 2D plane.</p><p>Each rectangle is defined by its bottom left corner and top right corner as shown in the figure.</p><p>Rectangle Area</p><p>Example:<br>Input: A = -3, B = 0, C = 3, D = 4, E = 0, F = -1, G = 9, H = 2<br>Output: 45</p><p>Note:<br>Assume that the total area is never beyond the maximum possible value of int.</p><h1 id="我的解法"><a href="#我的解法" class="headerlink" title="我的解法"></a>我的解法</h1><h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><p>其实就是和求IOU类似，但是C++会遇到各种边界问题…提示中说总面积不会超过int的最大值，但是如果没有减去相交的面积时可能会超过int的最大值。</p><h2 id="实现代码"><a href="#实现代码" class="headerlink" title="实现代码"></a>实现代码</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">computeArea</span><span class="params">(<span class="keyword">int</span> A, <span class="keyword">int</span> B, <span class="keyword">int</span> C, <span class="keyword">int</span> D, <span class="keyword">int</span> E, <span class="keyword">int</span> F, <span class="keyword">int</span> G, <span class="keyword">int</span> H)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 如果直接用max(0,...)后面两个相减的可能会超出int的下界</span></span><br><span class="line">        <span class="keyword">int</span> x = min(C,G) &gt; max(A,E) ? min(C,G) - max(A,E) : <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> y = min(D,H) &gt; max(B,F) ? min(D,H) - max(B,F) : <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">return</span> (C - A) * (D -B) - x * y + (G -E) * (H - F);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>]]></content>
     
     <summary type="html">
     
@@ -36,8 +36,12 @@
     
       <category term="leetcode" scheme="http://yutouwd.github.io/categories/leetcode/"/>
     
+      <category term="easy" scheme="http://yutouwd.github.io/categories/leetcode/easy/"/>
+    
     
       <category term="leetcode" scheme="http://yutouwd.github.io/tags/leetcode/"/>
+    
+      <category term="math" scheme="http://yutouwd.github.io/tags/math/"/>
     
   </entry>
   
