@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yutouwd.github.io/"/>
-  <updated>2019-09-19T03:40:21.588Z</updated>
+  <updated>2019-09-19T14:26:04.523Z</updated>
   <id>http://yutouwd.github.io/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>A824-Goat-Latin</title>
+    <link href="http://yutouwd.github.io/posts/316802933/"/>
+    <id>http://yutouwd.github.io/posts/316802933/</id>
+    <published>2019-09-19T14:16:28.000Z</published>
+    <updated>2019-09-19T14:26:04.523Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><h1 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h1><p>A sentence S is given, composed of words separated by spaces. Each word consists of lowercase and uppercase letters only.</p><p>We would like to convert the sentence to “Goat Latin” (a made-up language similar to Pig Latin.)</p><p>The rules of Goat Latin are as follows:</p><p>If a word begins with a vowel (a, e, i, o, or u), append “ma” to the end of the word.<br>For example, the word ‘apple’ becomes ‘applema’.</p><p>If a word begins with a consonant (i.e. not a vowel), remove the first letter and append it to the end, then add “ma”.<br>For example, the word “goat” becomes “oatgma”.</p><p>Add one letter ‘a’ to the end of each word per its word index in the sentence, starting with 1.<br>For example, the first word gets “a” added to the end, the second word gets “aa” added to the end and so on.<br>Return the final sentence representing the conversion from S to Goat Latin. </p><p>Example 1:<br>Input: “I speak Goat Latin”<br>Output: “Imaa peaksmaaa oatGmaaaa atinLmaaaaa”</p><p>Example 2:<br>Input: “The quick brown fox jumped over the lazy dog”<br>Output: “heTmaa uickqmaaa rownbmaaaa oxfmaaaaa umpedjmaaaaaa overmaaaaaaa hetmaaaaaaaa azylmaaaaaaaaa ogdmaaaaaaaaaa”</p><p>Notes:</p><p>S contains only uppercase, lowercase and spaces. Exactly one space between each word.<br>1 &lt;= S.length &lt;= 150.</p><h1 id="我的解法"><a href="#我的解法" class="headerlink" title="我的解法"></a>我的解法</h1><h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><p>题目其实挺好理解的，就是要在每个单词的后面加上ma，如果单词是辅音开头的就要把辅音字母放到最后再加ma。之前做了一题是要把每个单词分开，一直没找到比较快的方法，这次还是看评论学会了一种方法。之后其实就很简单了。</p><h2 id="实现代码"><a href="#实现代码" class="headerlink" title="实现代码"></a>实现代码</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="built_in">string</span> <span class="title">toGoatLatin</span><span class="params">(<span class="built_in">string</span> S)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">unordered_set</span>&lt;<span class="keyword">char</span>&gt; vowel = &#123;<span class="string">'a'</span>,<span class="string">'e'</span>,<span class="string">'i'</span>,<span class="string">'o'</span>,<span class="string">'u'</span>,<span class="string">'A'</span>,<span class="string">'E'</span>,<span class="string">'I'</span>,<span class="string">'O'</span>,<span class="string">'U'</span>&#125;;</span><br><span class="line">        <span class="built_in">string</span> ma = <span class="string">"maa"</span>;</span><br><span class="line">        <span class="built_in">string</span> tmp, re;</span><br><span class="line">        <span class="function"><span class="built_in">istringstream</span> <span class="title">ss</span><span class="params">(S)</span></span>;</span><br><span class="line">        <span class="keyword">while</span>(ss &gt;&gt; tmp)&#123;</span><br><span class="line">            <span class="built_in">string</span> ans;</span><br><span class="line">            <span class="keyword">if</span> (vowel.find(tmp[<span class="number">0</span>]) != vowel.end())&#123;</span><br><span class="line">                ans = tmp;</span><br><span class="line">                ans += ma;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span>&#123;</span><br><span class="line">                ans = tmp.substr(<span class="number">1</span>,tmp.size() - <span class="number">1</span>);</span><br><span class="line">                ans += tmp[<span class="number">0</span>];</span><br><span class="line">                ans += ma;</span><br><span class="line">            &#125;</span><br><span class="line">            re += ans;</span><br><span class="line">            re += <span class="string">' '</span>;</span><br><span class="line">            ma += <span class="string">'a'</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> re.substr(<span class="number">0</span>,re.size() - <span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure><p>Runtime: 0 ms, faster than 100.00% of C++ online submissions for Goat Latin.<br>Memory Usage: 9.1 MB, less than 71.43% of C++ online submissions for Goat Latin.</p><h1 id="知识总结"><a href="#知识总结" class="headerlink" title="知识总结"></a>知识总结</h1><p>C++将string按空格分开可以用istringstream，在sstream头文件中。</p><p>set的用法，set和map的区别是set只有一个值，而map有key和value两个值。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;/assets/css/APlayer.min.css&quot;&gt;&lt;script src=&quot;/assets/js/APlayer.min.js&quot; cla
+      
+    
+    </summary>
+    
+      <category term="leetcode" scheme="http://yutouwd.github.io/categories/leetcode/"/>
+    
+      <category term="easy" scheme="http://yutouwd.github.io/categories/leetcode/easy/"/>
+    
+    
+      <category term="leetcode" scheme="http://yutouwd.github.io/tags/leetcode/"/>
+    
+      <category term="string" scheme="http://yutouwd.github.io/tags/string/"/>
+    
+  </entry>
   
   <entry>
     <title>A223-Rectangle-Area</title>
@@ -576,35 +605,6 @@
       <category term="leetcode" scheme="http://yutouwd.github.io/tags/leetcode/"/>
     
       <category term="vector" scheme="http://yutouwd.github.io/tags/vector/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Best Time to Buy and Sell Stock</title>
-    <link href="http://yutouwd.github.io/posts/3220033831/"/>
-    <id>http://yutouwd.github.io/posts/3220033831/</id>
-    <published>2019-07-12T08:57:20.000Z</published>
-    <updated>2019-09-17T03:04:31.983Z</updated>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><h1 id="Best-Time-to-Buy-and-Sell-Stock-I"><a href="#Best-Time-to-Buy-and-Sell-Stock-I" class="headerlink" title="Best Time to Buy and Sell Stock I"></a>Best Time to Buy and Sell Stock I</h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>Say you have an array for which the ith element is the price of a given stock on day i.</p><p>If you were only permitted to complete at most one transaction (i.e., buy one and sell one share of the stock), design an algorithm to find the maximum profit.</p><p>Note that you cannot sell a stock before you buy one.</p><p>Example 1:<br>Input: [7,1,5,3,6,4]<br>Output: 5<br>Explanation: Buy on day 2 (price = 1) and sell on day 5 (price = 6), profit = 6-1 = 5.<br>             Not 7-1 = 6, as selling price needs to be larger than buying price.</p><p>Example 2:<br>Input: [7,6,4,3,1]<br>Output: 0<br>Explanation: In this case, no transaction is done, i.e. max profit = 0.</p><h2 id="题目解法"><a href="#题目解法" class="headerlink" title="题目解法"></a>题目解法</h2><p>一看题目觉得还是挺简单的，可以用最简单的穷举法<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">maxProfit</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; prices)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> max = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; prices.size();i++)&#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = i+<span class="number">1</span>; j &lt; prices.size();j++)&#123;</span><br><span class="line">                <span class="keyword">if</span> (prices[j] - prices[i] &gt; max)</span><br><span class="line">                    max = prices[j] - prices[i];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> max;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p><p>Runtime: 828 ms, faster than 8.10% of C++ online submissions for Best Time to Buy and Sell Stock.<br>Memory Usage: 9.6 MB, less than 14.91% of C++ online submissions for Best Time to Buy and Sell Stock.</p><hr><p>但是结果并不是很理想，时间用的太多了。有两个循环时间复杂读为O(n^2)</p><h2 id="优化方法"><a href="#优化方法" class="headerlink" title="优化方法"></a>优化方法</h2><p>看评论有一种方法，其实只用记录之前都最小值和最大利润即可。如果当前值小于最小值就更新最小值，否则计算当前值与最小值都差值是不是大于最大利润。</p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">maxProfit</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; prices)</span> </span>&#123;   </span><br><span class="line">        <span class="keyword">if</span> (prices.size() &lt; <span class="number">2</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> maxPro = <span class="number">0</span>, minPrice = prices[<span class="number">0</span>];</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; prices.size(); i++)&#123;</span><br><span class="line">            <span class="keyword">if</span> (prices[i] - minPrice &gt; maxPro)</span><br><span class="line">                maxPro = prices[i] - minPrice;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span> (prices[i] &lt; minPrice)</span><br><span class="line">                minPrice = prices[i];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> maxPro;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure><p>Runtime: 8 ms, faster than 78.13% of C++ online submissions for Best Time to Buy and Sell Stock.<br>Memory Usage: 9.5 MB, less than 60.83% of C++ online submissions for Best Time to Buy and Sell Stock.</p><hr><p>速度一下就快了很多～</p><h1 id="Best-Time-to-Buy-and-Sell-Stock-II"><a href="#Best-Time-to-Buy-and-Sell-Stock-II" class="headerlink" title="Best Time to Buy and Sell Stock II"></a>Best Time to Buy and Sell Stock II</h1><h2 id="题目描述-1"><a href="#题目描述-1" class="headerlink" title="题目描述"></a>题目描述</h2><p>Say you have an array for which the ith element is the price of a given stock on day i.</p><p>Design an algorithm to find the maximum profit. You may complete as many transactions as you like (i.e., buy one and sell one share of the stock multiple times).</p><p>Note: You may not engage in multiple transactions at the same time (i.e., you must sell the stock before you buy again).</p><p>Example 1:<br>Input: [7,1,5,3,6,4]<br>Output: 7<br>Explanation: Buy on day 2 (price = 1) and sell on day 3 (price = 5), profit = 5-1 = 4.<br>             Then buy on day 4 (price = 3) and sell on day 5 (price = 6), profit = 6-3 = 3.</p><p>Example 2:<br>Input: [1,2,3,4,5]<br>Output: 4<br>Explanation: Buy on day 1 (price = 1) and sell on day 5 (price = 5), profit = 5-1 = 4.<br>             Note that you cannot buy on day 1, buy on day 2 and sell them later, as you are<br>             engaging multiple transactions at the same time. You must sell before buying again.</p><p>Example 3:<br>Input: [7,6,4,3,1]<br>Output: 0<br>Explanation: In this case, no transaction is done, i.e. max profit = 0.</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;/assets/css/APlayer.min.css&quot;&gt;&lt;script src=&quot;/assets/js/APlayer.min.js&quot; cla
-      
-    
-    </summary>
-    
-      <category term="leetcode" scheme="http://yutouwd.github.io/categories/leetcode/"/>
-    
-      <category term="easy" scheme="http://yutouwd.github.io/categories/leetcode/easy/"/>
-    
-    
-      <category term="leetcode" scheme="http://yutouwd.github.io/tags/leetcode/"/>
-    
-      <category term="math" scheme="http://yutouwd.github.io/tags/math/"/>
     
   </entry>
   
