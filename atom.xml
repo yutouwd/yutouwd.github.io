@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yutouwd.github.io/"/>
-  <updated>2019-09-20T09:05:47.164Z</updated>
+  <updated>2019-09-20T09:06:34.356Z</updated>
   <id>http://yutouwd.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="http://yutouwd.github.io/posts/473611493/"/>
     <id>http://yutouwd.github.io/posts/473611493/</id>
     <published>2019-09-20T07:54:43.000Z</published>
-    <updated>2019-09-20T09:05:47.164Z</updated>
+    <updated>2019-09-20T09:06:34.356Z</updated>
     
     <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><h1 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h1><p>Say you have an array for which the ith element is the price of a given stock on day i.</p><p>Design an algorithm to find the maximum profit. You may complete as many transactions as you like (i.e., buy one and sell one share of the stock multiple times).</p><p>Note: You may not engage in multiple transactions at the same time (i.e., you must sell the stock before you buy again).</p><p>Example 1:<br>Input: [7,1,5,3,6,4]<br>Output: 7<br>Explanation: Buy on day 2 (price = 1) and sell on day 3 (price = 5), profit = 5-1 = 4.<br>             Then buy on day 4 (price = 3) and sell on day 5 (price = 6), profit = 6-3 = 3.</p><p>Example 2:<br>Input: [1,2,3,4,5]<br>Output: 4<br>Explanation: Buy on day 1 (price = 1) and sell on day 5 (price = 5), profit = 5-1 = 4.<br>             Note that you cannot buy on day 1, buy on day 2 and sell them later, as you are<br>             engaging multiple transactions at the same time. You must sell before buying again.</p><p>Example 3:<br>Input: [7,6,4,3,1]<br>Output: 0<br>Explanation: In this case, no transaction is done, i.e. max profit = 0.</p><h1 id="我的解法"><a href="#我的解法" class="headerlink" title="我的解法"></a>我的解法</h1><h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><p>可以使用一种投机的方法，只要第二天的股价大于第一天，就可以在第一天买入，在第二天卖出，因为一定会有收益</p><h2 id="实现代码"><a href="#实现代码" class="headerlink" title="实现代码"></a>实现代码</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">maxProfit</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; prices)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (prices.size() &lt;= <span class="number">1</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> profit = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; prices.size() - <span class="number">1</span>; i++)&#123;</span><br><span class="line">            <span class="keyword">if</span> (prices[i] &lt; prices[i+<span class="number">1</span>])</span><br><span class="line">                profit += prices[i+<span class="number">1</span>] - prices[i];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> profit;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure><p>Runtime: 4 ms, faster than 98.15% of C++ online submissions for Best Time to Buy and Sell Stock II.<br>Memory Usage: 9.6 MB, less than 68.25% of C++ online submissions for Best Time to Buy and Sell Stock II.</p>]]></content>
     
@@ -36,8 +36,12 @@
     
       <category term="leetcode" scheme="http://yutouwd.github.io/categories/leetcode/"/>
     
+      <category term="easy" scheme="http://yutouwd.github.io/categories/leetcode/easy/"/>
+    
     
       <category term="leetcode" scheme="http://yutouwd.github.io/tags/leetcode/"/>
+    
+      <category term="math" scheme="http://yutouwd.github.io/tags/math/"/>
     
   </entry>
   
