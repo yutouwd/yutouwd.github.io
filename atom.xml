@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yutouwd.github.io/"/>
-  <updated>2019-10-28T05:42:43.479Z</updated>
+  <updated>2019-10-28T05:54:07.846Z</updated>
   <id>http://yutouwd.github.io/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>215.Kth Largest Element in an Array</title>
+    <link href="http://yutouwd.github.io/posts/2993655736/"/>
+    <id>http://yutouwd.github.io/posts/2993655736/</id>
+    <published>2019-10-28T05:51:05.000Z</published>
+    <updated>2019-10-28T05:54:07.846Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><h1 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h1><p>Find the kth largest element in an unsorted array. Note that it is the kth largest element in the sorted order, not the kth distinct element.</p><p>Example 1:<br>Input: [3,2,1,5,6,4] and k = 2<br>Output: 5</p><p>Example 2:<br>Input: [3,2,3,1,2,4,5,5,6] and k = 4<br>Output: 4</p><p>Note:<br>You may assume k is always valid, 1 ≤ k ≤ array’s length.</p><h1 id="我的解法"><a href="#我的解法" class="headerlink" title="我的解法"></a>我的解法</h1><h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><p>可以想把数组排序，然后在返回第k大的数字就可以了</p><h2 id="实现代码"><a href="#实现代码" class="headerlink" title="实现代码"></a>实现代码</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">findKthLargest</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums, <span class="keyword">int</span> k)</span> </span>&#123;</span><br><span class="line">        sort(nums.begin(), nums.end());</span><br><span class="line">        <span class="keyword">return</span> nums[nums.size() - k];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure><h1 id="高票解法"><a href="#高票解法" class="headerlink" title="高票解法"></a>高票解法</h1><h2 id="实现代码-1"><a href="#实现代码-1" class="headerlink" title="实现代码"></a>实现代码</h2><h2 id="代码分析"><a href="#代码分析" class="headerlink" title="代码分析"></a>代码分析</h2><h1 id="知识总结"><a href="#知识总结" class="headerlink" title="知识总结"></a>知识总结</h1>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;/assets/css/APlayer.min.css&quot;&gt;&lt;script src=&quot;/assets/js/APlayer.min.js&quot; cla
+      
+    
+    </summary>
+    
+      <category term="leetcode" scheme="http://yutouwd.github.io/categories/leetcode/"/>
+    
+    
+      <category term="leetcode" scheme="http://yutouwd.github.io/tags/leetcode/"/>
+    
+  </entry>
   
   <entry>
     <title>169.Majority Element</title>
@@ -566,35 +591,6 @@
       <category term="leetcode" scheme="http://yutouwd.github.io/tags/leetcode/"/>
     
       <category term="list" scheme="http://yutouwd.github.io/tags/list/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>237.Delete Node in a List</title>
-    <link href="http://yutouwd.github.io/posts/3749239881/"/>
-    <id>http://yutouwd.github.io/posts/3749239881/</id>
-    <published>2019-09-04T15:00:14.000Z</published>
-    <updated>2019-09-17T03:05:41.218Z</updated>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><h1 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h1><p>Write a function to delete a node (except the tail) in a singly linked list, given only access to that node.</p><p>Given linked list – head = [4,5,1,9], which looks like following:</p><p>Example 1:<br>Input: head = [4,5,1,9], node = 5<br>Output: [4,1,9]<br>Explanation: You are given the second node with value 5, the linked list should become 4 -&gt; 1 -&gt; 9 after calling your function.</p><p>Example 2:<br>Input: head = [4,5,1,9], node = 1<br>Output: [4,5,9]<br>Explanation: You are given the third node with value 1, the linked list should become 4 -&gt; 5 -&gt; 9 after calling your function.</p><p>Note:<br>The linked list will have at least two elements.<br>All of the nodes’ values will be unique.<br>The given node will not be the tail and it will always be a valid node of the linked list.<br>Do not return anything from your function.</p><h1 id="我的解法"><a href="#我的解法" class="headerlink" title="我的解法"></a>我的解法</h1><h2 id="实现代码"><a href="#实现代码" class="headerlink" title="实现代码"></a>实现代码</h2><p>这道题真的很奇怪，没有给链表的head直接给了当前的节点🤔<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"> * struct ListNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     ListNode *next;</span></span><br><span class="line"><span class="comment"> *     ListNode(int x) : val(x), next(NULL) &#123;&#125;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">deleteNode</span><span class="params">(ListNode* node)</span> </span>&#123;</span><br><span class="line">        *node = *(node-&gt;next);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;/assets/css/APlayer.min.css&quot;&gt;&lt;script src=&quot;/assets/js/APlayer.min.js&quot; cla
-      
-    
-    </summary>
-    
-      <category term="leetcode" scheme="http://yutouwd.github.io/categories/leetcode/"/>
-    
-      <category term="easy" scheme="http://yutouwd.github.io/categories/leetcode/easy/"/>
-    
-    
-      <category term="leetcode" scheme="http://yutouwd.github.io/tags/leetcode/"/>
-    
-      <category term="List" scheme="http://yutouwd.github.io/tags/List/"/>
     
   </entry>
   
