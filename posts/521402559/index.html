@@ -104,18 +104,18 @@
 
 
 
-  <meta name="description" content="题目描述Given an array of size n, find the majority element. The majority element is the element that appears more than ⌊ n/2 ⌋ times. You may assume that the array is non-empty and the majority element a">
-<meta name="keywords" content="leetcode">
+  <meta name="description" content="题目描述Given a binary tree, determine if it is a valid binary search tree (BST). Assume a BST is defined as follows: The left subtree of a node contains only nodes with keys less than the node’s key.The">
+<meta name="keywords" content="leetcode,tree">
 <meta property="og:type" content="article">
-<meta property="og:title" content="169.Majority Element">
-<meta property="og:url" content="http://yutouwd.github.io/posts/3720766983/index.html">
+<meta property="og:title" content="98.Validate Binary Search Tree">
+<meta property="og:url" content="http://yutouwd.github.io/posts/521402559/index.html">
 <meta property="og:site_name" content="yutouwd">
-<meta property="og:description" content="题目描述Given an array of size n, find the majority element. The majority element is the element that appears more than ⌊ n/2 ⌋ times. You may assume that the array is non-empty and the majority element a">
+<meta property="og:description" content="题目描述Given a binary tree, determine if it is a valid binary search tree (BST). Assume a BST is defined as follows: The left subtree of a node contains only nodes with keys less than the node’s key.The">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-10-28T05:42:43.479Z">
+<meta property="og:updated_time" content="2019-11-29T15:09:40.102Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="169.Majority Element">
-<meta name="twitter:description" content="题目描述Given an array of size n, find the majority element. The majority element is the element that appears more than ⌊ n/2 ⌋ times. You may assume that the array is non-empty and the majority element a">
+<meta name="twitter:title" content="98.Validate Binary Search Tree">
+<meta name="twitter:description" content="题目描述Given a binary tree, determine if it is a valid binary search tree (BST). Assume a BST is defined as follows: The left subtree of a node contains only nodes with keys less than the node’s key.The">
 
 
 
@@ -124,7 +124,7 @@
 
 
 
-  <link rel="canonical" href="http://yutouwd.github.io/posts/3720766983/">
+  <link rel="canonical" href="http://yutouwd.github.io/posts/521402559/">
 
 
 
@@ -134,7 +134,7 @@
   };
 </script>
 
-  <title>169.Majority Element | yutouwd</title>
+  <title>98.Validate Binary Search Tree | yutouwd</title>
   
 
 
@@ -354,7 +354,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yutouwd.github.io/posts/3720766983/">
+    <link itemprop="mainEntityOfPage" href="http://yutouwd.github.io/posts/521402559/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="yutouwd">
@@ -371,7 +371,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">169.Majority Element
+          <h2 class="post-title" itemprop="name headline">98.Validate Binary Search Tree
 
               
             
@@ -397,24 +397,12 @@
                 
               
 
-              <time title="创建时间：2019-10-17 14:08:13" itemprop="dateCreated datePublished" datetime="2019-10-17T14:08:13+08:00">2019-10-17</time>
+              <time title="创建时间：2019-11-29 23:02:45 / 修改时间：23:09:40" itemprop="dateCreated datePublished" datetime="2019-11-29T23:02:45+08:00">2019-11-29</time>
             
 
             
               
 
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-10-28 13:42:43" itemprop="dateModified" datetime="2019-10-28T13:42:43+08:00">2019-10-28</time>
               
             
           </span>
@@ -435,6 +423,13 @@
 
                 
                 
+                  ，
+                
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/leetcode/Medium/" itemprop="url" rel="index"><span itemprop="name">Medium</span></a></span>
+
+                
+                
               
             </span>
           
@@ -449,8 +444,8 @@
                   <i class="fa fa-comment-o"></i>
                 </span>
             
-                <a href="/posts/3720766983/#comments" itemprop="discussionUrl">
-                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/posts/3720766983/" itemprop="commentCount"></span>
+                <a href="/posts/521402559/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/posts/521402559/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -458,7 +453,7 @@
 
           
           
-            <span id="/posts/3720766983/" class="leancloud_visitors" data-flag-title="169.Majority Element">
+            <span id="/posts/521402559/" class="leancloud_visitors" data-flag-title="98.Validate Binary Search Tree">
               <span class="post-meta-divider">|</span>
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
@@ -483,7 +478,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="post.wordcount">
-                  310
+                  154
                 </span>
               
 
@@ -522,16 +517,17 @@
       
 
       
-        <h1 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h1><p>Given an array of size n, find the majority element. The majority element is the element that appears more than ⌊ n/2 ⌋ times.</p>
-<p>You may assume that the array is non-empty and the majority element always exist in the array.</p>
-<p>Example 1:<br>Input: [3,2,3]<br>Output: 3</p>
-<p>Example 2:<br>Input: [2,2,1,1,1,2,2]<br>Output: 2</p>
-<h1 id="我的解法"><a href="#我的解法" class="headerlink" title="我的解法"></a>我的解法</h1><h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><p>按照分治法的标签找到的题目，但是感觉可以直接用一个map来记录每个数字出现的次数，然后再遍历map找到出现最多的次数就可以了。</p>
-<h2 id="实现代码"><a href="#实现代码" class="headerlink" title="实现代码"></a>实现代码</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">majorityElement</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">unordered_map</span>&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt; count;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i : nums)</span><br><span class="line">            count[i]++;</span><br><span class="line">        <span class="keyword">int</span> maxNum = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> maxCount = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">auto</span> i : count)&#123;</span><br><span class="line">            <span class="keyword">if</span> (i.second &gt; maxCount)&#123;</span><br><span class="line">                maxCount = i.second;</span><br><span class="line">                maxNum = i.first;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> maxNum;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p>Runtime: 20 ms, faster than 77.92% of C++ online submissions for Majority Element.<br>Memory Usage: 11.2 MB, less than 48.48% of C++ online submissions for Majority Element.</p>
-<h1 id="高票解法"><a href="#高票解法" class="headerlink" title="高票解法"></a>高票解法</h1><p>在讨论区看到了一个更加简洁的方法，在统计的同时进行判断，如果大于数组的长度的二分之一就一定是众数了。</p>
-<h2 id="实现代码-1"><a href="#实现代码-1" class="headerlink" title="实现代码"></a>实现代码</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">majorityElement</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">unordered_map</span>&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt; counter;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> num : nums)&#123;</span><br><span class="line">            <span class="keyword">if</span> (++counter[num] &gt; nums.size() / <span class="number">2</span>)</span><br><span class="line">                <span class="keyword">return</span> num;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
+        <h1 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h1><p>Given a binary tree, determine if it is a valid binary search tree (BST).</p>
+<p>Assume a BST is defined as follows:</p>
+<p>The left subtree of a node contains only nodes with keys less than the node’s key.<br>The right subtree of a node contains only nodes with keys greater than the node’s key.<br>Both the left and right subtrees must also be binary search trees.</p>
+<p>Example 1:</p>
+<pre><code>2
+</code></pre><p>   / \<br>  1   3<br>Input: [2,1,3]<br>Output: true</p>
+<p>Example 2:</p>
+<pre><code>5
+</code></pre><p>   / \<br>  1   4<br>     / \<br>    3   6<br>Input: [5,1,4,null,null,3,6]<br>Output: false<br>Explanation: The root node’s value is 5 but its right child’s value is 4.</p>
+<h1 id="我的解法"><a href="#我的解法" class="headerlink" title="我的解法"></a>我的解法</h1><h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><p>一开始似乎理解错了题目的意思</p>
+<h2 id="实现代码"><a href="#实现代码" class="headerlink" title="实现代码"></a>实现代码</h2><h1 id="高票解法"><a href="#高票解法" class="headerlink" title="高票解法"></a>高票解法</h1><h2 id="实现代码-1"><a href="#实现代码-1" class="headerlink" title="实现代码"></a>实现代码</h2><h2 id="代码分析"><a href="#代码分析" class="headerlink" title="代码分析"></a>代码分析</h2><h1 id="知识总结"><a href="#知识总结" class="headerlink" title="知识总结"></a>知识总结</h1>
       
     </div>
 
@@ -555,6 +551,8 @@
         <div class="post-tags">
           
             <a href="/tags/leetcode/" rel="tag"><i class="menu-item-icon fa fa-fw fa-tags"></i> leetcode</a>
+          
+            <a href="/tags/tree/" rel="tag"><i class="menu-item-icon fa fa-fw fa-tags"></i> tree</a>
           
         </div>
       
@@ -587,8 +585,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/posts/2356977837/" rel="next" title="Pow(x,n)">
-                <i class="fa fa-chevron-left"></i> Pow(x,n)
+              <a href="/posts/3533375508/" rel="next" title="102.Binary Tree Level Order Traversal">
+                <i class="fa fa-chevron-left"></i> 102.Binary Tree Level Order Traversal
               </a>
             
           </div>
@@ -596,10 +594,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/posts/2993655736/" rel="prev" title="215.Kth Largest Element in an Array">
-                215.Kth Largest Element in an Array <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -840,7 +834,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#题目描述"><span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#我的解法"><span class="nav-text">我的解法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#解题思路"><span class="nav-text">解题思路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实现代码"><span class="nav-text">实现代码</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#高票解法"><span class="nav-text">高票解法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#实现代码-1"><span class="nav-text">实现代码</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#题目描述"><span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#我的解法"><span class="nav-text">我的解法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#解题思路"><span class="nav-text">解题思路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实现代码"><span class="nav-text">实现代码</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#高票解法"><span class="nav-text">高票解法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#实现代码-1"><span class="nav-text">实现代码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码分析"><span class="nav-text">代码分析</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#知识总结"><span class="nav-text">知识总结</span></a></li></ol></div>
             
 
           </div>
