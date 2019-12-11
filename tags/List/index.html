@@ -107,7 +107,7 @@
   <meta name="keywords" content="声纹识别">
 <meta property="og:type" content="website">
 <meta property="og:title" content="yutouwd">
-<meta property="og:url" content="http://yutouwd.github.io/tags/List/index.html">
+<meta property="og:url" content="http://yutouwd.github.io/tags/list/index.html">
 <meta property="og:site_name" content="yutouwd">
 <meta property="og:locale" content="zh-CN">
 <meta name="twitter:card" content="summary">
@@ -120,7 +120,7 @@
 
 
 
-  <link rel="canonical" href="http://yutouwd.github.io/tags/List/">
+  <link rel="canonical" href="http://yutouwd.github.io/tags/list/">
 
 
 
@@ -130,7 +130,7 @@
   };
 </script>
 
-  <title>标签: List | yutouwd</title>
+  <title>标签: list | yutouwd</title>
   
 
 
@@ -363,7 +363,7 @@
 
     <div id="posts" class="posts-collapse">
       <div class="collection-title">
-        <h2>List<small>标签</small>
+        <h2>list<small>标签</small>
         </h2>
       </div>
 
@@ -375,17 +375,69 @@
 
       <h3 class="post-title">
         
-          <a class="post-title-link" href="/posts/3749239881/" itemprop="url">
+          <a class="post-title-link" href="/posts/2829474180/" itemprop="url">
             
-              <span itemprop="name">237.Delete Node in a List</span>
+              <span itemprop="name">206.Reverse Linked List</span>
             
           </a>
         
       </h3>
 
       <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-09-04T23:00:14+08:00" content="2019-09-04">
-          09-04
+        <time class="post-time" itemprop="dateCreated" datetime="2019-09-17T10:59:26+08:00" content="2019-09-17">
+          09-17
+        </time>
+      </div>
+
+    </header>
+  </article>
+
+
+      
+        
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <h3 class="post-title">
+        
+          <a class="post-title-link" href="/posts/2341614181/" itemprop="url">
+            
+              <span itemprop="name">21.Merge Two Sorted Lists</span>
+            
+          </a>
+        
+      </h3>
+
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated" datetime="2019-09-07T11:23:23+08:00" content="2019-09-07">
+          09-07
+        </time>
+      </div>
+
+    </header>
+  </article>
+
+
+      
+        
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <h3 class="post-title">
+        
+          <a class="post-title-link" href="/posts/1165746741/" itemprop="url">
+            
+              <span itemprop="name">19.Remove Nth Node From End of List</span>
+            
+          </a>
+        
+      </h3>
+
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated" datetime="2019-09-05T16:44:18+08:00" content="2019-09-05">
+          09-05
         </time>
       </div>
 
@@ -442,7 +494,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">50</span>
+                    <span class="site-state-item-count">51</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -626,7 +678,7 @@
     
       <span class="post-meta-item-text">文字总数&#58;</span>
     
-    <span title="post.totalcount">29.4k</span>
+    <span title="post.totalcount">29.6k</span>
   
 
   
@@ -896,46 +948,6 @@
       $(e).after($wrap);
       $wrap.append($('<button>').addClass('copy-btn').append('复制').on('click', function(e) {
         var code = $(this).parent().find('.code').find('.line').map(function(i, e) {
-          return $(e).text();
-        }).toArray().join('\n');
-        var ta = document.createElement('textarea');
-        var range = document.createRange(); //For Chrome
-        var sel = window.getSelection(); //For Chrome
-        var yPosition = window.pageYOffset || document.documentElement.scrollTop;
-        ta.style.top = yPosition + 'px'; //Prevent page scroll
-        ta.style.position = 'absolute';
-        ta.style.opacity = '0';
-        ta.value = code;
-        ta.textContent = code; //For FireFox
-        ta.contentEditable = true;
-        ta.readOnly = false;
-        document.body.appendChild(ta);
-        range.selectNode(ta);
-        sel.removeAllRanges();
-        sel.addRange(range);
-        ta.setSelectionRange(0, code.length);
-        var result = document.execCommand('copy');
-        
-          if (result) $(this).text('复制成功');
-          else $(this).text('复制失败');
-        
-        ta.blur(); //For iOS
-        $(this).blur();
-      })).on('mouseleave', function(e) {
-        var $b = $(this).find('.copy-btn');
-        setTimeout(function() {
-          $b.text('复制');
-        }, 300);
-      }).append(e);
-    })
-  </script>
-
-
-  
-
-</body>
-</html>
-.find('.line').map(function(i, e) {
           return $(e).text();
         }).toArray().join('\n');
         var ta = document.createElement('textarea');
