@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yutouwd.github.io/"/>
-  <updated>2019-12-19T16:12:37.012Z</updated>
+  <updated>2019-12-28T15:46:34.327Z</updated>
   <id>http://yutouwd.github.io/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>A278-First-Bad-Version</title>
+    <link href="http://yutouwd.github.io/posts/539789119/"/>
+    <id>http://yutouwd.github.io/posts/539789119/</id>
+    <published>2019-12-28T15:30:18.000Z</published>
+    <updated>2019-12-28T15:46:34.327Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><h1 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h1><h1 id="我的解法"><a href="#我的解法" class="headerlink" title="我的解法"></a>我的解法</h1><h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><h2 id="实现代码"><a href="#实现代码" class="headerlink" title="实现代码"></a>实现代码</h2><h1 id="高票解法"><a href="#高票解法" class="headerlink" title="高票解法"></a>高票解法</h1><h2 id="实现代码-1"><a href="#实现代码-1" class="headerlink" title="实现代码"></a>实现代码</h2><h2 id="代码分析"><a href="#代码分析" class="headerlink" title="代码分析"></a>代码分析</h2><h1 id="知识总结"><a href="#知识总结" class="headerlink" title="知识总结"></a>知识总结</h1>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;/assets/css/APlayer.min.css&quot;&gt;&lt;script src=&quot;/assets/js/APlayer.min.js&quot; cla
+      
+    
+    </summary>
+    
+      <category term="leetcode" scheme="http://yutouwd.github.io/categories/leetcode/"/>
+    
+      <category term="easy" scheme="http://yutouwd.github.io/categories/leetcode/easy/"/>
+    
+    
+      <category term="leetcode" scheme="http://yutouwd.github.io/tags/leetcode/"/>
+    
+      <category term="math" scheme="http://yutouwd.github.io/tags/math/"/>
+    
+  </entry>
   
   <entry>
     <title>A36-Valid-Sudoku</title>
@@ -328,9 +357,9 @@
     
       <category term="leetcode" scheme="http://yutouwd.github.io/tags/leetcode/"/>
     
-      <category term="vector" scheme="http://yutouwd.github.io/tags/vector/"/>
-    
       <category term="math" scheme="http://yutouwd.github.io/tags/math/"/>
+    
+      <category term="vector" scheme="http://yutouwd.github.io/tags/vector/"/>
     
   </entry>
   
@@ -559,37 +588,6 @@
       <category term="leetcode" scheme="http://yutouwd.github.io/tags/leetcode/"/>
     
       <category term="string" scheme="http://yutouwd.github.io/tags/string/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>123.Best Time to Buy and Sell III</title>
-    <link href="http://yutouwd.github.io/posts/974687170/"/>
-    <id>http://yutouwd.github.io/posts/974687170/</id>
-    <published>2019-09-21T14:22:19.000Z</published>
-    <updated>2019-09-21T14:57:45.541Z</updated>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><h1 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h1><p>Say you have an array for which the ith element is the price of a given stock on day i.<br>Design an algorithm to find the maximum profit. You may complete at most two transactions.</p><p>Note: You may not engage in multiple transactions at the same time (i.e., you must sell the stock before you buy again).</p><p>Example 1:<br>Input: [3,3,5,0,0,3,1,4]<br>Output: 6<br>Explanation: Buy on day 4 (price = 0) and sell on day 6 (price = 3), profit = 3-0 = 3.<br>             Then buy on day 7 (price = 1) and sell on day 8 (price = 4), profit = 4-1 = 3.</p><p>Example 2:<br>Input: [1,2,3,4,5]<br>Output: 4<br>Explanation: Buy on day 1 (price = 1) and sell on day 5 (price = 5), profit = 5-1 = 4.<br>             Note that you cannot buy on day 1, buy on day 2 and sell them later, as you are<br>             engaging multiple transactions at the same time. You must sell before buying again.</p><p>Example 3:<br>Input: [7,6,4,3,1]<br>Output: 0<br>Explanation: In this case, no transaction is done, i.e. max profit = 0.</p><h1 id="我的解法"><a href="#我的解法" class="headerlink" title="我的解法"></a>我的解法</h1><h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><p>也在面试的时候遇到了这道题，后悔没有把这一系列的题目做完。现在再做的话还是做不出来😂</p><h2 id="实现代码"><a href="#实现代码" class="headerlink" title="实现代码"></a>实现代码</h2><h1 id="高票解法"><a href="#高票解法" class="headerlink" title="高票解法"></a>高票解法</h1><h2 id="实现代码-1"><a href="#实现代码-1" class="headerlink" title="实现代码"></a>实现代码</h2><h2 id="代码分析"><a href="#代码分析" class="headerlink" title="代码分析"></a>代码分析</h2><h1 id="知识总结"><a href="#知识总结" class="headerlink" title="知识总结"></a>知识总结</h1>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;/assets/css/APlayer.min.css&quot;&gt;&lt;script src=&quot;/assets/js/APlayer.min.js&quot; cla
-      
-    
-    </summary>
-    
-      <category term="leetcode" scheme="http://yutouwd.github.io/categories/leetcode/"/>
-    
-      <category term="hard" scheme="http://yutouwd.github.io/categories/leetcode/hard/"/>
-    
-    
-      <category term="leetcode" scheme="http://yutouwd.github.io/tags/leetcode/"/>
-    
-      <category term="math" scheme="http://yutouwd.github.io/tags/math/"/>
-    
-      <category term="动态规划" scheme="http://yutouwd.github.io/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/"/>
     
   </entry>
   
