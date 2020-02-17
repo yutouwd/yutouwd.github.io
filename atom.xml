@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yutouwd.github.io/"/>
-  <updated>2020-02-13T09:30:28.872Z</updated>
+  <updated>2020-02-17T09:30:33.661Z</updated>
   <id>http://yutouwd.github.io/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>A94-二叉树的几种遍历</title>
+    <link href="http://yutouwd.github.io/posts/3359640998/"/>
+    <id>http://yutouwd.github.io/posts/3359640998/</id>
+    <published>2020-02-17T09:30:33.000Z</published>
+    <updated>2020-02-17T09:30:33.661Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><h1 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h1><h1 id="我的解法"><a href="#我的解法" class="headerlink" title="我的解法"></a>我的解法</h1><h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><h2 id="实现代码"><a href="#实现代码" class="headerlink" title="实现代码"></a>实现代码</h2><h1 id="高票解法"><a href="#高票解法" class="headerlink" title="高票解法"></a>高票解法</h1><h2 id="实现代码-1"><a href="#实现代码-1" class="headerlink" title="实现代码"></a>实现代码</h2><h2 id="代码分析"><a href="#代码分析" class="headerlink" title="代码分析"></a>代码分析</h2><h1 id="知识总结"><a href="#知识总结" class="headerlink" title="知识总结"></a>知识总结</h1>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;/assets/css/APlayer.min.css&quot;&gt;&lt;script src=&quot;/assets/js/APlayer.min.js&quot; cla
+      
+    
+    </summary>
+    
+      <category term="leetcode" scheme="http://yutouwd.github.io/categories/leetcode/"/>
+    
+    
+      <category term="leetcode" scheme="http://yutouwd.github.io/tags/leetcode/"/>
+    
+  </entry>
   
   <entry>
     <title>590.N-Ary Tree Postorder Traversal</title>
@@ -568,28 +593,6 @@
       <category term="leetcode" scheme="http://yutouwd.github.io/tags/leetcode/"/>
     
       <category term="tree" scheme="http://yutouwd.github.io/tags/tree/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>路径规划之D* Lite算法详解及实现</title>
-    <link href="http://yutouwd.github.io/posts/346220552/"/>
-    <id>http://yutouwd.github.io/posts/346220552/</id>
-    <published>2019-11-09T10:53:35.000Z</published>
-    <updated>2020-02-17T09:28:58.782Z</updated>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><p>D* Lite算法是一种增量启发式搜素算法，由Sven Koeing和Maxim Likhachev于2004年提出，是基于LPA* 和Dynamic SWSF-F的一种算法。D* Lite算法可以适用于地图未知、环境随时会发生变化的情况，在遇到新增加的障碍物时，可以利用先前搜索所获得的信息，而不需要完全重新规划路径。<br><a id="more"></a></p><h1 id="A-算法"><a href="#A-算法" class="headerlink" title="A*算法"></a>A*算法</h1><p>在介绍D* Lite之前先简单介绍下A*算法。如果要在一个网格地图中找到两点之间的最短路径，很容易想到的广度优先算法和最佳优先算法。</p><p>这章用的图片都来自于这篇博客：<a href="https://paul.pub/a-star-algorithm/" target="_blank" rel="noopener">https://paul.pub/a-star-algorithm/</a></p><h2 id="广度优先算法"><a href="#广度优先算法" class="headerlink" title="广度优先算法"></a>广度优先算法</h2><p>广度优先算法就是从一个点开始遍历周围的节点，逐步向外扩散，已经遍历过的就不用再遍历，直到找到了终点。就如下图所示：</p><img src="/posts/346220552/1.gif"><p>广度优先算法的优点是一定可以找到两点间的最优路径，但是代价就是需要搜索的点非常多，速度会比较慢。</p><h2 id="最佳优先算法"><a href="#最佳优先算法" class="headerlink" title="最佳优先算法"></a>最佳优先算法</h2><p>最佳优先算法和广度优先算法不同，它需要使用一个优先队列，用每个点到终点到距离到估计值来判断一个点的优先级。首先先遍历起点周围的点，计算到终点的距离，距离越近优先级越高。之后就取出优先队列中优先级最高的点，再遍历它点周围节点加入优先队列。之后就不断重复这个过程，直到到达终点。和广度优先相比，最佳优先所需要搜索的点要少很多，如下图所示：</p><img src="/posts/346220552/2.gif"><p>但最佳优先算法的缺点就是，当起点和终点有障碍物时，可能最佳优先算法找到的路径并不是最佳的路径：</p><img src="/posts/346220552/3.gif"><h2 id="A-算法介绍"><a href="#A-算法介绍" class="headerlink" title="A*算法介绍"></a>A*算法介绍</h2><p>A*算法就是把广度优先算法和最佳优先算法的优点所结合起来了。A*算法通过下面的公式来评估一个点的优先级：</p><p>$$ f(n)=g(n)+h(n) $$</p><p>其中</p><h1 id="D-Lite算法详解"><a href="#D-Lite算法详解" class="headerlink" title="D* Lite算法详解"></a>D* Lite算法详解</h1><h2 id="概念介绍"><a href="#概念介绍" class="headerlink" title="概念介绍"></a>概念介绍</h2><h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p>一个A*算法的介绍博客：<br><a href="https://paul.pub/a-star-algorithm/" target="_blank" rel="noopener">https://paul.pub/a-star-algorithm/</a></p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;D* Lite算法是一种增量启发式搜素算法，由Sven Koeing和Maxim Likhachev于2004年提出，是基于LPA* 和Dynamic SWSF-F的一种算法。D* Lite算法可以适用于地图未知、环境随时会发生变化的情况，在遇到新增加的障碍物时，可以利用先前搜索所获得的信息，而不需要完全重新规划路径。&lt;br&gt;
-    
-    </summary>
-    
-      <category term="路径规划" scheme="http://yutouwd.github.io/categories/%E8%B7%AF%E5%BE%84%E8%A7%84%E5%88%92/"/>
-    
-    
-      <category term="路径规划" scheme="http://yutouwd.github.io/tags/%E8%B7%AF%E5%BE%84%E8%A7%84%E5%88%92/"/>
     
   </entry>
   
