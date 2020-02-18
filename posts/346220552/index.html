@@ -115,7 +115,7 @@
 <meta property="og:image" content="http://yutouwd.github.io/posts/346220552/1.gif">
 <meta property="og:image" content="http://yutouwd.github.io/posts/346220552/2.gif">
 <meta property="og:image" content="http://yutouwd.github.io/posts/346220552/3.gif">
-<meta property="og:updated_time" content="2020-02-18T04:02:03.549Z">
+<meta property="og:updated_time" content="2020-02-18T04:07:52.634Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="路径规划之D* Lite算法详解及实现">
 <meta name="twitter:description" content="D* Lite算法是一种增量启发式搜素算法，由Sven Koeing和Maxim Likhachev于2004年提出，是基于LPA* 和Dynamic SWSF-F的一种算法。D* Lite算法可以适用于地图未知、环境随时会发生变化的情况，在遇到新增加的障碍物时，可以利用先前搜索所获得的信息，而不需要完全重新规划路径。">
@@ -418,7 +418,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2020-02-18 12:02:03" itemprop="dateModified" datetime="2020-02-18T12:02:03+08:00">2020-02-18</time>
+                <time title="修改时间：2020-02-18 12:07:52" itemprop="dateModified" datetime="2020-02-18T12:07:52+08:00">2020-02-18</time>
               
             
           </span>
@@ -526,9 +526,10 @@
       
 
       
-        <p>D* Lite算法是一种增量启发式搜素算法，由Sven Koeing和Maxim Likhachev于2004年提出，是基于LPA* 和Dynamic SWSF-F的一种算法。D* Lite算法可以适用于地图未知、环境随时会发生变化的情况，在遇到新增加的障碍物时，可以利用先前搜索所获得的信息，而不需要完全重新规划路径。<br><a id="more"></a></p>
-<h1 id="基础算法介绍"><a href="#基础算法介绍" class="headerlink" title="基础算法介绍"></a>基础算法介绍</h1><p>在介绍D* Lite之前先简单介绍下广度优先、最佳优先以及A*算法。如果要在一个网格地图中找到两点之间的最短路径，很容易想到的广度优先算法和最佳优先算法。</p>
-<p>这章用的图片都来自于这篇博客：<a href="https://paul.pub/a-star-algorithm/" target="_blank" rel="noopener">https://paul.pub/a-star-algorithm/</a>。这篇博客对A*算法对介绍也非常详细。</p>
+        <p>D* Lite算法是一种增量启发式搜素算法，由Sven Koeing和Maxim Likhachev于2004年提出，是基于LPA* 和Dynamic SWSF-F的一种算法。D* Lite算法可以适用于地图未知、环境随时会发生变化的情况，在遇到新增加的障碍物时，可以利用先前搜索所获得的信息，而不需要完全重新规划路径。</p>
+<a id="more"></a>
+<h1 id="基础算法介绍"><a href="#基础算法介绍" class="headerlink" title="基础算法介绍"></a>基础算法介绍</h1><p>在介绍D* Lite之前先简单介绍下广度优先、最佳优先以及A* 算法。如果要在一个网格地图中找到两点之间的最短路径，很容易想到的广度优先算法和最佳优先算法。</p>
+<p>这章用的图片都来自于这篇博客：<a href="https://paul.pub/a-star-algorithm/" target="_blank" rel="noopener">https://paul.pub/a-star-algorithm/</a>。这篇博客对A* 算法对介绍也非常详细。</p>
 <h2 id="广度优先算法"><a href="#广度优先算法" class="headerlink" title="广度优先算法"></a>广度优先算法</h2><p>广度优先算法就是从一个点开始遍历周围的节点，逐步向外扩散，已经遍历过的就不用再遍历，直到找到了终点。就如下图所示：</p>
 <img src="/posts/346220552/1.gif">
 <p>广度优先算法的优点是一定可以找到两点间的最优路径，但是代价就是需要搜索的点非常多，速度会比较慢。</p>
@@ -536,7 +537,7 @@
 <img src="/posts/346220552/2.gif">
 <p>但最佳优先算法的缺点就是，当起点和终点有障碍物时，可能最佳优先算法找到的路径并不是最佳的路径：</p>
 <img src="/posts/346220552/3.gif">
-<h2 id="A-算法介绍"><a href="#A-算法介绍" class="headerlink" title="A*算法介绍"></a>A*算法介绍</h2><p>A*算法就是把广度优先算法和最佳优先算法的优点所结合起来了。A*算法通过下面的公式来评估一个点的优先级：</p>
+<h2 id="A-算法介绍"><a href="#A-算法介绍" class="headerlink" title="A*算法介绍"></a>A*算法介绍</h2><p>A* 算法就是把广度优先算法和最佳优先算法的优点所结合起来了。A* 算法通过下面的公式来评估一个点的优先级：</p>
 <p>$$ f(n)=g(n)+h(n) $$</p>
 <p>其中：</p>
 <ul>
@@ -544,12 +545,13 @@
 <li>g(n)是节点到起点到实际代价。</li>
 <li>h(n)是启发函数，是节点n到终点到估计值。</li>
 </ul>
-<p>A*算法还需要使用两个集合来表示代遍历的节点和已经遍历的节点，通常成为open list和close list，其中open list需要使用优先队列。A*算法首先从起点开始，计算周围的点的优先值并且加入优先队列。之后开始从优先队列中选取优先值最小的点，将其加入close list并且同样计算周围的点的优先值加入优先队列（close list中的点就不需要再计算了）。不断重复这个过程直到搜索到终点算法就结束，返回路径。</p>
-<p>A*算法的公式中，g(n)使得算法能选取相对来说走得更少的点，h(n)能使算法优先选择离终点更近的点（不考虑障碍物的情况，因为使估计值）。</p>
+<p>A* 算法还需要使用两个集合来表示代遍历的节点和已经遍历的节点，通常成为open list和close list，其中open list需要使用优先队列。A* 算法首先从起点开始，计算周围的点的优先值并且加入优先队列。之后开始从优先队列中选取优先值最小的点，将其加入close list并且同样计算周围的点的优先值加入优先队列（close list中的点就不需要再计算了）。不断重复这个过程直到搜索到终点算法就结束，返回路径。</p>
+<p>A* 算法的公式中，g(n)使得算法能选取相对来说走得更少的点，h(n)能使算法优先选择离终点更近的点（不考虑障碍物的情况，因为使估计值）。</p>
 <h1 id="D-Lite算法详解"><a href="#D-Lite算法详解" class="headerlink" title="D* Lite算法详解"></a>D* Lite算法详解</h1><p>D* Lite是一种增量启发式算法。启发式和A*类似，同样有一个启发函数，不过因为D* Lite是从终点向起点搜索，所以对应的启发函数h(n)也变成了节点n到起点的估计值。增量式算法之前找了好久也没有找到相关的定义，后来无意中在西瓜书里面看到了一段对增量学习对定义：</p>
 <blockquote>
 <p>增量学习是指在学得模型后，再接收到训练样例时，仅需根据新样例对模型进行更新，不必重新训练整个模型，并且先前学得的有效信息不会被冲掉。</p>
 </blockquote>
+<p>D* Lite算法就是这样，当检测到了新的障碍物，算法不需要重新规划路径，</p>
 <h2 id="概念介绍"><a href="#概念介绍" class="headerlink" title="概念介绍"></a>概念介绍</h2><h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p>一个A*算法的介绍博客：<br><a href="https://paul.pub/a-star-algorithm/" target="_blank" rel="noopener">https://paul.pub/a-star-algorithm/</a><br>D*算法介绍博客：<br><a href="https://blog.csdn.net/lqzdreamer/article/details/85055569" target="_blank" rel="noopener">https://blog.csdn.net/lqzdreamer/article/details/85055569</a><br>D* Lite算法介绍博客：<br><a href="https://blog.csdn.net/lqzdreamer/article/details/85108310" target="_blank" rel="noopener">https://blog.csdn.net/lqzdreamer/article/details/85108310</a></p>
 
       
@@ -693,7 +695,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">66</span>
+                    <span class="site-state-item-count">67</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
