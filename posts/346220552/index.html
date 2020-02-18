@@ -115,7 +115,7 @@
 <meta property="og:image" content="http://yutouwd.github.io/posts/346220552/1.gif">
 <meta property="og:image" content="http://yutouwd.github.io/posts/346220552/2.gif">
 <meta property="og:image" content="http://yutouwd.github.io/posts/346220552/3.gif">
-<meta property="og:updated_time" content="2020-02-17T10:56:32.085Z">
+<meta property="og:updated_time" content="2020-02-18T02:17:19.891Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="路径规划之D* Lite算法详解及实现">
 <meta name="twitter:description" content="D* Lite算法是一种增量启发式搜素算法，由Sven Koeing和Maxim Likhachev于2004年提出，是基于LPA* 和Dynamic SWSF-F的一种算法。D* Lite算法可以适用于地图未知、环境随时会发生变化的情况，在遇到新增加的障碍物时，可以利用先前搜索所获得的信息，而不需要完全重新规划路径。">
@@ -418,7 +418,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2020-02-17 18:56:32" itemprop="dateModified" datetime="2020-02-17T18:56:32+08:00">2020-02-17</time>
+                <time title="修改时间：2020-02-18 10:17:19" itemprop="dateModified" datetime="2020-02-18T10:17:19+08:00">2020-02-18</time>
               
             
           </span>
@@ -487,7 +487,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="post.wordcount">
-                  807
+                  819
                 </span>
               
 
@@ -527,7 +527,7 @@
 
       
         <p>D* Lite算法是一种增量启发式搜素算法，由Sven Koeing和Maxim Likhachev于2004年提出，是基于LPA* 和Dynamic SWSF-F的一种算法。D* Lite算法可以适用于地图未知、环境随时会发生变化的情况，在遇到新增加的障碍物时，可以利用先前搜索所获得的信息，而不需要完全重新规划路径。<br><a id="more"></a></p>
-<h1 id="A-算法"><a href="#A-算法" class="headerlink" title="A*算法"></a>A*算法</h1><p>在介绍D* Lite之前先简单介绍下A*算法。如果要在一个网格地图中找到两点之间的最短路径，很容易想到的广度优先算法和最佳优先算法。</p>
+<h1 id="基础算法"><a href="#基础算法" class="headerlink" title="基础算法"></a>基础算法</h1><p>在介绍D* Lite之前先简单介绍下广度优先、最佳优先以及A*算法。如果要在一个网格地图中找到两点之间的最短路径，很容易想到的广度优先算法和最佳优先算法。</p>
 <p>这章用的图片都来自于这篇博客：<a href="https://paul.pub/a-star-algorithm/" target="_blank" rel="noopener">https://paul.pub/a-star-algorithm/</a>。这篇博客对A*算法对介绍也非常详细。</p>
 <h2 id="广度优先算法"><a href="#广度优先算法" class="headerlink" title="广度优先算法"></a>广度优先算法</h2><p>广度优先算法就是从一个点开始遍历周围的节点，逐步向外扩散，已经遍历过的就不用再遍历，直到找到了终点。就如下图所示：</p>
 <img src="/posts/346220552/1.gif">
@@ -541,7 +541,7 @@
 <p>其中：</p>
 <ul>
 <li>f(n)是节点n的优先级评估值，f(n)值越小的点优先值越高。</li>
-<li>g(n)是节点到起点到实际代价</li>
+<li>g(n)是节点到起点到实际代价。</li>
 <li>h(n)是启发函数，是节点n到终点到估计值。</li>
 </ul>
 <p>A*算法还需要使用两个集合来表示代遍历的节点和已经遍历的节点，通常成为open list和close list，其中open list需要使用优先队列。A*算法首先从起点开始，计算周围的点的优先值并且加入优先队列。之后开始从优先队列中选取优先值最小的点，将其加入close list并且同样计算周围的点的优先值加入优先队列（close list中的点就不需要再计算了）。不断重复这个过程直到搜索到终点算法就结束，返回路径。</p>
@@ -863,7 +863,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#A-算法"><span class="nav-text">A*算法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#广度优先算法"><span class="nav-text">广度优先算法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#最佳优先算法"><span class="nav-text">最佳优先算法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#A-算法介绍"><span class="nav-text">A*算法介绍</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#D-Lite算法详解"><span class="nav-text">D* Lite算法详解</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#概念介绍"><span class="nav-text">概念介绍</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考资料"><span class="nav-text">参考资料</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#基础算法"><span class="nav-text">基础算法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#广度优先算法"><span class="nav-text">广度优先算法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#最佳优先算法"><span class="nav-text">最佳优先算法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#A-算法介绍"><span class="nav-text">A*算法介绍</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#D-Lite算法详解"><span class="nav-text">D* Lite算法详解</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#概念介绍"><span class="nav-text">概念介绍</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考资料"><span class="nav-text">参考资料</span></a></li></ol></div>
             
 
           </div>
