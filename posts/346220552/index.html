@@ -115,8 +115,7 @@
 <meta property="og:image" content="http://yutouwd.github.io/posts/346220552/1.gif">
 <meta property="og:image" content="http://yutouwd.github.io/posts/346220552/2.gif">
 <meta property="og:image" content="http://yutouwd.github.io/posts/346220552/3.gif">
-<meta property="og:image" content="http://yutouwd.github.io/posts/346220552/4.png">
-<meta property="og:updated_time" content="2020-02-20T03:34:02.133Z">
+<meta property="og:updated_time" content="2020-02-20T03:39:23.010Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="路径规划之D* Lite算法详解及实现">
 <meta name="twitter:description" content="D* Lite算法是一种增量启发式搜素算法，由Sven Koeing和Maxim Likhachev于2004年提出，是基于LPA* 和Dynamic SWSF-FP的一种算法。D* Lite算法可以适用于地图未知、环境随时会发生变化的情况，在遇到新增加的障碍物时，可以利用先前搜索所获得的信息，而不需要完全重新规划路径。">
@@ -419,7 +418,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2020-02-20 11:34:02" itemprop="dateModified" datetime="2020-02-20T11:34:02+08:00">2020-02-20</time>
+                <time title="修改时间：2020-02-20 11:39:23" itemprop="dateModified" datetime="2020-02-20T11:39:23+08:00">2020-02-20</time>
               
             
           </span>
@@ -488,7 +487,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="post.wordcount">
-                  1.5k
+                  1.3k
                 </span>
               
 
@@ -504,7 +503,7 @@
                   <span class="post-meta-item-text">阅读时间 &asymp;</span>
                 
                 <span title="post.min2read">
-                  5
+                  4
                 </span>
               
             </div>
@@ -560,21 +559,7 @@
 <li>h(n):当前点到起点的估计值</li>
 </ul>
 <p>D* Lite中引入了一个新的概念就是rhs(right-hand side)，它的定义公式如下（不知道为什么公式：</p>
-<img src="/posts/346220552/4.png">
-<p>工藤探偵事務所 avatar<br>工藤探偵事務所<br>No case, Only code…<br>私は理想が現実を覆せると信じています。必ず。</p>
-<p>Home</p>
-<p>About</p>
-<p>Links</p>
-<p>工藤探偵事務所<br>Home</p>
-<p>About</p>
-<p>Links<br>2 years ago ~ 4 min read.<br>MathJax 语法参考<br>前几天给博客添加了MathJax插件，这样输数学公式就会方便很多。<br>转自MathJax使用LaTeX语法编写数学公式教程</p>
-<p>如何插入公式<br>LaTeX的数学公式有两种：行中公式和独立公式。行中公式放在文中与其它文字混编，独立公式单独成行。</p>
-<p>例子:<br>＼$[J_\alpha(x) = \sum_{m=0}^\infty \frac{(-1)^m}{m! \Gamma (m + \alpha + 1)} {\left({ \frac{x}{2} }\right)}^{2m + \alpha}＼]$</p>
-<p>显示：<br>如何插入公式大括号<br>矩阵：</p>
-<p>$$\begin{bmatrix} 1&amp;x&amp;x^2\\ 1&amp;y&amp;y^2\\ 1&amp;z&amp;z^2 \end{bmatrix}$$<br>vmatrix ||、Bmatrix{}、pmatrix()<br>分段函数:</p>
-<p>$$</p>
-<p>f(x)=<br>\begin{cases}<br>0&amp; \text{x=0}\\<br>1&amp; \text{x!=0}<br>\end{cases}</p>
-<p>$$</p>
+<p>$$<br>rhs(s)=<br>\begin{cases}<br>0&amp; \text{if s=s_{start}}\\<br>1&amp; \text{x!=0}<br>\end{cases}<br>$$</p>
 <h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p>一个A*算法的介绍博客：<br><a href="https://paul.pub/a-star-algorithm/" target="_blank" rel="noopener">https://paul.pub/a-star-algorithm/</a><br>D*算法介绍博客：<br><a href="https://blog.csdn.net/lqzdreamer/article/details/85055569" target="_blank" rel="noopener">https://blog.csdn.net/lqzdreamer/article/details/85055569</a><br>D* Lite算法论文：<br><a href="https://www.aaai.org/Papers/AAAI/2002/AAAI02-072.pdf" target="_blank" rel="noopener">https://www.aaai.org/Papers/AAAI/2002/AAAI02-072.pdf</a><br>D* Lite算法介绍博客：<br><a href="https://blog.csdn.net/lqzdreamer/article/details/85108310" target="_blank" rel="noopener">https://blog.csdn.net/lqzdreamer/article/details/85108310</a></p>
 
       
@@ -923,7 +908,7 @@
     
       <span class="post-meta-item-text">文字总数&#58;</span>
     
-    <span title="post.totalcount">37.7k</span>
+    <span title="post.totalcount">37.5k</span>
   
 
   

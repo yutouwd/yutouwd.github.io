@@ -528,21 +528,7 @@
 <li>h(n):当前点到起点的估计值</li>
 </ul>
 <p>D* Lite中引入了一个新的概念就是rhs(right-hand side)，它的定义公式如下（不知道为什么公式：</p>
-<img src="/posts/346220552/4.png">
-<p>工藤探偵事務所 avatar<br>工藤探偵事務所<br>No case, Only code…<br>私は理想が現実を覆せると信じています。必ず。</p>
-<p>Home</p>
-<p>About</p>
-<p>Links</p>
-<p>工藤探偵事務所<br>Home</p>
-<p>About</p>
-<p>Links<br>2 years ago ~ 4 min read.<br>MathJax 语法参考<br>前几天给博客添加了MathJax插件，这样输数学公式就会方便很多。<br>转自MathJax使用LaTeX语法编写数学公式教程</p>
-<p>如何插入公式<br>LaTeX的数学公式有两种：行中公式和独立公式。行中公式放在文中与其它文字混编，独立公式单独成行。</p>
-<p>例子:<br>＼$[J_\alpha(x) = \sum_{m=0}^\infty \frac{(-1)^m}{m! \Gamma (m + \alpha + 1)} {\left({ \frac{x}{2} }\right)}^{2m + \alpha}＼]$</p>
-<p>显示：<br>如何插入公式大括号<br>矩阵：</p>
-<p>$$\begin{bmatrix} 1&amp;x&amp;x^2\\ 1&amp;y&amp;y^2\\ 1&amp;z&amp;z^2 \end{bmatrix}$$<br>vmatrix ||、Bmatrix{}、pmatrix()<br>分段函数:</p>
-<p>$$</p>
-<p>f(x)=<br>\begin{cases}<br>0&amp; \text{x=0}\\<br>1&amp; \text{x!=0}<br>\end{cases}</p>
-<p>$$</p>
+<p>$$<br>rhs(s)=<br>\begin{cases}<br>0&amp; \text{if s=s_{start}}\\<br>1&amp; \text{x!=0}<br>\end{cases}<br>$$</p>
 <h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p>一个A*算法的介绍博客：<br><a href="https://paul.pub/a-star-algorithm/" target="_blank" rel="noopener">https://paul.pub/a-star-algorithm/</a><br>D*算法介绍博客：<br><a href="https://blog.csdn.net/lqzdreamer/article/details/85055569" target="_blank" rel="noopener">https://blog.csdn.net/lqzdreamer/article/details/85055569</a><br>D* Lite算法论文：<br><a href="https://www.aaai.org/Papers/AAAI/2002/AAAI02-072.pdf" target="_blank" rel="noopener">https://www.aaai.org/Papers/AAAI/2002/AAAI02-072.pdf</a><br>D* Lite算法介绍博客：<br><a href="https://blog.csdn.net/lqzdreamer/article/details/85108310" target="_blank" rel="noopener">https://blog.csdn.net/lqzdreamer/article/details/85108310</a></p>
 ]]></content>
       <categories>
@@ -1681,11 +1667,11 @@
 <p>不过现在卡在百度的认证上了，下载认证文件放到next主题目录的路径下，会显示验证失败：“您的站点有链接未通过https校验“黑人问号？？？</p>
 <h2 id="leetcode文章归档"><a href="#leetcode文章归档" class="headerlink" title="leetcode文章归档"></a>leetcode文章归档</h2><p>想法是写leetcode的文章不会自动显示在主页上，然后新建一个page，里面专门收录写的关于leetcoede的文章。可以在scaffolds目录中新建一个leet.md，以后直接用hexo new leet [leet题目]这样方式来新建一个文章。将文章不显示在主页的方法参考这篇文章<a href="https://www.jianshu.com/p/79fe9fb9dfa0" target="_blank" rel="noopener">https://www.jianshu.com/p/79fe9fb9dfa0</a>，修改好之后，就在leet.md中加上notshow: true，以后新建就可以自动设置为不显示了。</p>
 <p>然后还想弄一个类似于github上个人主页那种日历表，如果有一天有做题的话，就会设置成绿色。找了下，发现可以通过baidu的echart或者google chart来实现。baidu的好处就是有中文的文档，google的例子似乎更好看一些，但是不知道会不会被emmmm，就还是先试试百度的吧。只要<strong>npm install hexo-tag-echarts3 –save</strong>就可以来，下面是一个echart测试：</p>
-<div id="echarts3695" style="width: 85%;height: 400px;margin: 0 auto"></div>
+<div id="echarts6072" style="width: 85%;height: 400px;margin: 0 auto"></div>
 <script src="https://cdn.bootcss.com/echarts/3.8.0/echarts.common.min.js"></script>
 <script type="text/javascript">
         // 基于准备好的dom，初始化echarts实例
-        var myChart = echarts.init(document.getElementById('echarts3695'));
+        var myChart = echarts.init(document.getElementById('echarts6072'));
         // 指定图表的配置项和数据
         var option = {
     tooltip : {
@@ -1752,11 +1738,11 @@
         myChart.setOption(option);
 </script>
 <p>可以点击上方的利润、收入、支出来设置显示和不显示，还是很炫酷滴🕶️，接下来试下日历表：</p>
-<div id="echarts8072" style="width: 85%;height: 400px;margin: 0 auto"></div>
+<div id="echarts9621" style="width: 85%;height: 400px;margin: 0 auto"></div>
 <script src="https://cdn.bootcss.com/echarts/3.8.0/echarts.common.min.js"></script>
 <script type="text/javascript">
         // 基于准备好的dom，初始化echarts实例
-        var myChart = echarts.init(document.getElementById('echarts8072'));
+        var myChart = echarts.init(document.getElementById('echarts9621'));
         // 指定图表的配置项和数据
         var option = 
 option = {
