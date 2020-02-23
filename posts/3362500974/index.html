@@ -104,18 +104,18 @@
 
 
 
-  <meta name="description" content="题目描述Given an array of integers, return indices of the two numbers such that they add up to a specific target.  You may assume that each input would have exactly one solution, and you may not use the s">
-<meta name="keywords" content="leetcode,vector,hashmap">
+  <meta name="description" content="题目描述我的解法解题思路实现代码高票解法实现代码代码分析知识总结">
+<meta name="keywords" content="leetcode">
 <meta property="og:type" content="article">
-<meta property="og:title" content="1.Two Sum">
-<meta property="og:url" content="http://yutouwd.github.io/posts/2304652807/index.html">
+<meta property="og:title" content="A120-Triangle">
+<meta property="og:url" content="http://yutouwd.github.io/posts/3362500974/index.html">
 <meta property="og:site_name" content="yutouwd">
-<meta property="og:description" content="题目描述Given an array of integers, return indices of the two numbers such that they add up to a specific target.  You may assume that each input would have exactly one solution, and you may not use the s">
+<meta property="og:description" content="题目描述我的解法解题思路实现代码高票解法实现代码代码分析知识总结">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-09-23T09:15:18.323Z">
+<meta property="og:updated_time" content="2020-02-23T04:18:08.717Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="1.Two Sum">
-<meta name="twitter:description" content="题目描述Given an array of integers, return indices of the two numbers such that they add up to a specific target.  You may assume that each input would have exactly one solution, and you may not use the s">
+<meta name="twitter:title" content="A120-Triangle">
+<meta name="twitter:description" content="题目描述我的解法解题思路实现代码高票解法实现代码代码分析知识总结">
 
 
 
@@ -124,7 +124,7 @@
 
 
 
-  <link rel="canonical" href="http://yutouwd.github.io/posts/2304652807/">
+  <link rel="canonical" href="http://yutouwd.github.io/posts/3362500974/">
 
 
 
@@ -134,7 +134,7 @@
   };
 </script>
 
-  <title>1.Two Sum | yutouwd</title>
+  <title>A120-Triangle | yutouwd</title>
   
 
 
@@ -354,7 +354,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yutouwd.github.io/posts/2304652807/">
+    <link itemprop="mainEntityOfPage" href="http://yutouwd.github.io/posts/3362500974/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="yutouwd">
@@ -371,7 +371,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">1.Two Sum
+          <h2 class="post-title" itemprop="name headline">A120-Triangle
 
               
             
@@ -397,25 +397,9 @@
                 
               
 
-              <time title="创建时间：2019-04-05 08:43:29" itemprop="dateCreated datePublished" datetime="2019-04-05T08:43:29+08:00">2019-04-05</time>
+              <time title="创建时间：2020-02-23 12:18:08" itemprop="dateCreated datePublished" datetime="2020-02-23T12:18:08+08:00">2020-02-23</time>
             
 
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-09-23 17:15:18" itemprop="dateModified" datetime="2019-09-23T17:15:18+08:00">2019-09-23</time>
-              
             
           </span>
 
@@ -435,13 +419,6 @@
 
                 
                 
-                  ，
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/leetcode/easy/" itemprop="url" rel="index"><span itemprop="name">easy</span></a></span>
-
-                
-                
               
             </span>
           
@@ -456,8 +433,8 @@
                   <i class="fa fa-comment-o"></i>
                 </span>
             
-                <a href="/posts/2304652807/#comments" itemprop="discussionUrl">
-                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/posts/2304652807/" itemprop="commentCount"></span>
+                <a href="/posts/3362500974/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/posts/3362500974/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -465,7 +442,7 @@
 
           
           
-            <span id="/posts/2304652807/" class="leancloud_visitors" data-flag-title="1.Two Sum">
+            <span id="/posts/3362500974/" class="leancloud_visitors" data-flag-title="A120-Triangle">
               <span class="post-meta-divider">|</span>
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
@@ -490,7 +467,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="post.wordcount">
-                  448
+                  32
                 </span>
               
 
@@ -506,7 +483,7 @@
                   <span class="post-meta-item-text">阅读时间 &asymp;</span>
                 
                 <span title="post.min2read">
-                  2
+                  1
                 </span>
               
             </div>
@@ -529,19 +506,7 @@
       
 
       
-        <h1 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h1><p>Given an array of integers, return indices of the two numbers such that they add up to a specific target. </p>
-<p>You may assume that each input would have exactly one solution, and you may not use the same element twice. </p>
-<p>Example: </p>
-<p>Given nums = [2, 7, 11, 15], target = 9, </p>
-<p>Because nums[0] + nums[1] = 2 + 7 = 9,<br>return [0, 1]. </p>
-<h1 id="我的解法"><a href="#我的解法" class="headerlink" title="我的解法"></a>我的解法</h1><h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><p>题目的意思是给到一个整形的数组和一个目标，要在这个数组里面找到两个数相加等于这个目标的两个数，并返回这两个数的索引数组。并且可以假定每个输入必有且只有一个解，不能用一个数两次。</p>
-<p>简单的想法就是用两个for循环，遍历数组里两个数相加的组合，如果相加等于目标，就返回这两个索引值。</p>
-<h2 id="实现代码"><a href="#实现代码" class="headerlink" title="实现代码"></a>实现代码</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; twoSum(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums, <span class="keyword">int</span> target) &#123;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; index;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.size() - <span class="number">1</span>;i++)&#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = i + <span class="number">1</span>; j &lt; nums.size(); j++)&#123;</span><br><span class="line">                <span class="keyword">if</span> (nums[i] + nums[j] == target)&#123;</span><br><span class="line">                    index.push_back(i);</span><br><span class="line">                    index.push_back(j);</span><br><span class="line">                    <span class="keyword">return</span> index;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> index;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p>结果如下：<br>✔ Accepted<br>  ✔ 29/29 cases passed (144 ms)<br>  ✔ Your runtime beats 32.13 % of cpp submissions<br>  ✔ Your memory usage beats 99.9 % of cpp submissions (9.2 MB)<br>速度有点点的慢</p>
-<h1 id="高票解法"><a href="#高票解法" class="headerlink" title="高票解法"></a>高票解法</h1><p>看了下高票以及速度较快的解法，基本都是用了hash表。之前做题的时候也经常可以见到，但是一直也都没有太理解它的用法</p>
-<h2 id="实现代码-1"><a href="#实现代码-1" class="headerlink" title="实现代码"></a>实现代码</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; twoSum(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums, <span class="keyword">int</span> target) &#123;</span><br><span class="line">        <span class="built_in">unordered_map</span>&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt; indices;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.size(); i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (indices.find(target - nums[i]) != indices.end()) &#123;</span><br><span class="line">                <span class="keyword">return</span> &#123;indices[target - nums[i]], i&#125;;</span><br><span class="line">            &#125;</span><br><span class="line">            indices[nums[i]] = i;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> &#123;&#125;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<h1 id="知识总结"><a href="#知识总结" class="headerlink" title="知识总结"></a>知识总结</h1><p>先好好了解一下哈希表和C++中的map和inorder_map的用法。</p>
-
+        <h1 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h1><h1 id="我的解法"><a href="#我的解法" class="headerlink" title="我的解法"></a>我的解法</h1><h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><h2 id="实现代码"><a href="#实现代码" class="headerlink" title="实现代码"></a>实现代码</h2><h1 id="高票解法"><a href="#高票解法" class="headerlink" title="高票解法"></a>高票解法</h1><h2 id="实现代码-1"><a href="#实现代码-1" class="headerlink" title="实现代码"></a>实现代码</h2><h2 id="代码分析"><a href="#代码分析" class="headerlink" title="代码分析"></a>代码分析</h2><h1 id="知识总结"><a href="#知识总结" class="headerlink" title="知识总结"></a>知识总结</h1>
       
     </div>
 
@@ -565,10 +530,6 @@
         <div class="post-tags">
           
             <a href="/tags/leetcode/" rel="tag"><i class="menu-item-icon fa fa-fw fa-tags"></i> leetcode</a>
-          
-            <a href="/tags/vector/" rel="tag"><i class="menu-item-icon fa fa-fw fa-tags"></i> vector</a>
-          
-            <a href="/tags/hashmap/" rel="tag"><i class="menu-item-icon fa fa-fw fa-tags"></i> hashmap</a>
           
         </div>
       
@@ -601,8 +562,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/posts/921238856/" rel="next" title="成为一个「数据标记员」">
-                <i class="fa fa-chevron-left"></i> 成为一个「数据标记员」
+              <a href="/posts/3379915881/" rel="next" title="64.Minimum Path Sum">
+                <i class="fa fa-chevron-left"></i> 64.Minimum Path Sum
               </a>
             
           </div>
@@ -610,10 +571,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/posts/1020379111/" rel="prev" title="7.Reverse Interger">
-                7.Reverse Interger <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -858,7 +815,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#题目描述"><span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#我的解法"><span class="nav-text">我的解法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#解题思路"><span class="nav-text">解题思路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实现代码"><span class="nav-text">实现代码</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#高票解法"><span class="nav-text">高票解法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#实现代码-1"><span class="nav-text">实现代码</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#知识总结"><span class="nav-text">知识总结</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#题目描述"><span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#我的解法"><span class="nav-text">我的解法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#解题思路"><span class="nav-text">解题思路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实现代码"><span class="nav-text">实现代码</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#高票解法"><span class="nav-text">高票解法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#实现代码-1"><span class="nav-text">实现代码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码分析"><span class="nav-text">代码分析</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#知识总结"><span class="nav-text">知识总结</span></a></li></ol></div>
             
 
           </div>

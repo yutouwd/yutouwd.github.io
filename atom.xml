@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yutouwd.github.io/"/>
-  <updated>2020-02-22T02:54:39.334Z</updated>
+  <updated>2020-02-23T04:18:08.717Z</updated>
   <id>http://yutouwd.github.io/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>A120-Triangle</title>
+    <link href="http://yutouwd.github.io/posts/3362500974/"/>
+    <id>http://yutouwd.github.io/posts/3362500974/</id>
+    <published>2020-02-23T04:18:08.000Z</published>
+    <updated>2020-02-23T04:18:08.717Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><h1 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h1><h1 id="我的解法"><a href="#我的解法" class="headerlink" title="我的解法"></a>我的解法</h1><h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><h2 id="实现代码"><a href="#实现代码" class="headerlink" title="实现代码"></a>实现代码</h2><h1 id="高票解法"><a href="#高票解法" class="headerlink" title="高票解法"></a>高票解法</h1><h2 id="实现代码-1"><a href="#实现代码-1" class="headerlink" title="实现代码"></a>实现代码</h2><h2 id="代码分析"><a href="#代码分析" class="headerlink" title="代码分析"></a>代码分析</h2><h1 id="知识总结"><a href="#知识总结" class="headerlink" title="知识总结"></a>知识总结</h1>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;/assets/css/APlayer.min.css&quot;&gt;&lt;script src=&quot;/assets/js/APlayer.min.js&quot; cla
+      
+    
+    </summary>
+    
+      <category term="leetcode" scheme="http://yutouwd.github.io/categories/leetcode/"/>
+    
+    
+      <category term="leetcode" scheme="http://yutouwd.github.io/tags/leetcode/"/>
+    
+  </entry>
   
   <entry>
     <title>64.Minimum Path Sum</title>
@@ -568,37 +593,6 @@
       <category term="leetcode" scheme="http://yutouwd.github.io/tags/leetcode/"/>
     
       <category term="vector" scheme="http://yutouwd.github.io/tags/vector/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>350.Intersection of Two Arrays II</title>
-    <link href="http://yutouwd.github.io/posts/2444108763/"/>
-    <id>http://yutouwd.github.io/posts/2444108763/</id>
-    <published>2019-12-11T14:37:05.000Z</published>
-    <updated>2019-12-15T08:54:18.304Z</updated>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><h1 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h1><p>Given two arrays, write a function to compute their intersection.</p><p>Example 1:<br>Input: nums1 = [1,2,2,1], nums2 = [2,2]<br>Output: [2,2]</p><p>Example 2:<br>Input: nums1 = [4,9,5], nums2 = [9,4,9,8,4]<br>Output: [4,9]</p><p>Note:<br>Each element in the result should appear as many times as it shows in both arrays.<br>The result can be in any order.</p><p>Follow up:<br>What if the given array is already sorted? How would you optimize your algorithm?<br>What if nums1’s size is small compared to nums2’s size? Which algorithm is better?<br>What if elements of nums2 are stored on disk, and the memory is limited such that you cannot load all elements into the memory at once?</p><h1 id="我的解法"><a href="#我的解法" class="headerlink" title="我的解法"></a>我的解法</h1><h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><p>统计两个数组重复的数字，如果一个数字在两个数组中都出现了2次，那么返回数组也要包括两个这个数组。还是用unordered_map来实现，统计第一个数组每个数字出现的次数，然后再遍历第二个数组，如果有重复的数字，那么就加到答案数组中，并且将map中的key值减1。</p><h2 id="实现代码"><a href="#实现代码" class="headerlink" title="实现代码"></a>实现代码</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; intersect(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums1, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums2) &#123;</span><br><span class="line">        <span class="built_in">unordered_map</span>&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt; count;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i : nums1)</span><br><span class="line">            count[i]++;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; ans;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i : nums2)&#123;</span><br><span class="line">            <span class="keyword">if</span> (count[i])&#123;</span><br><span class="line">                ans.push_back(i);</span><br><span class="line">                count[i]--;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure><p>Runtime: 4 ms, faster than 99.18% of C++ online submissions for Intersection of Two Arrays II.<br>Memory Usage: 9.7 MB, less than 26.79% of C++ online submissions for Intersection of Two Arrays II.</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;/assets/css/APlayer.min.css&quot;&gt;&lt;script src=&quot;/assets/js/APlayer.min.js&quot; cla
-      
-    
-    </summary>
-    
-      <category term="leetcode" scheme="http://yutouwd.github.io/categories/leetcode/"/>
-    
-      <category term="easy" scheme="http://yutouwd.github.io/categories/leetcode/easy/"/>
-    
-    
-      <category term="leetcode" scheme="http://yutouwd.github.io/tags/leetcode/"/>
-    
-      <category term="vector" scheme="http://yutouwd.github.io/tags/vector/"/>
-    
-      <category term="hashmap" scheme="http://yutouwd.github.io/tags/hashmap/"/>
     
   </entry>
   
