@@ -676,11 +676,12 @@
 <p>D* Lite中引入了一个新的概念就是rhs(right-hand side)，它的定义公式如下：</p>
 <p>$$<br>rhs(s)=<br>\begin{cases}<br>0&amp; if  s=s_{goal}\\<br>min_{s’\in Pred(s)} (g(s’)+c(s’,s)) &amp; \text{otherwise}<br>\end{cases}<br>$$</p>
 <p>一个点的rhs值是它的父代节点中g值加上这两点之间的代价中的最小值，相当于一个点从父代节点到达这个点的最小代价。其实在算法的大部分过程中，g值和rhs值是相等的。具体rhs值的意义在后面再介绍。</p>
-<h3 id="两个key值"><a href="#两个key值" class="headerlink" title="两个key值"></a>两个key值</h3><p>在A* 算法中，通过f(n)的大小来判断一个点的优先级，而在D* Lite中，需要通过两个key值来判断一个点的优先级。它们的公式如下：<br>$$<br>k_1(s) = min(g(s),rhs(s))+h(s,s_{start})+k_m<br>$$</p>
+<h3 id="两个key值"><a href="#两个key值" class="headerlink" title="两个key值"></a>两个key值</h3><p>在A* 算法中，通过f(n)的大小来判断一个点的优先级，而在D* Lite中，需要通过两个key值来判断一个点的优先级，key值越小优先级越高，先判断第一个key值，如果第一个key值相等再判断第二个key值。它们的公式如下：<br>$$<br>k_1(s) = min(g(s),rhs(s))+h(s,s_{start})+k_m<br>$$</p>
 <p>$$<br>k_2(s) = min(g(s),rhs(s))<br>$$</p>
-<p>其中$k_m$的定义为，算法初始化时将$k_m$设置为0，之后当机器人有检测到地图的变化时，$k_m+=h(s_{last},s_{start})$，$s_{last}$代表的是上一个起点，$s_{start}$是机器人的当前位置。因为每当机器人有检测到地图的变化时，要计算两点之间的启发距离（不考虑障碍物），并且把当前所在的点设置为新的起点，即更新起点的位置。</p>
+<p>其中$k_m$的定义为，算法初始化时会先将$k_m$设置为0，之后当机器人有检测到地图的变化时，$k_m+=h(s_{last},s_{start})$，$s_{last}$代表的是上一个起点，$s_{start}$是机器人的当前位置。因为每当机器人有检测到地图的变化时，要计算两点之间的启发距离（不考虑障碍物），并且把当前所在的点设置为新的起点，即更新起点的位置。</p>
 <p>我们一个个来看。首先是第一个key，它由三项构成，当前点的g值和rhs值中的最小值加上当前点到起点的估计值在加上一个$k_m$。简单的理解话：第一项就是到终点的实际距离，第二项是到起点的估计值，如果在机器人还没有移动的时候$k_m$就等于0，这时算法其实就相当于一个反向从终点往起点方向搜索的A* 算法了。那么$k_m$引入的意义是什么呢，当机器人检测到障碍的变化时会再一次规划路径，这时候的实际起点应该是机器人当前的位置，起点发生了变化，每个点的h值也会相应变化，key值也发生了变化。如果不引入这个参数的话，就需要把优先队列中的全部节点都重新计算一遍key值，增加了计算量。引入之后就可以一定程度上保证key值的一致性，减少计算量。</p>
 <p>第二key值就是g值和rhs值中的最小值，它的意义在于当两个点的第一个key值相等的时候，算法会优先选择距离终点近的点。</p>
+<h3 id="局部一致性"><a href="#局部一致性" class="headerlink" title="局部一致性"></a>局部一致性</h3><p>D* Lite算法中还有一个很重要的概念就是局部一致性，通过一个点的局部一致性来判断当前点是否需要计算。其定义如下：当一个点的g值等于rhs值时称这个点为局部一致的点，否则称这个点为局部不一致。其中局部不一致的情况还可细分成为局部过一致和局部欠一致：当一个点的g值大于rhs值时，这个点为局部过一致，通常是有障碍物删除时或者算法第一次搜索路径时；当一个点的g值小于rhs值时，这个点为局部欠一致，通常是检测到了新增的障碍物。</p>
 <h2 id="算法伪代码理解"><a href="#算法伪代码理解" class="headerlink" title="算法伪代码理解"></a>算法伪代码理解</h2><h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p>一个A*算法的介绍博客：<br><a href="https://paul.pub/a-star-algorithm/" target="_blank" rel="noopener">https://paul.pub/a-star-algorithm/</a><br>D*算法介绍博客：<br><a href="https://blog.csdn.net/lqzdreamer/article/details/85055569" target="_blank" rel="noopener">https://blog.csdn.net/lqzdreamer/article/details/85055569</a><br>D* Lite算法论文：<br><a href="https://www.aaai.org/Papers/AAAI/2002/AAAI02-072.pdf" target="_blank" rel="noopener">https://www.aaai.org/Papers/AAAI/2002/AAAI02-072.pdf</a><br>D* Lite算法介绍博客：<br><a href="https://blog.csdn.net/lqzdreamer/article/details/85108310" target="_blank" rel="noopener">https://blog.csdn.net/lqzdreamer/article/details/85108310</a></p>
 ]]></content>
       <categories>
@@ -1832,11 +1833,11 @@
 <p>不过现在卡在百度的认证上了，下载认证文件放到next主题目录的路径下，会显示验证失败：“您的站点有链接未通过https校验“黑人问号？？？</p>
 <h2 id="leetcode文章归档"><a href="#leetcode文章归档" class="headerlink" title="leetcode文章归档"></a>leetcode文章归档</h2><p>想法是写leetcode的文章不会自动显示在主页上，然后新建一个page，里面专门收录写的关于leetcoede的文章。可以在scaffolds目录中新建一个leet.md，以后直接用hexo new leet [leet题目]这样方式来新建一个文章。将文章不显示在主页的方法参考这篇文章<a href="https://www.jianshu.com/p/79fe9fb9dfa0" target="_blank" rel="noopener">https://www.jianshu.com/p/79fe9fb9dfa0</a>，修改好之后，就在leet.md中加上notshow: true，以后新建就可以自动设置为不显示了。</p>
 <p>然后还想弄一个类似于github上个人主页那种日历表，如果有一天有做题的话，就会设置成绿色。找了下，发现可以通过baidu的echart或者google chart来实现。baidu的好处就是有中文的文档，google的例子似乎更好看一些，但是不知道会不会被emmmm，就还是先试试百度的吧。只要<strong>npm install hexo-tag-echarts3 –save</strong>就可以来，下面是一个echart测试：</p>
-<div id="echarts7733" style="width: 85%;height: 400px;margin: 0 auto"></div>
+<div id="echarts2244" style="width: 85%;height: 400px;margin: 0 auto"></div>
 <script src="https://cdn.bootcss.com/echarts/3.8.0/echarts.common.min.js"></script>
 <script type="text/javascript">
         // 基于准备好的dom，初始化echarts实例
-        var myChart = echarts.init(document.getElementById('echarts7733'));
+        var myChart = echarts.init(document.getElementById('echarts2244'));
         // 指定图表的配置项和数据
         var option = {
     tooltip : {
@@ -1903,11 +1904,11 @@
         myChart.setOption(option);
 </script>
 <p>可以点击上方的利润、收入、支出来设置显示和不显示，还是很炫酷滴🕶️，接下来试下日历表：</p>
-<div id="echarts3951" style="width: 85%;height: 400px;margin: 0 auto"></div>
+<div id="echarts4953" style="width: 85%;height: 400px;margin: 0 auto"></div>
 <script src="https://cdn.bootcss.com/echarts/3.8.0/echarts.common.min.js"></script>
 <script type="text/javascript">
         // 基于准备好的dom，初始化echarts实例
-        var myChart = echarts.init(document.getElementById('echarts3951'));
+        var myChart = echarts.init(document.getElementById('echarts4953'));
         // 指定图表的配置项和数据
         var option = 
 option = {
