@@ -104,18 +104,18 @@
 
 
 
-  <meta name="description" content="题目描述Find the total area covered by two rectilinear rectangles in a 2D plane. Each rectangle is defined by its bottom left corner and top right corner as shown in the figure. Rectangle Area Example:Inp">
-<meta name="keywords" content="leetcode,math">
+  <meta name="description" content="题目描述我的解法解题思路实现代码高票解法实现代码代码分析知识总结">
+<meta name="keywords" content="leetcode">
 <meta property="og:type" content="article">
-<meta property="og:title" content="223.Rectangle Area">
-<meta property="og:url" content="http://yutouwd.github.io/posts/3099514846/index.html">
+<meta property="og:title" content="A188-Best-Time-to-Buy-and-SellIV">
+<meta property="og:url" content="http://yutouwd.github.io/posts/1646362365/index.html">
 <meta property="og:site_name" content="yutouwd">
-<meta property="og:description" content="题目描述Find the total area covered by two rectilinear rectangles in a 2D plane. Each rectangle is defined by its bottom left corner and top right corner as shown in the figure. Rectangle Area Example:Inp">
+<meta property="og:description" content="题目描述我的解法解题思路实现代码高票解法实现代码代码分析知识总结">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-09-19T14:27:14.473Z">
+<meta property="og:updated_time" content="2020-02-26T10:52:14.622Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="223.Rectangle Area">
-<meta name="twitter:description" content="题目描述Find the total area covered by two rectilinear rectangles in a 2D plane. Each rectangle is defined by its bottom left corner and top right corner as shown in the figure. Rectangle Area Example:Inp">
+<meta name="twitter:title" content="A188-Best-Time-to-Buy-and-SellIV">
+<meta name="twitter:description" content="题目描述我的解法解题思路实现代码高票解法实现代码代码分析知识总结">
 
 
 
@@ -124,7 +124,7 @@
 
 
 
-  <link rel="canonical" href="http://yutouwd.github.io/posts/3099514846/">
+  <link rel="canonical" href="http://yutouwd.github.io/posts/1646362365/">
 
 
 
@@ -134,7 +134,7 @@
   };
 </script>
 
-  <title>223.Rectangle Area | yutouwd</title>
+  <title>A188-Best-Time-to-Buy-and-SellIV | yutouwd</title>
   
 
 
@@ -354,7 +354,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yutouwd.github.io/posts/3099514846/">
+    <link itemprop="mainEntityOfPage" href="http://yutouwd.github.io/posts/1646362365/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="yutouwd">
@@ -371,7 +371,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">223.Rectangle Area
+          <h2 class="post-title" itemprop="name headline">A188-Best-Time-to-Buy-and-SellIV
 
               
             
@@ -397,13 +397,9 @@
                 
               
 
-              <time title="创建时间：2019-09-19 11:27:40 / 修改时间：22:27:14" itemprop="dateCreated datePublished" datetime="2019-09-19T11:27:40+08:00">2019-09-19</time>
+              <time title="创建时间：2020-02-26 18:52:14" itemprop="dateCreated datePublished" datetime="2020-02-26T18:52:14+08:00">2020-02-26</time>
             
 
-            
-              
-
-              
             
           </span>
 
@@ -423,13 +419,6 @@
 
                 
                 
-                  ，
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/leetcode/easy/" itemprop="url" rel="index"><span itemprop="name">easy</span></a></span>
-
-                
-                
               
             </span>
           
@@ -444,8 +433,8 @@
                   <i class="fa fa-comment-o"></i>
                 </span>
             
-                <a href="/posts/3099514846/#comments" itemprop="discussionUrl">
-                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/posts/3099514846/" itemprop="commentCount"></span>
+                <a href="/posts/1646362365/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/posts/1646362365/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -453,7 +442,7 @@
 
           
           
-            <span id="/posts/3099514846/" class="leancloud_visitors" data-flag-title="223.Rectangle Area">
+            <span id="/posts/1646362365/" class="leancloud_visitors" data-flag-title="A188-Best-Time-to-Buy-and-SellIV">
               <span class="post-meta-divider">|</span>
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
@@ -478,7 +467,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="post.wordcount">
-                  235
+                  32
                 </span>
               
 
@@ -517,14 +506,7 @@
       
 
       
-        <h1 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h1><p>Find the total area covered by two rectilinear rectangles in a 2D plane.</p>
-<p>Each rectangle is defined by its bottom left corner and top right corner as shown in the figure.</p>
-<p>Rectangle Area</p>
-<p>Example:<br>Input: A = -3, B = 0, C = 3, D = 4, E = 0, F = -1, G = 9, H = 2<br>Output: 45</p>
-<p>Note:<br>Assume that the total area is never beyond the maximum possible value of int.</p>
-<h1 id="我的解法"><a href="#我的解法" class="headerlink" title="我的解法"></a>我的解法</h1><h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><p>其实就是和求IOU类似，但是C++会遇到各种边界问题…提示中说总面积不会超过int的最大值，但是如果没有减去相交的面积时可能会超过int的最大值。</p>
-<h2 id="实现代码"><a href="#实现代码" class="headerlink" title="实现代码"></a>实现代码</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">computeArea</span><span class="params">(<span class="keyword">int</span> A, <span class="keyword">int</span> B, <span class="keyword">int</span> C, <span class="keyword">int</span> D, <span class="keyword">int</span> E, <span class="keyword">int</span> F, <span class="keyword">int</span> G, <span class="keyword">int</span> H)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 如果直接用max(0,...)后面两个相减的可能会超出int的下界</span></span><br><span class="line">        <span class="keyword">int</span> x = min(C,G) &gt; max(A,E) ? min(C,G) - max(A,E) : <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> y = min(D,H) &gt; max(B,F) ? min(D,H) - max(B,F) : <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">return</span> (C - A) * (D -B) - x * y + (G -E) * (H - F);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
+        <h1 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h1><h1 id="我的解法"><a href="#我的解法" class="headerlink" title="我的解法"></a>我的解法</h1><h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><h2 id="实现代码"><a href="#实现代码" class="headerlink" title="实现代码"></a>实现代码</h2><h1 id="高票解法"><a href="#高票解法" class="headerlink" title="高票解法"></a>高票解法</h1><h2 id="实现代码-1"><a href="#实现代码-1" class="headerlink" title="实现代码"></a>实现代码</h2><h2 id="代码分析"><a href="#代码分析" class="headerlink" title="代码分析"></a>代码分析</h2><h1 id="知识总结"><a href="#知识总结" class="headerlink" title="知识总结"></a>知识总结</h1>
       
     </div>
 
@@ -548,8 +530,6 @@
         <div class="post-tags">
           
             <a href="/tags/leetcode/" rel="tag"><i class="menu-item-icon fa fa-fw fa-tags"></i> leetcode</a>
-          
-            <a href="/tags/math/" rel="tag"><i class="menu-item-icon fa fa-fw fa-tags"></i> math</a>
           
         </div>
       
@@ -582,8 +562,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/posts/2829474180/" rel="next" title="206.Reverse Linked List">
-                <i class="fa fa-chevron-left"></i> 206.Reverse Linked List
+              <a href="/posts/866377430/" rel="next" title="13.Roman to Integer">
+                <i class="fa fa-chevron-left"></i> 13.Roman to Integer
               </a>
             
           </div>
@@ -591,10 +571,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/posts/316802933/" rel="prev" title="824.Goat Latin">
-                824.Goat Latin <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -839,7 +815,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#题目描述"><span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#我的解法"><span class="nav-text">我的解法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#解题思路"><span class="nav-text">解题思路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实现代码"><span class="nav-text">实现代码</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#题目描述"><span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#我的解法"><span class="nav-text">我的解法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#解题思路"><span class="nav-text">解题思路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实现代码"><span class="nav-text">实现代码</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#高票解法"><span class="nav-text">高票解法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#实现代码-1"><span class="nav-text">实现代码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码分析"><span class="nav-text">代码分析</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#知识总结"><span class="nav-text">知识总结</span></a></li></ol></div>
             
 
           </div>
