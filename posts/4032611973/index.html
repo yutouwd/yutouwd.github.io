@@ -104,18 +104,18 @@
 
 
 
-  <meta name="description" content="题目描述我的解法解题思路实现代码高票解法实现代码代码分析知识总结">
-<meta name="keywords" content="leetcode">
+  <meta name="description" content="题目描述Say you have an array for which the ith element is the price of a given stock on day i. Design an algorithm to find the maximum profit. You may complete as many transactions as you like (ie, buy o">
+<meta name="keywords" content="leetcode,动态规划">
 <meta property="og:type" content="article">
-<meta property="og:title" content="A309-Best-Time-to-Buy-and-Sell-With-Cooldown">
+<meta property="og:title" content="309.Best Time to Buy and Sell With Cooldown">
 <meta property="og:url" content="http://yutouwd.github.io/posts/4032611973/index.html">
 <meta property="og:site_name" content="yutouwd">
-<meta property="og:description" content="题目描述我的解法解题思路实现代码高票解法实现代码代码分析知识总结">
+<meta property="og:description" content="题目描述Say you have an array for which the ith element is the price of a given stock on day i. Design an algorithm to find the maximum profit. You may complete as many transactions as you like (ie, buy o">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-02-27T12:07:41.315Z">
+<meta property="og:updated_time" content="2020-02-27T12:13:54.768Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="A309-Best-Time-to-Buy-and-Sell-With-Cooldown">
-<meta name="twitter:description" content="题目描述我的解法解题思路实现代码高票解法实现代码代码分析知识总结">
+<meta name="twitter:title" content="309.Best Time to Buy and Sell With Cooldown">
+<meta name="twitter:description" content="题目描述Say you have an array for which the ith element is the price of a given stock on day i. Design an algorithm to find the maximum profit. You may complete as many transactions as you like (ie, buy o">
 
 
 
@@ -134,7 +134,7 @@
   };
 </script>
 
-  <title>A309-Best-Time-to-Buy-and-Sell-With-Cooldown | yutouwd</title>
+  <title>309.Best Time to Buy and Sell With Cooldown | yutouwd</title>
   
 
 
@@ -371,7 +371,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">A309-Best-Time-to-Buy-and-Sell-With-Cooldown
+          <h2 class="post-title" itemprop="name headline">309.Best Time to Buy and Sell With Cooldown
 
               
             
@@ -397,9 +397,13 @@
                 
               
 
-              <time title="创建时间：2020-02-27 20:07:41" itemprop="dateCreated datePublished" datetime="2020-02-27T20:07:41+08:00">2020-02-27</time>
+              <time title="创建时间：2020-02-27 20:07:41 / 修改时间：20:13:54" itemprop="dateCreated datePublished" datetime="2020-02-27T20:07:41+08:00">2020-02-27</time>
             
 
+            
+              
+
+              
             
           </span>
 
@@ -416,6 +420,13 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/leetcode/" itemprop="url" rel="index"><span itemprop="name">leetcode</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/leetcode/medium/" itemprop="url" rel="index"><span itemprop="name">medium</span></a></span>
 
                 
                 
@@ -442,7 +453,7 @@
 
           
           
-            <span id="/posts/4032611973/" class="leancloud_visitors" data-flag-title="A309-Best-Time-to-Buy-and-Sell-With-Cooldown">
+            <span id="/posts/4032611973/" class="leancloud_visitors" data-flag-title="309.Best Time to Buy and Sell With Cooldown">
               <span class="post-meta-divider">|</span>
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
@@ -467,7 +478,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="post.wordcount">
-                  32
+                  177
                 </span>
               
 
@@ -506,7 +517,12 @@
       
 
       
-        <h1 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h1><h1 id="我的解法"><a href="#我的解法" class="headerlink" title="我的解法"></a>我的解法</h1><h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><h2 id="实现代码"><a href="#实现代码" class="headerlink" title="实现代码"></a>实现代码</h2><h1 id="高票解法"><a href="#高票解法" class="headerlink" title="高票解法"></a>高票解法</h1><h2 id="实现代码-1"><a href="#实现代码-1" class="headerlink" title="实现代码"></a>实现代码</h2><h2 id="代码分析"><a href="#代码分析" class="headerlink" title="代码分析"></a>代码分析</h2><h1 id="知识总结"><a href="#知识总结" class="headerlink" title="知识总结"></a>知识总结</h1>
+        <h1 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h1><p>Say you have an array for which the ith element is the price of a given stock on day i.</p>
+<p>Design an algorithm to find the maximum profit. You may complete as many transactions as you like (ie, buy one and sell one share of the stock multiple times) with the following restrictions:</p>
+<p>You may not engage in multiple transactions at the same time (ie, you must sell the stock before you buy again).<br>After you sell your stock, you cannot buy stock on next day. (ie, cooldown 1 day)</p>
+<p>Example:<br>Input: [1,2,3,0,2]<br>Output: 3<br>Explanation: transactions = [buy, sell, cooldown, buy, sell]</p>
+<h1 id="我的解法"><a href="#我的解法" class="headerlink" title="我的解法"></a>我的解法</h1><h2 id="实现代码"><a href="#实现代码" class="headerlink" title="实现代码"></a>实现代码</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">maxProfit</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; prices)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> n = prices.size();</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// base case</span></span><br><span class="line">        <span class="keyword">int</span> dp_i_0 = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> dp_i_1 = INT_MIN;</span><br><span class="line">        <span class="keyword">int</span> dp_pre = <span class="number">0</span>;</span><br><span class="line">        <span class="comment">// dp</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)&#123;</span><br><span class="line">            <span class="keyword">int</span> tmp = dp_i_0;</span><br><span class="line">            dp_i_0 = max(dp_i_0, dp_i_1 + prices[i]);</span><br><span class="line">            dp_i_1 = max(dp_i_1, dp_pre - prices[i]);</span><br><span class="line">            dp_pre = tmp;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> dp_i_0;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
       
     </div>
 
@@ -530,6 +546,8 @@
         <div class="post-tags">
           
             <a href="/tags/leetcode/" rel="tag"><i class="menu-item-icon fa fa-fw fa-tags"></i> leetcode</a>
+          
+            <a href="/tags/动态规划/" rel="tag"><i class="menu-item-icon fa fa-fw fa-tags"></i> 动态规划</a>
           
         </div>
       
@@ -815,7 +833,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#题目描述"><span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#我的解法"><span class="nav-text">我的解法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#解题思路"><span class="nav-text">解题思路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实现代码"><span class="nav-text">实现代码</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#高票解法"><span class="nav-text">高票解法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#实现代码-1"><span class="nav-text">实现代码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码分析"><span class="nav-text">代码分析</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#知识总结"><span class="nav-text">知识总结</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#题目描述"><span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#我的解法"><span class="nav-text">我的解法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#实现代码"><span class="nav-text">实现代码</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -849,7 +867,7 @@
     
       <span class="post-meta-item-text">文字总数&#58;</span>
     
-    <span title="post.totalcount">42k</span>
+    <span title="post.totalcount">42.1k</span>
   
 
   
