@@ -116,9 +116,10 @@
 <meta property="og:image" content="http://yutouwd.github.io/posts/346220552/2.gif">
 <meta property="og:image" content="http://yutouwd.github.io/posts/346220552/3.gif">
 <meta property="og:image" content="http://yutouwd.github.io/posts/346220552/5.png">
+<meta property="og:image" content="http://yutouwd.github.io/posts/346220552/8.png">
 <meta property="og:image" content="http://yutouwd.github.io/posts/346220552/6.png">
 <meta property="og:image" content="http://yutouwd.github.io/posts/346220552/7.png">
-<meta property="og:updated_time" content="2020-03-02T11:20:17.823Z">
+<meta property="og:updated_time" content="2020-03-02T11:49:34.997Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="路径规划之D* Lite算法详解及实现">
 <meta name="twitter:description" content="D* Lite算法是一种增量启发式搜素算法，由Sven Koeing和Maxim Likhachev于2004年提出，是基于LPA* 和Dynamic SWSF-FP的一种算法。D* Lite算法可以适用于地图未知、环境随时会发生变化的情况，在遇到新增加的障碍物时，可以利用先前搜索所获得的信息，而不需要完全重新规划路径。">
@@ -421,7 +422,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2020-03-02 19:20:17" itemprop="dateModified" datetime="2020-03-02T19:20:17+08:00">2020-03-02</time>
+                <time title="修改时间：2020-03-02 19:49:34" itemprop="dateModified" datetime="2020-03-02T19:49:34+08:00">2020-03-02</time>
               
             
           </span>
@@ -574,7 +575,8 @@
 <h3 id="主函数"><a href="#主函数" class="headerlink" title="主函数"></a>主函数</h3><img src="/posts/346220552/5.png">
 <p>解释如下：</p>
 <p>{29}首先是将机器人的当前点设置为起点。<br>{30}然后调用Initialize()函数进行初始化，初始化的内容如下：<br>&emsp;初始化需要将优先队列设置为空队列；置为0；<br>&emsp;将所有节点的g值和rhs值设置为无穷；<br>&emsp;最后将终点的rhs值设置为0并计算它的key值加入到优先队列中。<br>{31}初始化之后就调用ComputeShortestPath()开始计算它的最短路径。<br>{32}~{48}之后就开始循环，直到机器人到达了终点。循环开始后：<br>&emsp;{34}~{35}先根据之前的计算将机器人移动到子代中g值加上这两个点之间的代价中最小的点。<br>&emsp;{36}~{48}如果机器人检测到了障碍的变化：<br>&emsp;&emsp;{38}~{39}修改k_m值，根据上一个起点和当前点的启发值，并且将当前点设置为上一个起点。<br>&emsp;&emsp;{40}对于所有两个点之间的代价发生变化的：<br>&emsp;&emsp;&emsp;{41}~{42}另然后更新这两个点之间的代价<br>&emsp;&emsp;&emsp;{43}~{44}如果：代表两个点之间的代价变小，有障碍物删除。那么优化它的rhs值。<br>&emsp;&emsp;&emsp;{45}~{46}这里的判定条件是：代表原来的路径可以通过这两个点，但是他们之间的代价发生了变化，一般可以理解成可能的路径上新增了一个障碍物。然后再通过点的子代来更新rhs值<br>&emsp;&emsp;&emsp;{47}更新受影响的节点<br>&emsp;&emsp;{48}计算最短路径</p>
-<p>上面就是D* Lite的main函数，它的思路可以理解为先计算最短路径，其最短路径是通过周围点的rhs值来判断的，机器人一直走向rhs值加上两点代价最小的点。如果检测到了障碍物的变换，那么更新受影响点的rhs值，然后重新计算最短路径。</p>
+<p>上面就是D* Lite的main函数，它的思路可以理解为先计算最短路径，其最短路径是通过周围点的g值来判断的，机器人一直走向g值加上两点代价最小的点。如果检测到了障碍物的变换，那么更新受影响点的rhs值，然后重新计算最短路径。</p>
+<p>主函数的流程图如下：<br><img src="/posts/346220552/8.png"></p>
 <h3 id="更新一个节点"><a href="#更新一个节点" class="headerlink" title="更新一个节点"></a>更新一个节点</h3><img src="/posts/346220552/6.png">
 <p>解释如下：</p>
 <p>{07}如果当前点的g值和rhs值不相等，即为局部不一致，并且这个点在优先队列中，那么就更新这个点在优先队列中的key值。<br>{08}如果一个点的g值和rhs值不相等，并且这个点不在优先队列中，那么就计算这个点的key值，并加入到优先队列中。<br>{09}如果一个点g值和rhs值相等，并且还在优先队列中，那么就将其从优先队列中删除。</p>

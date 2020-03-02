@@ -792,7 +792,8 @@
 <h3 id="主函数"><a href="#主函数" class="headerlink" title="主函数"></a>主函数</h3><img src="/posts/346220552/5.png">
 <p>解释如下：</p>
 <p>{29}首先是将机器人的当前点设置为起点。<br>{30}然后调用Initialize()函数进行初始化，初始化的内容如下：<br>&emsp;初始化需要将优先队列设置为空队列；置为0；<br>&emsp;将所有节点的g值和rhs值设置为无穷；<br>&emsp;最后将终点的rhs值设置为0并计算它的key值加入到优先队列中。<br>{31}初始化之后就调用ComputeShortestPath()开始计算它的最短路径。<br>{32}~{48}之后就开始循环，直到机器人到达了终点。循环开始后：<br>&emsp;{34}~{35}先根据之前的计算将机器人移动到子代中g值加上这两个点之间的代价中最小的点。<br>&emsp;{36}~{48}如果机器人检测到了障碍的变化：<br>&emsp;&emsp;{38}~{39}修改k_m值，根据上一个起点和当前点的启发值，并且将当前点设置为上一个起点。<br>&emsp;&emsp;{40}对于所有两个点之间的代价发生变化的：<br>&emsp;&emsp;&emsp;{41}~{42}另然后更新这两个点之间的代价<br>&emsp;&emsp;&emsp;{43}~{44}如果：代表两个点之间的代价变小，有障碍物删除。那么优化它的rhs值。<br>&emsp;&emsp;&emsp;{45}~{46}这里的判定条件是：代表原来的路径可以通过这两个点，但是他们之间的代价发生了变化，一般可以理解成可能的路径上新增了一个障碍物。然后再通过点的子代来更新rhs值<br>&emsp;&emsp;&emsp;{47}更新受影响的节点<br>&emsp;&emsp;{48}计算最短路径</p>
-<p>上面就是D* Lite的main函数，它的思路可以理解为先计算最短路径，其最短路径是通过周围点的rhs值来判断的，机器人一直走向rhs值加上两点代价最小的点。如果检测到了障碍物的变换，那么更新受影响点的rhs值，然后重新计算最短路径。</p>
+<p>上面就是D* Lite的main函数，它的思路可以理解为先计算最短路径，其最短路径是通过周围点的g值来判断的，机器人一直走向g值加上两点代价最小的点。如果检测到了障碍物的变换，那么更新受影响点的rhs值，然后重新计算最短路径。</p>
+<p>主函数的流程图如下：<br><img src="/posts/346220552/8.png"></p>
 <h3 id="更新一个节点"><a href="#更新一个节点" class="headerlink" title="更新一个节点"></a>更新一个节点</h3><img src="/posts/346220552/6.png">
 <p>解释如下：</p>
 <p>{07}如果当前点的g值和rhs值不相等，即为局部不一致，并且这个点在优先队列中，那么就更新这个点在优先队列中的key值。<br>{08}如果一个点的g值和rhs值不相等，并且这个点不在优先队列中，那么就计算这个点的key值，并加入到优先队列中。<br>{09}如果一个点g值和rhs值相等，并且还在优先队列中，那么就将其从优先队列中删除。</p>
@@ -1950,11 +1951,11 @@
 <p>不过现在卡在百度的认证上了，下载认证文件放到next主题目录的路径下，会显示验证失败：“您的站点有链接未通过https校验“黑人问号？？？</p>
 <h2 id="leetcode文章归档"><a href="#leetcode文章归档" class="headerlink" title="leetcode文章归档"></a>leetcode文章归档</h2><p>想法是写leetcode的文章不会自动显示在主页上，然后新建一个page，里面专门收录写的关于leetcoede的文章。可以在scaffolds目录中新建一个leet.md，以后直接用hexo new leet [leet题目]这样方式来新建一个文章。将文章不显示在主页的方法参考这篇文章<a href="https://www.jianshu.com/p/79fe9fb9dfa0" target="_blank" rel="noopener">https://www.jianshu.com/p/79fe9fb9dfa0</a>，修改好之后，就在leet.md中加上notshow: true，以后新建就可以自动设置为不显示了。</p>
 <p>然后还想弄一个类似于github上个人主页那种日历表，如果有一天有做题的话，就会设置成绿色。找了下，发现可以通过baidu的echart或者google chart来实现。baidu的好处就是有中文的文档，google的例子似乎更好看一些，但是不知道会不会被emmmm，就还是先试试百度的吧。只要<strong>npm install hexo-tag-echarts3 –save</strong>就可以来，下面是一个echart测试：</p>
-<div id="echarts8530" style="width: 85%;height: 400px;margin: 0 auto"></div>
+<div id="echarts8601" style="width: 85%;height: 400px;margin: 0 auto"></div>
 <script src="https://cdn.bootcss.com/echarts/3.8.0/echarts.common.min.js"></script>
 <script type="text/javascript">
         // 基于准备好的dom，初始化echarts实例
-        var myChart = echarts.init(document.getElementById('echarts8530'));
+        var myChart = echarts.init(document.getElementById('echarts8601'));
         // 指定图表的配置项和数据
         var option = {
     tooltip : {
@@ -2021,11 +2022,11 @@
         myChart.setOption(option);
 </script>
 <p>可以点击上方的利润、收入、支出来设置显示和不显示，还是很炫酷滴🕶️，接下来试下日历表：</p>
-<div id="echarts7572" style="width: 85%;height: 400px;margin: 0 auto"></div>
+<div id="echarts6558" style="width: 85%;height: 400px;margin: 0 auto"></div>
 <script src="https://cdn.bootcss.com/echarts/3.8.0/echarts.common.min.js"></script>
 <script type="text/javascript">
         // 基于准备好的dom，初始化echarts实例
-        var myChart = echarts.init(document.getElementById('echarts7572'));
+        var myChart = echarts.init(document.getElementById('echarts6558'));
         // 指定图表的配置项和数据
         var option = 
 option = {
