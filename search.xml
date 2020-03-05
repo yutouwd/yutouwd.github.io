@@ -3,12 +3,23 @@
   <entry>
     <title>994.Rotting Oranges</title>
     <url>/posts/1420042497/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><h1 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h1><h1 id="我的解法"><a href="#我的解法" class="headerlink" title="我的解法"></a>我的解法</h1><h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><h2 id="实现代码"><a href="#实现代码" class="headerlink" title="实现代码"></a>实现代码</h2><h1 id="高票解法"><a href="#高票解法" class="headerlink" title="高票解法"></a>高票解法</h1><h2 id="实现代码-1"><a href="#实现代码-1" class="headerlink" title="实现代码"></a>实现代码</h2><h2 id="代码分析"><a href="#代码分析" class="headerlink" title="代码分析"></a>代码分析</h2><h1 id="知识总结"><a href="#知识总结" class="headerlink" title="知识总结"></a>知识总结</h1>]]></content>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><h1 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h1><p>In a given grid, each cell can have one of three values:</p>
+<p>the value 0 representing an empty cell;<br>the value 1 representing a fresh orange;<br>the value 2 representing a rotten orange.<br>Every minute, any fresh orange that is adjacent (4-directionally) to a rotten orange becomes rotten.</p>
+<p>Return the minimum number of minutes that must elapse until no cell has a fresh orange.  If this is impossible, return -1 instead.</p>
+<p>Example 1:<br>Input: [[2,1,1],[1,1,0],[0,1,1]]<br>Output: 4</p>
+<p>Example 2:<br>Input: [[2,1,1],[0,1,1],[1,0,1]]<br>Output: -1<br>Explanation:  The orange in the bottom left corner (row 2, column 0) is never rotten, because rotting only happens 4-directionally.</p>
+<p>Example 3:<br>Input: [[0,2]]<br>Output: 0<br>Explanation:  Since there are already no fresh oranges at minute 0, the answer is just 0.</p>
+<p>Note:<br>1 &lt;= grid.length &lt;= 10<br>1 &lt;= grid[0].length &lt;= 10<br>grid[i][j] is only 0, 1, or 2.</p>
+<h1 id="我的解法"><a href="#我的解法" class="headerlink" title="我的解法"></a>我的解法</h1><h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><p>比较直观的方法，先遍历数组一遍，计算出新鲜橘子和腐烂橘子的个数。并使用一个队列，将腐烂橘子的位置push进去。之后开始遍历这个队列，直到队列为空，每次遍历的次数为上一次队列的size（即使模拟一天橘子的腐烂），检查这些腐烂的橘子的周围有没有新鲜的橘子，有新鲜的橘子就把这给点加入到队列并改为腐烂的橘子。这里要注意的是，遍历队列到空其实会导致最后一次队列中都是腐烂的橘子并且周围没有可以改变的新鲜的橘子，所以要在循环中检查下一次队列的遍历有没有改变腐烂的橘子数，如果没有就要把天数减一。</p>
+<h2 id="实现代码"><a href="#实现代码" class="headerlink" title="实现代码"></a>实现代码</h2><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">orangesRotting</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt;&amp; grid)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> n = grid.size(), m = grid[<span class="number">0</span>].size();</span><br><span class="line">        <span class="keyword">int</span> numFresh = <span class="number">0</span>, numRotten = <span class="number">0</span>;</span><br><span class="line">        <span class="built_in">queue</span>&lt;pair&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt;&gt; q;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)&#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; m; j++)&#123;</span><br><span class="line">                <span class="keyword">if</span> (grid[i][j] == <span class="number">1</span>)</span><br><span class="line">                    numFresh++;</span><br><span class="line">                <span class="keyword">if</span> (grid[i][j] == <span class="number">2</span>)&#123;</span><br><span class="line">                    numRotten++;</span><br><span class="line">                    q.push(&#123;i, j&#125;);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> time = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span>(!q.empty())&#123;</span><br><span class="line">            time++;</span><br><span class="line">            <span class="keyword">int</span> queueSize = q.size();</span><br><span class="line">            <span class="keyword">int</span> lastRotten = numRotten;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; queueSize; i++)&#123;</span><br><span class="line">                <span class="keyword">int</span> x = q.front().first, y = q.front().second;</span><br><span class="line">                q.pop();</span><br><span class="line">                <span class="keyword">if</span> (x - <span class="number">1</span> &gt;= <span class="number">0</span> &amp;&amp; grid[x<span class="number">-1</span>][y] == <span class="number">1</span>)&#123;</span><br><span class="line">                    q.push(&#123;x<span class="number">-1</span>, y&#125;);</span><br><span class="line">                    grid[x<span class="number">-1</span>][y] = <span class="number">2</span>;</span><br><span class="line">                    numFresh--;</span><br><span class="line">                    numRotten++;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">if</span> (x + <span class="number">1</span> &lt; n &amp;&amp; grid[x+<span class="number">1</span>][y] == <span class="number">1</span>)&#123;</span><br><span class="line">                    q.push(&#123;x+<span class="number">1</span>, y&#125;);</span><br><span class="line">                    grid[x+<span class="number">1</span>][y] = <span class="number">2</span>;</span><br><span class="line">                    numFresh--;</span><br><span class="line">                    numRotten++;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">if</span> (y - <span class="number">1</span> &gt;= <span class="number">0</span> &amp;&amp; grid[x][y<span class="number">-1</span>] == <span class="number">1</span>)&#123;</span><br><span class="line">                    q.push(&#123;x, y<span class="number">-1</span>&#125;);</span><br><span class="line">                    grid[x][y<span class="number">-1</span>] = <span class="number">2</span>;</span><br><span class="line">                    numFresh--;</span><br><span class="line">                    numRotten++;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">if</span> (y + <span class="number">1</span> &lt; m &amp;&amp; grid[x][y+<span class="number">1</span>] == <span class="number">1</span>)&#123;</span><br><span class="line">                    q.push(&#123;x, y+<span class="number">1</span>&#125;);</span><br><span class="line">                    grid[x][y+<span class="number">1</span>] = <span class="number">2</span>;</span><br><span class="line">                    numFresh--;</span><br><span class="line">                    numRotten++;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (lastRotten == numRotten)</span><br><span class="line">                time--;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> (numFresh != <span class="number">0</span>) ? <span class="number">-1</span> : time;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>Runtime: 0 ms, faster than 100.00% of C++ online submissions for Rotting Oranges.<br>Memory Usage: 7.9 MB, less than 100.00% of C++ online submissions for Rotting Oranges.</p>
+]]></content>
       <categories>
         <category>leetcode</category>
       </categories>
       <tags>
         <tag>leetcode</tag>
+        <tag>广度优先</tag>
       </tags>
   </entry>
   <entry>
@@ -865,6 +876,7 @@
         <category>路径规划</category>
       </categories>
       <tags>
+        <tag>广度优先</tag>
         <tag>路径规划</tag>
       </tags>
   </entry>
@@ -2010,11 +2022,11 @@
 <p>不过现在卡在百度的认证上了，下载认证文件放到next主题目录的路径下，会显示验证失败：“您的站点有链接未通过https校验“黑人问号？？？</p>
 <h2 id="leetcode文章归档"><a href="#leetcode文章归档" class="headerlink" title="leetcode文章归档"></a>leetcode文章归档</h2><p>想法是写leetcode的文章不会自动显示在主页上，然后新建一个page，里面专门收录写的关于leetcoede的文章。可以在scaffolds目录中新建一个leet.md，以后直接用hexo new leet [leet题目]这样方式来新建一个文章。将文章不显示在主页的方法参考这篇文章<a href="https://www.jianshu.com/p/79fe9fb9dfa0" target="_blank" rel="noopener">https://www.jianshu.com/p/79fe9fb9dfa0</a>，修改好之后，就在leet.md中加上notshow: true，以后新建就可以自动设置为不显示了。</p>
 <p>然后还想弄一个类似于github上个人主页那种日历表，如果有一天有做题的话，就会设置成绿色。找了下，发现可以通过baidu的echart或者google chart来实现。baidu的好处就是有中文的文档，google的例子似乎更好看一些，但是不知道会不会被emmmm，就还是先试试百度的吧。只要<strong>npm install hexo-tag-echarts3 –save</strong>就可以来，下面是一个echart测试：</p>
-<div id="echarts3368" style="width: 85%;height: 400px;margin: 0 auto"></div>
+<div id="echarts4727" style="width: 85%;height: 400px;margin: 0 auto"></div>
 <script src="https://cdn.bootcss.com/echarts/3.8.0/echarts.common.min.js"></script>
 <script type="text/javascript">
         // 基于准备好的dom，初始化echarts实例
-        var myChart = echarts.init(document.getElementById('echarts3368'));
+        var myChart = echarts.init(document.getElementById('echarts4727'));
         // 指定图表的配置项和数据
         var option = {
     tooltip : {
@@ -2081,11 +2093,11 @@
         myChart.setOption(option);
 </script>
 <p>可以点击上方的利润、收入、支出来设置显示和不显示，还是很炫酷滴🕶️，接下来试下日历表：</p>
-<div id="echarts6533" style="width: 85%;height: 400px;margin: 0 auto"></div>
+<div id="echarts9628" style="width: 85%;height: 400px;margin: 0 auto"></div>
 <script src="https://cdn.bootcss.com/echarts/3.8.0/echarts.common.min.js"></script>
 <script type="text/javascript">
         // 基于准备好的dom，初始化echarts实例
-        var myChart = echarts.init(document.getElementById('echarts6533'));
+        var myChart = echarts.init(document.getElementById('echarts9628'));
         // 指定图表的配置项和数据
         var option = 
 option = {

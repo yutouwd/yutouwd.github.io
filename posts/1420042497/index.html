@@ -104,18 +104,18 @@
 
 
 
-  <meta name="description" content="题目描述我的解法解题思路实现代码高票解法实现代码代码分析知识总结">
-<meta name="keywords" content="leetcode">
+  <meta name="description" content="题目描述In a given grid, each cell can have one of three values: the value 0 representing an empty cell;the value 1 representing a fresh orange;the value 2 representing a rotten orange.Every minute, any f">
+<meta name="keywords" content="leetcode,广度优先">
 <meta property="og:type" content="article">
 <meta property="og:title" content="994.Rotting Oranges">
 <meta property="og:url" content="http://yutouwd.github.io/posts/1420042497/index.html">
 <meta property="og:site_name" content="yutouwd">
-<meta property="og:description" content="题目描述我的解法解题思路实现代码高票解法实现代码代码分析知识总结">
+<meta property="og:description" content="题目描述In a given grid, each cell can have one of three values: the value 0 representing an empty cell;the value 1 representing a fresh orange;the value 2 representing a rotten orange.Every minute, any f">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-03-05T10:33:52.431Z">
+<meta property="og:updated_time" content="2020-03-05T10:36:58.177Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="994.Rotting Oranges">
-<meta name="twitter:description" content="题目描述我的解法解题思路实现代码高票解法实现代码代码分析知识总结">
+<meta name="twitter:description" content="题目描述In a given grid, each cell can have one of three values: the value 0 representing an empty cell;the value 1 representing a fresh orange;the value 2 representing a rotten orange.Every minute, any f">
 
 
 
@@ -397,7 +397,7 @@
                 
               
 
-              <time title="创建时间：2020-03-05 18:33:32 / 修改时间：18:33:52" itemprop="dateCreated datePublished" datetime="2020-03-05T18:33:32+08:00">2020-03-05</time>
+              <time title="创建时间：2020-03-05 18:33:32 / 修改时间：18:36:58" itemprop="dateCreated datePublished" datetime="2020-03-05T18:33:32+08:00">2020-03-05</time>
             
 
             
@@ -471,7 +471,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="post.wordcount">
-                  32
+                  667
                 </span>
               
 
@@ -487,7 +487,7 @@
                   <span class="post-meta-item-text">阅读时间 &asymp;</span>
                 
                 <span title="post.min2read">
-                  1
+                  3
                 </span>
               
             </div>
@@ -510,7 +510,17 @@
       
 
       
-        <h1 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h1><h1 id="我的解法"><a href="#我的解法" class="headerlink" title="我的解法"></a>我的解法</h1><h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><h2 id="实现代码"><a href="#实现代码" class="headerlink" title="实现代码"></a>实现代码</h2><h1 id="高票解法"><a href="#高票解法" class="headerlink" title="高票解法"></a>高票解法</h1><h2 id="实现代码-1"><a href="#实现代码-1" class="headerlink" title="实现代码"></a>实现代码</h2><h2 id="代码分析"><a href="#代码分析" class="headerlink" title="代码分析"></a>代码分析</h2><h1 id="知识总结"><a href="#知识总结" class="headerlink" title="知识总结"></a>知识总结</h1>
+        <h1 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h1><p>In a given grid, each cell can have one of three values:</p>
+<p>the value 0 representing an empty cell;<br>the value 1 representing a fresh orange;<br>the value 2 representing a rotten orange.<br>Every minute, any fresh orange that is adjacent (4-directionally) to a rotten orange becomes rotten.</p>
+<p>Return the minimum number of minutes that must elapse until no cell has a fresh orange.  If this is impossible, return -1 instead.</p>
+<p>Example 1:<br>Input: [[2,1,1],[1,1,0],[0,1,1]]<br>Output: 4</p>
+<p>Example 2:<br>Input: [[2,1,1],[0,1,1],[1,0,1]]<br>Output: -1<br>Explanation:  The orange in the bottom left corner (row 2, column 0) is never rotten, because rotting only happens 4-directionally.</p>
+<p>Example 3:<br>Input: [[0,2]]<br>Output: 0<br>Explanation:  Since there are already no fresh oranges at minute 0, the answer is just 0.</p>
+<p>Note:<br>1 &lt;= grid.length &lt;= 10<br>1 &lt;= grid[0].length &lt;= 10<br>grid[i][j] is only 0, 1, or 2.</p>
+<h1 id="我的解法"><a href="#我的解法" class="headerlink" title="我的解法"></a>我的解法</h1><h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><p>比较直观的方法，先遍历数组一遍，计算出新鲜橘子和腐烂橘子的个数。并使用一个队列，将腐烂橘子的位置push进去。之后开始遍历这个队列，直到队列为空，每次遍历的次数为上一次队列的size（即使模拟一天橘子的腐烂），检查这些腐烂的橘子的周围有没有新鲜的橘子，有新鲜的橘子就把这给点加入到队列并改为腐烂的橘子。这里要注意的是，遍历队列到空其实会导致最后一次队列中都是腐烂的橘子并且周围没有可以改变的新鲜的橘子，所以要在循环中检查下一次队列的遍历有没有改变腐烂的橘子数，如果没有就要把天数减一。</p>
+<h2 id="实现代码"><a href="#实现代码" class="headerlink" title="实现代码"></a>实现代码</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">orangesRotting</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt;&amp; grid)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> n = grid.size(), m = grid[<span class="number">0</span>].size();</span><br><span class="line">        <span class="keyword">int</span> numFresh = <span class="number">0</span>, numRotten = <span class="number">0</span>;</span><br><span class="line">        <span class="built_in">queue</span>&lt;pair&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt;&gt; q;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)&#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; m; j++)&#123;</span><br><span class="line">                <span class="keyword">if</span> (grid[i][j] == <span class="number">1</span>)</span><br><span class="line">                    numFresh++;</span><br><span class="line">                <span class="keyword">if</span> (grid[i][j] == <span class="number">2</span>)&#123;</span><br><span class="line">                    numRotten++;</span><br><span class="line">                    q.push(&#123;i, j&#125;);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> time = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span>(!q.empty())&#123;</span><br><span class="line">            time++;</span><br><span class="line">            <span class="keyword">int</span> queueSize = q.size();</span><br><span class="line">            <span class="keyword">int</span> lastRotten = numRotten;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; queueSize; i++)&#123;</span><br><span class="line">                <span class="keyword">int</span> x = q.front().first, y = q.front().second;</span><br><span class="line">                q.pop();</span><br><span class="line">                <span class="keyword">if</span> (x - <span class="number">1</span> &gt;= <span class="number">0</span> &amp;&amp; grid[x<span class="number">-1</span>][y] == <span class="number">1</span>)&#123;</span><br><span class="line">                    q.push(&#123;x<span class="number">-1</span>, y&#125;);</span><br><span class="line">                    grid[x<span class="number">-1</span>][y] = <span class="number">2</span>;</span><br><span class="line">                    numFresh--;</span><br><span class="line">                    numRotten++;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">if</span> (x + <span class="number">1</span> &lt; n &amp;&amp; grid[x+<span class="number">1</span>][y] == <span class="number">1</span>)&#123;</span><br><span class="line">                    q.push(&#123;x+<span class="number">1</span>, y&#125;);</span><br><span class="line">                    grid[x+<span class="number">1</span>][y] = <span class="number">2</span>;</span><br><span class="line">                    numFresh--;</span><br><span class="line">                    numRotten++;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">if</span> (y - <span class="number">1</span> &gt;= <span class="number">0</span> &amp;&amp; grid[x][y<span class="number">-1</span>] == <span class="number">1</span>)&#123;</span><br><span class="line">                    q.push(&#123;x, y<span class="number">-1</span>&#125;);</span><br><span class="line">                    grid[x][y<span class="number">-1</span>] = <span class="number">2</span>;</span><br><span class="line">                    numFresh--;</span><br><span class="line">                    numRotten++;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">if</span> (y + <span class="number">1</span> &lt; m &amp;&amp; grid[x][y+<span class="number">1</span>] == <span class="number">1</span>)&#123;</span><br><span class="line">                    q.push(&#123;x, y+<span class="number">1</span>&#125;);</span><br><span class="line">                    grid[x][y+<span class="number">1</span>] = <span class="number">2</span>;</span><br><span class="line">                    numFresh--;</span><br><span class="line">                    numRotten++;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (lastRotten == numRotten)</span><br><span class="line">                time--;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> (numFresh != <span class="number">0</span>) ? <span class="number">-1</span> : time;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>Runtime: 0 ms, faster than 100.00% of C++ online submissions for Rotting Oranges.<br>Memory Usage: 7.9 MB, less than 100.00% of C++ online submissions for Rotting Oranges.</p>
+
       
     </div>
 
@@ -534,6 +544,8 @@
         <div class="post-tags">
           
             <a href="/tags/leetcode/" rel="tag"><i class="menu-item-icon fa fa-fw fa-tags"></i> leetcode</a>
+          
+            <a href="/tags/广度优先/" rel="tag"><i class="menu-item-icon fa fa-fw fa-tags"></i> 广度优先</a>
           
         </div>
       
@@ -756,7 +768,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">27</span>
+                      
+                    
+                    <span class="site-state-item-count">28</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -825,7 +839,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#题目描述"><span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#我的解法"><span class="nav-text">我的解法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#解题思路"><span class="nav-text">解题思路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实现代码"><span class="nav-text">实现代码</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#高票解法"><span class="nav-text">高票解法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#实现代码-1"><span class="nav-text">实现代码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码分析"><span class="nav-text">代码分析</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#知识总结"><span class="nav-text">知识总结</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#题目描述"><span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#我的解法"><span class="nav-text">我的解法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#解题思路"><span class="nav-text">解题思路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实现代码"><span class="nav-text">实现代码</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -859,7 +873,7 @@
     
       <span class="post-meta-item-text">文字总数&#58;</span>
     
-    <span title="post.totalcount">45.5k</span>
+    <span title="post.totalcount">46.1k</span>
   
 
   
