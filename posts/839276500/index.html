@@ -107,14 +107,14 @@
   <meta name="description" content="题目描述We distribute some number of candies, to a row of n = num_people people in the following way: We then give 1 candy to the first person, 2 candies to the second person, and so on until we give n ca">
 <meta name="keywords" content="leetcode,math">
 <meta property="og:type" content="article">
-<meta property="og:title" content="A1103-Distribute-Candies-to-People">
+<meta property="og:title" content="1103.Distribute Candies to People">
 <meta property="og:url" content="http://yutouwd.github.io/posts/839276500/index.html">
 <meta property="og:site_name" content="yutouwd">
 <meta property="og:description" content="题目描述We distribute some number of candies, to a row of n = num_people people in the following way: We then give 1 candy to the first person, 2 candies to the second person, and so on until we give n ca">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-03-05T10:28:42.923Z">
+<meta property="og:updated_time" content="2020-03-05T10:32:00.929Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="A1103-Distribute-Candies-to-People">
+<meta name="twitter:title" content="1103.Distribute Candies to People">
 <meta name="twitter:description" content="题目描述We distribute some number of candies, to a row of n = num_people people in the following way: We then give 1 candy to the first person, 2 candies to the second person, and so on until we give n ca">
 
 
@@ -134,7 +134,7 @@
   };
 </script>
 
-  <title>A1103-Distribute-Candies-to-People | yutouwd</title>
+  <title>1103.Distribute Candies to People | yutouwd</title>
   
 
 
@@ -371,7 +371,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">A1103-Distribute-Candies-to-People
+          <h2 class="post-title" itemprop="name headline">1103.Distribute Candies to People
 
               
             
@@ -397,7 +397,7 @@
                 
               
 
-              <time title="创建时间：2020-03-05 18:27:16 / 修改时间：18:28:42" itemprop="dateCreated datePublished" datetime="2020-03-05T18:27:16+08:00">2020-03-05</time>
+              <time title="创建时间：2020-03-05 18:27:16 / 修改时间：18:32:00" itemprop="dateCreated datePublished" datetime="2020-03-05T18:27:16+08:00">2020-03-05</time>
             
 
             
@@ -453,7 +453,7 @@
 
           
           
-            <span id="/posts/839276500/" class="leancloud_visitors" data-flag-title="A1103-Distribute-Candies-to-People">
+            <span id="/posts/839276500/" class="leancloud_visitors" data-flag-title="1103.Distribute Candies to People">
               <span class="post-meta-divider">|</span>
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
@@ -478,7 +478,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="post.wordcount">
-                  482
+                  516
                 </span>
               
 
@@ -494,7 +494,7 @@
                   <span class="post-meta-item-text">阅读时间 &asymp;</span>
                 
                 <span title="post.min2read">
-                  2
+                  3
                 </span>
               
             </div>
@@ -529,6 +529,7 @@
 <h1 id="我的解法"><a href="#我的解法" class="headerlink" title="我的解法"></a>我的解法</h1><p>这道题目比较简单<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; distributeCandies(<span class="keyword">int</span> candies, <span class="keyword">int</span> num_people) &#123;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; ans(num_people, <span class="number">0</span>);</span><br><span class="line">        <span class="keyword">int</span> candy = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span>(candies &gt; <span class="number">0</span>)&#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; num_people; i++)&#123;</span><br><span class="line">                <span class="keyword">if</span> (candy &gt;= candies)&#123;</span><br><span class="line">                    ans[i] += candies;</span><br><span class="line">                    <span class="keyword">return</span> ans;</span><br><span class="line">                &#125;</span><br><span class="line">                ans[i] += candy;</span><br><span class="line">                candies -= candy;</span><br><span class="line">                candy++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
 <p>Runtime: 0 ms, faster than 100.00% of C++ online submissions for Distribute Candies to People.<br>Memory Usage: 7.5 MB, less than 100.00% of C++ online submissions for Distribute Candies to People.</p>
 <p>不过看了下题解，其实可以只用一个循环来完成<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; distributeCandies(<span class="keyword">int</span> candies, <span class="keyword">int</span> num_people) &#123;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; ans(num_people, <span class="number">0</span>);</span><br><span class="line">        <span class="keyword">int</span> i = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span>(candies != <span class="number">0</span>)&#123;</span><br><span class="line">            ans[i % num_people] += min(candies, i + <span class="number">1</span>);</span><br><span class="line">            candies -= min(candies, i + <span class="number">1</span>);</span><br><span class="line">            i++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<p>Runtime: 0 ms, faster than 100.00% of C++ online submissions for Distribute Candies to People.<br>Memory Usage: 7.8 MB, less than 100.00% of C++ online submissions for Distribute Candies to People.</p>
 
       
     </div>
