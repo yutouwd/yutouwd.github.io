@@ -392,8 +392,8 @@
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>math</tag>
         <tag>hashmap</tag>
+        <tag>math</tag>
       </tags>
   </entry>
   <entry>
@@ -901,7 +901,8 @@
 <h3 id="计算最短路径"><a href="#计算最短路径" class="headerlink" title="计算最短路径"></a>计算最短路径</h3><img src="/posts/346220552/7.png">
 <p>解释如下：</p>
 <p>{10}进行路径判断的条件是：优先队列中key值最小的key值要小于“起点”（机器人所在的位置）的key值或者起点的rhs值大于它的g值：<br>&emsp;{11}~{13}取得优先队列中优先值最高即key值最小的节点和它的key值，并重新计算它的key值。<br>&emsp;{14}~{15}如果它的新的key值大于它旧的key值那么就将它和它新的key值重新放到优先队列中。<br>&emsp;{16}如果当前节点的g值大于rhs值（通常是第一次搜索或者有障碍物的删除时）：<br>&emsp;&emsp;{17}~{18}另当前点的g值等于rhs值，并且将其从优先队列中移除。<br>&emsp;&emsp;{19}~{21}更新当前节点的父节点（且不是终点），如果可以让它们的rhs值取得更小的值，那么就更新它们的rhs值。最后调用UpdateVertex来将它们加入到优先队列中。<br>&emsp;{22}否则（当前节点的g值小于等于rhs值，一般是有新增加的障碍物）：<br>&emsp;&emsp;{23}~{24}记录当前节点的g值为之后将其置为无穷。<br>&emsp;&emsp;{25}对于所有的当前点的父节点以及当前点：<br>&emsp;&emsp;&emsp;{26}~{28}如果它们（{25}中的点）的rhs值等于加上两点间的代价，那么就从它的子节点来更新rhs值，最后再调用UpdateVertex来更新它们。</p>
-<h2 id="一个例子"><a href="#一个例子" class="headerlink" title="一个例子"></a>一个例子</h2><h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p>一个A*算法的介绍博客：<br><a href="https://paul.pub/a-star-algorithm/" target="_blank" rel="noopener">https://paul.pub/a-star-algorithm/</a><br>D*算法介绍博客：<br><a href="https://blog.csdn.net/lqzdreamer/article/details/85055569" target="_blank" rel="noopener">https://blog.csdn.net/lqzdreamer/article/details/85055569</a><br>D* Lite算法论文：<br><a href="https://www.aaai.org/Papers/AAAI/2002/AAAI02-072.pdf" target="_blank" rel="noopener">https://www.aaai.org/Papers/AAAI/2002/AAAI02-072.pdf</a><br>D* Lite算法介绍博客：<br><a href="https://blog.csdn.net/lqzdreamer/article/details/85108310" target="_blank" rel="noopener">https://blog.csdn.net/lqzdreamer/article/details/85108310</a></p>
+<h2 id="一个例子"><a href="#一个例子" class="headerlink" title="一个例子"></a>一个例子</h2><p>参考论文中的例子</p>
+<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p>一个A*算法的介绍博客：<br><a href="https://paul.pub/a-star-algorithm/" target="_blank" rel="noopener">https://paul.pub/a-star-algorithm/</a><br>D*算法介绍博客：<br><a href="https://blog.csdn.net/lqzdreamer/article/details/85055569" target="_blank" rel="noopener">https://blog.csdn.net/lqzdreamer/article/details/85055569</a><br>D* Lite算法论文：<br><a href="https://www.aaai.org/Papers/AAAI/2002/AAAI02-072.pdf" target="_blank" rel="noopener">https://www.aaai.org/Papers/AAAI/2002/AAAI02-072.pdf</a><br>D* Lite算法介绍博客：<br><a href="https://blog.csdn.net/lqzdreamer/article/details/85108310" target="_blank" rel="noopener">https://blog.csdn.net/lqzdreamer/article/details/85108310</a></p>
 ]]></content>
       <categories>
         <category>路径规划</category>
@@ -934,8 +935,8 @@
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>math</tag>
         <tag>vector</tag>
+        <tag>math</tag>
       </tags>
   </entry>
   <entry>
@@ -1588,8 +1589,8 @@
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>math</tag>
         <tag>hashmap</tag>
+        <tag>math</tag>
       </tags>
   </entry>
   <entry>
@@ -2053,11 +2054,11 @@
 <p>不过现在卡在百度的认证上了，下载认证文件放到next主题目录的路径下，会显示验证失败：“您的站点有链接未通过https校验“黑人问号？？？</p>
 <h2 id="leetcode文章归档"><a href="#leetcode文章归档" class="headerlink" title="leetcode文章归档"></a>leetcode文章归档</h2><p>想法是写leetcode的文章不会自动显示在主页上，然后新建一个page，里面专门收录写的关于leetcoede的文章。可以在scaffolds目录中新建一个leet.md，以后直接用hexo new leet [leet题目]这样方式来新建一个文章。将文章不显示在主页的方法参考这篇文章<a href="https://www.jianshu.com/p/79fe9fb9dfa0" target="_blank" rel="noopener">https://www.jianshu.com/p/79fe9fb9dfa0</a>，修改好之后，就在leet.md中加上notshow: true，以后新建就可以自动设置为不显示了。</p>
 <p>然后还想弄一个类似于github上个人主页那种日历表，如果有一天有做题的话，就会设置成绿色。找了下，发现可以通过baidu的echart或者google chart来实现。baidu的好处就是有中文的文档，google的例子似乎更好看一些，但是不知道会不会被emmmm，就还是先试试百度的吧。只要<strong>npm install hexo-tag-echarts3 –save</strong>就可以来，下面是一个echart测试：</p>
-<div id="echarts5219" style="width: 85%;height: 400px;margin: 0 auto"></div>
+<div id="echarts1010" style="width: 85%;height: 400px;margin: 0 auto"></div>
 <script src="https://cdn.bootcss.com/echarts/3.8.0/echarts.common.min.js"></script>
 <script type="text/javascript">
         // 基于准备好的dom，初始化echarts实例
-        var myChart = echarts.init(document.getElementById('echarts5219'));
+        var myChart = echarts.init(document.getElementById('echarts1010'));
         // 指定图表的配置项和数据
         var option = {
     tooltip : {
@@ -2124,11 +2125,11 @@
         myChart.setOption(option);
 </script>
 <p>可以点击上方的利润、收入、支出来设置显示和不显示，还是很炫酷滴🕶️，接下来试下日历表：</p>
-<div id="echarts9949" style="width: 85%;height: 400px;margin: 0 auto"></div>
+<div id="echarts8746" style="width: 85%;height: 400px;margin: 0 auto"></div>
 <script src="https://cdn.bootcss.com/echarts/3.8.0/echarts.common.min.js"></script>
 <script type="text/javascript">
         // 基于准备好的dom，初始化echarts实例
-        var myChart = echarts.init(document.getElementById('echarts9949'));
+        var myChart = echarts.init(document.getElementById('echarts8746'));
         // 指定图表的配置项和数据
         var option = 
 option = {
