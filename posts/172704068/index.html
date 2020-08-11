@@ -104,18 +104,18 @@
 
 
 
-  <meta name="description" content="题目描述You are given two non-empty linked lists representing two non-negative integers. The most significant digit comes first and each of their nodes contain a single digit. Add the two numbers and retu">
-<meta name="keywords" content="leetcode,list">
+  <meta name="description" content="题目描述我的解法解题思路实现代码高票解法实现代码代码分析知识总结">
+<meta name="keywords" content="leetcode">
 <meta property="og:type" content="article">
-<meta property="og:title" content="445.Add Two Numbers II">
-<meta property="og:url" content="http://yutouwd.github.io/posts/1819473222/index.html">
+<meta property="og:title" content="130.Surrounded Regions">
+<meta property="og:url" content="http://yutouwd.github.io/posts/172704068/index.html">
 <meta property="og:site_name" content="yutouwd">
-<meta property="og:description" content="题目描述You are given two non-empty linked lists representing two non-negative integers. The most significant digit comes first and each of their nodes contain a single digit. Add the two numbers and retu">
+<meta property="og:description" content="题目描述我的解法解题思路实现代码高票解法实现代码代码分析知识总结">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-04-14T11:46:17.947Z">
+<meta property="og:updated_time" content="2020-08-11T15:06:17.590Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="445.Add Two Numbers II">
-<meta name="twitter:description" content="题目描述You are given two non-empty linked lists representing two non-negative integers. The most significant digit comes first and each of their nodes contain a single digit. Add the two numbers and retu">
+<meta name="twitter:title" content="130.Surrounded Regions">
+<meta name="twitter:description" content="题目描述我的解法解题思路实现代码高票解法实现代码代码分析知识总结">
 
 
 
@@ -124,7 +124,7 @@
 
 
 
-  <link rel="canonical" href="http://yutouwd.github.io/posts/1819473222/">
+  <link rel="canonical" href="http://yutouwd.github.io/posts/172704068/">
 
 
 
@@ -134,7 +134,7 @@
   };
 </script>
 
-  <title>445.Add Two Numbers II | yutouwd</title>
+  <title>130.Surrounded Regions | yutouwd</title>
   
 
 
@@ -354,7 +354,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yutouwd.github.io/posts/1819473222/">
+    <link itemprop="mainEntityOfPage" href="http://yutouwd.github.io/posts/172704068/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="yutouwd">
@@ -371,7 +371,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">445.Add Two Numbers II
+          <h2 class="post-title" itemprop="name headline">130.Surrounded Regions
 
               
             
@@ -397,7 +397,7 @@
                 
               
 
-              <time title="创建时间：2020-04-14 19:43:49 / 修改时间：19:46:17" itemprop="dateCreated datePublished" datetime="2020-04-14T19:43:49+08:00">2020-04-14</time>
+              <time title="创建时间：2020-08-11 23:06:06 / 修改时间：23:06:17" itemprop="dateCreated datePublished" datetime="2020-08-11T23:06:06+08:00">2020-08-11</time>
             
 
             
@@ -423,13 +423,6 @@
 
                 
                 
-                  ，
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/leetcode/medium/" itemprop="url" rel="index"><span itemprop="name">medium</span></a></span>
-
-                
-                
               
             </span>
           
@@ -444,8 +437,8 @@
                   <i class="fa fa-comment-o"></i>
                 </span>
             
-                <a href="/posts/1819473222/#comments" itemprop="discussionUrl">
-                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/posts/1819473222/" itemprop="commentCount"></span>
+                <a href="/posts/172704068/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/posts/172704068/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -453,7 +446,7 @@
 
           
           
-            <span id="/posts/1819473222/" class="leancloud_visitors" data-flag-title="445.Add Two Numbers II">
+            <span id="/posts/172704068/" class="leancloud_visitors" data-flag-title="130.Surrounded Regions">
               <span class="post-meta-divider">|</span>
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
@@ -478,7 +471,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="post.wordcount">
-                  618
+                  32
                 </span>
               
 
@@ -494,7 +487,7 @@
                   <span class="post-meta-item-text">阅读时间 &asymp;</span>
                 
                 <span title="post.min2read">
-                  3
+                  1
                 </span>
               
             </div>
@@ -517,18 +510,7 @@
       
 
       
-        <h1 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h1><p>You are given two non-empty linked lists representing two non-negative integers. The most significant digit comes first and each of their nodes contain a single digit. Add the two numbers and return it as a linked list.</p>
-<p>You may assume the two numbers do not contain any leading zero, except the number 0 itself.</p>
-<p>Follow up:<br>What if you cannot modify the input lists? In other words, reversing the lists is not allowed.</p>
-<p>Example:</p>
-<p>Input: (7 -&gt; 2 -&gt; 4 -&gt; 3) + (5 -&gt; 6 -&gt; 4)<br>Output: 7 -&gt; 8 -&gt; 0 -&gt; 7</p>
-<h1 id="我的解法"><a href="#我的解法" class="headerlink" title="我的解法"></a>我的解法</h1><h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><p>还是将两个链表加起来，链表的前面位代表的是数字的低位，想到的办法是先将链表转化成数字，然后再把两个数字加起来，但是发现会有很多数据类型的问题，因为链表的数字可能会比long long还要大。所以就把链表先转成string，然后再一位位的相加，最后转换成链表。</p>
-<h2 id="实现代码"><a href="#实现代码" class="headerlink" title="实现代码"></a>实现代码</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"> * struct ListNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     ListNode *next;</span></span><br><span class="line"><span class="comment"> *     ListNode(int x) : val(x), next(NULL) &#123;&#125;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">ListNode* <span class="title">addTwoNumbers</span><span class="params">(ListNode* l1, ListNode* l2)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">string</span> str1, str2;</span><br><span class="line">        <span class="keyword">while</span>(l1)&#123;</span><br><span class="line">            str1.push_back(to_string(l1 -&gt; val)[<span class="number">0</span>]);</span><br><span class="line">            l1 = l1 -&gt; next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">while</span>(l2)&#123;</span><br><span class="line">            str2.push_back(to_string(l2 -&gt; val)[<span class="number">0</span>]);</span><br><span class="line">            l2 = l2 -&gt; next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> i = str1.size() - <span class="number">1</span>, j = str2.size() - <span class="number">1</span>, cur = <span class="number">0</span>;</span><br><span class="line">        <span class="built_in">string</span> ans;</span><br><span class="line">        <span class="keyword">while</span> (cur || i &gt;= <span class="number">0</span> || j &gt;= <span class="number">0</span>)&#123;</span><br><span class="line">            <span class="keyword">if</span> (i &gt;= <span class="number">0</span>) cur += str1[i--] - <span class="string">'0'</span>;</span><br><span class="line">            <span class="keyword">if</span> (j &gt;= <span class="number">0</span>) cur += str2[j--] - <span class="string">'0'</span>;</span><br><span class="line">            ans.push_back(to_string(cur % <span class="number">10</span>)[<span class="number">0</span>]);</span><br><span class="line">            cur /= <span class="number">10</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        ListNode* dummyHead = <span class="keyword">new</span> ListNode(<span class="number">0</span>);</span><br><span class="line">        ListNode* p = dummyHead;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> k = ans.size() - <span class="number">1</span>; k &gt;= <span class="number">0</span>; k--)&#123;</span><br><span class="line">            p -&gt; next = <span class="keyword">new</span> ListNode(ans[k] - <span class="string">'0'</span>);</span><br><span class="line">            p = p -&gt; next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> dummyHead -&gt; next;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p>Runtime: 44 ms, faster than 8.73% of C++ online submissions for Add Two Numbers II.<br>Memory Usage: 9.8 MB, less than 100.00% of C++ online submissions for Add Two Numbers II.</p>
-<h1 id="高票解法"><a href="#高票解法" class="headerlink" title="高票解法"></a>高票解法</h1><p>使用字符串转换的方法速度非常的慢，看了下题解，可以用栈来完成。最后将栈一位位pop出来相加，并反向构造一个链表</p>
-<h2 id="实现代码-1"><a href="#实现代码-1" class="headerlink" title="实现代码"></a>实现代码</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"> * struct ListNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     ListNode *next;</span></span><br><span class="line"><span class="comment"> *     ListNode(int x) : val(x), next(NULL) &#123;&#125;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">ListNode* <span class="title">addTwoNumbers</span><span class="params">(ListNode* l1, ListNode* l2)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">stack</span>&lt;<span class="keyword">int</span>&gt; s1, s2;</span><br><span class="line">        <span class="keyword">while</span>(l1)&#123;</span><br><span class="line">            s1.push(l1 -&gt; val);</span><br><span class="line">            l1 = l1 -&gt; next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">while</span>(l2)&#123;</span><br><span class="line">            s2.push(l2 -&gt; val);</span><br><span class="line">            l2 = l2 -&gt; next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> cur = <span class="number">0</span>;</span><br><span class="line">        ListNode* curNode = <span class="literal">nullptr</span>;</span><br><span class="line">        ListNode* ansNode = <span class="literal">nullptr</span>;</span><br><span class="line">        <span class="keyword">while</span> (cur || !s1.empty() || !s2.empty())&#123;</span><br><span class="line">            <span class="keyword">if</span> (!s1.empty())&#123;</span><br><span class="line">                cur += s1.top();</span><br><span class="line">                s1.pop();</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (!s2.empty())&#123;</span><br><span class="line">                cur += s2.top();</span><br><span class="line">                s2.pop();</span><br><span class="line">            &#125;</span><br><span class="line">            ansNode = <span class="keyword">new</span> ListNode(cur % <span class="number">10</span>);</span><br><span class="line">            ansNode -&gt; next = curNode;</span><br><span class="line">            curNode = ansNode;  </span><br><span class="line">            cur /= <span class="number">10</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ansNode;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p>Runtime: 32 ms, faster than 59.39% of C++ online submissions for Add Two Numbers II.<br>Memory Usage: 12.1 MB, less than 51.85% of C++ online submissions for Add Two Numbers II.</p>
-
+        <h1 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h1><h1 id="我的解法"><a href="#我的解法" class="headerlink" title="我的解法"></a>我的解法</h1><h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><h2 id="实现代码"><a href="#实现代码" class="headerlink" title="实现代码"></a>实现代码</h2><h1 id="高票解法"><a href="#高票解法" class="headerlink" title="高票解法"></a>高票解法</h1><h2 id="实现代码-1"><a href="#实现代码-1" class="headerlink" title="实现代码"></a>实现代码</h2><h2 id="代码分析"><a href="#代码分析" class="headerlink" title="代码分析"></a>代码分析</h2><h1 id="知识总结"><a href="#知识总结" class="headerlink" title="知识总结"></a>知识总结</h1>
       
     </div>
 
@@ -552,8 +534,6 @@
         <div class="post-tags">
           
             <a href="/tags/leetcode/" rel="tag"><i class="menu-item-icon fa fa-fw fa-tags"></i> leetcode</a>
-          
-            <a href="/tags/list/" rel="tag"><i class="menu-item-icon fa fa-fw fa-tags"></i> list</a>
           
         </div>
       
@@ -586,8 +566,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/posts/2202627585/" rel="next" title="876.Middle of the Linked List">
-                <i class="fa fa-chevron-left"></i> 876.Middle of the Linked List
+              <a href="/posts/1819473222/" rel="next" title="445.Add Two Numbers II">
+                <i class="fa fa-chevron-left"></i> 445.Add Two Numbers II
               </a>
             
           </div>
@@ -595,10 +575,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/posts/172704068/" rel="prev" title="130.Surrounded Regions">
-                130.Surrounded Regions <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -853,7 +829,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#题目描述"><span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#我的解法"><span class="nav-text">我的解法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#解题思路"><span class="nav-text">解题思路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实现代码"><span class="nav-text">实现代码</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#高票解法"><span class="nav-text">高票解法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#实现代码-1"><span class="nav-text">实现代码</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#题目描述"><span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#我的解法"><span class="nav-text">我的解法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#解题思路"><span class="nav-text">解题思路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实现代码"><span class="nav-text">实现代码</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#高票解法"><span class="nav-text">高票解法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#实现代码-1"><span class="nav-text">实现代码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码分析"><span class="nav-text">代码分析</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#知识总结"><span class="nav-text">知识总结</span></a></li></ol></div>
             
 
           </div>
