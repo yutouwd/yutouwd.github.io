@@ -112,11 +112,13 @@
 <meta property="og:site_name" content="yutouwd">
 <meta property="og:description" content="题目描述Given a 2D board containing ‘X’ and ‘O’ (the letter O), capture all regions surrounded by ‘X’. A region is captured by flipping all ‘O’s into ‘X’s in that surrounded region. Example:X X X XX O O X">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-08-11T15:10:06.886Z">
+<meta property="og:updated_time" content="2020-08-13T23:57:33.232Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="130.Surrounded Regions">
 <meta name="twitter:description" content="题目描述Given a 2D board containing ‘X’ and ‘O’ (the letter O), capture all regions surrounded by ‘X’. A region is captured by flipping all ‘O’s into ‘X’s in that surrounded region. Example:X X X XX O O X">
 
+
+  
 
 
   <link rel="alternate" href="/atom.xml" title="yutouwd" type="application/atom+xml">
@@ -397,12 +399,24 @@
                 
               
 
-              <time title="创建时间：2020-08-11 23:06:06 / 修改时间：23:10:06" itemprop="dateCreated datePublished" datetime="2020-08-11T23:06:06+08:00">2020-08-11</time>
+              <time title="创建时间：2020-08-11 23:06:06" itemprop="dateCreated datePublished" datetime="2020-08-11T23:06:06+08:00">2020-08-11</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2020-08-14 07:57:33" itemprop="dateModified" datetime="2020-08-14T07:57:33+08:00">2020-08-14</time>
               
             
           </span>
@@ -478,7 +492,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="post.wordcount">
-                  362
+                  701
                 </span>
               
 
@@ -494,7 +508,7 @@
                   <span class="post-meta-item-text">阅读时间 &asymp;</span>
                 
                 <span title="post.min2read">
-                  2
+                  4
                 </span>
               
             </div>
@@ -524,6 +538,11 @@
 <p>Explanation:<br>Surrounded regions shouldn’t be on the border, which means that any ‘O’ on the border of the board are not flipped to ‘X’. Any ‘O’ that is not on the border and it is not connected to an ‘O’ on the border will be flipped to ‘X’. Two cells are connected if they are adjacent cells connected horizontally or vertically.</p>
 <h1 id="深度优先"><a href="#深度优先" class="headerlink" title="深度优先"></a>深度优先</h1><h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><p>如果一个O没有被包围，那么他一定会和一个边上的O相连，所以就从边上的O开始深度优先搜索并标记下来相连的O。</p>
 <h2 id="实现代码"><a href="#实现代码" class="headerlink" title="实现代码"></a>实现代码</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="keyword">int</span> n, m;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">char</span>&gt;&gt;&amp; board, <span class="keyword">int</span> x, <span class="keyword">int</span> y)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (x &lt; <span class="number">0</span> || x &gt;= n || y &lt; <span class="number">0</span> || y &gt;= m || board[x][y] != <span class="string">'O'</span>)</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        board[x][y] = <span class="string">'-'</span>;</span><br><span class="line">        dfs(board, x, y<span class="number">-1</span>);</span><br><span class="line">        dfs(board, x, y+<span class="number">1</span>);</span><br><span class="line">        dfs(board, x<span class="number">-1</span>, y);</span><br><span class="line">        dfs(board, x+<span class="number">1</span>, y);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">solve</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">char</span>&gt;&gt;&amp; board)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (board.size() == <span class="number">0</span>) <span class="keyword">return</span>;</span><br><span class="line">        n = board.size();</span><br><span class="line">        m = board[<span class="number">0</span>].size();</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)&#123;</span><br><span class="line">            dfs(board, i, <span class="number">0</span>);</span><br><span class="line">            dfs(board, i, m<span class="number">-1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; m; i++)&#123;</span><br><span class="line">            dfs(board, <span class="number">0</span>, i);</span><br><span class="line">            dfs(board, n<span class="number">-1</span>, i);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)&#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; m; j++)&#123;</span><br><span class="line">                <span class="keyword">if</span> (board[i][j] == <span class="string">'-'</span>)</span><br><span class="line">                    board[i][j] = <span class="string">'O'</span>;</span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">if</span> (board[i][j] == <span class="string">'O'</span>)</span><br><span class="line">                    board[i][j] = <span class="string">'X'</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>Runtime: 28 ms, faster than 78.29% of C++ online submissions for Surrounded Regions.<br>Memory Usage: 10.2 MB, less than 71.02% of C++ online submissions for Surrounded Regions.</p>
+<h1 id="广度优先"><a href="#广度优先" class="headerlink" title="广度优先"></a>广度优先</h1><h2 id="解题思路-1"><a href="#解题思路-1" class="headerlink" title="解题思路"></a>解题思路</h2><p>首先将边缘上的O加入队列，然后就开始遍历队列，将O改为标记符，然后再遍历当前的点的四领域，如果是O就加入队列。</p>
+<h2 id="实现代码-1"><a href="#实现代码-1" class="headerlink" title="实现代码"></a>实现代码</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="keyword">int</span> xx[<span class="number">4</span>] = &#123;<span class="number">1</span> ,<span class="number">-1</span> ,<span class="number">0</span> ,<span class="number">0</span>&#125;;</span><br><span class="line">    <span class="keyword">int</span> yy[<span class="number">4</span>] = &#123;<span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">-1</span>&#125;;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">solve</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">char</span>&gt;&gt;&amp; board)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (board.size() == <span class="number">0</span>) <span class="keyword">return</span>;</span><br><span class="line">        <span class="keyword">int</span> n = board.size(), m = board[<span class="number">0</span>].size();</span><br><span class="line">        <span class="built_in">queue</span>&lt;pair&lt;<span class="keyword">int</span>, <span class="keyword">int</span> &gt;&gt; q;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)&#123;</span><br><span class="line">            <span class="keyword">if</span> (board[i][<span class="number">0</span>] == <span class="string">'O'</span>)</span><br><span class="line">                q.emplace(i, <span class="number">0</span>);</span><br><span class="line">            <span class="keyword">if</span> (board[i][m<span class="number">-1</span>] == <span class="string">'O'</span>)</span><br><span class="line">                q.emplace(i, m<span class="number">-1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; m - <span class="number">1</span>; i++)&#123;</span><br><span class="line">            <span class="keyword">if</span> (board[<span class="number">0</span>][i] == <span class="string">'O'</span>)</span><br><span class="line">                q.emplace(<span class="number">0</span>, i);</span><br><span class="line">            <span class="keyword">if</span> (board[n<span class="number">-1</span>][i] == <span class="string">'O'</span>)</span><br><span class="line">                q.emplace(n<span class="number">-1</span>, i);</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">while</span>(!q.empty())&#123;</span><br><span class="line">            <span class="keyword">int</span> x = q.front().first, y = q.front().second;</span><br><span class="line">            q.pop();</span><br><span class="line">            board[x][y] = <span class="string">'-'</span>;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">4</span>; i++)&#123;</span><br><span class="line">                <span class="keyword">int</span> a = x + xx[i], b = y + yy[i];</span><br><span class="line">                <span class="keyword">if</span> (a &lt; <span class="number">0</span> || a &gt;= n || b &lt; <span class="number">0</span> || b &gt;= m || board[a][b] != <span class="string">'O'</span>)</span><br><span class="line">                    <span class="keyword">continue</span>;</span><br><span class="line">                q.emplace(a, b);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)&#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; m; j++)&#123;</span><br><span class="line">                <span class="keyword">if</span> (board[i][j] == <span class="string">'-'</span>)</span><br><span class="line">                    board[i][j] = <span class="string">'O'</span>;</span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">if</span> (board[i][j] == <span class="string">'O'</span>)</span><br><span class="line">                    board[i][j] = <span class="string">'X'</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>Runtime: 28 ms, faster than 78.29% of C++ online submissions for Surrounded Regions.<br>Memory Usage: 10.2 MB, less than 65.90% of C++ online submissions for Surrounded Regions.</p>
+
       
     </div>
 
@@ -846,7 +865,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#题目描述"><span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#深度优先"><span class="nav-text">深度优先</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#解题思路"><span class="nav-text">解题思路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实现代码"><span class="nav-text">实现代码</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#题目描述"><span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#深度优先"><span class="nav-text">深度优先</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#解题思路"><span class="nav-text">解题思路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实现代码"><span class="nav-text">实现代码</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#广度优先"><span class="nav-text">广度优先</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#解题思路-1"><span class="nav-text">解题思路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实现代码-1"><span class="nav-text">实现代码</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -880,7 +899,7 @@
     
       <span class="post-meta-item-text">文字总数&#58;</span>
     
-    <span title="post.totalcount">49.1k</span>
+    <span title="post.totalcount">49.4k</span>
   
 
   
