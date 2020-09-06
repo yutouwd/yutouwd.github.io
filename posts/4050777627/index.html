@@ -104,18 +104,18 @@
 
 
 
-  <meta name="description" content="题目描述我的解法解题思路实现代码高票解法实现代码代码分析知识总结">
-<meta name="keywords" content="leetcode">
+  <meta name="description" content="题目描述Given a binary tree, return the bottom-up level order traversal of its nodes’ values. (ie, from left to right, level by level from leaf to root). For example:Given binary tree [3,9,20,null,null,15">
+<meta name="keywords" content="leetcode,tree">
 <meta property="og:type" content="article">
-<meta property="og:title" content="A107-Binary-Tree-Level-Order-Traversal-II">
+<meta property="og:title" content="107.Binary Tree Level Order Traversal II">
 <meta property="og:url" content="http://yutouwd.github.io/posts/4050777627/index.html">
 <meta property="og:site_name" content="yutouwd">
-<meta property="og:description" content="题目描述我的解法解题思路实现代码高票解法实现代码代码分析知识总结">
+<meta property="og:description" content="题目描述Given a binary tree, return the bottom-up level order traversal of its nodes’ values. (ie, from left to right, level by level from leaf to root). For example:Given binary tree [3,9,20,null,null,15">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-09-06T03:44:33.822Z">
+<meta property="og:updated_time" content="2020-09-06T03:49:50.008Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="A107-Binary-Tree-Level-Order-Traversal-II">
-<meta name="twitter:description" content="题目描述我的解法解题思路实现代码高票解法实现代码代码分析知识总结">
+<meta name="twitter:title" content="107.Binary Tree Level Order Traversal II">
+<meta name="twitter:description" content="题目描述Given a binary tree, return the bottom-up level order traversal of its nodes’ values. (ie, from left to right, level by level from leaf to root). For example:Given binary tree [3,9,20,null,null,15">
 
 
 
@@ -134,7 +134,7 @@
   };
 </script>
 
-  <title>A107-Binary-Tree-Level-Order-Traversal-II | yutouwd</title>
+  <title>107.Binary Tree Level Order Traversal II | yutouwd</title>
   
 
 
@@ -371,7 +371,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">A107-Binary-Tree-Level-Order-Traversal-II
+          <h2 class="post-title" itemprop="name headline">107.Binary Tree Level Order Traversal II
 
               
             
@@ -397,9 +397,13 @@
                 
               
 
-              <time title="创建时间：2020-09-06 11:44:33" itemprop="dateCreated datePublished" datetime="2020-09-06T11:44:33+08:00">2020-09-06</time>
+              <time title="创建时间：2020-09-06 11:44:33 / 修改时间：11:49:50" itemprop="dateCreated datePublished" datetime="2020-09-06T11:44:33+08:00">2020-09-06</time>
             
 
+            
+              
+
+              
             
           </span>
 
@@ -416,6 +420,13 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/leetcode/" itemprop="url" rel="index"><span itemprop="name">leetcode</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/leetcode/easy/" itemprop="url" rel="index"><span itemprop="name">easy</span></a></span>
 
                 
                 
@@ -442,7 +453,7 @@
 
           
           
-            <span id="/posts/4050777627/" class="leancloud_visitors" data-flag-title="A107-Binary-Tree-Level-Order-Traversal-II">
+            <span id="/posts/4050777627/" class="leancloud_visitors" data-flag-title="107.Binary Tree Level Order Traversal II">
               <span class="post-meta-divider">|</span>
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
@@ -467,7 +478,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="post.wordcount">
-                  32
+                  292
                 </span>
               
 
@@ -506,7 +517,12 @@
       
 
       
-        <h1 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h1><h1 id="我的解法"><a href="#我的解法" class="headerlink" title="我的解法"></a>我的解法</h1><h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><h2 id="实现代码"><a href="#实现代码" class="headerlink" title="实现代码"></a>实现代码</h2><h1 id="高票解法"><a href="#高票解法" class="headerlink" title="高票解法"></a>高票解法</h1><h2 id="实现代码-1"><a href="#实现代码-1" class="headerlink" title="实现代码"></a>实现代码</h2><h2 id="代码分析"><a href="#代码分析" class="headerlink" title="代码分析"></a>代码分析</h2><h1 id="知识总结"><a href="#知识总结" class="headerlink" title="知识总结"></a>知识总结</h1>
+        <h1 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h1><p>Given a binary tree, return the bottom-up level order traversal of its nodes’ values. (ie, from left to right, level by level from leaf to root).</p>
+<p>For example:<br>Given binary tree [3,9,20,null,null,15,7],<br>    3<br>   / \<br>  9  20<br>    /  \<br>   15   7<br>return its bottom-up level order traversal as:<br>[<br>  [15,7],<br>  [9,20],<br>  [3]<br>]</p>
+<h1 id="我的解法"><a href="#我的解法" class="headerlink" title="我的解法"></a>我的解法</h1><h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><p>二叉树的层次遍历，而[#102]的不同在于返回数组是从下往上的。使用一个队列遍历从上往下，最后把数组反转一下。</p>
+<h2 id="实现代码"><a href="#实现代码" class="headerlink" title="实现代码"></a>实现代码</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"> * struct TreeNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     TreeNode *left;</span></span><br><span class="line"><span class="comment"> *     TreeNode *right;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x) : val(x), left(NULL), right(NULL) &#123;&#125;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; levelOrderBottom(TreeNode* root) &#123;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; res;</span><br><span class="line">        <span class="built_in">queue</span>&lt;TreeNode*&gt; q;</span><br><span class="line">        <span class="keyword">if</span> (root == <span class="literal">NULL</span>)</span><br><span class="line">            <span class="keyword">return</span> res;</span><br><span class="line">        q.push(root);</span><br><span class="line">        <span class="keyword">while</span>(!q.empty())&#123;</span><br><span class="line">            <span class="keyword">int</span> n = q.size();</span><br><span class="line">            <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; v;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)&#123;</span><br><span class="line">                TreeNode* node = q.front();</span><br><span class="line">                q.pop();</span><br><span class="line">                v.push_back(node -&gt; val);</span><br><span class="line">                <span class="keyword">if</span> (node -&gt; left != <span class="literal">nullptr</span>) q.push(node -&gt; left);</span><br><span class="line">                <span class="keyword">if</span> (node -&gt; right!= <span class="literal">nullptr</span>) q.push(node -&gt; right);</span><br><span class="line">            &#125;</span><br><span class="line">            res.push_back(v);</span><br><span class="line">        &#125;</span><br><span class="line">        reverse(res.begin(), res.end());</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>执行用时：4 ms, 在所有 C++ 提交中击败了90.57%的用户<br>内存消耗：11.9 MB, 在所有 C++ 提交中击败了18.02%的用户</p>
+
       
     </div>
 
@@ -530,6 +546,8 @@
         <div class="post-tags">
           
             <a href="/tags/leetcode/" rel="tag"><i class="menu-item-icon fa fa-fw fa-tags"></i> leetcode</a>
+          
+            <a href="/tags/tree/" rel="tag"><i class="menu-item-icon fa fa-fw fa-tags"></i> tree</a>
           
         </div>
       
@@ -825,7 +843,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#题目描述"><span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#我的解法"><span class="nav-text">我的解法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#解题思路"><span class="nav-text">解题思路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实现代码"><span class="nav-text">实现代码</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#高票解法"><span class="nav-text">高票解法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#实现代码-1"><span class="nav-text">实现代码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码分析"><span class="nav-text">代码分析</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#知识总结"><span class="nav-text">知识总结</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#题目描述"><span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#我的解法"><span class="nav-text">我的解法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#解题思路"><span class="nav-text">解题思路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实现代码"><span class="nav-text">实现代码</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -859,7 +877,7 @@
     
       <span class="post-meta-item-text">文字总数&#58;</span>
     
-    <span title="post.totalcount">50.6k</span>
+    <span title="post.totalcount">50.8k</span>
   
 
   
