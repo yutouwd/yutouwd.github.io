@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yutouwd.github.io/"/>
-  <updated>2020-09-06T03:49:50.008Z</updated>
+  <updated>2020-09-06T04:29:17.411Z</updated>
   <id>http://yutouwd.github.io/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>「数据结构与算法」-动态规划</title>
+    <link href="http://yutouwd.github.io/posts/3942687688/"/>
+    <id>http://yutouwd.github.io/posts/3942687688/</id>
+    <published>2020-09-06T03:50:46.000Z</published>
+    <updated>2020-09-06T04:29:17.411Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><h1 id="动态规划思路"><a href="#动态规划思路" class="headerlink" title="动态规划思路"></a>动态规划思路</h1><p>要用动态规划要具备两个性质，重叠子问题和最优子问题</p><ul><li>最优子问题：如果一个问题的最优解包含了其中子问题的最优解，那么称其有最优子结构</li><li>重叠子问题：当解决一个问题时，往往依赖其更小规模的子问题的解，甚至依赖与若干个规模更小的子问题的解。</li></ul><p>如果一个问题满足这两个条件，就可以用动态规划的方法去求解。对于动态规划问题，最难的就是列出状态转移方程。可以参考下面的方式来分解问题：</p><p><strong>明确 base case -&gt; 明确「状态」-&gt; 明确「选择」 -&gt; 定义 dp 数组/函数的含义</strong></p><h1 id="动态规划题目"><a href="#动态规划题目" class="headerlink" title="动态规划题目"></a>动态规划题目</h1><h2 id="子集和问题"><a href="#子集和问题" class="headerlink" title="子集和问题"></a>子集和问题</h2><h3 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h3><p>给定一个正整数集合S和一个正整数M，是否在S中存在子集使得子集之和等于M。<br>例如:<br>[1,2,6,3,17,82,23,234] -&gt; 26<br>Solution [0,1,6]</p><p>[1,2,6,3,17,82,23,234] -&gt; 40<br>Solution [4,6]</p><p>[1,2,6,3,17,82,23,234] -&gt; 23<br>Solution [6]</p><h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><p>对于这个问题</p><h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p><a href="https://labuladong.gitbook.io/algo/dong-tai-gui-hua-xi-lie/dong-tai-gui-hua-xiang-jie-jin-jie" target="_blank" rel="noopener">https://labuladong.gitbook.io/algo/dong-tai-gui-hua-xi-lie/dong-tai-gui-hua-xiang-jie-jin-jie</a><br><a href="https://www.bilibili.com/video/av38722679" target="_blank" rel="noopener">https://www.bilibili.com/video/av38722679</a></p><p>子集和问题:<br><a href="https://www.cnblogs.com/yulinfeng/p/7106564.html" target="_blank" rel="noopener">https://www.cnblogs.com/yulinfeng/p/7106564.html</a><br><a href="https://zhuanlan.zhihu.com/p/37822898" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/37822898</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;/assets/css/APlayer.min.css&quot;&gt;&lt;script src=&quot;/assets/js/APlayer.min.js&quot; cla
+      
+    
+    </summary>
+    
+      <category term="数据结构与算法" scheme="http://yutouwd.github.io/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/"/>
+    
+    
+      <category term="动态规划" scheme="http://yutouwd.github.io/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/"/>
+    
+      <category term="数据结构与算法" scheme="http://yutouwd.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/"/>
+    
+  </entry>
   
   <entry>
     <title>107.Binary Tree Level Order Traversal II</title>
@@ -335,9 +362,9 @@
     
       <category term="leetcode" scheme="http://yutouwd.github.io/tags/leetcode/"/>
     
-      <category term="math" scheme="http://yutouwd.github.io/tags/math/"/>
-    
       <category term="vector" scheme="http://yutouwd.github.io/tags/vector/"/>
+    
+      <category term="math" scheme="http://yutouwd.github.io/tags/math/"/>
     
   </entry>
   
@@ -574,35 +601,6 @@
       <category term="leetcode" scheme="http://yutouwd.github.io/tags/leetcode/"/>
     
       <category term="位操作" scheme="http://yutouwd.github.io/tags/%E4%BD%8D%E6%93%8D%E4%BD%9C/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>309.Best Time to Buy and Sell With Cooldown</title>
-    <link href="http://yutouwd.github.io/posts/4032611973/"/>
-    <id>http://yutouwd.github.io/posts/4032611973/</id>
-    <published>2020-02-27T12:07:41.000Z</published>
-    <updated>2020-02-27T12:13:54.768Z</updated>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><h1 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h1><p>Say you have an array for which the ith element is the price of a given stock on day i.</p><p>Design an algorithm to find the maximum profit. You may complete as many transactions as you like (ie, buy one and sell one share of the stock multiple times) with the following restrictions:</p><p>You may not engage in multiple transactions at the same time (ie, you must sell the stock before you buy again).<br>After you sell your stock, you cannot buy stock on next day. (ie, cooldown 1 day)</p><p>Example:<br>Input: [1,2,3,0,2]<br>Output: 3<br>Explanation: transactions = [buy, sell, cooldown, buy, sell]</p><h1 id="我的解法"><a href="#我的解法" class="headerlink" title="我的解法"></a>我的解法</h1><h2 id="实现代码"><a href="#实现代码" class="headerlink" title="实现代码"></a>实现代码</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">maxProfit</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; prices)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> n = prices.size();</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// base case</span></span><br><span class="line">        <span class="keyword">int</span> dp_i_0 = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> dp_i_1 = INT_MIN;</span><br><span class="line">        <span class="keyword">int</span> dp_pre = <span class="number">0</span>;</span><br><span class="line">        <span class="comment">// dp</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)&#123;</span><br><span class="line">            <span class="keyword">int</span> tmp = dp_i_0;</span><br><span class="line">            dp_i_0 = max(dp_i_0, dp_i_1 + prices[i]);</span><br><span class="line">            dp_i_1 = max(dp_i_1, dp_pre - prices[i]);</span><br><span class="line">            dp_pre = tmp;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> dp_i_0;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;/assets/css/APlayer.min.css&quot;&gt;&lt;script src=&quot;/assets/js/APlayer.min.js&quot; cla
-      
-    
-    </summary>
-    
-      <category term="leetcode" scheme="http://yutouwd.github.io/categories/leetcode/"/>
-    
-      <category term="medium" scheme="http://yutouwd.github.io/categories/leetcode/medium/"/>
-    
-    
-      <category term="leetcode" scheme="http://yutouwd.github.io/tags/leetcode/"/>
-    
-      <category term="动态规划" scheme="http://yutouwd.github.io/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/"/>
     
   </entry>
   
