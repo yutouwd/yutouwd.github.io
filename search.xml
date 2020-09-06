@@ -13,7 +13,7 @@
 <h1 id="动态规划题目"><a href="#动态规划题目" class="headerlink" title="动态规划题目"></a>动态规划题目</h1><h2 id="子集和问题"><a href="#子集和问题" class="headerlink" title="子集和问题"></a>子集和问题</h2><h3 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h3><p>给定一个正整数集合S和一个正整数M，是否在S中存在子集使得子集之和等于M。<br>例如:<br>[1,2,6,3,17,82,23,234] -&gt; 26<br>Solution [0,1,6]</p>
 <p>[1,2,6,3,17,82,23,234] -&gt; 40<br>Solution [4,6]</p>
 <p>[1,2,6,3,17,82,23,234] -&gt; 23<br>Solution [6]</p>
-<h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><p>对于这个问题，难点同样在于列出状态转移方程。首先我们应该先明确状态。如果对于一个</p>
+<h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><p>对于这个问题，难点同样在于列出状态转移方程。首先我们应该先明确状态。如果对于一个集合$S={a_1,a_2,…,a_n}$</p>
 <h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p><a href="https://labuladong.gitbook.io/algo/dong-tai-gui-hua-xi-lie/dong-tai-gui-hua-xiang-jie-jin-jie" target="_blank" rel="noopener">https://labuladong.gitbook.io/algo/dong-tai-gui-hua-xi-lie/dong-tai-gui-hua-xiang-jie-jin-jie</a><br><a href="https://www.bilibili.com/video/av38722679" target="_blank" rel="noopener">https://www.bilibili.com/video/av38722679</a></p>
 <p>子集和问题:<br><a href="https://www.cnblogs.com/yulinfeng/p/7106564.html" target="_blank" rel="noopener">https://www.cnblogs.com/yulinfeng/p/7106564.html</a><br><a href="https://zhuanlan.zhihu.com/p/37822898" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/37822898</a></p>
 ]]></content>
@@ -2330,11 +2330,11 @@
 <p>不过现在卡在百度的认证上了，下载认证文件放到next主题目录的路径下，会显示验证失败：“您的站点有链接未通过https校验“黑人问号？？？</p>
 <h2 id="leetcode文章归档"><a href="#leetcode文章归档" class="headerlink" title="leetcode文章归档"></a>leetcode文章归档</h2><p>想法是写leetcode的文章不会自动显示在主页上，然后新建一个page，里面专门收录写的关于leetcoede的文章。可以在scaffolds目录中新建一个leet.md，以后直接用hexo new leet [leet题目]这样方式来新建一个文章。将文章不显示在主页的方法参考这篇文章<a href="https://www.jianshu.com/p/79fe9fb9dfa0" target="_blank" rel="noopener">https://www.jianshu.com/p/79fe9fb9dfa0</a>，修改好之后，就在leet.md中加上notshow: true，以后新建就可以自动设置为不显示了。</p>
 <p>然后还想弄一个类似于github上个人主页那种日历表，如果有一天有做题的话，就会设置成绿色。找了下，发现可以通过baidu的echart或者google chart来实现。baidu的好处就是有中文的文档，google的例子似乎更好看一些，但是不知道会不会被emmmm，就还是先试试百度的吧。只要<strong>npm install hexo-tag-echarts3 –save</strong>就可以来，下面是一个echart测试：</p>
-<div id="echarts2865" style="width: 85%;height: 400px;margin: 0 auto"></div>
+<div id="echarts4750" style="width: 85%;height: 400px;margin: 0 auto"></div>
 <script src="https://cdn.bootcss.com/echarts/3.8.0/echarts.common.min.js"></script>
 <script type="text/javascript">
         // 基于准备好的dom，初始化echarts实例
-        var myChart = echarts.init(document.getElementById('echarts2865'));
+        var myChart = echarts.init(document.getElementById('echarts4750'));
         // 指定图表的配置项和数据
         var option = {
     tooltip : {
@@ -2401,11 +2401,11 @@
         myChart.setOption(option);
 </script>
 <p>可以点击上方的利润、收入、支出来设置显示和不显示，还是很炫酷滴🕶️，接下来试下日历表：</p>
-<div id="echarts4635" style="width: 85%;height: 400px;margin: 0 auto"></div>
+<div id="echarts2854" style="width: 85%;height: 400px;margin: 0 auto"></div>
 <script src="https://cdn.bootcss.com/echarts/3.8.0/echarts.common.min.js"></script>
 <script type="text/javascript">
         // 基于准备好的dom，初始化echarts实例
-        var myChart = echarts.init(document.getElementById('echarts4635'));
+        var myChart = echarts.init(document.getElementById('echarts2854'));
         // 指定图表的配置项和数据
         var option = 
 option = {
