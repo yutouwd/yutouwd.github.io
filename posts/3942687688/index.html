@@ -112,7 +112,7 @@
 <meta property="og:site_name" content="yutouwd">
 <meta property="og:description" content="动态规划思路要用动态规划要具备两个性质，重叠子问题和最优子问题  最优子问题：如果一个问题的最优解包含了其中子问题的最优解，那么称其有最优子结构 重叠子问题：当解决一个问题时，往往依赖其更小规模的子问题的解，甚至依赖与若干个规模更小的子问题的解。  如果一个问题满足这两个条件，就可以用动态规划的方法去求解。对于动态规划问题，最难的就是列出状态转移方程。可以参考下面的方式来分解问题： 明确 base">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-09-06T07:41:54.447Z">
+<meta property="og:updated_time" content="2020-09-06T12:16:21.166Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="「数据结构与算法」-动态规划">
 <meta name="twitter:description" content="动态规划思路要用动态规划要具备两个性质，重叠子问题和最优子问题  最优子问题：如果一个问题的最优解包含了其中子问题的最优解，那么称其有最优子结构 重叠子问题：当解决一个问题时，往往依赖其更小规模的子问题的解，甚至依赖与若干个规模更小的子问题的解。  如果一个问题满足这两个条件，就可以用动态规划的方法去求解。对于动态规划问题，最难的就是列出状态转移方程。可以参考下面的方式来分解问题： 明确 base">
@@ -397,7 +397,7 @@
                 
               
 
-              <time title="创建时间：2020-09-06 11:50:46 / 修改时间：15:41:54" itemprop="dateCreated datePublished" datetime="2020-09-06T11:50:46+08:00">2020-09-06</time>
+              <time title="创建时间：2020-09-06 11:50:46 / 修改时间：20:16:21" itemprop="dateCreated datePublished" datetime="2020-09-06T11:50:46+08:00">2020-09-06</time>
             
 
             
@@ -517,6 +517,7 @@
 </ul>
 <p>如果一个问题满足这两个条件，就可以用动态规划的方法去求解。对于动态规划问题，最难的就是列出状态转移方程。可以参考下面的方式来分解问题：</p>
 <p><strong>明确 base case -&gt; 明确「状态」-&gt; 明确「选择」 -&gt; 定义 dp 数组/函数的含义</strong></p>
+<a id="more"></a>
 <h1 id="动态规划题目"><a href="#动态规划题目" class="headerlink" title="动态规划题目"></a>动态规划题目</h1><h2 id="子集和问题"><a href="#子集和问题" class="headerlink" title="子集和问题"></a>子集和问题</h2><h3 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h3><p>给定一个正整数集合S和一个正整数M，是否在S中存在子集使得子集之和等于M。<br>例如:<br>[1,2,6,3,17,82,23,234] -&gt; 26<br>Solution [0,1,6]</p>
 <p>[1,2,6,3,17,82,23,234] -&gt; 40<br>Solution [4,6]</p>
 <p>[1,2,6,3,17,82,23,234] -&gt; 23<br>Solution [6]</p>
