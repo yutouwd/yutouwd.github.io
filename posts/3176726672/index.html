@@ -104,18 +104,18 @@
 
 
 
-  <meta name="description" content="题目描述我的解法解题思路实现代码高票解法实现代码代码分析知识总结">
+  <meta name="description" content="题目描述Invert a binary tree. Example: Input: 4    /   \  2     7 / \   / \1   3 6   9Output: 4    /   \  7     2 / \   / \9   6 3   1 我的解法解题思路翻转一个二叉树，最容易想到的方法就是递归了吧，先把当前节点的左右子树调换，然后在翻转当前节点的左子树和右子树。 实现代码1">
 <meta name="keywords" content="leetcode">
 <meta property="og:type" content="article">
-<meta property="og:title" content="A226-Invert-Binary-Tree">
+<meta property="og:title" content="226.Invert Binary Tree">
 <meta property="og:url" content="http://yutouwd.github.io/posts/3176726672/index.html">
 <meta property="og:site_name" content="yutouwd">
-<meta property="og:description" content="题目描述我的解法解题思路实现代码高票解法实现代码代码分析知识总结">
+<meta property="og:description" content="题目描述Invert a binary tree. Example: Input: 4    /   \  2     7 / \   / \1   3 6   9Output: 4    /   \  7     2 / \   / \9   6 3   1 我的解法解题思路翻转一个二叉树，最容易想到的方法就是递归了吧，先把当前节点的左右子树调换，然后在翻转当前节点的左子树和右子树。 实现代码1">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-09-16T11:48:54.479Z">
+<meta property="og:updated_time" content="2020-09-16T11:55:02.388Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="A226-Invert-Binary-Tree">
-<meta name="twitter:description" content="题目描述我的解法解题思路实现代码高票解法实现代码代码分析知识总结">
+<meta name="twitter:title" content="226.Invert Binary Tree">
+<meta name="twitter:description" content="题目描述Invert a binary tree. Example: Input: 4    /   \  2     7 / \   / \1   3 6   9Output: 4    /   \  7     2 / \   / \9   6 3   1 我的解法解题思路翻转一个二叉树，最容易想到的方法就是递归了吧，先把当前节点的左右子树调换，然后在翻转当前节点的左子树和右子树。 实现代码1">
 
 
 
@@ -134,7 +134,7 @@
   };
 </script>
 
-  <title>A226-Invert-Binary-Tree | yutouwd</title>
+  <title>226.Invert Binary Tree | yutouwd</title>
   
 
 
@@ -371,7 +371,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">A226-Invert-Binary-Tree
+          <h2 class="post-title" itemprop="name headline">226.Invert Binary Tree
 
               
             
@@ -397,9 +397,13 @@
                 
               
 
-              <time title="创建时间：2020-09-16 19:48:54" itemprop="dateCreated datePublished" datetime="2020-09-16T19:48:54+08:00">2020-09-16</time>
+              <time title="创建时间：2020-09-16 19:48:54 / 修改时间：19:55:02" itemprop="dateCreated datePublished" datetime="2020-09-16T19:48:54+08:00">2020-09-16</time>
             
 
+            
+              
+
+              
             
           </span>
 
@@ -442,7 +446,7 @@
 
           
           
-            <span id="/posts/3176726672/" class="leancloud_visitors" data-flag-title="A226-Invert-Binary-Tree">
+            <span id="/posts/3176726672/" class="leancloud_visitors" data-flag-title="226.Invert Binary Tree">
               <span class="post-meta-divider">|</span>
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
@@ -467,7 +471,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="post.wordcount">
-                  32
+                  205
                 </span>
               
 
@@ -506,7 +510,17 @@
       
 
       
-        <h1 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h1><h1 id="我的解法"><a href="#我的解法" class="headerlink" title="我的解法"></a>我的解法</h1><h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><h2 id="实现代码"><a href="#实现代码" class="headerlink" title="实现代码"></a>实现代码</h2><h1 id="高票解法"><a href="#高票解法" class="headerlink" title="高票解法"></a>高票解法</h1><h2 id="实现代码-1"><a href="#实现代码-1" class="headerlink" title="实现代码"></a>实现代码</h2><h2 id="代码分析"><a href="#代码分析" class="headerlink" title="代码分析"></a>代码分析</h2><h1 id="知识总结"><a href="#知识总结" class="headerlink" title="知识总结"></a>知识总结</h1>
+        <h1 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h1><p>Invert a binary tree.</p>
+<p>Example:</p>
+<p>Input:</p>
+<pre><code>4
+</code></pre><p>   /   \<br>  2     7<br> / \   / \<br>1   3 6   9<br>Output:</p>
+<pre><code>4
+</code></pre><p>   /   \<br>  7     2<br> / \   / \<br>9   6 3   1</p>
+<h1 id="我的解法"><a href="#我的解法" class="headerlink" title="我的解法"></a>我的解法</h1><h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><p>翻转一个二叉树，最容易想到的方法就是递归了吧，先把当前节点的左右子树调换，然后在翻转当前节点的左子树和右子树。</p>
+<h2 id="实现代码"><a href="#实现代码" class="headerlink" title="实现代码"></a>实现代码</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"> * struct TreeNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     TreeNode *left;</span></span><br><span class="line"><span class="comment"> *     TreeNode *right;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x) : val(x), left(NULL), right(NULL) &#123;&#125;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line"></span><br><span class="line">    <span class="function">TreeNode* <span class="title">invertTree</span><span class="params">(TreeNode* root)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (root == <span class="literal">NULL</span>) <span class="keyword">return</span> <span class="literal">NULL</span>;</span><br><span class="line">        TreeNode* tmp = root -&gt; left;</span><br><span class="line">        root -&gt; left = root -&gt; right;</span><br><span class="line">        root -&gt; right = tmp;</span><br><span class="line">        root -&gt; left = invertTree(root -&gt; left);</span><br><span class="line">        root -&gt;right = invertTree(root -&gt;right);</span><br><span class="line">        <span class="keyword">return</span> root;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>执行用时：0 ms, 在所有 C++ 提交中击败了100.00%的用户<br>内存消耗：9.2 MB, 在所有 C++ 提交中击败了23.25%的用户</p>
+
       
     </div>
 
@@ -831,7 +845,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#题目描述"><span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#我的解法"><span class="nav-text">我的解法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#解题思路"><span class="nav-text">解题思路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实现代码"><span class="nav-text">实现代码</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#高票解法"><span class="nav-text">高票解法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#实现代码-1"><span class="nav-text">实现代码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码分析"><span class="nav-text">代码分析</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#知识总结"><span class="nav-text">知识总结</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#题目描述"><span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#我的解法"><span class="nav-text">我的解法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#解题思路"><span class="nav-text">解题思路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实现代码"><span class="nav-text">实现代码</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -865,7 +879,7 @@
     
       <span class="post-meta-item-text">文字总数&#58;</span>
     
-    <span title="post.totalcount">52.7k</span>
+    <span title="post.totalcount">52.9k</span>
   
 
   
