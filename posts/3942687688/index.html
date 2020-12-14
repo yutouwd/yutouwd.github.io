@@ -112,7 +112,7 @@
 <meta property="og:site_name" content="yutouwd">
 <meta property="og:description" content="动态规划思路要用动态规划要具备两个性质，重叠子问题和最优子问题  最优子问题：如果一个问题的最优解包含了其中子问题的最优解，那么称其有最优子结构 重叠子问题：当解决一个问题时，往往依赖其更小规模的子问题的解，甚至依赖与若干个规模更小的子问题的解。  如果一个问题满足这两个条件，就可以用动态规划的方法去求解。对于动态规划问题，最难的就是列出状态转移方程。可以参考下面的方式来分解问题： 明确 base">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-12-14T10:57:52.094Z">
+<meta property="og:updated_time" content="2020-12-14T12:52:11.163Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="「数据结构与算法」-动态规划">
 <meta name="twitter:description" content="动态规划思路要用动态规划要具备两个性质，重叠子问题和最优子问题  最优子问题：如果一个问题的最优解包含了其中子问题的最优解，那么称其有最优子结构 重叠子问题：当解决一个问题时，往往依赖其更小规模的子问题的解，甚至依赖与若干个规模更小的子问题的解。  如果一个问题满足这两个条件，就可以用动态规划的方法去求解。对于动态规划问题，最难的就是列出状态转移方程。可以参考下面的方式来分解问题： 明确 base">
@@ -414,7 +414,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2020-12-14 18:57:52" itemprop="dateModified" datetime="2020-12-14T18:57:52+08:00">2020-12-14</time>
+                <time title="修改时间：2020-12-14 20:52:11" itemprop="dateModified" datetime="2020-12-14T20:52:11+08:00">2020-12-14</time>
               
             
           </span>
@@ -490,7 +490,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="post.wordcount">
-                  1.1k
+                  1.5k
                 </span>
               
 
@@ -506,7 +506,7 @@
                   <span class="post-meta-item-text">阅读时间 &asymp;</span>
                 
                 <span title="post.min2read">
-                  5
+                  6
                 </span>
               
             </div>
@@ -537,10 +537,16 @@
 <p>如果一个问题满足这两个条件，就可以用动态规划的方法去求解。对于动态规划问题，最难的就是列出状态转移方程。可以参考下面的方式来分解问题：</p>
 <p><strong>明确 base case -&gt; 明确「状态」-&gt; 明确「选择」 -&gt; 定义 dp 数组/函数的含义</strong></p>
 <a id="more"></a>
-<h1 id="动态规划题目"><a href="#动态规划题目" class="headerlink" title="动态规划题目"></a>动态规划题目</h1><h2 id="子集和问题"><a href="#子集和问题" class="headerlink" title="子集和问题"></a>子集和问题</h2><h3 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h3><p>给定一个正整数集合S和一个正整数M，是否在S中存在子集使得子集之和等于M。<br>例如:<br>[1,2,6,3,17,82,23,234] -&gt; 26<br>Solution [0,1,6]</p>
+<h1 id="动态规划题目"><a href="#动态规划题目" class="headerlink" title="动态规划题目"></a>动态规划题目</h1><h2 id="最长回文子串"><a href="#最长回文子串" class="headerlink" title="最长回文子串"></a>最长回文子串</h2><h3 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h3><p>leetcode <a href="https://leetcode-cn.com/problems/longest-palindromic-substring/" target="_blank" rel="noopener">#5</a><br>给定一个字符串 s，找到 s 中最长的回文子串。你可以假设 s 的最大长度为 1000。</p>
+<p>示例 1：<br>输入: “babad”<br>输出: “bab”<br>注意: “aba” 也是一个有效答案。</p>
+<p>示例 2：<br>输入: “cbbd”<br>输出: “bb”</p>
+<h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><p>这一题里面的状态dp[i][j]代表了字符串s[i:j]是否是回文子串。初始的状态dp[i][i]都为true，dp[i][i+1]则要判断下字符s[i]和s[i+1]是否相等。<br>状态转移方程则为：<br>dp[i][j] = dp[i+1][j-1] &amp;&amp; s[i] == s[j]<br>这里需要注意的一个点是，遍历不能直接用i和j遍历，需要用子字符串的长度来作为第一层循环，起始字符的位置作为第二层循环。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="built_in">string</span> <span class="title">longestPalindrome</span><span class="params">(<span class="built_in">string</span> s)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> n = s.size();</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">bool</span>&gt;&gt; dp (n, <span class="built_in">vector</span>&lt;<span class="keyword">bool</span>&gt; (n, <span class="literal">false</span>));</span><br><span class="line">        <span class="keyword">if</span> (n == <span class="number">0</span>) <span class="keyword">return</span> <span class="string">""</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span> max_count = <span class="number">1</span>;</span><br><span class="line">        <span class="built_in">string</span> res;</span><br><span class="line">        res = s[<span class="number">0</span>];</span><br><span class="line"></span><br><span class="line">        <span class="comment">// base case</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)</span><br><span class="line">            dp[i][i] = <span class="literal">true</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n<span class="number">-1</span>; i++)&#123;</span><br><span class="line">            <span class="keyword">if</span> (s[i] == s[i+<span class="number">1</span>])&#123;</span><br><span class="line">                dp[i][i+<span class="number">1</span>] = <span class="literal">true</span>;</span><br><span class="line">                max_count = <span class="number">2</span>;</span><br><span class="line">                res = s.substr(i,<span class="number">2</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// dp</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> l = <span class="number">2</span>; l &lt; n; l++)&#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)&#123;</span><br><span class="line">                <span class="keyword">int</span> j = i + l;</span><br><span class="line">                <span class="keyword">if</span> (j &gt;= n) <span class="keyword">break</span>;</span><br><span class="line">                <span class="keyword">if</span> (dp[i+<span class="number">1</span>][j<span class="number">-1</span>] &amp;&amp; s[i] == s[j])&#123;</span><br><span class="line">                    dp[i][j] = <span class="literal">true</span>;</span><br><span class="line">                    <span class="keyword">if</span> (l+<span class="number">1</span> &gt; max_count)&#123;</span><br><span class="line">                        res = s.substr(i,l+<span class="number">1</span>);</span><br><span class="line">                        max_count = l;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>不过这样也还是超时了，这题也太容易超时了吧。</p>
+<h2 id="子集和问题"><a href="#子集和问题" class="headerlink" title="子集和问题"></a>子集和问题</h2><h3 id="问题描述-1"><a href="#问题描述-1" class="headerlink" title="问题描述"></a>问题描述</h3><p>给定一个正整数集合S和一个正整数M，是否在S中存在子集使得子集之和等于M。<br>例如:<br>[1,2,6,3,17,82,23,234] -&gt; 26<br>Solution [0,1,6]</p>
 <p>[1,2,6,3,17,82,23,234] -&gt; 40<br>Solution [4,6]</p>
 <p>[1,2,6,3,17,82,23,234] -&gt; 23<br>Solution [6]</p>
-<h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><p>对于这个问题，难点同样在于列出状态转移方程。首先我们应该先明确状态。对于一个集合$S={a_1,a_2,…,a_n}$中的每一个元素，都存在两种状态取和不取，再考虑他们的和是否等于M，但是这样的情况就有$2^n$。所以要换个思路，<strong>令dp[i][j]代表前i个元素中是否存在子集使得子集和等于j。</strong>那么对于dp[i][j]则有两种情况:</p>
+<h3 id="解题思路-1"><a href="#解题思路-1" class="headerlink" title="解题思路"></a>解题思路</h3><p>对于这个问题，难点同样在于列出状态转移方程。首先我们应该先明确状态。对于一个集合$S={a_1,a_2,…,a_n}$中的每一个元素，都存在两种状态取和不取，再考虑他们的和是否等于M，但是这样的情况就有$2^n$。所以要换个思路，<strong>令dp[i][j]代表前i个元素中是否存在子集使得子集和等于j。</strong>那么对于dp[i][j]则有两种情况:</p>
 <ul>
 <li>如果S[i] &gt; j，那么i一定是不再子集中的，所以dp[i][j]=dp[i-1][j]，即当前数大于子集和的目标数，那么当前数对于子集和能否等于目标数没有影响，所以当前状态（dp[i][j])应该是等于不包含S[i]时的状态（dp[i-1][j]）。</li>
 <li>如果S[i] &lt;= j，也存在两种情况：S[i]不在子集中，那么dp[i][j]=dp[i-1][j]；如果S[i]在子集中，那么它的状态应该和上一个状态并且目标数等于j-S[i]时的状态相等，即dp[i][j] = dp[i-1][j-S[i]]。</li>
@@ -886,7 +892,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#动态规划思路"><span class="nav-text">动态规划思路</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#动态规划题目"><span class="nav-text">动态规划题目</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#子集和问题"><span class="nav-text">子集和问题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#问题描述"><span class="nav-text">问题描述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解题思路"><span class="nav-text">解题思路</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考资料"><span class="nav-text">参考资料</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#动态规划思路"><span class="nav-text">动态规划思路</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#动态规划题目"><span class="nav-text">动态规划题目</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#最长回文子串"><span class="nav-text">最长回文子串</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#问题描述"><span class="nav-text">问题描述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解题思路"><span class="nav-text">解题思路</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#子集和问题"><span class="nav-text">子集和问题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#问题描述-1"><span class="nav-text">问题描述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解题思路-1"><span class="nav-text">解题思路</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考资料"><span class="nav-text">参考资料</span></a></li></ol></div>
             
 
           </div>
@@ -920,7 +926,7 @@
     
       <span class="post-meta-item-text">文字总数&#58;</span>
     
-    <span title="post.totalcount">56.8k</span>
+    <span title="post.totalcount">57.1k</span>
   
 
   
