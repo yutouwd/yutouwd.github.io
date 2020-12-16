@@ -1,9 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>A290-Word-Pattern</title>
+    <title>290.Word Pattern</title>
     <url>/posts/1795481488/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><h1 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h1><h1 id="我的解法"><a href="#我的解法" class="headerlink" title="我的解法"></a>我的解法</h1><h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><h2 id="实现代码"><a href="#实现代码" class="headerlink" title="实现代码"></a>实现代码</h2><h1 id="高票解法"><a href="#高票解法" class="headerlink" title="高票解法"></a>高票解法</h1><h2 id="实现代码-1"><a href="#实现代码-1" class="headerlink" title="实现代码"></a>实现代码</h2><h2 id="代码分析"><a href="#代码分析" class="headerlink" title="代码分析"></a>代码分析</h2><h1 id="知识总结"><a href="#知识总结" class="headerlink" title="知识总结"></a>知识总结</h1>]]></content>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><h1 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h1><p>Given a pattern and a string s, find if s follows the same pattern.</p>
+<p>Here follow means a full match, such that there is a bijection between a letter in pattern and a non-empty word in s.</p>
+<p>Example 1:<br>Input: pattern = “abba”, s = “dog cat cat dog”<br>Output: true</p>
+<p>Example 2:<br>Input: pattern = “abba”, s = “dog cat cat fish”<br>Output: false</p>
+<p>Example 3:<br>Input: pattern = “aaaa”, s = “dog cat cat dog”<br>Output: false</p>
+<p>Example 4:<br>Input: pattern = “abba”, s = “dog dog dog dog”<br>Output: false</p>
+<p>Constraints:</p>
+<p>1 &lt;= pattern.length &lt;= 300<br>pattern contains only lower-case English letters.<br>1 &lt;= s.length &lt;= 3000<br>s contains only lower-case English letters and spaces ‘ ‘.<br>s does not contain any leading or trailing spaces.<br>All the words in s are separated by a single space.<br>a w e</p>
+<h1 id="我的解法"><a href="#我的解法" class="headerlink" title="我的解法"></a>我的解法</h1><h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><p>需要将pattern中的字符和s中里面的单词一一对应起来。使用一个map来记录每一个pattern对应的word，然后再使用一个set来记录已经有对应关系的word（防止一个word被多个pattarn对应）</p>
+<h2 id="实现代码"><a href="#实现代码" class="headerlink" title="实现代码"></a>实现代码</h2><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">wordPattern</span><span class="params">(<span class="built_in">string</span> pattern, <span class="built_in">string</span> s)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt; str;</span><br><span class="line">        <span class="function"><span class="built_in">istringstream</span> <span class="title">ss</span><span class="params">(s)</span></span>;</span><br><span class="line">        <span class="built_in">unordered_map</span>&lt;<span class="keyword">char</span>, <span class="built_in">string</span>&gt; m;</span><br><span class="line">        <span class="built_in">unordered_set</span>&lt;<span class="built_in">string</span>&gt; k;</span><br><span class="line">        <span class="built_in">string</span> tmp;</span><br><span class="line">        <span class="keyword">while</span>(ss &gt;&gt; tmp)</span><br><span class="line">            str.push_back(tmp);</span><br><span class="line">        <span class="keyword">if</span> (str.size() != pattern.size()) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; pattern.size(); i++)&#123;</span><br><span class="line">            <span class="keyword">if</span> (m.find(pattern[i]) == m.end())&#123;</span><br><span class="line">                m.insert(make_pair(pattern[i], str[i]));</span><br><span class="line">                <span class="keyword">if</span> (k.find(str[i]) != k.end())&#123;</span><br><span class="line">                    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                k.insert(str[i]);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span>&#123;</span><br><span class="line">                <span class="keyword">if</span> (m[pattern[i]] != str[i])</span><br><span class="line">                    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>执行用时：0 ms, 在所有 C++ 提交中击败了100.00%的用户<br>内存消耗：6.6 MB, 在所有 C++ 提交中击败了37.76%的用户</p>
+]]></content>
       <categories>
         <category>leetcode</category>
       </categories>
@@ -593,8 +604,8 @@
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>vector</tag>
         <tag>math</tag>
+        <tag>vector</tag>
       </tags>
   </entry>
   <entry>
@@ -989,8 +1000,8 @@
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>hashmap</tag>
         <tag>math</tag>
+        <tag>hashmap</tag>
       </tags>
   </entry>
   <entry>
@@ -1534,8 +1545,8 @@
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>vector</tag>
         <tag>math</tag>
+        <tag>vector</tag>
       </tags>
   </entry>
   <entry>
@@ -2188,8 +2199,8 @@
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>hashmap</tag>
         <tag>math</tag>
+        <tag>hashmap</tag>
       </tags>
   </entry>
   <entry>
@@ -2653,11 +2664,11 @@
 <p>不过现在卡在百度的认证上了，下载认证文件放到next主题目录的路径下，会显示验证失败：“您的站点有链接未通过https校验“黑人问号？？？</p>
 <h2 id="leetcode文章归档"><a href="#leetcode文章归档" class="headerlink" title="leetcode文章归档"></a>leetcode文章归档</h2><p>想法是写leetcode的文章不会自动显示在主页上，然后新建一个page，里面专门收录写的关于leetcoede的文章。可以在scaffolds目录中新建一个leet.md，以后直接用hexo new leet [leet题目]这样方式来新建一个文章。将文章不显示在主页的方法参考这篇文章<a href="https://www.jianshu.com/p/79fe9fb9dfa0" target="_blank" rel="noopener">https://www.jianshu.com/p/79fe9fb9dfa0</a>，修改好之后，就在leet.md中加上notshow: true，以后新建就可以自动设置为不显示了。</p>
 <p>然后还想弄一个类似于github上个人主页那种日历表，如果有一天有做题的话，就会设置成绿色。找了下，发现可以通过baidu的echart或者google chart来实现。baidu的好处就是有中文的文档，google的例子似乎更好看一些，但是不知道会不会被emmmm，就还是先试试百度的吧。只要<strong>npm install hexo-tag-echarts3 –save</strong>就可以来，下面是一个echart测试：</p>
-<div id="echarts2702" style="width: 85%;height: 400px;margin: 0 auto"></div>
+<div id="echarts4171" style="width: 85%;height: 400px;margin: 0 auto"></div>
 <script src="https://cdn.bootcss.com/echarts/3.8.0/echarts.common.min.js"></script>
 <script type="text/javascript">
         // 基于准备好的dom，初始化echarts实例
-        var myChart = echarts.init(document.getElementById('echarts2702'));
+        var myChart = echarts.init(document.getElementById('echarts4171'));
         // 指定图表的配置项和数据
         var option = {
     tooltip : {
@@ -2724,11 +2735,11 @@
         myChart.setOption(option);
 </script>
 <p>可以点击上方的利润、收入、支出来设置显示和不显示，还是很炫酷滴🕶️，接下来试下日历表：</p>
-<div id="echarts906" style="width: 85%;height: 400px;margin: 0 auto"></div>
+<div id="echarts4409" style="width: 85%;height: 400px;margin: 0 auto"></div>
 <script src="https://cdn.bootcss.com/echarts/3.8.0/echarts.common.min.js"></script>
 <script type="text/javascript">
         // 基于准备好的dom，初始化echarts实例
-        var myChart = echarts.init(document.getElementById('echarts906'));
+        var myChart = echarts.init(document.getElementById('echarts4409'));
         // 指定图表的配置项和数据
         var option = 
 option = {
