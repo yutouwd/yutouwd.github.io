@@ -104,18 +104,18 @@
 
 
 
-  <meta name="description" content="题目描述我的解法解题思路实现代码高票解法实现代码代码分析知识总结">
+  <meta name="description" content="题目描述Given an array A of 0s and 1s, consider N_i: the i-th subarray from A[0] to A[i] interpreted as a binary number (from most-significant-bit to least-significant-bit.) Return a list of booleans answ">
 <meta name="keywords" content="leetcode">
 <meta property="og:type" content="article">
-<meta property="og:title" content="A1018-Binary-Prefix-Divisble-by-5">
+<meta property="og:title" content="1018.Binary Prefix Divisble by 5">
 <meta property="og:url" content="http://yutouwd.github.io/posts/2948955516/index.html">
 <meta property="og:site_name" content="yutouwd">
-<meta property="og:description" content="题目描述我的解法解题思路实现代码高票解法实现代码代码分析知识总结">
+<meta property="og:description" content="题目描述Given an array A of 0s and 1s, consider N_i: the i-th subarray from A[0] to A[i] interpreted as a binary number (from most-significant-bit to least-significant-bit.) Return a list of booleans answ">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2021-01-14T09:13:45.958Z">
+<meta property="og:updated_time" content="2021-01-14T09:30:10.871Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="A1018-Binary-Prefix-Divisble-by-5">
-<meta name="twitter:description" content="题目描述我的解法解题思路实现代码高票解法实现代码代码分析知识总结">
+<meta name="twitter:title" content="1018.Binary Prefix Divisble by 5">
+<meta name="twitter:description" content="题目描述Given an array A of 0s and 1s, consider N_i: the i-th subarray from A[0] to A[i] interpreted as a binary number (from most-significant-bit to least-significant-bit.) Return a list of booleans answ">
 
 
 
@@ -134,7 +134,7 @@
   };
 </script>
 
-  <title>A1018-Binary-Prefix-Divisble-by-5 | yutouwd</title>
+  <title>1018.Binary Prefix Divisble by 5 | yutouwd</title>
   
 
 
@@ -371,7 +371,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">A1018-Binary-Prefix-Divisble-by-5
+          <h2 class="post-title" itemprop="name headline">1018.Binary Prefix Divisble by 5
 
               
             
@@ -397,9 +397,13 @@
                 
               
 
-              <time title="创建时间：2021-01-14 17:13:45" itemprop="dateCreated datePublished" datetime="2021-01-14T17:13:45+08:00">2021-01-14</time>
+              <time title="创建时间：2021-01-14 17:13:45 / 修改时间：17:30:10" itemprop="dateCreated datePublished" datetime="2021-01-14T17:13:45+08:00">2021-01-14</time>
             
 
+            
+              
+
+              
             
           </span>
 
@@ -442,7 +446,7 @@
 
           
           
-            <span id="/posts/2948955516/" class="leancloud_visitors" data-flag-title="A1018-Binary-Prefix-Divisble-by-5">
+            <span id="/posts/2948955516/" class="leancloud_visitors" data-flag-title="1018.Binary Prefix Divisble by 5">
               <span class="post-meta-divider">|</span>
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
@@ -467,7 +471,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="post.wordcount">
-                  32
+                  305
                 </span>
               
 
@@ -506,7 +510,15 @@
       
 
       
-        <h1 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h1><h1 id="我的解法"><a href="#我的解法" class="headerlink" title="我的解法"></a>我的解法</h1><h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><h2 id="实现代码"><a href="#实现代码" class="headerlink" title="实现代码"></a>实现代码</h2><h1 id="高票解法"><a href="#高票解法" class="headerlink" title="高票解法"></a>高票解法</h1><h2 id="实现代码-1"><a href="#实现代码-1" class="headerlink" title="实现代码"></a>实现代码</h2><h2 id="代码分析"><a href="#代码分析" class="headerlink" title="代码分析"></a>代码分析</h2><h1 id="知识总结"><a href="#知识总结" class="headerlink" title="知识总结"></a>知识总结</h1>
+        <h1 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h1><p>Given an array A of 0s and 1s, consider N_i: the i-th subarray from A[0] to A[i] interpreted as a binary number (from most-significant-bit to least-significant-bit.)</p>
+<p>Return a list of booleans answer, where answer[i] is true if and only if N_i is divisible by 5.</p>
+<p>Example 1:<br>Input: [0,1,1]<br>Output: [true,false,false]<br>Explanation:<br>The input numbers in binary are 0, 01, 011; which are 0, 1, and 3 in base-10.  Only the first number is divisible by 5, so answer[0] is true.</p>
+<p>Example 2:<br>Input: [1,1,1]<br>Output: [false,false,false]</p>
+<p>Example 3:<br>Input: [0,1,1,1,1,1]<br>Output: [true,false,false,false,true,false]</p>
+<p>Example 4:<br>Input: [1,1,1,0,1]<br>Output: [false,false,false,false,false]</p>
+<h1 id="我的解法"><a href="#我的解法" class="headerlink" title="我的解法"></a>我的解法</h1><h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><p>想法是用一个数来记录当前数字，到下一位时就将其左移一位，然后在加上A中对应位。不过数字会超出范围，看了下讨论发现可以用取10的模来避免越界，因为能被5整除的数只需要考虑最后一位是不是5或0即可。</p>
+<h2 id="实现代码"><a href="#实现代码" class="headerlink" title="实现代码"></a>实现代码</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">bool</span>&gt; prefixesDivBy5(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; A) &#123;</span><br><span class="line">        <span class="keyword">int</span> n = A.size();</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">bool</span>&gt; ans(n, <span class="literal">false</span>);</span><br><span class="line">        <span class="keyword">if</span> (n == <span class="number">0</span>) <span class="keyword">return</span> ans;</span><br><span class="line">        <span class="keyword">int</span> num = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)&#123;</span><br><span class="line">            num = num &lt;&lt; <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">if</span> (A[i] == <span class="number">1</span>) num++;</span><br><span class="line">            ans[i] = (num % <span class="number">5</span> == <span class="number">0</span>);</span><br><span class="line">            num %= <span class="number">10</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
       
     </div>
 
@@ -831,7 +843,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#题目描述"><span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#我的解法"><span class="nav-text">我的解法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#解题思路"><span class="nav-text">解题思路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实现代码"><span class="nav-text">实现代码</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#高票解法"><span class="nav-text">高票解法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#实现代码-1"><span class="nav-text">实现代码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码分析"><span class="nav-text">代码分析</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#知识总结"><span class="nav-text">知识总结</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#题目描述"><span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#我的解法"><span class="nav-text">我的解法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#解题思路"><span class="nav-text">解题思路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实现代码"><span class="nav-text">实现代码</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -865,7 +877,7 @@
     
       <span class="post-meta-item-text">文字总数&#58;</span>
     
-    <span title="post.totalcount">59k</span>
+    <span title="post.totalcount">59.3k</span>
   
 
   
