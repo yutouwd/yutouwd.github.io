@@ -769,8 +769,8 @@
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>vector</tag>
         <tag>math</tag>
+        <tag>vector</tag>
       </tags>
   </entry>
   <entry>
@@ -1165,8 +1165,8 @@
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>hashmap</tag>
         <tag>math</tag>
+        <tag>hashmap</tag>
       </tags>
   </entry>
   <entry>
@@ -1710,8 +1710,8 @@
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>vector</tag>
         <tag>math</tag>
+        <tag>vector</tag>
       </tags>
   </entry>
   <entry>
@@ -2365,8 +2365,8 @@
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>hashmap</tag>
         <tag>math</tag>
+        <tag>hashmap</tag>
       </tags>
   </entry>
   <entry>
@@ -2820,7 +2820,7 @@
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">permalink: posts/:abbrlink/</span><br><span class="line">abbrlink:</span><br><span class="line">  alg: crc32  <span class="comment">#support crc16(default) and crc32</span></span><br><span class="line">  rep: hex    <span class="comment">#support dec(default) and hex</span></span><br></pre></td></tr></table></figure>
 <p>然后在hexo clean和hexo g &amp;&amp; hexo d即可。不过令人伤心的是，在重新生成文章链接后原来的阅读量也随之清零了😭，我这可怜的阅读量不知道什么时候才能四位数啊。</p>
 <h2 id="侧边栏toc自动展开"><a href="#侧边栏toc自动展开" class="headerlink" title="侧边栏toc自动展开"></a>侧边栏toc自动展开</h2><p>目前在github上找到了几个issue:<a href="https://github.com/theme-next/hexo-theme-next/issues/307" target="_blank" rel="noopener">#307</a> <a href="https://github.com/iissnan/hexo-theme-next/issues/531" target="_blank" rel="noopener">#531</a> <a href="https://github.com/iissnan/hexo-theme-next/issues/710" target="_blank" rel="noopener">#710</a><br>具体的解决方法就是在themes/next/source/_custom/custom.styl中加入以下代码，可以自动展开二级标题。<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">.post-toc .nav .nav-level-1&gt;.nav-child &#123; </span><br><span class="line">   display: block; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h2 id="评论系统更换为valine"><a href="#评论系统更换为valine" class="headerlink" title="评论系统更换为valine"></a>评论系统更换为valine</h2><p>真的受不了disqus，首先被河蟹了，然后即使能加载也非常的慢，界面也十分的丑。今天看到一些博客用了valine发现比disqus好看多了，抽时间赶紧把这个给改了。<br>一开始弄好了，但是发现刷新后评论就会消失。后来在github上问了下<a href="https://github.com/xCss/Valine/issues/159" target="_blank" rel="noopener">#159</a>，原来valine和next自带的统计阅读量会有冲突。然后还发现一个很严重的问题，一开始在选主题的时候没有仔细调研，就下了旧的next版本5.1.4。现在最新的next版本已经到6点多，并且在另外一个仓库中。所以又想把next换成最新的版本。</p>
+<h2 id="评论系统更换为valine"><a href="#评论系统更换为valine" class="headerlink" title="评论系统更换为valine"></a>评论系统更换为valine</h2><p>真的受不了disqus，首先被河蟹了，然后即使能加载也非常的慢，界面也十分的丑。今天看到一些博客用了valine发现比disqus好看多了，抽时间赶紧把这个给改了。<br>一开始弄好了，但是发现刷新后评论就会消失。后来在github上问了下<a href="https://github.com/xCss/Valine/issues/159" target="_blank" rel="noopener">#159</a>，原来valine和next自带的统计阅读量会有冲突。然后还发现一个很严重的问题，一开始在选主题的时候没有仔细调研，就下了旧的next版本5.1.4。现在最新的next版本已经到7点多，并且在另外一个仓库中。所以又把next换成了最新的版本。</p>
 <h2 id="站点自动备份系统"><a href="#站点自动备份系统" class="headerlink" title="站点自动备份系统"></a>站点自动备份系统</h2><p><a href="https://notes.doublemine.me/2015-07-06-%E8%87%AA%E5%8A%A8%E5%A4%87%E4%BB%BDHexo%E5%8D%9A%E5%AE%A2%E6%BA%90%E6%96%87%E4%BB%B6.html" target="_blank" rel="noopener">https://notes.doublemine.me/2015-07-06-%E8%87%AA%E5%8A%A8%E5%A4%87%E4%BB%BDHexo%E5%8D%9A%E5%AE%A2%E6%BA%90%E6%96%87%E4%BB%B6.html</a></p>
 <h2 id="文章分类、归档页面优化"><a href="#文章分类、归档页面优化" class="headerlink" title="文章分类、归档页面优化"></a>文章分类、归档页面优化</h2><p>查了一下才发现，原来hexo已经支持二级分类了</p>
 <h2 id="代码块优化"><a href="#代码块优化" class="headerlink" title="代码块优化"></a>代码块优化</h2><p>代码块mac风格<br><a href="https://blog.ihoey.com/posts/Hexo/2018-05-27-hexo-code-block.html" target="_blank" rel="noopener">https://blog.ihoey.com/posts/Hexo/2018-05-27-hexo-code-block.html</a><br>代码块复制(在next7.0中已经集成了代码块复制功能)<br><a href="https://qiming.info/Hexo%E5%8D%9A%E5%AE%A2%E4%B8%AD%E5%8A%A0%E5%85%A5%E4%BB%A3%E7%A0%81%E5%9D%97%E5%A4%8D%E5%88%B6%E5%8A%9F%E8%83%BD/" target="_blank" rel="noopener">https://qiming.info/Hexo%E5%8D%9A%E5%AE%A2%E4%B8%AD%E5%8A%A0%E5%85%A5%E4%BB%A3%E7%A0%81%E5%9D%97%E5%A4%8D%E5%88%B6%E5%8A%9F%E8%83%BD/</a></p>
@@ -2831,11 +2831,11 @@
 <p>不过现在卡在百度的认证上了，下载认证文件放到next主题目录的路径下，会显示验证失败：“您的站点有链接未通过https校验“黑人问号？？？</p>
 <h2 id="leetcode文章归档"><a href="#leetcode文章归档" class="headerlink" title="leetcode文章归档"></a>leetcode文章归档</h2><p>想法是写leetcode的文章不会自动显示在主页上，然后新建一个page，里面专门收录写的关于leetcoede的文章。可以在scaffolds目录中新建一个leet.md，以后直接用hexo new leet [leet题目]这样方式来新建一个文章。将文章不显示在主页的方法参考这篇文章<a href="https://www.jianshu.com/p/79fe9fb9dfa0" target="_blank" rel="noopener">https://www.jianshu.com/p/79fe9fb9dfa0</a>，修改好之后，就在leet.md中加上notshow: true，以后新建就可以自动设置为不显示了。</p>
 <p>然后还想弄一个类似于github上个人主页那种日历表，如果有一天有做题的话，就会设置成绿色。找了下，发现可以通过baidu的echart或者google chart来实现。baidu的好处就是有中文的文档，google的例子似乎更好看一些，但是不知道会不会被emmmm，就还是先试试百度的吧。只要<strong>npm install hexo-tag-echarts3 –save</strong>就可以来，下面是一个echart测试：</p>
-<div id="echarts728" style="width: 85%;height: 400px;margin: 0 auto"></div>
+<div id="echarts2155" style="width: 85%;height: 400px;margin: 0 auto"></div>
 <script src="https://cdn.bootcss.com/echarts/3.8.0/echarts.common.min.js"></script>
 <script type="text/javascript">
         // 基于准备好的dom，初始化echarts实例
-        var myChart = echarts.init(document.getElementById('echarts728'));
+        var myChart = echarts.init(document.getElementById('echarts2155'));
         // 指定图表的配置项和数据
         var option = {
     tooltip : {
@@ -2902,11 +2902,11 @@
         myChart.setOption(option);
 </script>
 <p>可以点击上方的利润、收入、支出来设置显示和不显示，还是很炫酷滴🕶️，接下来试下日历表：</p>
-<div id="echarts3100" style="width: 85%;height: 400px;margin: 0 auto"></div>
+<div id="echarts4201" style="width: 85%;height: 400px;margin: 0 auto"></div>
 <script src="https://cdn.bootcss.com/echarts/3.8.0/echarts.common.min.js"></script>
 <script type="text/javascript">
         // 基于准备好的dom，初始化echarts实例
-        var myChart = echarts.init(document.getElementById('echarts3100'));
+        var myChart = echarts.init(document.getElementById('echarts4201'));
         // 指定图表的配置项和数据
         var option = 
 option = {
