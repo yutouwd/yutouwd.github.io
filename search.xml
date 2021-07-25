@@ -418,10 +418,24 @@
 <h3 id="解题思路-6"><a href="#解题思路-6" class="headerlink" title="解题思路"></a>解题思路</h3><p>使用一个数组来保存每个数字的状态，判断一个数字有没有被使用。<br><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; vec;</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">bool</span>&gt; status;</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; res;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">backtrack</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (vec.size() == nums.size())&#123;</span><br><span class="line">            res.push_back(vec);</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.size(); i++)&#123;</span><br><span class="line">            <span class="keyword">if</span> (status[i])&#123;</span><br><span class="line">                vec.push_back(nums[i]);</span><br><span class="line">                status[i] = <span class="literal">false</span>;</span><br><span class="line">                backtrack(nums);</span><br><span class="line">                vec.pop_back();</span><br><span class="line">                status[i] = <span class="literal">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; permute(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums) &#123;</span><br><span class="line">        status.resize(nums.size(), <span class="literal">true</span>);</span><br><span class="line">        backtrack(nums);</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
 <h2 id="47-全排列II"><a href="#47-全排列II" class="headerlink" title="47.全排列II"></a>47.全排列II</h2><h3 id="问题描述-6"><a href="#问题描述-6" class="headerlink" title="问题描述"></a>问题描述</h3><p>给定一个可包含重复数字的序列 nums ，按任意顺序 返回所有不重复的全排列。</p>
 <h3 id="解题思路-7"><a href="#解题思路-7" class="headerlink" title="解题思路"></a>解题思路</h3><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">bool</span>&gt; status;</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; vec;</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; res;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">backtracking</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp;nums)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (vec.size() == nums.size())&#123;</span><br><span class="line">            res.push_back(vec);</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.size(); i++)&#123;</span><br><span class="line">            <span class="keyword">if</span> (status[i])&#123;</span><br><span class="line">                <span class="keyword">if</span> (i != <span class="number">0</span> &amp;&amp; nums[i] == nums[i<span class="number">-1</span>] &amp;&amp; status[i<span class="number">-1</span>])</span><br><span class="line">                    <span class="keyword">continue</span>;</span><br><span class="line">                vec.push_back(nums[i]);</span><br><span class="line">                status[i] = <span class="literal">false</span>;</span><br><span class="line">                backtracking(nums);</span><br><span class="line">                vec.pop_back();</span><br><span class="line">                status[i] = <span class="literal">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; permuteUnique(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums) &#123;</span><br><span class="line">        status.resize(nums.size(), <span class="literal">true</span>);</span><br><span class="line">        sort(nums.begin(), nums.end());</span><br><span class="line">        backtracking(nums);</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="最大兼容性评分和"><a href="#最大兼容性评分和" class="headerlink" title="最大兼容性评分和"></a>最大兼容性评分和</h2><p>leetcode第251场周赛第三题，终于有能做出来第第三题了。</p>
+<h3 id="问题描述-7"><a href="#问题描述-7" class="headerlink" title="问题描述"></a>问题描述</h3><p>有一份由 n 个问题组成的调查问卷，每个问题的答案要么是 0（no，否），要么是 1（yes，是）。</p>
+<p>这份调查问卷被分发给 m 名学生和 m 名导师，学生和导师的编号都是从 0 到 m - 1 。学生的答案用一个二维整数数组 students 表示，其中 students[i] 是一个整数数组，包含第 i 名学生对调查问卷给出的答案（下标从 0 开始）。导师的答案用一个二维整数数组 mentors 表示，其中 mentors[j] 是一个整数数组，包含第 j 名导师对调查问卷给出的答案（下标从 0 开始）。</p>
+<p>每个学生都会被分配给 一名 导师，而每位导师也会分配到 一名 学生。配对的学生与导师之间的兼容性评分等于学生和导师答案相同的次数。</p>
+<p>例如，学生答案为[1, 0, 1] 而导师答案为 [0, 0, 1] ，那么他们的兼容性评分为 2 ，因为只有第二个和第三个答案相同。<br>请你找出最优的学生与导师的配对方案，以 最大程度上 提高 兼容性评分和 。</p>
+<p>给你 students 和 mentors ，返回可以得到的 最大兼容性评分和 。</p>
+<p>示例 1：<br>输入：students = [[1,1,0],[1,0,1],[0,0,1]], mentors = [[1,0,0],[0,0,1],[1,1,0]]<br>输出：8<br>解释：按下述方式分配学生和导师：</p>
+<ul>
+<li>学生 0 分配给导师 2 ，兼容性评分为 3 。</li>
+<li>学生 1 分配给导师 0 ，兼容性评分为 2 。</li>
+<li>学生 2 分配给导师 1 ，兼容性评分为 3 。<br>最大兼容性评分和为 3 + 2 + 3 = 8 。</li>
+</ul>
+<p>示例 2：<br>输入：students = [[0,0],[0,0],[0,0]], mentors = [[1,1],[1,1],[1,1]]<br>输出：0<br>解释：任意学生与导师配对的兼容性评分都是 0 。</p>
+<h3 id="解题思路-8"><a href="#解题思路-8" class="headerlink" title="解题思路"></a>解题思路</h3><p>问题描述很复杂，其实把问题简化一下就是，先求出每个学生和老师之间的兼容性评分，然后再找出能让总评分最高的分数。求学生老师之间的分数很简单。然后就是求最高的分数，最笨的办法就是把所有学生和老师之间可能的排列组合列出来，找到最高分数。排列组合就可以用回溯法了。（不知道有没有其他更快的方法）</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="keyword">int</span> maxScore;</span><br><span class="line">    <span class="built_in">vector</span>&lt;pair&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt;&gt; ans;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">backtrack</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt;&amp; score, <span class="built_in">vector</span>&lt;<span class="keyword">bool</span>&gt;&amp; mentorList, <span class="keyword">int</span> stuNum, <span class="keyword">int</span> m)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (ans.size() == m)&#123;</span><br><span class="line">            <span class="keyword">int</span> curScore = <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; m; i++)&#123;</span><br><span class="line">                <span class="keyword">int</span> a = ans[i].first;</span><br><span class="line">                <span class="keyword">int</span> b = ans[i].second;</span><br><span class="line">                curScore += score[a][b];</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (curScore &gt; maxScore)</span><br><span class="line">                maxScore = curScore;</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; m; i++)&#123;</span><br><span class="line">            <span class="keyword">if</span> (mentorList[i])&#123;</span><br><span class="line">                ans.push_back(make_pair(stuNum, i));</span><br><span class="line">                mentorList[i] = <span class="literal">false</span>;</span><br><span class="line">                backtrack(score, mentorList, stuNum+<span class="number">1</span>, m);</span><br><span class="line">                mentorList[i] = <span class="literal">true</span>;</span><br><span class="line">                ans.pop_back();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">maxCompatibilitySum</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt;&amp; students, <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt;&amp; mentors)</span> </span>&#123;</span><br><span class="line">        maxScore = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> m = students.size();</span><br><span class="line">        <span class="keyword">int</span> n = students[<span class="number">0</span>].size();</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; score(m, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; (m,<span class="number">0</span>));</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; m; i++)&#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; m; j++)&#123;</span><br><span class="line">                <span class="keyword">for</span> (<span class="keyword">int</span> k = <span class="number">0</span>; k &lt; n; k++)&#123;</span><br><span class="line">                    score[i][j] += (students[i][k] == mentors[j][k]);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">bool</span>&gt; mentorList(m, <span class="literal">true</span>);</span><br><span class="line">        backtrack(score, mentorList, <span class="number">0</span>, m);</span><br><span class="line">        <span class="keyword">return</span> maxScore;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p><a href="https://labuladong.gitbook.io/algo/suan-fa-si-wei-xi-lie/hui-su-suan-fa-xiang-jie-xiu-ding-ban" target="_blank" rel="noopener">https://labuladong.gitbook.io/algo/suan-fa-si-wei-xi-lie/hui-su-suan-fa-xiang-jie-xiu-ding-ban</a></p>
 ]]></content>
       <categories>
-        <category>leetcode</category>
         <category>算法总结</category>
       </categories>
       <tags>
@@ -533,7 +547,6 @@
 <p>子集和问题:<br><a href="https://www.cnblogs.com/yulinfeng/p/7106564.html" target="_blank" rel="noopener">https://www.cnblogs.com/yulinfeng/p/7106564.html</a><br><a href="https://zhuanlan.zhihu.com/p/37822898" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/37822898</a></p>
 ]]></content>
       <categories>
-        <category>leetcode</category>
         <category>算法总结</category>
       </categories>
       <tags>
@@ -789,8 +802,8 @@
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>math</tag>
         <tag>vector</tag>
+        <tag>math</tag>
       </tags>
   </entry>
   <entry>
@@ -1185,8 +1198,8 @@
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>math</tag>
         <tag>hashmap</tag>
+        <tag>math</tag>
       </tags>
   </entry>
   <entry>
@@ -1733,8 +1746,8 @@
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>math</tag>
         <tag>vector</tag>
+        <tag>math</tag>
       </tags>
   </entry>
   <entry>
@@ -2388,8 +2401,8 @@
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>math</tag>
         <tag>hashmap</tag>
+        <tag>math</tag>
       </tags>
   </entry>
   <entry>
@@ -2854,11 +2867,11 @@
 <p>不过现在卡在百度的认证上了，下载认证文件放到next主题目录的路径下，会显示验证失败：“您的站点有链接未通过https校验“黑人问号？？？</p>
 <h2 id="leetcode文章归档"><a href="#leetcode文章归档" class="headerlink" title="leetcode文章归档"></a>leetcode文章归档</h2><p>想法是写leetcode的文章不会自动显示在主页上，然后新建一个page，里面专门收录写的关于leetcoede的文章。可以在scaffolds目录中新建一个leet.md，以后直接用hexo new leet [leet题目]这样方式来新建一个文章。将文章不显示在主页的方法参考这篇文章<a href="https://www.jianshu.com/p/79fe9fb9dfa0" target="_blank" rel="noopener">https://www.jianshu.com/p/79fe9fb9dfa0</a>，修改好之后，就在leet.md中加上notshow: true，以后新建就可以自动设置为不显示了。</p>
 <p>然后还想弄一个类似于github上个人主页那种日历表，如果有一天有做题的话，就会设置成绿色。找了下，发现可以通过baidu的echart或者google chart来实现。baidu的好处就是有中文的文档，google的例子似乎更好看一些，但是不知道会不会被emmmm，就还是先试试百度的吧。只要<strong>npm install hexo-tag-echarts3 –save</strong>就可以来，下面是一个echart测试：</p>
-<div id="echarts8672" style="width: 85%;height: 400px;margin: 0 auto"></div>
+<div id="echarts9147" style="width: 85%;height: 400px;margin: 0 auto"></div>
 <script src="https://cdn.bootcss.com/echarts/3.8.0/echarts.common.min.js"></script>
 <script type="text/javascript">
         // 基于准备好的dom，初始化echarts实例
-        var myChart = echarts.init(document.getElementById('echarts8672'));
+        var myChart = echarts.init(document.getElementById('echarts9147'));
         // 指定图表的配置项和数据
         var option = {
     tooltip : {
@@ -2925,11 +2938,11 @@
         myChart.setOption(option);
 </script>
 <p>可以点击上方的利润、收入、支出来设置显示和不显示，还是很炫酷滴🕶️，接下来试下日历表：</p>
-<div id="echarts5492" style="width: 85%;height: 400px;margin: 0 auto"></div>
+<div id="echarts4256" style="width: 85%;height: 400px;margin: 0 auto"></div>
 <script src="https://cdn.bootcss.com/echarts/3.8.0/echarts.common.min.js"></script>
 <script type="text/javascript">
         // 基于准备好的dom，初始化echarts实例
-        var myChart = echarts.init(document.getElementById('echarts5492'));
+        var myChart = echarts.init(document.getElementById('echarts4256'));
         // 指定图表的配置项和数据
         var option = 
 option = {
