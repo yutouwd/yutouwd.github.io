@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yutouwd.github.io/"/>
-  <updated>2021-07-27T14:55:19.972Z</updated>
+  <updated>2021-07-27T14:58:43.861Z</updated>
   <id>http://yutouwd.github.io/</id>
   
   <author>
@@ -17,13 +17,13 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>A567-Permutation-in-String</title>
+    <title>567.Permutation in String</title>
     <link href="http://yutouwd.github.io/posts/3971953535/"/>
     <id>http://yutouwd.github.io/posts/3971953535/</id>
     <published>2021-07-27T14:55:19.000Z</published>
-    <updated>2021-07-27T14:55:19.972Z</updated>
+    <updated>2021-07-27T14:58:43.861Z</updated>
     
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><h1 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h1><h1 id="我的解法"><a href="#我的解法" class="headerlink" title="我的解法"></a>我的解法</h1><h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><h2 id="实现代码"><a href="#实现代码" class="headerlink" title="实现代码"></a>实现代码</h2><h1 id="高票解法"><a href="#高票解法" class="headerlink" title="高票解法"></a>高票解法</h1><h2 id="实现代码-1"><a href="#实现代码-1" class="headerlink" title="实现代码"></a>实现代码</h2><h2 id="代码分析"><a href="#代码分析" class="headerlink" title="代码分析"></a>代码分析</h2><h1 id="知识总结"><a href="#知识总结" class="headerlink" title="知识总结"></a>知识总结</h1>]]></content>
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><h1 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h1><p>给定两个字符串 s1 和 s2，写一个函数来判断 s2 是否包含 s1 的排列。</p><p>换句话说，第一个字符串的排列之一是第二个字符串的 子串 。 </p><p>示例 1：<br>输入: s1 = “ab” s2 = “eidbaooo”<br>输出: True<br>解释: s2 包含 s1 的排列之一 (“ba”).</p><p>示例 2：<br>输入: s1= “ab” s2 = “eidboaoo”<br>输出: False</p><p>提示：<br>1 &lt;= s1.length, s2.length &lt;= 104<br>s1 和 s2 仅包含小写字母</p><h1 id="我的解法"><a href="#我的解法" class="headerlink" title="我的解法"></a>我的解法</h1><h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><p>判断字符串二中是否有和字符串中一样的排列（有相同的字符和他们的数量）。使用滑动窗口，记录字符串二窗口中的各个字符数。如果字符只有小写的话，使用数组会方便些。</p><h2 id="实现代码"><a href="#实现代码" class="headerlink" title="实现代码"></a>实现代码</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">checkInclusion</span><span class="params">(<span class="built_in">string</span> s1, <span class="built_in">string</span> s2)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> n1 = s1.size(), n2 = s2.size();</span><br><span class="line">        <span class="keyword">if</span> (n1 &gt; n2) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        </span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; v1(<span class="number">26</span>, <span class="number">0</span>);</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; v2(<span class="number">26</span>, <span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n1; i++)&#123;</span><br><span class="line">            v1[(s1[i] - <span class="string">'a'</span>)]++;</span><br><span class="line">            v2[(s2[i] - <span class="string">'a'</span>)]++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (v1 == v2) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = n1; i &lt; n2; i++)&#123;</span><br><span class="line">            v2[(s2[i-n1] - <span class="string">'a'</span>)]--;</span><br><span class="line">            v2[(s2[i] - <span class="string">'a'</span>)]++;</span><br><span class="line">            <span class="keyword">if</span> (v1 == v2) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>]]></content>
     
     <summary type="html">
     
@@ -36,8 +36,12 @@
     
       <category term="leetcode" scheme="http://yutouwd.github.io/categories/leetcode/"/>
     
+      <category term="medium" scheme="http://yutouwd.github.io/categories/leetcode/medium/"/>
+    
     
       <category term="leetcode" scheme="http://yutouwd.github.io/tags/leetcode/"/>
+    
+      <category term="滑动窗口" scheme="http://yutouwd.github.io/tags/%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/"/>
     
   </entry>
   
