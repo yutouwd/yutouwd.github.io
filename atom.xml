@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yutouwd.github.io/"/>
-  <updated>2021-07-27T14:20:29.858Z</updated>
+  <updated>2021-07-27T14:28:47.083Z</updated>
   <id>http://yutouwd.github.io/</id>
   
   <author>
@@ -17,13 +17,13 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>A3-Longest-Substring-Without-Repeating-Characters</title>
+    <title>3.Longest Substring Without Repeating Characters</title>
     <link href="http://yutouwd.github.io/posts/1224454559/"/>
     <id>http://yutouwd.github.io/posts/1224454559/</id>
     <published>2021-07-27T14:20:29.000Z</published>
-    <updated>2021-07-27T14:20:29.858Z</updated>
+    <updated>2021-07-27T14:28:47.083Z</updated>
     
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><h1 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h1><h1 id="我的解法"><a href="#我的解法" class="headerlink" title="我的解法"></a>我的解法</h1><h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><h2 id="实现代码"><a href="#实现代码" class="headerlink" title="实现代码"></a>实现代码</h2><h1 id="高票解法"><a href="#高票解法" class="headerlink" title="高票解法"></a>高票解法</h1><h2 id="实现代码-1"><a href="#实现代码-1" class="headerlink" title="实现代码"></a>实现代码</h2><h2 id="代码分析"><a href="#代码分析" class="headerlink" title="代码分析"></a>代码分析</h2><h1 id="知识总结"><a href="#知识总结" class="headerlink" title="知识总结"></a>知识总结</h1>]]></content>
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><h1 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h1><p>Given a string s, find the length of the longest substring without repeating characters.</p><p>Example 1:<br>Input: s = “abcabcbb”<br>Output: 3<br>Explanation: The answer is “abc”, with the length of 3.</p><p>Example 2:<br>Input: s = “bbbbb”<br>Output: 1<br>Explanation: The answer is “b”, with the length of 1.</p><p>Example 3:<br>Input: s = “pwwkew”<br>Output: 3<br>Explanation: The answer is “wke”, with the length of 3.<br>Notice that the answer must be a substring, “pwke” is a subsequence and not a substring.</p><p>Example 4:<br>Input: s = “”<br>Output: 0</p><p>Constraints:<br>0 &lt;= s.length &lt;= 5 * 104<br>s consists of English letters, digits, symbols and spaces.</p><h1 id="我的解法"><a href="#我的解法" class="headerlink" title="我的解法"></a>我的解法</h1><h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><p>找到字符串的最长无重复字符的子串。使用滑动窗口来记录当前字串存在的字符，及其数量。如果当前没有重复的字符，那么后指针就往后移动，如果有，那么就将前指针往后移动。</p><h2 id="实现代码"><a href="#实现代码" class="headerlink" title="实现代码"></a>实现代码</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">lengthOfLongestSubstring</span><span class="params">(<span class="built_in">string</span> s)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> n = s.size();</span><br><span class="line">        <span class="keyword">if</span> (n &lt; <span class="number">2</span>) <span class="keyword">return</span> n;</span><br><span class="line">        <span class="keyword">int</span> i = <span class="number">0</span>, j = <span class="number">1</span>;</span><br><span class="line">        <span class="built_in">unordered_map</span>&lt;<span class="keyword">char</span>, <span class="keyword">int</span>&gt; m;</span><br><span class="line">        m[s[<span class="number">0</span>]]++;</span><br><span class="line">        <span class="keyword">int</span> maxLen = <span class="number">1</span>, curLen = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span> (i &lt; n<span class="number">-1</span>)&#123;</span><br><span class="line">            <span class="keyword">if</span> (m.find(s[j]) != m.end() &amp;&amp; m[s[j]] &gt;= <span class="number">1</span>)&#123;</span><br><span class="line">                m[s[i++]]--;</span><br><span class="line">                curLen--;</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span> (j &lt; n)&#123;</span><br><span class="line">                m[s[j++]]++;</span><br><span class="line">                curLen++;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (curLen &gt; maxLen)</span><br><span class="line">                maxLen = curLen;</span><br><span class="line">            <span class="keyword">if</span> (j == n)</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> maxLen;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>]]></content>
     
     <summary type="html">
     
@@ -36,8 +36,14 @@
     
       <category term="leetcode" scheme="http://yutouwd.github.io/categories/leetcode/"/>
     
+      <category term="medium" scheme="http://yutouwd.github.io/categories/leetcode/medium/"/>
+    
     
       <category term="leetcode" scheme="http://yutouwd.github.io/tags/leetcode/"/>
+    
+      <category term="hashmap" scheme="http://yutouwd.github.io/tags/hashmap/"/>
+    
+      <category term="滑动窗口" scheme="http://yutouwd.github.io/tags/%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/"/>
     
   </entry>
   
