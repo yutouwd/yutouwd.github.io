@@ -1,14 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>A695-Max-Area-of-Island</title>
+    <title>695.Max Area of Island &amp; 733.Flood Fill</title>
     <url>/posts/3305314244/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><h1 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h1><h1 id="我的解法"><a href="#我的解法" class="headerlink" title="我的解法"></a>我的解法</h1><h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><h2 id="实现代码"><a href="#实现代码" class="headerlink" title="实现代码"></a>实现代码</h2><h1 id="高票解法"><a href="#高票解法" class="headerlink" title="高票解法"></a>高票解法</h1><h2 id="实现代码-1"><a href="#实现代码-1" class="headerlink" title="实现代码"></a>实现代码</h2><h2 id="代码分析"><a href="#代码分析" class="headerlink" title="代码分析"></a>代码分析</h2><h1 id="知识总结"><a href="#知识总结" class="headerlink" title="知识总结"></a>知识总结</h1>]]></content>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><h1 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h1><p>两道题目比较相似，都可以用广度优先或深度优先。然后通过修改矩阵中的数值来判断这个点是否遍历过。</p>
+<h2 id="733"><a href="#733" class="headerlink" title="733"></a>733</h2><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">isNeedColor</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt;&amp; image, <span class="keyword">int</span> x, <span class="keyword">int</span> y, <span class="keyword">int</span> n, <span class="keyword">int</span> m, <span class="keyword">int</span> oriColor)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (x &lt; <span class="number">0</span> || x &gt;= n || y &lt; <span class="number">0</span> || y &gt;= m) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        <span class="keyword">if</span> (image[x][y] == oriColor) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; floodFill(<span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt;&amp; image, <span class="keyword">int</span> sr, <span class="keyword">int</span> sc, <span class="keyword">int</span> newColor) &#123;</span><br><span class="line">        <span class="built_in">queue</span>&lt;pair&lt;<span class="keyword">int</span>,<span class="keyword">int</span>&gt;&gt; q;</span><br><span class="line">        <span class="keyword">int</span> n = image.size(), m = image[<span class="number">0</span>].size();</span><br><span class="line">        <span class="keyword">int</span> oriColor = image[sr][sc];</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; res(image);</span><br><span class="line">        q.push(make_pair(sr, sc));</span><br><span class="line">        <span class="keyword">while</span>(q.size())&#123;</span><br><span class="line">            <span class="keyword">int</span> times = q.size();</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; times; i++)&#123;</span><br><span class="line">                <span class="keyword">auto</span> cur = q.front();</span><br><span class="line">                q.pop();</span><br><span class="line">                <span class="keyword">int</span> x = cur.first, y = cur.second;</span><br><span class="line">                <span class="keyword">if</span> (isNeedColor(image, x, y, n, m, oriColor)&amp;&amp;res[x][y]!=newColor)&#123;</span><br><span class="line">                    res[x][y] = newColor;</span><br><span class="line">                    q.push(make_pair(x<span class="number">-1</span>,y));</span><br><span class="line">                    q.push(make_pair(x+<span class="number">1</span>,y));</span><br><span class="line">                    q.push(make_pair(x,y<span class="number">-1</span>));</span><br><span class="line">                    q.push(make_pair(x,y+<span class="number">1</span>));</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="695"><a href="#695" class="headerlink" title="695"></a>695</h2><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="keyword">int</span> n,m;</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">isValid</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y)</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> (x &gt;= <span class="number">0</span> &amp;&amp; x &lt; n &amp;&amp; y &gt;= <span class="number">0</span> &amp;&amp; y &lt; m);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">computeSize</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt;&amp; island, <span class="keyword">int</span> x, <span class="keyword">int</span> y)</span></span>&#123;</span><br><span class="line">        <span class="built_in">queue</span>&lt;pair&lt;<span class="keyword">int</span>,<span class="keyword">int</span>&gt;&gt; q;</span><br><span class="line">        q.push(make_pair(x,y));</span><br><span class="line">        <span class="keyword">int</span> size = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span>(q.size())&#123;</span><br><span class="line">            <span class="keyword">int</span> times = q.size();</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; times; i++)&#123;</span><br><span class="line">                <span class="keyword">auto</span> cur = q.front();</span><br><span class="line">                q.pop();</span><br><span class="line">                <span class="keyword">int</span> cx = cur.first, cy = cur.second;</span><br><span class="line">                <span class="keyword">if</span> (isValid(cx, cy) &amp;&amp; island[cx][cy] == <span class="number">1</span>)&#123;</span><br><span class="line">                    size++;</span><br><span class="line">                    island[cx][cy] = <span class="number">0</span>;</span><br><span class="line">                    q.push(make_pair(cx+<span class="number">1</span>,cy));</span><br><span class="line">                    q.push(make_pair(cx<span class="number">-1</span>,cy));</span><br><span class="line">                    q.push(make_pair(cx,cy+<span class="number">1</span>));</span><br><span class="line">                    q.push(make_pair(cx,cy<span class="number">-1</span>));</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> size;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">maxAreaOfIsland</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt;&amp; grid)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; island(grid);</span><br><span class="line">        <span class="keyword">int</span> res = <span class="number">0</span>;</span><br><span class="line">        n = island.size();</span><br><span class="line">        <span class="keyword">if</span> (n == <span class="number">0</span>) <span class="keyword">return</span> res;</span><br><span class="line">        m = island[<span class="number">0</span>].size();</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)&#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; m; j++)&#123;</span><br><span class="line">                <span class="keyword">if</span> (island[i][j] == <span class="number">0</span>) <span class="keyword">continue</span>;</span><br><span class="line">                <span class="keyword">int</span> curSize = computeSize(island, i, j);</span><br><span class="line">                res = max(res, curSize);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>]]></content>
       <categories>
         <category>leetcode</category>
+        <category>mudium</category>
       </categories>
       <tags>
         <tag>leetcode</tag>
+        <tag>广度优先</tag>
       </tags>
   </entry>
   <entry>
@@ -855,8 +859,8 @@
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>vector</tag>
         <tag>math</tag>
+        <tag>vector</tag>
       </tags>
   </entry>
   <entry>
@@ -1251,8 +1255,8 @@
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>hashmap</tag>
         <tag>math</tag>
+        <tag>hashmap</tag>
       </tags>
   </entry>
   <entry>
@@ -1801,8 +1805,8 @@
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>vector</tag>
         <tag>math</tag>
+        <tag>vector</tag>
       </tags>
   </entry>
   <entry>
@@ -2456,8 +2460,8 @@
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>hashmap</tag>
         <tag>math</tag>
+        <tag>hashmap</tag>
       </tags>
   </entry>
   <entry>
@@ -2922,11 +2926,11 @@
 <p>不过现在卡在百度的认证上了，下载认证文件放到next主题目录的路径下，会显示验证失败：“您的站点有链接未通过https校验“黑人问号？？？</p>
 <h2 id="leetcode文章归档"><a href="#leetcode文章归档" class="headerlink" title="leetcode文章归档"></a>leetcode文章归档</h2><p>想法是写leetcode的文章不会自动显示在主页上，然后新建一个page，里面专门收录写的关于leetcoede的文章。可以在scaffolds目录中新建一个leet.md，以后直接用hexo new leet [leet题目]这样方式来新建一个文章。将文章不显示在主页的方法参考这篇文章<a href="https://www.jianshu.com/p/79fe9fb9dfa0" target="_blank" rel="noopener">https://www.jianshu.com/p/79fe9fb9dfa0</a>，修改好之后，就在leet.md中加上notshow: true，以后新建就可以自动设置为不显示了。</p>
 <p>然后还想弄一个类似于github上个人主页那种日历表，如果有一天有做题的话，就会设置成绿色。找了下，发现可以通过baidu的echart或者google chart来实现。baidu的好处就是有中文的文档，google的例子似乎更好看一些，但是不知道会不会被emmmm，就还是先试试百度的吧。只要<strong>npm install hexo-tag-echarts3 –save</strong>就可以来，下面是一个echart测试：</p>
-<div id="echarts3903" style="width: 85%;height: 400px;margin: 0 auto"></div>
+<div id="echarts7809" style="width: 85%;height: 400px;margin: 0 auto"></div>
 <script src="https://cdn.bootcss.com/echarts/3.8.0/echarts.common.min.js"></script>
 <script type="text/javascript">
         // 基于准备好的dom，初始化echarts实例
-        var myChart = echarts.init(document.getElementById('echarts3903'));
+        var myChart = echarts.init(document.getElementById('echarts7809'));
         // 指定图表的配置项和数据
         var option = {
     tooltip : {
@@ -2993,11 +2997,11 @@
         myChart.setOption(option);
 </script>
 <p>可以点击上方的利润、收入、支出来设置显示和不显示，还是很炫酷滴🕶️，接下来试下日历表：</p>
-<div id="echarts3628" style="width: 85%;height: 400px;margin: 0 auto"></div>
+<div id="echarts6512" style="width: 85%;height: 400px;margin: 0 auto"></div>
 <script src="https://cdn.bootcss.com/echarts/3.8.0/echarts.common.min.js"></script>
 <script type="text/javascript">
         // 基于准备好的dom，初始化echarts实例
-        var myChart = echarts.init(document.getElementById('echarts3628'));
+        var myChart = echarts.init(document.getElementById('echarts6512'));
         // 指定图表的配置项和数据
         var option = 
 option = {

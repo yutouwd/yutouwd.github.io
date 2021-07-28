@@ -104,18 +104,18 @@
 
 
 
-  <meta name="description" content="题目描述我的解法解题思路实现代码高票解法实现代码代码分析知识总结">
-<meta name="keywords" content="leetcode">
+  <meta name="description" content="题目描述两道题目比较相似，都可以用广度优先或深度优先。然后通过修改矩阵中的数值来判断这个点是否遍历过。 7331234567891011121314151617181920212223242526272829303132class Solution &amp;#123;public:    bool isNeedColor(vector&amp;lt;vector&amp;lt;int&amp;gt;&amp;gt;&amp;amp; imag">
+<meta name="keywords" content="leetcode,广度优先">
 <meta property="og:type" content="article">
-<meta property="og:title" content="A695-Max-Area-of-Island">
+<meta property="og:title" content="695.Max Area of Island &amp; 733.Flood Fill">
 <meta property="og:url" content="http://yutouwd.github.io/posts/3305314244/index.html">
 <meta property="og:site_name" content="yutouwd">
-<meta property="og:description" content="题目描述我的解法解题思路实现代码高票解法实现代码代码分析知识总结">
+<meta property="og:description" content="题目描述两道题目比较相似，都可以用广度优先或深度优先。然后通过修改矩阵中的数值来判断这个点是否遍历过。 7331234567891011121314151617181920212223242526272829303132class Solution &amp;#123;public:    bool isNeedColor(vector&amp;lt;vector&amp;lt;int&amp;gt;&amp;gt;&amp;amp; imag">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2021-07-28T02:22:02.821Z">
+<meta property="og:updated_time" content="2021-07-28T02:31:10.738Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="A695-Max-Area-of-Island">
-<meta name="twitter:description" content="题目描述我的解法解题思路实现代码高票解法实现代码代码分析知识总结">
+<meta name="twitter:title" content="695.Max Area of Island &amp; 733.Flood Fill">
+<meta name="twitter:description" content="题目描述两道题目比较相似，都可以用广度优先或深度优先。然后通过修改矩阵中的数值来判断这个点是否遍历过。 7331234567891011121314151617181920212223242526272829303132class Solution &amp;#123;public:    bool isNeedColor(vector&amp;lt;vector&amp;lt;int&amp;gt;&amp;gt;&amp;amp; imag">
 
 
 
@@ -134,7 +134,7 @@
   };
 </script>
 
-  <title>A695-Max-Area-of-Island | yutouwd</title>
+  <title>695.Max Area of Island & 733.Flood Fill | yutouwd</title>
   
 
 
@@ -371,7 +371,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">A695-Max-Area-of-Island
+          <h2 class="post-title" itemprop="name headline">695.Max Area of Island & 733.Flood Fill
 
               
             
@@ -397,9 +397,13 @@
                 
               
 
-              <time title="创建时间：2021-07-28 10:22:02" itemprop="dateCreated datePublished" datetime="2021-07-28T10:22:02+08:00">2021-07-28</time>
+              <time title="创建时间：2021-07-28 10:22:02 / 修改时间：10:31:10" itemprop="dateCreated datePublished" datetime="2021-07-28T10:22:02+08:00">2021-07-28</time>
             
 
+            
+              
+
+              
             
           </span>
 
@@ -416,6 +420,13 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/leetcode/" itemprop="url" rel="index"><span itemprop="name">leetcode</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/leetcode/mudium/" itemprop="url" rel="index"><span itemprop="name">mudium</span></a></span>
 
                 
                 
@@ -442,7 +453,7 @@
 
           
           
-            <span id="/posts/3305314244/" class="leancloud_visitors" data-flag-title="A695-Max-Area-of-Island">
+            <span id="/posts/3305314244/" class="leancloud_visitors" data-flag-title="695.Max Area of Island & 733.Flood Fill">
               <span class="post-meta-divider">|</span>
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
@@ -467,7 +478,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="post.wordcount">
-                  32
+                  458
                 </span>
               
 
@@ -483,7 +494,7 @@
                   <span class="post-meta-item-text">阅读时间 &asymp;</span>
                 
                 <span title="post.min2read">
-                  1
+                  2
                 </span>
               
             </div>
@@ -506,7 +517,9 @@
       
 
       
-        <h1 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h1><h1 id="我的解法"><a href="#我的解法" class="headerlink" title="我的解法"></a>我的解法</h1><h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><h2 id="实现代码"><a href="#实现代码" class="headerlink" title="实现代码"></a>实现代码</h2><h1 id="高票解法"><a href="#高票解法" class="headerlink" title="高票解法"></a>高票解法</h1><h2 id="实现代码-1"><a href="#实现代码-1" class="headerlink" title="实现代码"></a>实现代码</h2><h2 id="代码分析"><a href="#代码分析" class="headerlink" title="代码分析"></a>代码分析</h2><h1 id="知识总结"><a href="#知识总结" class="headerlink" title="知识总结"></a>知识总结</h1>
+        <h1 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h1><p>两道题目比较相似，都可以用广度优先或深度优先。然后通过修改矩阵中的数值来判断这个点是否遍历过。</p>
+<h2 id="733"><a href="#733" class="headerlink" title="733"></a>733</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">isNeedColor</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt;&amp; image, <span class="keyword">int</span> x, <span class="keyword">int</span> y, <span class="keyword">int</span> n, <span class="keyword">int</span> m, <span class="keyword">int</span> oriColor)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (x &lt; <span class="number">0</span> || x &gt;= n || y &lt; <span class="number">0</span> || y &gt;= m) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        <span class="keyword">if</span> (image[x][y] == oriColor) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; floodFill(<span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt;&amp; image, <span class="keyword">int</span> sr, <span class="keyword">int</span> sc, <span class="keyword">int</span> newColor) &#123;</span><br><span class="line">        <span class="built_in">queue</span>&lt;pair&lt;<span class="keyword">int</span>,<span class="keyword">int</span>&gt;&gt; q;</span><br><span class="line">        <span class="keyword">int</span> n = image.size(), m = image[<span class="number">0</span>].size();</span><br><span class="line">        <span class="keyword">int</span> oriColor = image[sr][sc];</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; res(image);</span><br><span class="line">        q.push(make_pair(sr, sc));</span><br><span class="line">        <span class="keyword">while</span>(q.size())&#123;</span><br><span class="line">            <span class="keyword">int</span> times = q.size();</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; times; i++)&#123;</span><br><span class="line">                <span class="keyword">auto</span> cur = q.front();</span><br><span class="line">                q.pop();</span><br><span class="line">                <span class="keyword">int</span> x = cur.first, y = cur.second;</span><br><span class="line">                <span class="keyword">if</span> (isNeedColor(image, x, y, n, m, oriColor)&amp;&amp;res[x][y]!=newColor)&#123;</span><br><span class="line">                    res[x][y] = newColor;</span><br><span class="line">                    q.push(make_pair(x<span class="number">-1</span>,y));</span><br><span class="line">                    q.push(make_pair(x+<span class="number">1</span>,y));</span><br><span class="line">                    q.push(make_pair(x,y<span class="number">-1</span>));</span><br><span class="line">                    q.push(make_pair(x,y+<span class="number">1</span>));</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="695"><a href="#695" class="headerlink" title="695"></a>695</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="keyword">int</span> n,m;</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">isValid</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y)</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> (x &gt;= <span class="number">0</span> &amp;&amp; x &lt; n &amp;&amp; y &gt;= <span class="number">0</span> &amp;&amp; y &lt; m);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">computeSize</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt;&amp; island, <span class="keyword">int</span> x, <span class="keyword">int</span> y)</span></span>&#123;</span><br><span class="line">        <span class="built_in">queue</span>&lt;pair&lt;<span class="keyword">int</span>,<span class="keyword">int</span>&gt;&gt; q;</span><br><span class="line">        q.push(make_pair(x,y));</span><br><span class="line">        <span class="keyword">int</span> size = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span>(q.size())&#123;</span><br><span class="line">            <span class="keyword">int</span> times = q.size();</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; times; i++)&#123;</span><br><span class="line">                <span class="keyword">auto</span> cur = q.front();</span><br><span class="line">                q.pop();</span><br><span class="line">                <span class="keyword">int</span> cx = cur.first, cy = cur.second;</span><br><span class="line">                <span class="keyword">if</span> (isValid(cx, cy) &amp;&amp; island[cx][cy] == <span class="number">1</span>)&#123;</span><br><span class="line">                    size++;</span><br><span class="line">                    island[cx][cy] = <span class="number">0</span>;</span><br><span class="line">                    q.push(make_pair(cx+<span class="number">1</span>,cy));</span><br><span class="line">                    q.push(make_pair(cx<span class="number">-1</span>,cy));</span><br><span class="line">                    q.push(make_pair(cx,cy+<span class="number">1</span>));</span><br><span class="line">                    q.push(make_pair(cx,cy<span class="number">-1</span>));</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> size;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">maxAreaOfIsland</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt;&amp; grid)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; island(grid);</span><br><span class="line">        <span class="keyword">int</span> res = <span class="number">0</span>;</span><br><span class="line">        n = island.size();</span><br><span class="line">        <span class="keyword">if</span> (n == <span class="number">0</span>) <span class="keyword">return</span> res;</span><br><span class="line">        m = island[<span class="number">0</span>].size();</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)&#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; m; j++)&#123;</span><br><span class="line">                <span class="keyword">if</span> (island[i][j] == <span class="number">0</span>) <span class="keyword">continue</span>;</span><br><span class="line">                <span class="keyword">int</span> curSize = computeSize(island, i, j);</span><br><span class="line">                res = max(res, curSize);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -530,6 +543,8 @@
         <div class="post-tags">
           
             <a href="/tags/leetcode/" rel="tag"><i class="menu-item-icon fa fa-fw fa-tags"></i> leetcode</a>
+          
+            <a href="/tags/广度优先/" rel="tag"><i class="menu-item-icon fa fa-fw fa-tags"></i> 广度优先</a>
           
         </div>
       
@@ -685,7 +700,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">14</span>
+                      
+                    
+                    <span class="site-state-item-count">15</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -841,7 +858,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#题目描述"><span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#我的解法"><span class="nav-text">我的解法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#解题思路"><span class="nav-text">解题思路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实现代码"><span class="nav-text">实现代码</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#高票解法"><span class="nav-text">高票解法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#实现代码-1"><span class="nav-text">实现代码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码分析"><span class="nav-text">代码分析</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#知识总结"><span class="nav-text">知识总结</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#题目描述"><span class="nav-text">题目描述</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#733"><span class="nav-text">733</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#695"><span class="nav-text">695</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -875,7 +892,7 @@
     
       <span class="post-meta-item-text">文字总数&#58;</span>
     
-    <span title="post.totalcount">62.9k</span>
+    <span title="post.totalcount">63.3k</span>
   
 
   
