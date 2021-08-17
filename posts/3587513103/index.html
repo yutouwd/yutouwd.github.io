@@ -104,18 +104,18 @@
 
 
 
-  <meta name="description" content="题目描述我的解法解题思路实现代码高票解法实现代码代码分析知识总结">
-<meta name="keywords" content="leetcode">
+  <meta name="description" content="题目描述给出一个二维数组 A，每个单元格为 0（代表海）或 1（代表陆地）。 移动是指在陆地上从一个地方走到另一个地方（朝四个方向之一）或离开网格的边界。 返回网格中无法在任意次数的移动中离开网格边界的陆地单元格的数量。 示例 1： 输入：[[0,0,0,0],[1,0,1,0],[0,1,1,0],[0,0,0,0]]输出：3解释：有三个 1 被 0 包围。一个 1 没有被包围，因为它在边界上。">
+<meta name="keywords" content="leetcode,深度优先">
 <meta property="og:type" content="article">
-<meta property="og:title" content="A1020-Number-of-Enclaves">
+<meta property="og:title" content="1020.Number of Enclaves">
 <meta property="og:url" content="http://yutouwd.github.io/posts/3587513103/index.html">
 <meta property="og:site_name" content="yutouwd">
-<meta property="og:description" content="题目描述我的解法解题思路实现代码高票解法实现代码代码分析知识总结">
+<meta property="og:description" content="题目描述给出一个二维数组 A，每个单元格为 0（代表海）或 1（代表陆地）。 移动是指在陆地上从一个地方走到另一个地方（朝四个方向之一）或离开网格的边界。 返回网格中无法在任意次数的移动中离开网格边界的陆地单元格的数量。 示例 1： 输入：[[0,0,0,0],[1,0,1,0],[0,1,1,0],[0,0,0,0]]输出：3解释：有三个 1 被 0 包围。一个 1 没有被包围，因为它在边界上。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2021-08-17T08:19:22.780Z">
+<meta property="og:updated_time" content="2021-08-17T08:40:15.892Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="A1020-Number-of-Enclaves">
-<meta name="twitter:description" content="题目描述我的解法解题思路实现代码高票解法实现代码代码分析知识总结">
+<meta name="twitter:title" content="1020.Number of Enclaves">
+<meta name="twitter:description" content="题目描述给出一个二维数组 A，每个单元格为 0（代表海）或 1（代表陆地）。 移动是指在陆地上从一个地方走到另一个地方（朝四个方向之一）或离开网格的边界。 返回网格中无法在任意次数的移动中离开网格边界的陆地单元格的数量。 示例 1： 输入：[[0,0,0,0],[1,0,1,0],[0,1,1,0],[0,0,0,0]]输出：3解释：有三个 1 被 0 包围。一个 1 没有被包围，因为它在边界上。">
 
 
 
@@ -134,7 +134,7 @@
   };
 </script>
 
-  <title>A1020-Number-of-Enclaves | yutouwd</title>
+  <title>1020.Number of Enclaves | yutouwd</title>
   
 
 
@@ -371,7 +371,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">A1020-Number-of-Enclaves
+          <h2 class="post-title" itemprop="name headline">1020.Number of Enclaves
 
               
             
@@ -397,9 +397,13 @@
                 
               
 
-              <time title="创建时间：2021-08-17 16:19:22" itemprop="dateCreated datePublished" datetime="2021-08-17T16:19:22+08:00">2021-08-17</time>
+              <time title="创建时间：2021-08-17 16:19:22 / 修改时间：16:40:15" itemprop="dateCreated datePublished" datetime="2021-08-17T16:19:22+08:00">2021-08-17</time>
             
 
+            
+              
+
+              
             
           </span>
 
@@ -416,6 +420,13 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/leetcode/" itemprop="url" rel="index"><span itemprop="name">leetcode</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/leetcode/medium/" itemprop="url" rel="index"><span itemprop="name">medium</span></a></span>
 
                 
                 
@@ -442,7 +453,7 @@
 
           
           
-            <span id="/posts/3587513103/" class="leancloud_visitors" data-flag-title="A1020-Number-of-Enclaves">
+            <span id="/posts/3587513103/" class="leancloud_visitors" data-flag-title="1020.Number of Enclaves">
               <span class="post-meta-divider">|</span>
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
@@ -467,7 +478,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="post.wordcount">
-                  32
+                  455
                 </span>
               
 
@@ -483,7 +494,7 @@
                   <span class="post-meta-item-text">阅读时间 &asymp;</span>
                 
                 <span title="post.min2read">
-                  1
+                  2
                 </span>
               
             </div>
@@ -506,7 +517,17 @@
       
 
       
-        <h1 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h1><h1 id="我的解法"><a href="#我的解法" class="headerlink" title="我的解法"></a>我的解法</h1><h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><h2 id="实现代码"><a href="#实现代码" class="headerlink" title="实现代码"></a>实现代码</h2><h1 id="高票解法"><a href="#高票解法" class="headerlink" title="高票解法"></a>高票解法</h1><h2 id="实现代码-1"><a href="#实现代码-1" class="headerlink" title="实现代码"></a>实现代码</h2><h2 id="代码分析"><a href="#代码分析" class="headerlink" title="代码分析"></a>代码分析</h2><h1 id="知识总结"><a href="#知识总结" class="headerlink" title="知识总结"></a>知识总结</h1>
+        <h1 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h1><p>给出一个二维数组 A，每个单元格为 0（代表海）或 1（代表陆地）。</p>
+<p>移动是指在陆地上从一个地方走到另一个地方（朝四个方向之一）或离开网格的边界。</p>
+<p>返回网格中无法在任意次数的移动中离开网格边界的陆地单元格的数量。</p>
+<p>示例 1：</p>
+<p>输入：[[0,0,0,0],[1,0,1,0],[0,1,1,0],[0,0,0,0]]<br>输出：3<br>解释：<br>有三个 1 被 0 包围。一个 1 没有被包围，因为它在边界上。<br>示例 2：</p>
+<p>输入：[[0,1,1,0],[0,0,1,0],[0,0,1,0],[0,0,0,0]]<br>输出：0<br>解释：<br>所有 1 都在边界上或可以到达边界。</p>
+<p>提示：</p>
+<p>1 &lt;= A.length &lt;= 500<br>1 &lt;= A[i].length &lt;= 500<br>0 &lt;= A[i][j] &lt;= 1<br>所有行的大小都相同</p>
+<h1 id="我的解法"><a href="#我的解法" class="headerlink" title="我的解法"></a>我的解法</h1><h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><p>通过边界上的陆地进行深度优先遍历，把遍历过的陆地都置为0。最后再遍历一次整个数组，统计1个的个数。</p>
+<h2 id="实现代码"><a href="#实现代码" class="headerlink" title="实现代码"></a>实现代码</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt;&amp; grid, <span class="keyword">int</span> i, <span class="keyword">int</span> j)</span></span>&#123;</span><br><span class="line">        <span class="keyword">int</span> n = grid.size(), m = grid[<span class="number">0</span>].size();</span><br><span class="line">        <span class="keyword">if</span> (i &lt; <span class="number">0</span> || i &gt;= n || j &lt; <span class="number">0</span> || j &gt;= m || grid[i][j] == <span class="number">0</span>)</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        grid[i][j] = <span class="number">0</span>;</span><br><span class="line">        dfs(grid,i<span class="number">-1</span>,j);</span><br><span class="line">        dfs(grid,i+<span class="number">1</span>,j);</span><br><span class="line">        dfs(grid,i,j<span class="number">-1</span>);</span><br><span class="line">        dfs(grid,i,j+<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">numEnclaves</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt;&amp; grid)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> res = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> n = grid.size(), m = grid[<span class="number">0</span>].size();</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)&#123;</span><br><span class="line">            <span class="keyword">if</span> (grid[i][<span class="number">0</span>] == <span class="number">1</span>)</span><br><span class="line">                dfs(grid, i, <span class="number">0</span>);</span><br><span class="line">            <span class="keyword">if</span> (grid[i][m<span class="number">-1</span>] == <span class="number">1</span>)</span><br><span class="line">                dfs(grid, i, m<span class="number">-1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; m; j++)&#123;</span><br><span class="line">            <span class="keyword">if</span> (grid[<span class="number">0</span>][j] == <span class="number">1</span>)</span><br><span class="line">                dfs(grid, <span class="number">0</span>, j);</span><br><span class="line">            <span class="keyword">if</span> (grid[n<span class="number">-1</span>][j] == <span class="number">1</span>)</span><br><span class="line">                dfs(grid, n<span class="number">-1</span>, j);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)&#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; m; j++)&#123;</span><br><span class="line">                <span class="keyword">if</span> (grid[i][j] == <span class="number">1</span>)</span><br><span class="line">                    res++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
       
     </div>
 
@@ -530,6 +551,8 @@
         <div class="post-tags">
           
             <a href="/tags/leetcode/" rel="tag"><i class="menu-item-icon fa fa-fw fa-tags"></i> leetcode</a>
+          
+            <a href="/tags/深度优先/" rel="tag"><i class="menu-item-icon fa fa-fw fa-tags"></i> 深度优先</a>
           
         </div>
       
@@ -853,7 +876,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#题目描述"><span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#我的解法"><span class="nav-text">我的解法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#解题思路"><span class="nav-text">解题思路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实现代码"><span class="nav-text">实现代码</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#高票解法"><span class="nav-text">高票解法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#实现代码-1"><span class="nav-text">实现代码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码分析"><span class="nav-text">代码分析</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#知识总结"><span class="nav-text">知识总结</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#题目描述"><span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#我的解法"><span class="nav-text">我的解法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#解题思路"><span class="nav-text">解题思路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实现代码"><span class="nav-text">实现代码</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -887,7 +910,7 @@
     
       <span class="post-meta-item-text">文字总数&#58;</span>
     
-    <span title="post.totalcount">64.1k</span>
+    <span title="post.totalcount">64.6k</span>
   
 
   
