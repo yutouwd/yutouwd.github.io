@@ -3,7 +3,13 @@
   <entry>
     <title>1109.Corporate Flight Bookings</title>
     <url>/posts/2212932647/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><h1 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h1><h1 id="我的解法"><a href="#我的解法" class="headerlink" title="我的解法"></a>我的解法</h1><h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><h2 id="实现代码"><a href="#实现代码" class="headerlink" title="实现代码"></a>实现代码</h2><h1 id="高票解法"><a href="#高票解法" class="headerlink" title="高票解法"></a>高票解法</h1><h2 id="实现代码-1"><a href="#实现代码-1" class="headerlink" title="实现代码"></a>实现代码</h2><h2 id="代码分析"><a href="#代码分析" class="headerlink" title="代码分析"></a>代码分析</h2><h1 id="知识总结"><a href="#知识总结" class="headerlink" title="知识总结"></a>知识总结</h1>]]></content>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><h1 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h1><p>这里有 n 个航班，它们分别从 1 到 n 进行编号。</p>
+<p>有一份航班预订表 bookings ，表中第 i 条预订记录 bookings[i] = [firsti, lasti, seatsi] 意味着在从 firsti到 lasti （包含 firsti 和 lasti ）的 每个航班 上预订了 seatsi 个座位。<br>请你返回一个长度为 n 的数组 answer，其中 answer[i] 是航班 i 上预订的座位总数。</p>
+<p>示例 1：<br>输入：bookings = [[1,2,10],[2,3,20],[2,5,25]], n = 5<br>输出：[10,55,45,25,25]<br>解释：<br>航班编号        1   2   3   4   5<br>预订记录 1 ：   10  10<br>预订记录 2 ：       20  20<br>预订记录 3 ：       25  25  25  25<br>总座位数：      10  55  45  25  25<br>因此，answer = [10,55,45,25,25]</p>
+<p>示例 2：<br>输入：bookings = [[1,2,10],[2,2,15]], n = 2<br>输出：[10,25]<br>解释：<br>航班编号        1   2<br>预订记录 1 ：   10  10<br>预订记录 2 ：       15<br>总座位数：      10  25<br>因此，answer = [10,25]</p>
+<p>提示：<br>1 &lt;= n &lt;= 2 <em> 104<br>1 &lt;= bookings.length &lt;= 2 </em> 104<br>bookings[i].length == 3<br>1 &lt;= firsti &lt;= lasti &lt;= n<br>1 &lt;= seatsi &lt;= 104</p>
+<h1 id="我的解法"><a href="#我的解法" class="headerlink" title="我的解法"></a>我的解法</h1><h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><p>看了题目感觉还挺简单的，结果直接用暴力法居然超时了。看了下题解才知道有差分数组这种东西，用来记录当前位置和上一个位置的差，就不需要全部一遍遍加上去了。</p>
+<h2 id="实现代码"><a href="#实现代码" class="headerlink" title="实现代码"></a>实现代码</h2><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; corpFlightBookings(<span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt;&amp; bookings, <span class="keyword">int</span> n) &#123;</span><br><span class="line">        <span class="keyword">int</span> m = bookings.size();</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; res(n, <span class="number">0</span>);</span><br><span class="line">        <span class="keyword">if</span> (m == <span class="number">0</span>) <span class="keyword">return</span> res;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; m; i++)&#123;</span><br><span class="line">            res[bookings[i][<span class="number">0</span>]<span class="number">-1</span>] += bookings[i][<span class="number">2</span>];</span><br><span class="line">            <span class="keyword">if</span> (bookings[i][<span class="number">1</span>] &lt; n) <span class="comment">// 注意这里最后一位是不用处理的</span></span><br><span class="line">                res[bookings[i][<span class="number">1</span>]] -= bookings[i][<span class="number">2</span>];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; n; i++)&#123;</span><br><span class="line">            res[i] += res[i<span class="number">-1</span>];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>]]></content>
       <categories>
         <category>leetcode</category>
       </categories>
@@ -1001,8 +1007,8 @@
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>vector</tag>
         <tag>math</tag>
+        <tag>vector</tag>
       </tags>
   </entry>
   <entry>
@@ -1397,8 +1403,8 @@
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>hashmap</tag>
         <tag>math</tag>
+        <tag>hashmap</tag>
       </tags>
   </entry>
   <entry>
@@ -1948,8 +1954,8 @@
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>vector</tag>
         <tag>math</tag>
+        <tag>vector</tag>
       </tags>
   </entry>
   <entry>
@@ -2603,8 +2609,8 @@
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>hashmap</tag>
         <tag>math</tag>
+        <tag>hashmap</tag>
       </tags>
   </entry>
   <entry>
@@ -3069,11 +3075,11 @@
 <p>不过现在卡在百度的认证上了，下载认证文件放到next主题目录的路径下，会显示验证失败：“您的站点有链接未通过https校验“黑人问号？？？</p>
 <h2 id="leetcode文章归档"><a href="#leetcode文章归档" class="headerlink" title="leetcode文章归档"></a>leetcode文章归档</h2><p>想法是写leetcode的文章不会自动显示在主页上，然后新建一个page，里面专门收录写的关于leetcoede的文章。可以在scaffolds目录中新建一个leet.md，以后直接用hexo new leet [leet题目]这样方式来新建一个文章。将文章不显示在主页的方法参考这篇文章<a href="https://www.jianshu.com/p/79fe9fb9dfa0" target="_blank" rel="noopener">https://www.jianshu.com/p/79fe9fb9dfa0</a>，修改好之后，就在leet.md中加上notshow: true，以后新建就可以自动设置为不显示了。</p>
 <p>然后还想弄一个类似于github上个人主页那种日历表，如果有一天有做题的话，就会设置成绿色。找了下，发现可以通过baidu的echart或者google chart来实现。baidu的好处就是有中文的文档，google的例子似乎更好看一些，但是不知道会不会被emmmm，就还是先试试百度的吧。只要<strong>npm install hexo-tag-echarts3 –save</strong>就可以来，下面是一个echart测试：</p>
-<div id="echarts4686" style="width: 85%;height: 400px;margin: 0 auto"></div>
+<div id="echarts2418" style="width: 85%;height: 400px;margin: 0 auto"></div>
 <script src="https://cdn.bootcss.com/echarts/3.8.0/echarts.common.min.js"></script>
 <script type="text/javascript">
         // 基于准备好的dom，初始化echarts实例
-        var myChart = echarts.init(document.getElementById('echarts4686'));
+        var myChart = echarts.init(document.getElementById('echarts2418'));
         // 指定图表的配置项和数据
         var option = {
     tooltip : {
@@ -3140,11 +3146,11 @@
         myChart.setOption(option);
 </script>
 <p>可以点击上方的利润、收入、支出来设置显示和不显示，还是很炫酷滴🕶️，接下来试下日历表：</p>
-<div id="echarts4476" style="width: 85%;height: 400px;margin: 0 auto"></div>
+<div id="echarts5112" style="width: 85%;height: 400px;margin: 0 auto"></div>
 <script src="https://cdn.bootcss.com/echarts/3.8.0/echarts.common.min.js"></script>
 <script type="text/javascript">
         // 基于准备好的dom，初始化echarts实例
-        var myChart = echarts.init(document.getElementById('echarts4476'));
+        var myChart = echarts.init(document.getElementById('echarts5112'));
         // 指定图表的配置项和数据
         var option = 
 option = {
