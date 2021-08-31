@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>1109.Corporate Flight Bookings</title>
+    <url>/posts/2212932647/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><h1 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h1><h1 id="我的解法"><a href="#我的解法" class="headerlink" title="我的解法"></a>我的解法</h1><h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><h2 id="实现代码"><a href="#实现代码" class="headerlink" title="实现代码"></a>实现代码</h2><h1 id="高票解法"><a href="#高票解法" class="headerlink" title="高票解法"></a>高票解法</h1><h2 id="实现代码-1"><a href="#实现代码-1" class="headerlink" title="实现代码"></a>实现代码</h2><h2 id="代码分析"><a href="#代码分析" class="headerlink" title="代码分析"></a>代码分析</h2><h1 id="知识总结"><a href="#知识总结" class="headerlink" title="知识总结"></a>知识总结</h1>]]></content>
+      <categories>
+        <category>leetcode</category>
+      </categories>
+      <tags>
+        <tag>leetcode</tag>
+        <tag>vector</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>数据结构与算法-排序算法</title>
     <url>/posts/3634812730/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><p>面试的时候总是会问到一些排序算法相关的问题，之前都只是囫囵吞枣的看了一下，被问的时候根本打不出来什么。所以还是要好好总结一下。</p>
@@ -10,14 +22,19 @@
 <p>测试排序函数能否正确排序以及返回所用时间。<br><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">testSort</span><span class="params">(<span class="keyword">const</span> <span class="built_in">string</span>&amp; sortName, <span class="keyword">void</span>(*sortFunc)(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp;), <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; vec)</span></span>&#123;</span><br><span class="line">    <span class="keyword">clock_t</span> startTime = clock();</span><br><span class="line">    sortFunc(vec);</span><br><span class="line">    <span class="keyword">clock_t</span> endTime = clock();</span><br><span class="line"></span><br><span class="line">    assert(isSorted(vec));</span><br><span class="line">    <span class="built_in">cout</span>.setf(ios_base::fixed,ios_base::floatfield);</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; sortName &lt;&lt; <span class="string">" - using time:"</span> &lt;&lt; <span class="keyword">double</span>(endTime - startTime) / CLOCKS_PER_SEC &lt;&lt; <span class="string">"s"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">double</span>(endTime - startTime);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <h1 id="冒泡排序"><a href="#冒泡排序" class="headerlink" title="冒泡排序"></a>冒泡排序</h1><p>冒泡排序是最经典和简单的排序算法之一，它不断的比较两个相邻数的大小，把大的数放到后头。这样经过一次遍历之后最大的数就到了数组的最后头，下一次遍历就将第二大的数放到了倒数第二的位置。不断重复知道完成排序。冒泡排序时间复杂度为O(n^2)，并且是稳定的排序算法，可以原地进行排序（需要O(1)的额外空间）。需要比较次数为O(n^2)，需要最多进行O(n^2)次的交换。实现代码：</p>
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">bubbleSort</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; vec)</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n = vec.size();</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">size_t</span> i = <span class="number">0</span>; i &lt; n - <span class="number">1</span>; i++)&#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">size_t</span> j = <span class="number">0</span>; j &lt; n - i - <span class="number">1</span>; j++)&#123;</span><br><span class="line">            <span class="keyword">if</span> (vec[j] &gt; vec[j+<span class="number">1</span>])&#123;</span><br><span class="line">                swap(vec[j],vec[j+<span class="number">1</span>]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h1 id="插入排序"><a href="#插入排序" class="headerlink" title="插入排序"></a>插入排序</h1><p>插入排序的过程就像整理扑克牌一样，可以将整个数组分为已排序和未排序，然后从未排序的部分找出一个数，将它插入到已排序数组中合适的位置。在最坏情况下需要比较次数为O(n^2)，需要最多进行O(n^2)次的赋值。</p>
+<h1 id="插入排序"><a href="#插入排序" class="headerlink" title="插入排序"></a>插入排序</h1><p>插入排序的过程就像整理扑克牌一样，可以将整个数组分为已排序和未排序，然后从未排序的部分找出一个数，将它插入到已排序数组中合适的位置。在最坏情况下需要比较次数为O(n^2)，需要最多进行O(n^2)次的赋值。插入排序是稳定的排序算法之一。</p>
 <blockquote>
 <p>但是当排序数据量很小（小于千级）或者元素大致按照顺序排列的时候，插入排序有较好的性能。</p>
 </blockquote>
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">insertSort</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; vec)</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> j = <span class="number">0</span>, cur = <span class="number">0</span>, n = vec.size();</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; n; i++)&#123;</span><br><span class="line">        cur = vec[i];</span><br><span class="line">        j = i<span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">while</span>(j &gt;= <span class="number">0</span> &amp;&amp; cur &lt; vec[j])&#123;</span><br><span class="line">            vec[j+<span class="number">1</span>] = vec[j];</span><br><span class="line">            j--;</span><br><span class="line">        &#125;</span><br><span class="line">        vec[j+<span class="number">1</span>] = cur;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="快速排序"><a href="#快速排序" class="headerlink" title="快速排序"></a>快速排序</h1><p>快速排序是一种不稳定的排序，一般情况下时间复杂度为O(nlogn)，不过最差情况需要O(n^2)，但是这种情况很少见。快速排序使用分治策略，挑选一个基准数，然后把小于基准的数放到前面，大于基准的数放到后面，最后递归的排序子数组。</p>
+<p>首先是快速排序函数，我们需要一个分割函数来返回基准数的位置，然后递归的排序基准两边的数组：<br><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">quickSorter</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; vec, <span class="keyword">int</span> left, <span class="keyword">int</span> right)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (left &lt; right)&#123;</span><br><span class="line">        <span class="keyword">int</span> mid = partition(vec, left, right);</span><br><span class="line">        quickSorter(vec, left, mid - <span class="number">1</span>);</span><br><span class="line">        quickSorter(vec, mid + <span class="number">1</span>, right);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>然后就是分割函数，首先选取一个基准数，然后将小于基准的放到前面，大于基准的放到后面，并且返回这个基准的位置：<br><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">partition</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; vec, <span class="keyword">int</span> left, <span class="keyword">int</span> right)</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> pivot = vec[right];</span><br><span class="line">    <span class="keyword">int</span> i = left - <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> j = left; j &lt; right; j++)&#123;</span><br><span class="line">        <span class="keyword">if</span> (vec[j] &lt; pivot)&#123;</span><br><span class="line">            i++;</span><br><span class="line">            swap(vec[i],vec[j]);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    swap(vec[i+<span class="number">1</span>],vec[right]);</span><br><span class="line">    <span class="keyword">return</span> i+<span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p><strong>性能测试</strong><br><a href="https://www.jianshu.com/p/334df02eb10a" target="_blank" rel="noopener">https://www.jianshu.com/p/334df02eb10a</a></p>
 <p><strong>冒泡排序</strong><br><a href="https://zh.wikipedia.org/wiki/%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F" target="_blank" rel="noopener">https://zh.wikipedia.org/wiki/%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F</a><br><a href="https://www.geeksforgeeks.org/bubble-sort/" target="_blank" rel="noopener">https://www.geeksforgeeks.org/bubble-sort/</a></p>
 <p><strong>插入排序</strong><br><a href="https://zhuanlan.zhihu.com/p/35328552" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/35328552</a><br><a href="https://zh.wikipedia.org/wiki/%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F" target="_blank" rel="noopener">https://zh.wikipedia.org/wiki/%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F</a><br><a href="https://www.geeksforgeeks.org/insertion-sort/" target="_blank" rel="noopener">https://www.geeksforgeeks.org/insertion-sort/</a></p>
+<p><strong>快速排序</strong><br><a href="https://zh.wikipedia.org/wiki/%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F" target="_blank" rel="noopener">https://zh.wikipedia.org/wiki/%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F</a><br><a href="https://www.geeksforgeeks.org/quick-sort/" target="_blank" rel="noopener">https://www.geeksforgeeks.org/quick-sort/</a></p>
+<p><strong>std::sort</strong><br><a href="https://feihu.me/blog/2014/sgi-std-sort/#introspective-sort" target="_blank" rel="noopener">https://feihu.me/blog/2014/sgi-std-sort/#introspective-sort</a></p>
 <p><strong>一个排序算法可视化比较</strong><br><a href="https://www.toptal.com/developers/sorting-algorithms" target="_blank" rel="noopener">https://www.toptal.com/developers/sorting-algorithms</a></p>
 ]]></content>
       <categories>
@@ -3052,11 +3069,11 @@
 <p>不过现在卡在百度的认证上了，下载认证文件放到next主题目录的路径下，会显示验证失败：“您的站点有链接未通过https校验“黑人问号？？？</p>
 <h2 id="leetcode文章归档"><a href="#leetcode文章归档" class="headerlink" title="leetcode文章归档"></a>leetcode文章归档</h2><p>想法是写leetcode的文章不会自动显示在主页上，然后新建一个page，里面专门收录写的关于leetcoede的文章。可以在scaffolds目录中新建一个leet.md，以后直接用hexo new leet [leet题目]这样方式来新建一个文章。将文章不显示在主页的方法参考这篇文章<a href="https://www.jianshu.com/p/79fe9fb9dfa0" target="_blank" rel="noopener">https://www.jianshu.com/p/79fe9fb9dfa0</a>，修改好之后，就在leet.md中加上notshow: true，以后新建就可以自动设置为不显示了。</p>
 <p>然后还想弄一个类似于github上个人主页那种日历表，如果有一天有做题的话，就会设置成绿色。找了下，发现可以通过baidu的echart或者google chart来实现。baidu的好处就是有中文的文档，google的例子似乎更好看一些，但是不知道会不会被emmmm，就还是先试试百度的吧。只要<strong>npm install hexo-tag-echarts3 –save</strong>就可以来，下面是一个echart测试：</p>
-<div id="echarts690" style="width: 85%;height: 400px;margin: 0 auto"></div>
+<div id="echarts4686" style="width: 85%;height: 400px;margin: 0 auto"></div>
 <script src="https://cdn.bootcss.com/echarts/3.8.0/echarts.common.min.js"></script>
 <script type="text/javascript">
         // 基于准备好的dom，初始化echarts实例
-        var myChart = echarts.init(document.getElementById('echarts690'));
+        var myChart = echarts.init(document.getElementById('echarts4686'));
         // 指定图表的配置项和数据
         var option = {
     tooltip : {
@@ -3123,11 +3140,11 @@
         myChart.setOption(option);
 </script>
 <p>可以点击上方的利润、收入、支出来设置显示和不显示，还是很炫酷滴🕶️，接下来试下日历表：</p>
-<div id="echarts3791" style="width: 85%;height: 400px;margin: 0 auto"></div>
+<div id="echarts4476" style="width: 85%;height: 400px;margin: 0 auto"></div>
 <script src="https://cdn.bootcss.com/echarts/3.8.0/echarts.common.min.js"></script>
 <script type="text/javascript">
         // 基于准备好的dom，初始化echarts实例
-        var myChart = echarts.init(document.getElementById('echarts3791'));
+        var myChart = echarts.init(document.getElementById('echarts4476'));
         // 指定图表的配置项和数据
         var option = 
 option = {
