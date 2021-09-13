@@ -1040,8 +1040,8 @@
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>math</tag>
         <tag>vector</tag>
+        <tag>math</tag>
       </tags>
   </entry>
   <entry>
@@ -1436,8 +1436,8 @@
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>math</tag>
         <tag>hashmap</tag>
+        <tag>math</tag>
       </tags>
   </entry>
   <entry>
@@ -1987,8 +1987,8 @@
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>math</tag>
         <tag>vector</tag>
+        <tag>math</tag>
       </tags>
   </entry>
   <entry>
@@ -2642,8 +2642,8 @@
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>math</tag>
         <tag>hashmap</tag>
+        <tag>math</tag>
       </tags>
   </entry>
   <entry>
@@ -3090,7 +3090,8 @@
 <li style="list-style: none"><input type="checkbox"> SEO优化</li>
 <li style="list-style: none"><input type="checkbox" checked> leetcode文章归档</li>
 <li style="list-style: none"><input type="checkbox" checked> 不再使用notshow来隐藏文章</li>
-<li style="list-style: none"><input type="checkbox" checked> 设置git代理和取消<a id="more"></a>
+<li style="list-style: none"><input type="checkbox" checked> 设置git代理和取消</li>
+<li style="list-style: none"><input type="checkbox" checked> menu中自定义中文页面<a id="more"></a>
 </li>
 </ul>
 <h2 id="修改站点下博客文章存放目录"><a href="#修改站点下博客文章存放目录" class="headerlink" title="修改站点下博客文章存放目录"></a>修改站点下博客文章存放目录</h2><p>这个其实是在找解决如何将侧边栏toc自动展开时，找到一篇<a href="https://blog.dongleizhang.com/posts/32005d86/" target="_blank" rel="noopener">博客</a>无意中发现的。原来那种年/月/日…的方式真的太挫了，于是就按照他的这种方式，生成一个永久链接。<br>首先安装hexo-abbrlink插件，使用命令 npm install hexo-abbrlink –save 即可。然后需要在站点配置文件，即hexo目录下的_config.yml文件中修改 permalink: :year/:month/:day/:title/ 为一下内容：</p>
@@ -3108,11 +3109,11 @@
 <p>不过现在卡在百度的认证上了，下载认证文件放到next主题目录的路径下，会显示验证失败：“您的站点有链接未通过https校验“黑人问号？？？</p>
 <h2 id="leetcode文章归档"><a href="#leetcode文章归档" class="headerlink" title="leetcode文章归档"></a>leetcode文章归档</h2><p>想法是写leetcode的文章不会自动显示在主页上，然后新建一个page，里面专门收录写的关于leetcoede的文章。可以在scaffolds目录中新建一个leet.md，以后直接用hexo new leet [leet题目]这样方式来新建一个文章。将文章不显示在主页的方法参考这篇文章<a href="https://www.jianshu.com/p/79fe9fb9dfa0" target="_blank" rel="noopener">https://www.jianshu.com/p/79fe9fb9dfa0</a>，修改好之后，就在leet.md中加上notshow: true，以后新建就可以自动设置为不显示了。</p>
 <p>然后还想弄一个类似于github上个人主页那种日历表，如果有一天有做题的话，就会设置成绿色。找了下，发现可以通过baidu的echart或者google chart来实现。baidu的好处就是有中文的文档，google的例子似乎更好看一些，但是不知道会不会被emmmm，就还是先试试百度的吧。只要<strong>npm install hexo-tag-echarts3 –save</strong>就可以来，下面是一个echart测试：</p>
-<div id="echarts9527" style="width: 85%;height: 400px;margin: 0 auto"></div>
+<div id="echarts6585" style="width: 85%;height: 400px;margin: 0 auto"></div>
 <script src="https://cdn.bootcss.com/echarts/3.8.0/echarts.common.min.js"></script>
 <script type="text/javascript">
         // 基于准备好的dom，初始化echarts实例
-        var myChart = echarts.init(document.getElementById('echarts9527'));
+        var myChart = echarts.init(document.getElementById('echarts6585'));
         // 指定图表的配置项和数据
         var option = {
     tooltip : {
@@ -3179,11 +3180,11 @@
         myChart.setOption(option);
 </script>
 <p>可以点击上方的利润、收入、支出来设置显示和不显示，还是很炫酷滴🕶️，接下来试下日历表：</p>
-<div id="echarts5070" style="width: 85%;height: 400px;margin: 0 auto"></div>
+<div id="echarts1698" style="width: 85%;height: 400px;margin: 0 auto"></div>
 <script src="https://cdn.bootcss.com/echarts/3.8.0/echarts.common.min.js"></script>
 <script type="text/javascript">
         // 基于准备好的dom，初始化echarts实例
-        var myChart = echarts.init(document.getElementById('echarts5070'));
+        var myChart = echarts.init(document.getElementById('echarts1698'));
         // 指定图表的配置项和数据
         var option = 
 option = {
@@ -3232,6 +3233,10 @@ option = {
 <h2 id="设置git代理和取消"><a href="#设置git代理和取消" class="headerlink" title="设置git代理和取消"></a>设置git代理和取消</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 设置ss代理</span></span><br><span class="line">git config --global http.proxy <span class="string">'socks5://127.0.0.1:1080'</span></span><br><span class="line">git config --global https.proxy <span class="string">'socks5://127.0.0.1:1080'</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 取消</span></span><br><span class="line">git config --global --<span class="built_in">unset</span> http.proxy</span><br><span class="line">git config --global --<span class="built_in">unset</span> https.proxy</span><br></pre></td></tr></table></figure>
 <p>再过一个月git好像就不能用用户密码来登陆了，先收藏下地址，后面再改（拖）<br><a href="https://github.blog/2020-12-15-token-authentication-requirements-for-git-operations/" target="_blank" rel="noopener">https://github.blog/2020-12-15-token-authentication-requirements-for-git-operations/</a></p>
 <p><a href="https://docs.github.com/en/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token" target="_blank" rel="noopener">https://docs.github.com/en/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token</a></p>
+<h2 id="menu中自定义中文页面"><a href="#menu中自定义中文页面" class="headerlink" title="menu中自定义中文页面"></a>menu中自定义中文页面</h2><p>2021.9.13更新。<br>想要添加一个学习笔记的page，但是没有对应的中文，需要手动设置。<br>首先新建一个page:</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">hexo new page notes</span><br></pre></td></tr></table></figure>
+<p>然后修改<strong>主题</strong>目录下的<code>_config.yml</code>，在menu中加入<code>notes: /notes/ || book</code>。然后在<code>next/languages/zh-CN.yml</code>中的menu加入对应的中文，例如<code>notes: 笔记</code>就可以了。</p>
+<p>参考：<a href="https://www.playpi.org/2017050701.html#5e799a238a84ab00777c84ca" target="_blank" rel="noopener">https://www.playpi.org/2017050701.html#5e799a238a84ab00777c84ca</a></p>
 <h2 id="教程收藏"><a href="#教程收藏" class="headerlink" title="教程收藏"></a>教程收藏</h2><p><a href="http://yearito.cn/tags/Hexo/" target="_blank" rel="noopener">http://yearito.cn/tags/Hexo/</a></p>
 ]]></content>
       <categories>
