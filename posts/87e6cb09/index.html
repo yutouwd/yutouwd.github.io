@@ -112,7 +112,7 @@
 <meta property="og:site_name" content="yutouwd">
 <meta property="og:description" content="之前一直没有记录修改&amp;amp;优化博客的过程，其实这是一个不太好的习惯，现在都忘了自己修改过哪些地方了(虽然vscode可以标出来)，哪些修改对应了网站哪些变化。所以还是要记录一下修改的记录，为方便日后对博客持续优化。 things to do  修改站点下博客文章存放目录  侧边栏toc自动展开  评论系统更换为valine  站点自动备份系统  文章分类、归档页面优化  代码块优化  next">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2021-09-13T14:44:18.374Z">
+<meta property="og:updated_time" content="2021-09-13T15:07:24.259Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="博客折腾记录">
 <meta name="twitter:description" content="之前一直没有记录修改&amp;amp;优化博客的过程，其实这是一个不太好的习惯，现在都忘了自己修改过哪些地方了(虽然vscode可以标出来)，哪些修改对应了网站哪些变化。所以还是要记录一下修改的记录，为方便日后对博客持续优化。 things to do  修改站点下博客文章存放目录  侧边栏toc自动展开  评论系统更换为valine  站点自动备份系统  文章分类、归档页面优化  代码块优化  next">
@@ -431,7 +431,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2021-09-13 22:44:18" itemprop="dateModified" datetime="2021-09-13T22:44:18+08:00">2021-09-13</time>
+                <time title="修改时间：2021-09-13 23:07:24" itemprop="dateModified" datetime="2021-09-13T23:07:24+08:00">2021-09-13</time>
               
             
           </span>
@@ -570,11 +570,11 @@
 <p>不过现在卡在百度的认证上了，下载认证文件放到next主题目录的路径下，会显示验证失败：“您的站点有链接未通过https校验“黑人问号？？？</p>
 <h2 id="leetcode文章归档"><a href="#leetcode文章归档" class="headerlink" title="leetcode文章归档"></a>leetcode文章归档</h2><p>想法是写leetcode的文章不会自动显示在主页上，然后新建一个page，里面专门收录写的关于leetcoede的文章。可以在scaffolds目录中新建一个leet.md，以后直接用hexo new leet [leet题目]这样方式来新建一个文章。将文章不显示在主页的方法参考这篇文章<a href="https://www.jianshu.com/p/79fe9fb9dfa0" target="_blank" rel="noopener">https://www.jianshu.com/p/79fe9fb9dfa0</a>，修改好之后，就在leet.md中加上notshow: true，以后新建就可以自动设置为不显示了。</p>
 <p>然后还想弄一个类似于github上个人主页那种日历表，如果有一天有做题的话，就会设置成绿色。找了下，发现可以通过baidu的echart或者google chart来实现。baidu的好处就是有中文的文档，google的例子似乎更好看一些，但是不知道会不会被emmmm，就还是先试试百度的吧。只要<strong>npm install hexo-tag-echarts3 –save</strong>就可以来，下面是一个echart测试：</p>
-<div id="echarts6585" style="width: 85%;height: 400px;margin: 0 auto"></div>
+<div id="echarts3240" style="width: 85%;height: 400px;margin: 0 auto"></div>
 <script src="https://cdn.bootcss.com/echarts/3.8.0/echarts.common.min.js"></script>
 <script type="text/javascript">
         // 基于准备好的dom，初始化echarts实例
-        var myChart = echarts.init(document.getElementById('echarts6585'));
+        var myChart = echarts.init(document.getElementById('echarts3240'));
         // 指定图表的配置项和数据
         var option = {
     tooltip : {
@@ -641,11 +641,11 @@
         myChart.setOption(option);
 </script>
 <p>可以点击上方的利润、收入、支出来设置显示和不显示，还是很炫酷滴🕶️，接下来试下日历表：</p>
-<div id="echarts1698" style="width: 85%;height: 400px;margin: 0 auto"></div>
+<div id="echarts114" style="width: 85%;height: 400px;margin: 0 auto"></div>
 <script src="https://cdn.bootcss.com/echarts/3.8.0/echarts.common.min.js"></script>
 <script type="text/javascript">
         // 基于准备好的dom，初始化echarts实例
-        var myChart = echarts.init(document.getElementById('echarts1698'));
+        var myChart = echarts.init(document.getElementById('echarts114'));
         // 指定图表的配置项和数据
         var option = 
 option = {
@@ -696,7 +696,7 @@ option = {
 <p><a href="https://docs.github.com/en/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token" target="_blank" rel="noopener">https://docs.github.com/en/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token</a></p>
 <h2 id="menu中自定义中文页面"><a href="#menu中自定义中文页面" class="headerlink" title="menu中自定义中文页面"></a>menu中自定义中文页面</h2><p>2021.9.13更新。<br>想要添加一个学习笔记的page，但是没有对应的中文，需要手动设置。<br>首先新建一个page:</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new page notes</span><br></pre></td></tr></table></figure>
-<p>然后修改<strong>主题</strong>目录下的<code>_config.yml</code>，在menu中加入<code>notes: /notes/ || book</code>。然后在<code>next/languages/zh-CN.yml</code>中的menu加入对应的中文，例如<code>notes: 笔记</code>就可以了。</p>
+<p>然后修改<strong>主题</strong>目录下的<code>_config.yml</code>，在menu中加入<code>notes: /notes/ || book</code>（这里最后的book是图标的选择，可以在<a href="https://fontawesome.com/" target="_blank" rel="noopener">https://fontawesome.com/</a>中找想要的图标）。最后在<code>next/languages/zh-CN.yml</code>中的menu加入对应的中文，例如<code>notes: 笔记</code>就可以了。</p>
 <p>参考：<a href="https://www.playpi.org/2017050701.html#5e799a238a84ab00777c84ca" target="_blank" rel="noopener">https://www.playpi.org/2017050701.html#5e799a238a84ab00777c84ca</a></p>
 <h2 id="教程收藏"><a href="#教程收藏" class="headerlink" title="教程收藏"></a>教程收藏</h2><p><a href="http://yearito.cn/tags/Hexo/" target="_blank" rel="noopener">http://yearito.cn/tags/Hexo/</a></p>
 
@@ -1090,7 +1090,7 @@ option = {
     
       <span class="post-meta-item-text">文字总数&#58;</span>
     
-    <span title="post.totalcount">68.3k</span>
+    <span title="post.totalcount">68.7k</span>
   
 
   
