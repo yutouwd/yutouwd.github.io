@@ -1,0 +1,1648 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+  
+  
+  <link rel="stylesheet" href="/lib/needsharebutton/needsharebutton.css">
+
+
+
+
+
+
+
+
+
+  <meta name="google-site-verification" content="VsdEz17DzZPAdPIQ2K1kjppHtRWQ1HvY4SXP2UYoGb4">
+
+
+
+
+
+
+
+  <meta name="baidu-site-verification" content="jqZ0Y8rEND.yutouwd.github.io">
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=7.0.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.0.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.0.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.0.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.0.0" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '7.0.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="题目 地址 标签     1.Tow Sum https://yutouwd.github.io/posts/2304652807 vector hashmap   2.Add Two Numbers https://yutouwd.github.io/posts/2010047615 list   3.Longest Substring without Repeating Characte">
+<meta name="keywords" content="算法">
+<meta property="og:type" content="website">
+<meta property="og:title" content="数据结构与算法学习（刷题）记录">
+<meta property="og:url" content="http://yutouwd.github.io/leetcode/index.html">
+<meta property="og:site_name" content="yutouwd">
+<meta property="og:description" content="题目 地址 标签     1.Tow Sum https://yutouwd.github.io/posts/2304652807 vector hashmap   2.Add Two Numbers https://yutouwd.github.io/posts/2010047615 list   3.Longest Substring without Repeating Characte">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2021-09-16T06:59:46.282Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="数据结构与算法学习（刷题）记录">
+<meta name="twitter:description" content="题目 地址 标签     1.Tow Sum https://yutouwd.github.io/posts/2304652807 vector hashmap   2.Add Two Numbers https://yutouwd.github.io/posts/2010047615 list   3.Longest Substring without Repeating Characte">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="yutouwd" type="application/atom+xml">
+
+
+
+
+  <link rel="canonical" href="http://yutouwd.github.io/leetcode/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>数据结构与算法学习（刷题）记录 | yutouwd</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">yutouwd</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <h1 class="site-subtitle" itemprop="description">我的「精神家园」</h1>
+      
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section">&lt;i class&#x3D;&quot;menu-item-icon fa fa-fw fa-home&quot;&gt;&lt;&#x2F;i&gt; &lt;br&#x2F;&gt;首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section">&lt;i class&#x3D;&quot;menu-item-icon fa fa-fw fa-tags&quot;&gt;&lt;&#x2F;i&gt; &lt;br&#x2F;&gt;标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section">&lt;i class&#x3D;&quot;menu-item-icon fa fa-fw fa-th&quot;&gt;&lt;&#x2F;i&gt; &lt;br&#x2F;&gt;分类</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section">&lt;i class&#x3D;&quot;menu-item-icon fa fa-fw fa-archive&quot;&gt;&lt;&#x2F;i&gt; &lt;br&#x2F;&gt;归档</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-leet menu-item-active">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/leetcode/" rel="section">&lt;i class&#x3D;&quot;menu-item-icon fa fa-fw fa-terminal&quot;&gt;&lt;&#x2F;i&gt; &lt;br&#x2F;&gt;力扣</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-notes">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/notes/" rel="section">&lt;i class&#x3D;&quot;menu-item-icon fa fa-fw fa-book&quot;&gt;&lt;&#x2F;i&gt; &lt;br&#x2F;&gt;笔记</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+    
+
+    
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+    
+
+  
+
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+    
+    
+    <div class="post-block page">
+      <header class="post-header">
+
+<h2 class="post-title" itemprop="name headline">数据结构与算法学习（刷题）记录
+
+</h2>
+
+<div class="post-meta">
+  
+  
+
+
+
+</div>
+
+</header>
+
+      
+      
+      
+      <div class="post-body">
+        
+        
+          <table>
+<thead>
+<tr>
+<th>题目</th>
+<th>地址</th>
+<th>标签</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1.Tow Sum</td>
+<td><a href="https://yutouwd.github.io/posts/2304652807">https://yutouwd.github.io/posts/2304652807</a></td>
+<td><a href="https://yutouwd.github.io/tags/vector/">vector</a> <a href="https://yutouwd.github.io/tags/hashmap/">hashmap</a></td>
+</tr>
+<tr>
+<td>2.Add Two Numbers</td>
+<td><a href="https://yutouwd.github.io/posts/2010047615">https://yutouwd.github.io/posts/2010047615</a></td>
+<td><a href="https://yutouwd.github.io/tags/list/">list</a></td>
+</tr>
+<tr>
+<td>3.Longest Substring without Repeating Characters</td>
+<td><a href="https://yutouwd.github.io/posts/1224454559">https://yutouwd.github.io/posts/1224454559</a></td>
+<td><a href="https://yutouwd.github.io/tags/hashmap/">hashmap</a> <a href="https://yutouwd.github.io/tags/滑动窗口">滑动窗口</a></td>
+</tr>
+<tr>
+<td>5.Longest Palindromic Substring</td>
+<td><a href="https://yutouwd.github.io/posts/3942687688">https://yutouwd.github.io/posts/3942687688</a></td>
+<td><a href="https://yutouwd.github.io/tags/动态规划/">动态规划</a></td>
+</tr>
+<tr>
+<td>7.Reverse Interger</td>
+<td><a href="https://yutouwd.github.io/posts/1020379111">https://yutouwd.github.io/posts/1020379111</a></td>
+<td><a href="https://yutouwd.github.io/tags/math/">math</a></td>
+</tr>
+<tr>
+<td>8.String to Integer</td>
+<td><a href="https://yutouwd.github.io/posts/2689180698">https://yutouwd.github.io/posts/2689180698</a></td>
+<td><a href="https://yutouwd.github.io/tags/string/">string</a></td>
+</tr>
+<tr>
+<td>9.Palindrome Number</td>
+<td><a href="https://yutouwd.github.io/posts/837075">https://yutouwd.github.io/posts/837075</a></td>
+<td><a href="https://yutouwd.github.io/tags/math/">math</a></td>
+</tr>
+<tr>
+<td>13.Roman to Integer</td>
+<td><a href="https://yutouwd.github.io/posts/866377430">https://yutouwd.github.io/posts/866377430</a></td>
+<td><a href="https://yutouwd.github.io/tags/string/">string</a></td>
+</tr>
+<tr>
+<td>14.Longest Common Prefix</td>
+<td><a href="https://yutouwd.github.io/posts/4084900668">https://yutouwd.github.io/posts/4084900668</a></td>
+<td><a href="https://yutouwd.github.io/tags/string/">string</a></td>
+</tr>
+<tr>
+<td>17.Letter Combinations of a Phone Number</td>
+<td><a href="https://yutouwd.github.io/posts/2133465870">https://yutouwd.github.io/posts/2133465870</a></td>
+<td><a href="https://yutouwd.github.io/tags/回溯法">回溯法</a></td>
+</tr>
+<tr>
+<td>19.Remove Nth Node From End of List</td>
+<td><a href="https://yutouwd.github.io/posts/1165746741">https://yutouwd.github.io/posts/1165746741</a></td>
+<td><a href="https://yutouwd.github.io/tags/list/">list</a></td>
+</tr>
+<tr>
+<td>20.Valid Parentheses</td>
+<td><a href="https://yutouwd.github.io/posts/4278894845">https://yutouwd.github.io/posts/4278894845</a></td>
+<td><a href="https://yutouwd.github.io/tags/string/">string</a></td>
+</tr>
+<tr>
+<td>21.Merge Two Sorted Lists</td>
+<td><a href="https://yutouwd.github.io/posts/2341614181">https://yutouwd.github.io/posts/2341614181</a></td>
+<td><a href="https://yutouwd.github.io/tags/list/">list</a></td>
+</tr>
+<tr>
+<td>22.Generate Parentheses</td>
+<td><a href="https://yutouwd.github.io/posts/2133465870">https://yutouwd.github.io/posts/2133465870</a></td>
+<td><a href="https://yutouwd.github.io/tags/回溯法">回溯法</a></td>
+</tr>
+<tr>
+<td>26.Remove Duplicates from Sorted Array</td>
+<td><a href="https://yutouwd.github.io/posts/3324950855">https://yutouwd.github.io/posts/3324950855</a></td>
+<td><a href="https://yutouwd.github.io/tags/vector/">vector</a></td>
+</tr>
+<tr>
+<td>27.Remove Element</td>
+<td><a href="https://yutouwd.github.io/posts/2601079941">https://yutouwd.github.io/posts/2601079941</a></td>
+<td><a href="https://yutouwd.github.io/tags/vector/">vector</a></td>
+</tr>
+<tr>
+<td>28.Implement strStr()</td>
+<td><a href="https://yutouwd.github.io/posts/2690412730">https://yutouwd.github.io/posts/2690412730</a></td>
+<td><a href="https://yutouwd.github.io/tags/string/">string</a></td>
+</tr>
+<tr>
+<td>34.Find First and Last Position of Element in Sorted Array</td>
+<td><a href="https://yutouwd.github.io/posts/932931314">https://yutouwd.github.io/posts/932931314</a></td>
+<td><a href="https://yutouwd.github.io/tags/二分查找">二分查找</a></td>
+</tr>
+<tr>
+<td>35.Search Insert Position</td>
+<td><a href="https://yutouwd.github.io/posts/1764221558">https://yutouwd.github.io/posts/1764221558</a></td>
+<td><a href="https://yutouwd.github.io/tags/vector/">vector</a> <a href="https://yutouwd.github.io/tags/二分查找">二分查找</a></td>
+</tr>
+<tr>
+<td>36.Valid Sudoku</td>
+<td><a href="https://yutouwd.github.io/posts/2138873447">https://yutouwd.github.io/posts/2138873447</a></td>
+<td><a href="https://yutouwd.github.io/tags/vector/">vector</a></td>
+</tr>
+<tr>
+<td>38.Count and Say</td>
+<td><a href="https://yutouwd.github.io/posts/2107205244">https://yutouwd.github.io/posts/2107205244</a></td>
+<td><a href="https://yutouwd.github.io/tags/math/">math</a> <a href="https://yutouwd.github.io/tags/string/">string</a></td>
+</tr>
+<tr>
+<td>39.Combination Sum</td>
+<td><a href="https://yutouwd.github.io/posts/2133465870">https://yutouwd.github.io/posts/2133465870</a></td>
+<td><a href="https://yutouwd.github.io/tags/回溯法">回溯法</a></td>
+</tr>
+<tr>
+<td>40.Combination Sum II</td>
+<td><a href="https://yutouwd.github.io/posts/2133465870">https://yutouwd.github.io/posts/2133465870</a></td>
+<td><a href="https://yutouwd.github.io/tags/回溯法">回溯法</a></td>
+</tr>
+<tr>
+<td>46.Permutations</td>
+<td><a href="https://yutouwd.github.io/posts/2133465870">https://yutouwd.github.io/posts/2133465870</a></td>
+<td><a href="https://yutouwd.github.io/tags/回溯法">回溯法</a></td>
+</tr>
+<tr>
+<td>47.Permutations II</td>
+<td><a href="https://yutouwd.github.io/posts/2133465870">https://yutouwd.github.io/posts/2133465870</a></td>
+<td><a href="https://yutouwd.github.io/tags/回溯法">回溯法</a></td>
+</tr>
+<tr>
+<td>48.Rotate Image</td>
+<td><a href="https://yutouwd.github.io/posts/1761982827">https://yutouwd.github.io/posts/1761982827</a></td>
+<td><a href="https://yutouwd.github.io/tags/vector/">vector</a></td>
+</tr>
+<tr>
+<td>49.Group Anagrams</td>
+<td><a href="https://yutouwd.github.io/posts/3379987828">https://yutouwd.github.io/posts/3379987828</a></td>
+<td><a href="https://yutouwd.github.io/tags/hashmap/">hashmap</a></td>
+</tr>
+<tr>
+<td>50.Pow(x,n)</td>
+<td><a href="https://yutouwd.github.io/posts/2356977837">https://yutouwd.github.io/posts/2356977837</a></td>
+<td><a href="https://yutouwd.github.io/tags/math/">math</a></td>
+</tr>
+<tr>
+<td>53.Maximum Subarray</td>
+<td><a href="https://yutouwd.github.io/posts/1411250823">https://yutouwd.github.io/posts/1411250823</a></td>
+<td><a href="https://yutouwd.github.io/tags/math/">math</a> <a href="https://yutouwd.github.io/tags/分治法/">分治法</a> <a href="https://yutouwd.github.io/tags/动态规划/">动态规划</a></td>
+</tr>
+<tr>
+<td>58.Length of Last Word</td>
+<td><a href="https://yutouwd.github.io/posts/116524668">https://yutouwd.github.io/posts/116524668</a></td>
+<td><a href="https://yutouwd.github.io/tags/string/">string</a></td>
+</tr>
+<tr>
+<td>62.Unique Paths</td>
+<td><a href="https://yutouwd.github.io/posts/1511993047">https://yutouwd.github.io/posts/1511993047</a></td>
+<td><a href="https://yutouwd.github.io/tags/math/">math</a> <a href="https://yutouwd.github.io/tags/动态规划/">动态规划</a></td>
+</tr>
+<tr>
+<td>63.Unique Paths II</td>
+<td><a href="https://yutouwd.github.io/posts/1744891308">https://yutouwd.github.io/posts/1744891308</a></td>
+<td><a href="https://yutouwd.github.io/tags/math/">math</a> <a href="https://yutouwd.github.io/tags/动态规划/">动态规划</a></td>
+</tr>
+<tr>
+<td>64.Minimun Path Sum</td>
+<td><a href="https://yutouwd.github.io/posts/3379915881">https://yutouwd.github.io/posts/3379915881</a></td>
+<td><a href="https://yutouwd.github.io/tags/动态规划/">动态规划</a></td>
+</tr>
+<tr>
+<td>66.Plus One</td>
+<td><a href="https://yutouwd.github.io/posts/353015550">https://yutouwd.github.io/posts/353015550</a></td>
+<td><a href="https://yutouwd.github.io/tags/vector/">vector</a></td>
+</tr>
+<tr>
+<td>70.Climbing Stairs</td>
+<td><a href="https://yutouwd.github.io/posts/1665362949">https://yutouwd.github.io/posts/1665362949</a></td>
+<td><a href="https://yutouwd.github.io/tags/math/">math</a> <a href="https://yutouwd.github.io/tags/分治法/">分治法</a></td>
+</tr>
+<tr>
+<td>73.Set Matrix Zeros</td>
+<td><a href="https://yutouwd.github.io/posts/2772617193">https://yutouwd.github.io/posts/2772617193</a></td>
+<td><a href="https://yutouwd.github.io/tags/vector/">vector</a></td>
+</tr>
+<tr>
+<td>77.Combinations</td>
+<td><a href="https://yutouwd.github.io/posts/1059005173">https://yutouwd.github.io/posts/1059005173</a></td>
+<td><a href="https://yutouwd.github.io/tags/回溯法">回溯法</a></td>
+</tr>
+<tr>
+<td>78.Subsets</td>
+<td><a href="https://yutouwd.github.io/posts/2133465870">https://yutouwd.github.io/posts/2133465870</a></td>
+<td><a href="https://yutouwd.github.io/tags/回溯法">回溯法</a></td>
+</tr>
+<tr>
+<td>88.Merge Sorted Array</td>
+<td><a href="https://yutouwd.github.io/posts/1685248582">https://yutouwd.github.io/posts/1685248582</a></td>
+<td><a href="https://yutouwd.github.io/tags/vector/">vector</a></td>
+</tr>
+<tr>
+<td>94.Binary Tree Inorder Traversal</td>
+<td><a href="https://yutouwd.github.io/posts/3359640998">https://yutouwd.github.io/posts/3359640998</a></td>
+<td><a href="https://yutouwd.github.io/tags/tree">tree</a></td>
+</tr>
+<tr>
+<td>98.Validate Binary Search Tree</td>
+<td><a href="https://yutouwd.github.io/posts/521402559">https://yutouwd.github.io/posts/521402559</a></td>
+<td><a href="https://yutouwd.github.io/tags/tree">tree</a></td>
+</tr>
+<tr>
+<td>101.Symmetic Tree</td>
+<td><a href="https://yutouwd.github.io/posts/1627979900">https://yutouwd.github.io/posts/1627979900</a></td>
+<td><a href="https://yutouwd.github.io/tags/tree">tree</a></td>
+</tr>
+<tr>
+<td>102.Binary Tree Level Order Traversal</td>
+<td><a href="https://yutouwd.github.io/posts/3533375508">https://yutouwd.github.io/posts/3533375508</a></td>
+<td><a href="https://yutouwd.github.io/tags/tree">tree</a></td>
+</tr>
+<tr>
+<td>103.Binary Tree Zigzag Level Order Traversal</td>
+<td><a href="https://yutouwd.github.io/posts/2376334793">https://yutouwd.github.io/posts/2376334793</a></td>
+<td><a href="https://yutouwd.github.io/tags/tree">tree</a></td>
+</tr>
+<tr>
+<td>104.Maximum Depth of Binary Tree</td>
+<td><a href="https://yutouwd.github.io/posts/282883092">https://yutouwd.github.io/posts/282883092</a></td>
+<td><a href="https://yutouwd.github.io/tags/tree">tree</a></td>
+</tr>
+<tr>
+<td>107.Binary Tree Level Order Traversal II</td>
+<td><a href="https://yutouwd.github.io/posts/4050777627">https://yutouwd.github.io/posts/4050777627</a></td>
+<td><a href="https://yutouwd.github.io/tags/tree">tree</a></td>
+</tr>
+<tr>
+<td>108.Convert Sorted Array to Binary Search Tree</td>
+<td><a href="https://yutouwd.github.io/posts/137445652">https://yutouwd.github.io/posts/137445652</a></td>
+<td><a href="https://yutouwd.github.io/tags/tree">tree</a></td>
+</tr>
+<tr>
+<td>116.Populating Next Right Pointer in Each Node</td>
+<td><a href="https://yutouwd.github.io/posts/3551767496">https://yutouwd.github.io/posts/3551767496</a></td>
+<td><a href="https://yutouwd.github.io/tags/tree">tree</a> \</td>
+</tr>
+<tr>
+<td>118.Pascal Triangle</td>
+<td><a href="https://yutouwd.github.io/posts/281994477">https://yutouwd.github.io/posts/281994477</a></td>
+<td><a href="https://yutouwd.github.io/tags/math/">math</a></td>
+</tr>
+<tr>
+<td>120.Triangle</td>
+<td><a href="https://yutouwd.github.io/posts/3362500974">https://yutouwd.github.io/posts/3362500974</a></td>
+<td><a href="https://yutouwd.github.io/tags/math/">math</a> <a href="https://yutouwd.github.io/tags/动态规划/">动态规划</a></td>
+</tr>
+<tr>
+<td>121.Best Time to Buy and Sell Stock</td>
+<td><a href="https://yutouwd.github.io/posts/3220033831">https://yutouwd.github.io/posts/3220033831</a></td>
+<td><a href="https://yutouwd.github.io/tags/math/">math</a></td>
+</tr>
+<tr>
+<td>122.Best Time to Buy and Sell Stock II</td>
+<td><a href="https://yutouwd.github.io/posts/473611493">https://yutouwd.github.io/posts/473611493</a></td>
+<td><a href="https://yutouwd.github.io/tags/math/">math</a></td>
+</tr>
+<tr>
+<td>123.Best Time to Buy and Sell Stock III</td>
+<td><a href="https://yutouwd.github.io/posts/974687170">https://yutouwd.github.io/posts/974687170</a></td>
+<td><a href="https://yutouwd.github.io/tags/math/">math</a> <a href="https://yutouwd.github.io/tags/动态规划/">动态规划</a></td>
+</tr>
+<tr>
+<td>125.Valid Palindrome</td>
+<td><a href="https://yutouwd.github.io/posts/2448753357">https://yutouwd.github.io/posts/2448753357</a></td>
+<td><a href="https://yutouwd.github.io/tags/string/">string</a></td>
+</tr>
+<tr>
+<td>130.Surrounded Regions</td>
+<td><a href="https://yutouwd.github.io/posts/172704068">https://yutouwd.github.io/posts/172704068</a></td>
+<td><a href="https://yutouwd.github.io/tags/广度优先">深度优先</a> <a href="https://yutouwd.github.io/tags/深度优先">广度优先</a></td>
+</tr>
+<tr>
+<td>136.Single Number</td>
+<td><a href="https://yutouwd.github.io/posts/1550415194">https://yutouwd.github.io/posts/1550415194</a></td>
+<td><a href="https://yutouwd.github.io/tags/vector/">vector</a></td>
+</tr>
+<tr>
+<td>141.Linked List Cycle</td>
+<td><a href="https://yutouwd.github.io/posts/3103972891">https://yutouwd.github.io/posts/3103972891</a></td>
+<td><a href="https://yutouwd.github.io/tags/list/">list</a></td>
+</tr>
+<tr>
+<td>142.Linked List Cycle II</td>
+<td><a href="https://yutouwd.github.io/posts/3693154351">https://yutouwd.github.io/posts/3693154351</a></td>
+<td><a href="https://yutouwd.github.io/tags/list/">list</a></td>
+</tr>
+<tr>
+<td>143.Reorder List</td>
+<td><a href="https://yutouwd.github.io/posts/286346543">https://yutouwd.github.io/posts/286346543</a></td>
+<td><a href="https://yutouwd.github.io/tags/list/">list</a></td>
+</tr>
+<tr>
+<td>144.Binary Tree Preorder Traversal</td>
+<td><a href="https://yutouwd.github.io/posts/3359640998">https://yutouwd.github.io/posts/3359640998</a></td>
+<td><a href="https://yutouwd.github.io/tags/tree">tree</a></td>
+</tr>
+<tr>
+<td>145.Binary Tree Postorder Traversal</td>
+<td><a href="https://yutouwd.github.io/posts/3359640998">https://yutouwd.github.io/posts/3359640998</a></td>
+<td><a href="https://yutouwd.github.io/tags/tree">tree</a></td>
+</tr>
+<tr>
+<td>146.LRU Cache</td>
+<td><a href="https://yutouwd.github.io/posts/426719232">https://yutouwd.github.io/posts/426719232</a></td>
+<td><a href="https://yutouwd.github.io/tags/design">design</a></td>
+</tr>
+<tr>
+<td>155.Min Stack</td>
+<td><a href="https://yutouwd.github.io/posts/2122295331">https://yutouwd.github.io/posts/2122295331</a></td>
+<td><a href="https://yutouwd.github.io/tags/design">design</a> <a href="https://yutouwd.github.io/tags/stack">stack</a></td>
+</tr>
+<tr>
+<td>169.Majority Element</td>
+<td><a href="https://yutouwd.github.io/posts/3720766983">https://yutouwd.github.io/posts/3720766983</a></td>
+<td><a href="https://yutouwd.github.io/tags/分治法/">分治法</a></td>
+</tr>
+<tr>
+<td>188.Best Time to Buy and Sell Stock IV</td>
+<td><a href="https://yutouwd.github.io/posts/1646362365">https://yutouwd.github.io/posts/1646362365</a></td>
+<td><a href="https://yutouwd.github.io/tags/动态规划/">动态规划</a></td>
+</tr>
+<tr>
+<td>189.Rotate Array</td>
+<td><a href="https://yutouwd.github.io/posts/4112301143">https://yutouwd.github.io/posts/4112301143</a></td>
+<td><a href="https://yutouwd.github.io/tags/vector/">vector</a></td>
+</tr>
+<tr>
+<td>190.Reverse Bits</td>
+<td><a href="https://yutouwd.github.io/posts/328681550">https://yutouwd.github.io/posts/328681550</a></td>
+<td><a href="https://yutouwd.github.io/tags/位操作">位操作</a></td>
+</tr>
+<tr>
+<td>191.Number of 1 Bits</td>
+<td><a href="https://yutouwd.github.io/posts/100215024">https://yutouwd.github.io/posts/100215024</a></td>
+<td><a href="https://yutouwd.github.io/tags/位操作">位操作</a></td>
+</tr>
+<tr>
+<td>195.Tenth Line</td>
+<td><a href="https://yutouwd.github.io/posts/633169037">https://yutouwd.github.io/posts/633169037</a></td>
+<td><a href="https://yutouwd.github.io/tags/bash">bash</a></td>
+</tr>
+<tr>
+<td>198.House Robber</td>
+<td><a href="https://yutouwd.github.io/posts/2797751844">https://yutouwd.github.io/posts/2797751844</a></td>
+<td><a href="https://yutouwd.github.io/tags/动态规划/">动态规划</a></td>
+</tr>
+<tr>
+<td>200.Numbers of Island</td>
+<td><a href="https://yutouwd.github.io/posts/1693659293">https://yutouwd.github.io/posts/1693659293</a></td>
+<td><a href="https://yutouwd.github.io/tags/vector/">vector</a> <a href="https://yutouwd.github.io/tags/深度优先">深度优先</a></td>
+</tr>
+<tr>
+<td>204.Count Primes</td>
+<td><a href="https://yutouwd.github.io/posts/828591771">https://yutouwd.github.io/posts/828591771</a></td>
+<td><a href="https://yutouwd.github.io/tags/math/">math</a></td>
+</tr>
+<tr>
+<td>206.Reverse Linked List</td>
+<td><a href="https://yutouwd.github.io/posts/2829474180">https://yutouwd.github.io/posts/2829474180</a></td>
+<td><a href="https://yutouwd.github.io/tags/list/">list</a></td>
+</tr>
+<tr>
+<td>208.Implement Trie Prefix Tree</td>
+<td><a href="https://yutouwd.github.io/posts/3444422637">https://yutouwd.github.io/posts/3444422637</a></td>
+<td><a href="https://yutouwd.github.io/tags/string/">string</a> <a href="https://yutouwd.github.io/tags/tree">tree</a></td>
+</tr>
+<tr>
+<td>215.Kth Largest Element in an Array</td>
+<td><a href="https://yutouwd.github.io/posts/2993655736">https://yutouwd.github.io/posts/2993655736</a></td>
+<td><a href="https://yutouwd.github.io/tags/vector/">vector</a> <a href="https://yutouwd.github.io/tags/math/">math</a></td>
+</tr>
+<tr>
+<td>217.Contains Duplicate</td>
+<td><a href="https://yutouwd.github.io/posts/679636703">https://yutouwd.github.io/posts/679636703</a></td>
+<td><a href="https://yutouwd.github.io/tags/vector/">vector</a></td>
+</tr>
+<tr>
+<td>223.Rectangle Area</td>
+<td><a href="https://yutouwd.github.io/posts/3099514846">https://yutouwd.github.io/posts/3099514846</a></td>
+<td><a href="https://yutouwd.github.io/tags/math/">math</a></td>
+</tr>
+<tr>
+<td>225.Implement Stack Using Queue</td>
+<td><a href="https://yutouwd.github.io/posts/619958913">https://yutouwd.github.io/posts/619958913</a></td>
+<td><a href="https://yutouwd.github.io/tags/design">design</a> <a href="https://yutouwd.github.io/tags/stack">stack</a> <a href="https://yutouwd.github.io/tags/queue">queue</a></td>
+</tr>
+<tr>
+<td>226.Invert Binary Tree</td>
+<td><a href="https://yutouwd.github.io/posts/3176726672">https://yutouwd.github.io/posts/3176726672</a></td>
+<td><a href="https://yutouwd.github.io/tags/tree">tree</a></td>
+</tr>
+<tr>
+<td>231.Power of two</td>
+<td><a href="https://yutouwd.github.io/posts/1808807184">https://yutouwd.github.io/posts/1808807184</a></td>
+<td><a href="https://yutouwd.github.io/tags/位操作">位操作</a></td>
+</tr>
+<tr>
+<td>234.Palindrome Linked List</td>
+<td><a href="https://yutouwd.github.io/posts/3702077338">https://yutouwd.github.io/posts/3702077338</a></td>
+<td><a href="https://yutouwd.github.io/tags/list/">list</a></td>
+</tr>
+<tr>
+<td>237.Delete Node in a List</td>
+<td><a href="https://yutouwd.github.io/posts/3749239881">https://yutouwd.github.io/posts/3749239881</a></td>
+<td><a href="https://yutouwd.github.io/tags/list/">list</a></td>
+</tr>
+<tr>
+<td>242.Valid Anagram</td>
+<td><a href="https://yutouwd.github.io/posts/544546071">https://yutouwd.github.io/posts/544546071</a></td>
+<td><a href="https://yutouwd.github.io/tags/string/">string</a> <a href="https://yutouwd.github.io/tags/hashmap/">hashmap</a></td>
+</tr>
+<tr>
+<td>257.Binary Tree Path</td>
+<td><a href="https://yutouwd.github.io/posts/2991780344">https://yutouwd.github.io/posts/2991780344</a></td>
+<td><a href="https://yutouwd.github.io/tags/tree">tree</a> <a href="https://yutouwd.github.io/tags/深度优先">深度优先</a></td>
+</tr>
+<tr>
+<td>268.Missing Number</td>
+<td><a href="https://yutouwd.github.io/posts/2942226103">https://yutouwd.github.io/posts/2942226103</a></td>
+<td><a href="https://yutouwd.github.io/tags/math/">math</a> <a href="https://yutouwd.github.io/tags/hashmap/">hashmap</a></td>
+</tr>
+<tr>
+<td>278.First Bad Version</td>
+<td><a href="https://yutouwd.github.io/posts/539789119">https://yutouwd.github.io/posts/539789119</a></td>
+<td><a href="https://yutouwd.github.io/tags/math/">math</a> <a href="https://yutouwd.github.io/tags/二分查找">二分查找</a></td>
+</tr>
+<tr>
+<td>283.Move Zeroes</td>
+<td><a href="https://yutouwd.github.io/posts/2335896064">https://yutouwd.github.io/posts/2335896064</a></td>
+<td><a href="https://yutouwd.github.io/tags/vector/">vector</a></td>
+</tr>
+<tr>
+<td>290.Word Pattarn</td>
+<td><a href="https://yutouwd.github.io/posts/1795481488">https://yutouwd.github.io/posts/1795481488</a></td>
+<td><a href="https://yutouwd.github.io/tags/string/">string</a></td>
+</tr>
+<tr>
+<td>300.Longest Increasing Subsequence</td>
+<td><a href="https://yutouwd.github.io/posts/2008457831">https://yutouwd.github.io/posts/2008457831</a></td>
+<td><a href="https://yutouwd.github.io/tags/动态规划/">动态规划</a></td>
+</tr>
+<tr>
+<td>309.Best Time to Buy and Sell Stock with Cooldown</td>
+<td><a href="https://yutouwd.github.io/posts/4032611973">https://yutouwd.github.io/posts/4032611973</a></td>
+<td><a href="https://yutouwd.github.io/tags/动态规划/">动态规划</a></td>
+</tr>
+<tr>
+<td>326.Power of Three</td>
+<td><a href="https://yutouwd.github.io/posts/2084194376">https://yutouwd.github.io/posts/2084194376</a></td>
+<td><a href="https://yutouwd.github.io/tags/math/">math</a></td>
+</tr>
+<tr>
+<td>328.Odd Even Linked List</td>
+<td><a href="https://yutouwd.github.io/posts/1942160452">https://yutouwd.github.io/posts/1942160452</a></td>
+<td><a href="https://yutouwd.github.io/tags/list/">list</a></td>
+</tr>
+<tr>
+<td>344.Reverse String</td>
+<td><a href="https://yutouwd.github.io/posts/3640092658">https://yutouwd.github.io/posts/3640092658</a></td>
+<td><a href="https://yutouwd.github.io/tags/string/">string</a></td>
+</tr>
+<tr>
+<td>349.Intersection of Two Arrays</td>
+<td><a href="https://yutouwd.github.io/posts/1952106908">https://yutouwd.github.io/posts/1952106908</a></td>
+<td><a href="https://yutouwd.github.io/tags/vector/">vector</a> <a href="https://yutouwd.github.io/tags/hashmap/">hashmap</a></td>
+</tr>
+<tr>
+<td>350.Intersection of Two Arrays II</td>
+<td><a href="https://yutouwd.github.io/posts/2444108763">https://yutouwd.github.io/posts/2444108763</a></td>
+<td><a href="https://yutouwd.github.io/tags/vector/">vector</a> <a href="https://yutouwd.github.io/tags/hashmap/">hashmap</a></td>
+</tr>
+<tr>
+<td>384.Shuffle an Array</td>
+<td><a href="https://yutouwd.github.io/posts/2829300232">https://yutouwd.github.io/posts/2829300232</a></td>
+<td><a href="https://yutouwd.github.io/tags/design">design</a></td>
+</tr>
+<tr>
+<td>387.First Unique Character in a String</td>
+<td><a href="https://yutouwd.github.io/posts/1245254830">https://yutouwd.github.io/posts/1245254830</a></td>
+<td><a href="https://yutouwd.github.io/tags/string/">string</a> <a href="https://yutouwd.github.io/tags/hashmap/">hashmap</a></td>
+</tr>
+<tr>
+<td>404.Sum of Left Leaves</td>
+<td><a href="https://yutouwd.github.io/posts/3649739623">https://yutouwd.github.io/posts/3649739623</a></td>
+<td><a href="https://yutouwd.github.io/tags/tree">tree</a></td>
+</tr>
+<tr>
+<td>409.Longest Palindrome</td>
+<td><a href="https://yutouwd.github.io/posts/2988636715">https://yutouwd.github.io/posts/2988636715</a></td>
+<td><a href="https://yutouwd.github.io/tags/string/">string</a> <a href="https://yutouwd.github.io/tags/hashmap/">hashmap</a></td>
+</tr>
+<tr>
+<td>412.Fizz Buzz</td>
+<td><a href="https://yutouwd.github.io/posts/807358486">https://yutouwd.github.io/posts/807358486</a></td>
+<td><a href="https://yutouwd.github.io/tags/math/">math</a></td>
+</tr>
+<tr>
+<td>441.Arraging Coins</td>
+<td><a href="https://yutouwd.github.io/posts/2997814324">https://yutouwd.github.io/posts/2997814324</a></td>
+<td><a href="https://yutouwd.github.io/tags/math/">math</a></td>
+</tr>
+<tr>
+<td>445.Add Two Numbers II</td>
+<td><a href="https://yutouwd.github.io/posts/1819473222">https://yutouwd.github.io/posts/1819473222</a></td>
+<td><a href="https://yutouwd.github.io/tags/list/">list</a></td>
+</tr>
+<tr>
+<td>461.Hamming Distance</td>
+<td><a href="https://yutouwd.github.io/posts/890411703">https://yutouwd.github.io/posts/890411703</a></td>
+<td><a href="https://yutouwd.github.io/tags/位操作">位操作</a></td>
+</tr>
+<tr>
+<td>589.N-ary Tree Preorder Traversal</td>
+<td><a href="https://yutouwd.github.io/posts/1370213866">https://yutouwd.github.io/posts/1370213866</a></td>
+<td><a href="https://yutouwd.github.io/tags/tree">tree</a></td>
+</tr>
+<tr>
+<td>590.N-ary Tree Postorder Traversal</td>
+<td><a href="https://yutouwd.github.io/posts/2778829074">https://yutouwd.github.io/posts/2778829074</a></td>
+<td><a href="https://yutouwd.github.io/tags/tree">tree</a></td>
+</tr>
+<tr>
+<td>637.Average of Levels in Binary Tree</td>
+<td><a href="https://yutouwd.github.io/posts/1794294162">https://yutouwd.github.io/posts/1794294162</a></td>
+<td><a href="https://yutouwd.github.io/tags/tree">tree</a></td>
+</tr>
+<tr>
+<td>695.Max Area of Island</td>
+<td><a href="https://yutouwd.github.io/posts/3305314244">https://yutouwd.github.io/posts/3305314244</a></td>
+<td><a href="https://yutouwd.github.io/tags/广度优先">广度优先</a></td>
+</tr>
+<tr>
+<td>704.Binary Search</td>
+<td><a href="https://yutouwd.github.io/posts/1944760669">https://yutouwd.github.io/posts/1944760669</a></td>
+<td><a href="https://yutouwd.github.io/tags/二分查找">二分查找</a></td>
+</tr>
+<tr>
+<td>714.Best Time to Buy and Sell Stock with Transaction Fee</td>
+<td><a href="https://yutouwd.github.io/posts/1342612877">https://yutouwd.github.io/posts/1342612877</a></td>
+<td><a href="https://yutouwd.github.io/tags/动态规划/">动态规划</a></td>
+</tr>
+<tr>
+<td>724.Find Pivot Number</td>
+<td><a href="https://yutouwd.github.io/posts/2616520552">https://yutouwd.github.io/posts/2616520552</a></td>
+<td><a href="https://yutouwd.github.io/tags/vector/">vector</a></td>
+</tr>
+<tr>
+<td>733.Flood Fill</td>
+<td><a href="https://yutouwd.github.io/posts/3305314244">https://yutouwd.github.io/posts/3305314244</a></td>
+<td><a href="https://yutouwd.github.io/tags/广度优先">广度优先</a></td>
+</tr>
+<tr>
+<td>771.Jewels and Stones</td>
+<td><a href="https://yutouwd.github.io/posts/2189086012">https://yutouwd.github.io/posts/2189086012</a></td>
+<td><a href="https://yutouwd.github.io/tags/hashmap/">hashmap</a></td>
+</tr>
+<tr>
+<td>824.Goat Latin</td>
+<td><a href="https://yutouwd.github.io/posts/316802933">https://yutouwd.github.io/posts/316802933</a></td>
+<td><a href="https://yutouwd.github.io/tags/string/">string</a></td>
+</tr>
+<tr>
+<td>844.Backspace string compare</td>
+<td><a href="https://yutouwd.github.io/posts/3938366888">https://yutouwd.github.io/posts/3938366888</a></td>
+<td><a href="https://yutouwd.github.io/tags/string/">string</a></td>
+</tr>
+<tr>
+<td>876.Middle of the Linked List</td>
+<td><a href="https://yutouwd.github.io/posts/2202627585">https://yutouwd.github.io/posts/2202627585</a></td>
+<td><a href="https://yutouwd.github.io/tags/list/">list</a></td>
+</tr>
+<tr>
+<td>914.X of a Kind in a deck of Cards</td>
+<td><a href="https://yutouwd.github.io/posts/4098248511">https://yutouwd.github.io/posts/4098248511</a></td>
+<td><a href="https://yutouwd.github.io/tags/math/">math</a> <a href="https://yutouwd.github.io/tags/hashmap/">hashmap</a></td>
+</tr>
+<tr>
+<td>994.Rotting Oranges</td>
+<td><a href="https://yutouwd.github.io/posts/1420042497">https://yutouwd.github.io/posts/1420042497</a></td>
+<td><a href="https://yutouwd.github.io/tags/广度优先">广度优先</a></td>
+</tr>
+<tr>
+<td>1013.Partition Array into Three Parts with Equal Sum</td>
+<td><a href="https://yutouwd.github.io/posts/1190621326">https://yutouwd.github.io/posts/1190621326</a></td>
+<td><a href="https://yutouwd.github.io/tags/math/">math</a> <a href="https://yutouwd.github.io/tags/vector/">vector</a></td>
+</tr>
+<tr>
+<td>1018.Binary Prefix Divisble By 5</td>
+<td><a href="https://yutouwd.github.io/posts/2948955516">https://yutouwd.github.io/posts/2948955516</a></td>
+<td><a href="https://yutouwd.github.io/tags/位操作">位操作</a></td>
+</tr>
+<tr>
+<td>1020.Number of Enclaves</td>
+<td><a href="https://yutouwd.github.io/posts/3587513103">https://yutouwd.github.io/posts/3587513103</a></td>
+<td><a href="https://yutouwd.github.io/tags/深度优先">深度优先</a></td>
+</tr>
+<tr>
+<td>1103.Distribute Candies to People</td>
+<td><a href="https://yutouwd.github.io/posts/839276500">https://yutouwd.github.io/posts/839276500</a></td>
+<td><a href="https://yutouwd.github.io/tags/math/">math</a></td>
+</tr>
+<tr>
+<td>1160.Find Words That Can Be Formed by Characters</td>
+<td><a href="https://yutouwd.github.io/posts/3557020099">https://yutouwd.github.io/posts/3557020099</a></td>
+<td><a href="https://yutouwd.github.io/tags/string/">string</a></td>
+</tr>
+</tbody>
+</table>
+<p>120/200</p>
+<p><strong>算法总结</strong>：</p>
+<ol>
+<li><a href="https://yutouwd.github.io/posts/2133465870">回溯法</a></li>
+<li><a href="https://yutouwd.github.io/posts/3942687688">动态规划</a></li>
+<li><a href="https://yutouwd.github.io/posts/3634812730">排序算法</a></li>
+<li><a href="https://yutouwd.github.io/posts/1125352499">二分查找</a></li>
+</ol>
+
+        
+      </div>
+      
+      
+      
+    </div>
+    
+
+
+
+    
+    
+    
+  </div>
+
+
+          </div>
+          
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">yutouwd</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">127</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">19</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">40</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/yutouwd" title="GitHub &amp;rarr; https:&#x2F;&#x2F;github.com&#x2F;yutouwd" rel="noopener" target="_blank">&lt;i class&#x3D;&quot;fa fa-fw fa-github&quot;&gt;&lt;&#x2F;i&gt;GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="mailto:yutouwd@gmail.com" title="E-Mail &amp;rarr; mailto:yutouwd@gmail.com" rel="noopener" target="_blank">&lt;i class&#x3D;&quot;fa fa-fw fa-envelope&quot;&gt;&lt;&#x2F;i&gt;E-Mail</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">yutouwd</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">文字总数&#58;</span>
+    
+    <span title="post.totalcount">71k</span>
+  
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.0.0</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/src/utils.js?v=7.0.0"></script>
+
+  <script src="/js/src/motion.js?v=7.0.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/src/schemes/muse.js?v=7.0.0"></script>
+
+
+
+  
+  <script src="/js/src/scrollspy.js?v=7.0.0"></script>
+<script src="/js/src/post-details.js?v=7.0.0"></script>
+
+
+
+  
+
+
+  <script src="/js/src/bootstrap.js?v=7.0.0"></script>
+
+
+
+  
+  
+
+<script src="//cdn1.lncld.net/static/js/3.11.1/av-min.js"></script>
+
+
+
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+
+<script>
+  var GUEST = ['nick', 'mail', 'link'];
+  var guest = 'nick,mail,link';
+  guest = guest.split(',').filter(function(item) {
+    return GUEST.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#comments',
+    verify: true,
+    notify: true,
+    appId: 'IyLr0ozy6Xzdjq2JrDehrIn9-gzGzoHsz',
+    appKey: 'FEqRgVoI4cMfVIGolcQ46n6G',
+    placeholder: '快来评论吧 (๑•̀ㅂ•́)و✧',
+    avatar: 'mm',
+    meta: guest,
+    pageSize: '10' || 10,
+    visitor: true
+  });
+</script>
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+  <script>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+      }
+      else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+      }
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+  
+
+  
+  
+
+  
+  
+
+  
+
+
+  
+  
+  
+  <script src="/lib/needsharebutton/needsharebutton.js"></script>
+  <script>
+    
+      pbOptions = {};
+      
+        pbOptions.iconStyle = "box";
+      
+        pbOptions.boxForm = "horizontal";
+      
+        pbOptions.position = "bottomCenter";
+      
+        pbOptions.networks = "Weibo,Wechat,Douban,QQZone,Twitter,Facebook";
+      
+      new needShareButton('#needsharebutton-postbottom', pbOptions);
+    
+    
+  </script>
+
+
+  
+
+  
+  
+  
+  <script src="/lib/pangu/dist/pangu.min.js?v=3.3"></script>
+  <script>pangu.spacingPage();</script>
+
+
+  
+
+  
+
+  
+
+  
+  <style>
+    .copy-btn {
+      display: inline-block;
+      padding: 6px 12px;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 20px;
+      color: #333;
+      white-space: nowrap;
+      vertical-align: middle;
+      cursor: pointer;
+      background-color: #eee;
+      background-image: linear-gradient(#fcfcfc, #eee);
+      border: 1px solid #d5d5d5;
+      border-radius: 3px;
+      user-select: none;
+      outline: 0;
+    }
+
+    .highlight-wrap .copy-btn {
+      transition: opacity .3s ease-in-out;
+      opacity: 0;
+      padding: 2px 6px;
+      position: absolute;
+      right: 4px;
+      top: 8px;
+    }
+
+    .highlight-wrap:hover .copy-btn,
+    .highlight-wrap .copy-btn:focus {
+      opacity: 1
+    }
+
+    .highlight-wrap {
+      position: relative;
+    }
+  </style>
+  <script>
+    $('.highlight').each(function(i, e) {
+      var $wrap = $('<div>').addClass('highlight-wrap');
+      $(e).after($wrap);
+      $wrap.append($('<button>').addClass('copy-btn').append('复制').on('click', function(e) {
+        var code = $(this).parent().find('.code').find('.line').map(function(i, e) {
+          return $(e).text();
+        }).toArray().join('\n');
+        var ta = document.createElement('textarea');
+        var range = document.createRange(); //For Chrome
+        var sel = window.getSelection(); //For Chrome
+        var yPosition = window.pageYOffset || document.documentElement.scrollTop;
+        ta.style.top = yPosition + 'px'; //Prevent page scroll
+        ta.style.position = 'absolute';
+        ta.style.opacity = '0';
+        ta.value = code;
+        ta.textContent = code; //For FireFox
+        ta.contentEditable = true;
+        ta.readOnly = false;
+        document.body.appendChild(ta);
+        range.selectNode(ta);
+        sel.removeAllRanges();
+        sel.addRange(range);
+        ta.setSelectionRange(0, code.length);
+        var result = document.execCommand('copy');
+        
+          if (result) $(this).text('复制成功');
+          else $(this).text('复制失败');
+        
+        ta.blur(); //For iOS
+        $(this).blur();
+      })).on('mouseleave', function(e) {
+        var $b = $(this).find('.copy-btn');
+        setTimeout(function() {
+          $b.text('复制');
+        }, 300);
+      }).append(e);
+    })
+  </script>
+
+
+  
+
+</body>
+</html>

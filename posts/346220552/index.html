@@ -1,0 +1,1370 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+  
+  
+  <link rel="stylesheet" href="/lib/needsharebutton/needsharebutton.css">
+
+
+
+
+
+
+
+
+
+  <meta name="google-site-verification" content="VsdEz17DzZPAdPIQ2K1kjppHtRWQ1HvY4SXP2UYoGb4">
+
+
+
+
+
+
+
+  <meta name="baidu-site-verification" content="jqZ0Y8rEND.yutouwd.github.io">
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=7.0.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.0.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.0.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.0.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.0.0" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '7.0.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="D* Lite算法是一种增量启发式搜素算法，由Sven Koeing和Maxim Likhachev于2004年提出，是基于LPA* 和Dynamic SWSF-FP的一种算法。D* Lite算法可以适用于地图未知、环境随时会发生变化的情况，在遇到新增加的障碍物时，可以利用先前搜索所获得的信息，而不需要完全重新规划路径。">
+<meta name="keywords" content="广度优先,路径规划">
+<meta property="og:type" content="article">
+<meta property="og:title" content="路径规划之D* Lite算法详解及实现">
+<meta property="og:url" content="http://yutouwd.github.io/posts/346220552/index.html">
+<meta property="og:site_name" content="yutouwd">
+<meta property="og:description" content="D* Lite算法是一种增量启发式搜素算法，由Sven Koeing和Maxim Likhachev于2004年提出，是基于LPA* 和Dynamic SWSF-FP的一种算法。D* Lite算法可以适用于地图未知、环境随时会发生变化的情况，在遇到新增加的障碍物时，可以利用先前搜索所获得的信息，而不需要完全重新规划路径。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://yutouwd.github.io/posts/346220552/1.gif">
+<meta property="og:image" content="http://yutouwd.github.io/posts/346220552/2.gif">
+<meta property="og:image" content="http://yutouwd.github.io/posts/346220552/3.gif">
+<meta property="og:image" content="http://yutouwd.github.io/posts/346220552/5.png">
+<meta property="og:image" content="http://yutouwd.github.io/posts/346220552/8.png">
+<meta property="og:image" content="http://yutouwd.github.io/posts/346220552/6.png">
+<meta property="og:image" content="http://yutouwd.github.io/posts/346220552/7.png">
+<meta property="og:image" content="http://yutouwd.github.io/posts/346220552/DStarLiteAdd.gif">
+<meta property="og:image" content="http://yutouwd.github.io/posts/346220552/DStarLiteDel.gif">
+<meta property="og:updated_time" content="2021-08-10T14:12:10.372Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="路径规划之D* Lite算法详解及实现">
+<meta name="twitter:description" content="D* Lite算法是一种增量启发式搜素算法，由Sven Koeing和Maxim Likhachev于2004年提出，是基于LPA* 和Dynamic SWSF-FP的一种算法。D* Lite算法可以适用于地图未知、环境随时会发生变化的情况，在遇到新增加的障碍物时，可以利用先前搜索所获得的信息，而不需要完全重新规划路径。">
+<meta name="twitter:image" content="http://yutouwd.github.io/posts/346220552/1.gif">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="yutouwd" type="application/atom+xml">
+
+
+
+
+  <link rel="canonical" href="http://yutouwd.github.io/posts/346220552/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>路径规划之D* Lite算法详解及实现 | yutouwd</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">yutouwd</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <h1 class="site-subtitle" itemprop="description">我的「精神家园」</h1>
+      
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section">&lt;i class&#x3D;&quot;menu-item-icon fa fa-fw fa-home&quot;&gt;&lt;&#x2F;i&gt; &lt;br&#x2F;&gt;首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section">&lt;i class&#x3D;&quot;menu-item-icon fa fa-fw fa-tags&quot;&gt;&lt;&#x2F;i&gt; &lt;br&#x2F;&gt;标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section">&lt;i class&#x3D;&quot;menu-item-icon fa fa-fw fa-th&quot;&gt;&lt;&#x2F;i&gt; &lt;br&#x2F;&gt;分类</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section">&lt;i class&#x3D;&quot;menu-item-icon fa fa-fw fa-archive&quot;&gt;&lt;&#x2F;i&gt; &lt;br&#x2F;&gt;归档</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-leet">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/leetcode/" rel="section">&lt;i class&#x3D;&quot;menu-item-icon fa fa-fw fa-terminal&quot;&gt;&lt;&#x2F;i&gt; &lt;br&#x2F;&gt;力扣</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-notes">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/notes/" rel="section">&lt;i class&#x3D;&quot;menu-item-icon fa fa-fw fa-book&quot;&gt;&lt;&#x2F;i&gt; &lt;br&#x2F;&gt;笔记</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yutouwd.github.io/posts/346220552/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="yutouwd">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="yutouwd">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">路径规划之D* Lite算法详解及实现
+
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-11-09 18:53:35" itemprop="dateCreated datePublished" datetime="2019-11-09T18:53:35+08:00">2019-11-09</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2021-08-10 22:12:10" itemprop="dateModified" datetime="2021-08-10T22:12:10+08:00">2021-08-10</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Robotics/" itemprop="url" rel="index"><span itemprop="name">Robotics</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Robotics/路径规划/" itemprop="url" rel="index"><span itemprop="name">路径规划</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <a href="/posts/346220552/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/posts/346220552/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+            <span id="/posts/346220552/" class="leancloud_visitors" data-flag-title="路径规划之D* Lite算法详解及实现">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读次数：</span>
+              
+                <span class="leancloud-visitors-count"></span>
+            </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="post.wordcount">
+                  3.3k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时间 &asymp;</span>
+                
+                <span title="post.min2read">
+                  11
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>D* Lite算法是一种增量启发式搜素算法，由Sven Koeing和Maxim Likhachev于2004年提出，是基于LPA* 和Dynamic SWSF-FP的一种算法。D* Lite算法可以适用于地图未知、环境随时会发生变化的情况，在遇到新增加的障碍物时，可以利用先前搜索所获得的信息，而不需要完全重新规划路径。</p>
+<a id="more"></a>
+<h1 id="基础算法介绍"><a href="#基础算法介绍" class="headerlink" title="基础算法介绍"></a>基础算法介绍</h1><p>在介绍D* Lite之前先简单介绍下广度优先、最佳优先以及A* 算法。如果要在一个网格地图中找到两点之间的最短路径，很容易想到的广度优先算法和最佳优先算法。</p>
+<p>这章用的图片都来自于这篇博客：<a href="https://paul.pub/a-star-algorithm/" target="_blank" rel="noopener">https://paul.pub/a-star-algorithm/</a>。这篇博客对A* 算法对介绍也非常详细。</p>
+<h2 id="广度优先算法"><a href="#广度优先算法" class="headerlink" title="广度优先算法"></a>广度优先算法</h2><p>广度优先算法就是从一个点开始遍历周围的节点，逐步向外扩散，已经遍历过的就不用再遍历，直到找到了终点。就如下图所示：</p>
+<img src="/posts/346220552/1.gif">
+<p>广度优先算法的优点是一定可以找到两点间的最优路径，但是代价就是需要搜索的点非常多，速度会比较慢。</p>
+<h2 id="最佳优先算法"><a href="#最佳优先算法" class="headerlink" title="最佳优先算法"></a>最佳优先算法</h2><p>最佳优先算法和广度优先算法不同，它需要使用一个优先队列，用每个点到终点到距离到估计值来判断一个点的优先级。首先先遍历起点周围的点，计算到终点的距离，距离越近优先级越高。之后就取出优先队列中优先级最高的点，再遍历它点周围节点加入优先队列。之后就不断重复这个过程，直到到达终点。和广度优先相比，最佳优先所需要搜索的点要少很多，如下图所示：</p>
+<img src="/posts/346220552/2.gif">
+<p>但最佳优先算法的缺点就是，当起点和终点有障碍物时，可能最佳优先算法找到的路径并不是最佳的路径：</p>
+<img src="/posts/346220552/3.gif">
+<h2 id="A-算法介绍"><a href="#A-算法介绍" class="headerlink" title="A*算法介绍"></a>A*算法介绍</h2><p>A* 算法就是把广度优先算法和最佳优先算法的优点所结合起来了。A* 算法通过下面的公式来评估一个点的优先级：</p>
+<p>$$ f(n)=g(n)+h(n) $$</p>
+<p>其中：</p>
+<ul>
+<li>f(n)是节点n的优先级评估值，f(n)值越小的点优先值越高。</li>
+<li>g(n)是节点到起点到实际代价。</li>
+<li>h(n)是启发函数，是节点n到终点到估计值。</li>
+</ul>
+<p>A* 算法还需要使用两个集合来表示代遍历的节点和已经遍历的节点，通常成为open list和close list，其中open list需要使用优先队列。A* 算法首先从起点开始，计算周围的点的优先值并且加入优先队列。之后开始从优先队列中选取优先值最小的点，将其加入close list并且同样计算周围的点的优先值加入优先队列（close list中的点就不需要再计算了）。不断重复这个过程直到搜索到终点算法就结束，返回路径。</p>
+<p>A* 算法的公式中，g(n)使得算法能选取相对来说走得更少的点，h(n)能使算法优先选择离终点更近的点（不考虑障碍物的情况，因为是估计值）。</p>
+<h1 id="D-Lite算法详解"><a href="#D-Lite算法详解" class="headerlink" title="D* Lite算法详解"></a>D* Lite算法详解</h1><p>D* Lite是一种增量启发式算法。启发式和A*类似，同样有一个启发函数，不过因为D* Lite是从终点向起点搜索，所以对应的启发函数h(n)也变成了节点n到起点的估计值。增量式算法之前找了好久也没有找到相关的定义，后来无意中在西瓜书里面看到了一段对增量学习对定义：</p>
+<blockquote>
+<p>增量学习是指在学得模型后，再接收到训练样例时，仅需根据新样例对模型进行更新，不必重新训练整个模型，并且先前学得的有效信息不会被冲掉。</p>
+</blockquote>
+<p>D* Lite算法就是这样，当检测到了新的障碍物，算法不需要完全重新规划路径，可以利用之前搜索所获得的信息，来找到一条可以避开障碍物的路径。</p>
+<h2 id="概念介绍"><a href="#概念介绍" class="headerlink" title="概念介绍"></a>概念介绍</h2><p>在介绍D* Lite的具体算法之前，先介绍几个它所引入的概念。</p>
+<h3 id="g值h值以及rhs值"><a href="#g值h值以及rhs值" class="headerlink" title="g值h值以及rhs值"></a>g值h值以及rhs值</h3><p>和A* 不同，D* Lite是从终点向起点搜索，所以g(n)和h(n)的定义也就有所不同：</p>
+<ul>
+<li>g(n):当前点到终点的实际代价</li>
+<li>h(n):当前点到起点的估计值</li>
+</ul>
+<p>D* Lite中引入了一个新的概念就是rhs(right-hand side)，它的定义公式如下：</p>
+<p>$$<br>rhs(s)=<br>\begin{cases}<br>0&amp; if  s=s_{goal}\\<br>min_{s’\in Pred(s)} (g(s’)+c(s’,s)) &amp; \text{otherwise}<br>\end{cases}<br>$$</p>
+<p>一个点的rhs值是它的父代节点中g值加上这两点之间的代价中的最小值，相当于一个点从父代节点到达这个点的最小代价。其实在算法的大部分过程中，g值和rhs值是相等的。具体rhs值的意义在后面再介绍。</p>
+<h3 id="两个key值"><a href="#两个key值" class="headerlink" title="两个key值"></a>两个key值</h3><p>在A* 算法中，通过f(n)的大小来判断一个点的优先级，而在D* Lite中，需要通过两个key值来判断一个点的优先级，key值越小优先级越高，先判断第一个key值，如果第一个key值相等再判断第二个key值。它们的公式如下：<br>$$<br>k_1(s) = min(g(s),rhs(s))+h(s,s_{start})+k_m<br>$$</p>
+<p>$$<br>k_2(s) = min(g(s),rhs(s))<br>$$</p>
+<p>其中$k_m$的定义为，算法初始化时会先将$k_m$设置为0，之后当机器人有检测到地图的变化时，$k_m+=h(s_{last},s_{start})$，$s_{last}$代表的是上一个起点，$s_{start}$是机器人的当前位置。因为每当机器人有检测到地图的变化时，要计算两点之间的启发距离（不考虑障碍物），并且把当前所在的点设置为新的起点，即更新起点的位置。</p>
+<p>我们一个个来看。首先是第一个key，它由三项构成，当前点的g值和rhs值中的最小值加上当前点到起点的估计值在加上一个$k_m$。简单的理解话：第一项就是到终点的实际距离，第二项是到起点的估计值，如果在机器人还没有移动的时候$k_m$就等于0，这时算法其实就相当于一个反向从终点往起点方向搜索的A* 算法了。那么$k_m$引入的意义是什么呢，当机器人检测到障碍的变化时会再一次规划路径，这时候的实际起点应该是机器人当前的位置，起点发生了变化，每个点的h值也会相应变化，key值也发生了变化。如果不引入这个参数的话，就需要把优先队列中的全部节点都重新计算一遍key值，增加了计算量。引入之后就可以一定程度上保证key值的一致性，减少计算量。</p>
+<p>第二key值就是g值和rhs值中的最小值，它的意义在于当两个点的第一个key值相等的时候，算法会优先选择距离终点近的点。</p>
+<h3 id="局部一致性"><a href="#局部一致性" class="headerlink" title="局部一致性"></a>局部一致性</h3><p>D* Lite算法中还有一个很重要的概念就是局部一致性，通过一个点的局部一致性来判断当前点是否需要计算。其定义如下：当一个点的g值等于rhs值时称这个点为局部一致的点，否则称这个点为局部不一致。其中局部不一致的情况还可细分成为局部过一致和局部欠一致：当一个点的g值大于rhs值时，这个点为局部过一致，通常是有障碍物删除时或者算法第一次搜索路径时；当一个点的g值小于rhs值时，这个点为局部欠一致，通常是检测到了新增的障碍物。</p>
+<h2 id="算法伪代码理解"><a href="#算法伪代码理解" class="headerlink" title="算法伪代码理解"></a>算法伪代码理解</h2><p>因为markdown写伪代码实在是不方便，所以这里就直接用论文里的图了。下面介绍论文伪代码中3个重要的函数</p>
+<h3 id="主函数"><a href="#主函数" class="headerlink" title="主函数"></a>主函数</h3><img src="/posts/346220552/5.png">
+<p>解释如下：</p>
+<p>{29}首先是将机器人的当前点设置为起点。<br>{30}然后调用Initialize()函数进行初始化，初始化的内容如下：<br>&emsp;初始化需要将优先队列设置为空队列；置为0；<br>&emsp;将所有节点的g值和rhs值设置为无穷；<br>&emsp;最后将终点的rhs值设置为0并计算它的key值加入到优先队列中。<br>{31}初始化之后就调用ComputeShortestPath()开始计算它的最短路径。<br>{32}~{48}之后就开始循环，直到机器人到达了终点。循环开始后：<br>&emsp;{34}~{35}先根据之前的计算将机器人移动到子代中g值加上这两个点之间的代价中最小的点。<br>&emsp;{36}~{48}如果机器人检测到了障碍的变化：<br>&emsp;&emsp;{38}~{39}修改k_m值，根据上一个起点和当前点的启发值，并且将当前点设置为上一个起点。<br>&emsp;&emsp;{40}对于所有两个点之间的代价发生变化的：<br>&emsp;&emsp;&emsp;{41}~{42}另然后更新这两个点之间的代价<br>&emsp;&emsp;&emsp;{43}~{44}如果：代表两个点之间的代价变小，有障碍物删除。那么优化它的rhs值。<br>&emsp;&emsp;&emsp;{45}~{46}这里的判定条件是：代表原来的路径可以通过这两个点，但是他们之间的代价发生了变化，一般可以理解成可能的路径上新增了一个障碍物。然后再通过点的子代来更新rhs值<br>&emsp;&emsp;&emsp;{47}更新受影响的节点<br>&emsp;&emsp;{48}计算最短路径</p>
+<p>上面就是D* Lite的main函数，它的思路可以理解为先计算最短路径，其最短路径是通过周围点的g值来判断的，机器人一直走向g值加上两点代价最小的点。如果检测到了障碍物的变换，那么更新受影响点的rhs值，然后重新计算最短路径。</p>
+<p>主函数的流程图如下：<br><img src="/posts/346220552/8.png"></p>
+<h3 id="更新一个节点"><a href="#更新一个节点" class="headerlink" title="更新一个节点"></a>更新一个节点</h3><img src="/posts/346220552/6.png">
+<p>解释如下：</p>
+<p>{07}如果当前点的g值和rhs值不相等，即为局部不一致，并且这个点在优先队列中，那么就更新这个点在优先队列中的key值。<br>{08}如果一个点的g值和rhs值不相等，并且这个点不在优先队列中，那么就计算这个点的key值，并加入到优先队列中。<br>{09}如果一个点g值和rhs值相等，并且还在优先队列中，那么就将其从优先队列中删除。</p>
+<h3 id="计算最短路径"><a href="#计算最短路径" class="headerlink" title="计算最短路径"></a>计算最短路径</h3><img src="/posts/346220552/7.png">
+<p>解释如下：</p>
+<p>{10}进行路径判断的条件是：优先队列中key值最小的key值要小于“起点”（机器人所在的位置）的key值或者起点的rhs值大于它的g值：<br>&emsp;{11}~{13}取得优先队列中优先值最高即key值最小的节点和它的key值，并重新计算它的key值。<br>&emsp;{14}~{15}如果它的新的key值大于它旧的key值那么就将它和它新的key值重新放到优先队列中。<br>&emsp;{16}如果当前节点的g值大于rhs值（通常是第一次搜索或者有障碍物的删除时）：<br>&emsp;&emsp;{17}~{18}另当前点的g值等于rhs值，并且将其从优先队列中移除。<br>&emsp;&emsp;{19}~{21}更新当前节点的父节点（且不是终点），如果可以让它们的rhs值取得更小的值，那么就更新它们的rhs值。最后调用UpdateVertex来将它们加入到优先队列中。<br>&emsp;{22}否则（当前节点的g值小于等于rhs值，一般是有新增加的障碍物）：<br>&emsp;&emsp;{23}~{24}记录当前节点的g值为之后将其置为无穷。<br>&emsp;&emsp;{25}对于所有的当前点的父节点以及当前点：<br>&emsp;&emsp;&emsp;{26}~{28}如果它们（{25}中的点）的rhs值等于加上两点间的代价，那么就从它的子节点来更新rhs值，最后再调用UpdateVertex来更新它们。</p>
+<h2 id="两个例子🌰"><a href="#两个例子🌰" class="headerlink" title="两个例子🌰"></a>两个例子🌰</h2><h3 id="新增障碍物"><a href="#新增障碍物" class="headerlink" title="新增障碍物"></a>新增障碍物</h3><img src="/posts/346220552/DStarLiteAdd.gif">
+<h3 id="删除障碍物"><a href="#删除障碍物" class="headerlink" title="删除障碍物"></a>删除障碍物</h3><img src="/posts/346220552/DStarLiteDel.gif">
+<h2 id="一个问题"><a href="#一个问题" class="headerlink" title="一个问题"></a>一个问题</h2><p>一个遇到的问题就是：论文中并没给出父代节点和子代节点的明确定义，但是经过测试如果全部都用领域节点的话是可以得到正确结果的。</p>
+<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p>一个A*算法的介绍博客：<br><a href="https://paul.pub/a-star-algorithm/" target="_blank" rel="noopener">https://paul.pub/a-star-algorithm/</a><br>D*算法介绍博客：<br><a href="https://blog.csdn.net/lqzdreamer/article/details/85055569" target="_blank" rel="noopener">https://blog.csdn.net/lqzdreamer/article/details/85055569</a><br>D* Lite算法论文：<br><a href="https://www.aaai.org/Papers/AAAI/2002/AAAI02-072.pdf" target="_blank" rel="noopener">https://www.aaai.org/Papers/AAAI/2002/AAAI02-072.pdf</a><br>D* Lite算法介绍博客：<br><a href="https://blog.csdn.net/lqzdreamer/article/details/85108310" target="_blank" rel="noopener">https://blog.csdn.net/lqzdreamer/article/details/85108310</a></p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/广度优先/" rel="tag"><i class="menu-item-icon fa fa-fw fa-tags"></i> 广度优先</a>
+          
+            <a href="/tags/路径规划/" rel="tag"><i class="menu-item-icon fa fa-fw fa-tags"></i> 路径规划</a>
+          
+        </div>
+      
+
+      
+      
+        <div class="post-widgets">
+        
+
+        
+
+        
+          
+          <div class="social_share">
+            
+            
+              <div id="needsharebutton-postbottom">
+                <span class="btn">
+                  <i class="fa fa-share-alt" aria-hidden="true"></i>
+                </span>
+              </div>
+            
+          </div>
+        
+        </div>
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/posts/2993655736/" rel="next" title="215.Kth Largest Element in an Array">
+                <i class="fa fa-chevron-left"></i> 215.Kth Largest Element in an Array
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/posts/282883092/" rel="prev" title="104.Maximum Depth of Binary Tree">
+                104.Maximum Depth of Binary Tree <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">yutouwd</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">127</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">19</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">40</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/yutouwd" title="GitHub &amp;rarr; https:&#x2F;&#x2F;github.com&#x2F;yutouwd" rel="noopener" target="_blank">&lt;i class&#x3D;&quot;fa fa-fw fa-github&quot;&gt;&lt;&#x2F;i&gt;GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="mailto:yutouwd@gmail.com" title="E-Mail &amp;rarr; mailto:yutouwd@gmail.com" rel="noopener" target="_blank">&lt;i class&#x3D;&quot;fa fa-fw fa-envelope&quot;&gt;&lt;&#x2F;i&gt;E-Mail</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#基础算法介绍"><span class="nav-text">基础算法介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#广度优先算法"><span class="nav-text">广度优先算法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#最佳优先算法"><span class="nav-text">最佳优先算法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#A-算法介绍"><span class="nav-text">A*算法介绍</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#D-Lite算法详解"><span class="nav-text">D* Lite算法详解</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#概念介绍"><span class="nav-text">概念介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#g值h值以及rhs值"><span class="nav-text">g值h值以及rhs值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#两个key值"><span class="nav-text">两个key值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#局部一致性"><span class="nav-text">局部一致性</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#算法伪代码理解"><span class="nav-text">算法伪代码理解</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#主函数"><span class="nav-text">主函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#更新一个节点"><span class="nav-text">更新一个节点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#计算最短路径"><span class="nav-text">计算最短路径</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#两个例子🌰"><span class="nav-text">两个例子🌰</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#新增障碍物"><span class="nav-text">新增障碍物</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#删除障碍物"><span class="nav-text">删除障碍物</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#一个问题"><span class="nav-text">一个问题</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考资料"><span class="nav-text">参考资料</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">yutouwd</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">文字总数&#58;</span>
+    
+    <span title="post.totalcount">71k</span>
+  
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.0.0</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/src/utils.js?v=7.0.0"></script>
+
+  <script src="/js/src/motion.js?v=7.0.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/src/schemes/muse.js?v=7.0.0"></script>
+
+
+
+  
+  <script src="/js/src/scrollspy.js?v=7.0.0"></script>
+<script src="/js/src/post-details.js?v=7.0.0"></script>
+
+
+
+  
+
+
+  <script src="/js/src/bootstrap.js?v=7.0.0"></script>
+
+
+
+  
+  
+
+<script src="//cdn1.lncld.net/static/js/3.11.1/av-min.js"></script>
+
+
+
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+
+<script>
+  var GUEST = ['nick', 'mail', 'link'];
+  var guest = 'nick,mail,link';
+  guest = guest.split(',').filter(function(item) {
+    return GUEST.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#comments',
+    verify: true,
+    notify: true,
+    appId: 'IyLr0ozy6Xzdjq2JrDehrIn9-gzGzoHsz',
+    appKey: 'FEqRgVoI4cMfVIGolcQ46n6G',
+    placeholder: '快来评论吧 (๑•̀ㅂ•́)و✧',
+    avatar: 'mm',
+    meta: guest,
+    pageSize: '10' || 10,
+    visitor: true
+  });
+</script>
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+  <script>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+      }
+      else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+      }
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+  
+
+  
+  
+
+  
+  
+
+  
+    
+      <script type="text/x-mathjax-config">
+  
+
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+      
+      equationNumbers: {
+        autoNumber: "AMS"
+      }
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+      for (i = 0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+  });
+</script>
+<script src="//cdn.jsdelivr.net/npm/mathjax@2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<style>
+.MathJax_Display {
+  overflow: auto hidden;
+}
+</style>
+
+    
+  
+
+
+  
+  
+  
+  <script src="/lib/needsharebutton/needsharebutton.js"></script>
+  <script>
+    
+      pbOptions = {};
+      
+        pbOptions.iconStyle = "box";
+      
+        pbOptions.boxForm = "horizontal";
+      
+        pbOptions.position = "bottomCenter";
+      
+        pbOptions.networks = "Weibo,Wechat,Douban,QQZone,Twitter,Facebook";
+      
+      new needShareButton('#needsharebutton-postbottom', pbOptions);
+    
+    
+  </script>
+
+
+  
+
+  
+  
+  
+  <script src="/lib/pangu/dist/pangu.min.js?v=3.3"></script>
+  <script>pangu.spacingPage();</script>
+
+
+  
+
+  
+
+  
+
+  
+  <style>
+    .copy-btn {
+      display: inline-block;
+      padding: 6px 12px;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 20px;
+      color: #333;
+      white-space: nowrap;
+      vertical-align: middle;
+      cursor: pointer;
+      background-color: #eee;
+      background-image: linear-gradient(#fcfcfc, #eee);
+      border: 1px solid #d5d5d5;
+      border-radius: 3px;
+      user-select: none;
+      outline: 0;
+    }
+
+    .highlight-wrap .copy-btn {
+      transition: opacity .3s ease-in-out;
+      opacity: 0;
+      padding: 2px 6px;
+      position: absolute;
+      right: 4px;
+      top: 8px;
+    }
+
+    .highlight-wrap:hover .copy-btn,
+    .highlight-wrap .copy-btn:focus {
+      opacity: 1
+    }
+
+    .highlight-wrap {
+      position: relative;
+    }
+  </style>
+  <script>
+    $('.highlight').each(function(i, e) {
+      var $wrap = $('<div>').addClass('highlight-wrap');
+      $(e).after($wrap);
+      $wrap.append($('<button>').addClass('copy-btn').append('复制').on('click', function(e) {
+        var code = $(this).parent().find('.code').find('.line').map(function(i, e) {
+          return $(e).text();
+        }).toArray().join('\n');
+        var ta = document.createElement('textarea');
+        var range = document.createRange(); //For Chrome
+        var sel = window.getSelection(); //For Chrome
+        var yPosition = window.pageYOffset || document.documentElement.scrollTop;
+        ta.style.top = yPosition + 'px'; //Prevent page scroll
+        ta.style.position = 'absolute';
+        ta.style.opacity = '0';
+        ta.value = code;
+        ta.textContent = code; //For FireFox
+        ta.contentEditable = true;
+        ta.readOnly = false;
+        document.body.appendChild(ta);
+        range.selectNode(ta);
+        sel.removeAllRanges();
+        sel.addRange(range);
+        ta.setSelectionRange(0, code.length);
+        var result = document.execCommand('copy');
+        
+          if (result) $(this).text('复制成功');
+          else $(this).text('复制失败');
+        
+        ta.blur(); //For iOS
+        $(this).blur();
+      })).on('mouseleave', function(e) {
+        var $b = $(this).find('.copy-btn');
+        setTimeout(function() {
+          $b.text('复制');
+        }, 300);
+      }).append(e);
+    })
+  </script>
+
+
+  
+
+</body>
+</html>

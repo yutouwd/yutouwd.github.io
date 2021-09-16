@@ -1,0 +1,1345 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+  
+  
+  <link rel="stylesheet" href="/lib/needsharebutton/needsharebutton.css">
+
+
+
+
+
+
+
+
+
+  <meta name="google-site-verification" content="VsdEz17DzZPAdPIQ2K1kjppHtRWQ1HvY4SXP2UYoGb4">
+
+
+
+
+
+
+
+  <meta name="baidu-site-verification" content="jqZ0Y8rEND.yutouwd.github.io">
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=7.0.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.0.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.0.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.0.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.0.0" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '7.0.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="其实不是特别推荐在Windows下使用kaldi，因为在egs下所有的脚本都无法运行，我也是弄了很久才在Windows下配置好kaldi，都一度差点弃坑。就连官方也说There is no commitment to support Windows. The Windows port of Kaldi is targeted at experienced developers who want t">
+<meta name="keywords" content="kaldi,声纹识别,Visual Studio">
+<meta property="og:type" content="article">
+<meta property="og:title" content="kaldi在Windows下的使用">
+<meta property="og:url" content="http://yutouwd.github.io/posts/3944650563/index.html">
+<meta property="og:site_name" content="yutouwd">
+<meta property="og:description" content="其实不是特别推荐在Windows下使用kaldi，因为在egs下所有的脚本都无法运行，我也是弄了很久才在Windows下配置好kaldi，都一度差点弃坑。就连官方也说There is no commitment to support Windows. The Windows port of Kaldi is targeted at experienced developers who want t">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://yutouwd.github.io/posts/3944650563/1.jpg">
+<meta property="og:image" content="http://yutouwd.github.io/posts/3944650563/2.jpg">
+<meta property="og:image" content="http://yutouwd.github.io/posts/3944650563/11.jpg">
+<meta property="og:image" content="http://yutouwd.github.io/posts/3944650563/4.jpg">
+<meta property="og:image" content="http://yutouwd.github.io/posts/3944650563/5.jpg">
+<meta property="og:image" content="http://yutouwd.github.io/posts/3944650563/6.jpg">
+<meta property="og:image" content="http://yutouwd.github.io/posts/3944650563/7.jpg">
+<meta property="og:image" content="http://yutouwd.github.io/posts/3944650563/8.jpg">
+<meta property="og:image" content="http://yutouwd.github.io/posts/3944650563/10.jpg">
+<meta property="og:image" content="http://yutouwd.github.io/posts/3944650563/9.jpg">
+<meta property="og:image" content="http://yutouwd.github.io/posts/3944650563/3.png">
+<meta property="og:updated_time" content="2021-09-14T07:41:36.558Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="kaldi在Windows下的使用">
+<meta name="twitter:description" content="其实不是特别推荐在Windows下使用kaldi，因为在egs下所有的脚本都无法运行，我也是弄了很久才在Windows下配置好kaldi，都一度差点弃坑。就连官方也说There is no commitment to support Windows. The Windows port of Kaldi is targeted at experienced developers who want t">
+<meta name="twitter:image" content="http://yutouwd.github.io/posts/3944650563/1.jpg">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="yutouwd" type="application/atom+xml">
+
+
+
+
+  <link rel="canonical" href="http://yutouwd.github.io/posts/3944650563/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>kaldi在Windows下的使用 | yutouwd</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">yutouwd</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <h1 class="site-subtitle" itemprop="description">我的「精神家园」</h1>
+      
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section">&lt;i class&#x3D;&quot;menu-item-icon fa fa-fw fa-home&quot;&gt;&lt;&#x2F;i&gt; &lt;br&#x2F;&gt;首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section">&lt;i class&#x3D;&quot;menu-item-icon fa fa-fw fa-tags&quot;&gt;&lt;&#x2F;i&gt; &lt;br&#x2F;&gt;标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section">&lt;i class&#x3D;&quot;menu-item-icon fa fa-fw fa-th&quot;&gt;&lt;&#x2F;i&gt; &lt;br&#x2F;&gt;分类</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section">&lt;i class&#x3D;&quot;menu-item-icon fa fa-fw fa-archive&quot;&gt;&lt;&#x2F;i&gt; &lt;br&#x2F;&gt;归档</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-leet">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/leetcode/" rel="section">&lt;i class&#x3D;&quot;menu-item-icon fa fa-fw fa-terminal&quot;&gt;&lt;&#x2F;i&gt; &lt;br&#x2F;&gt;力扣</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-notes">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/notes/" rel="section">&lt;i class&#x3D;&quot;menu-item-icon fa fa-fw fa-book&quot;&gt;&lt;&#x2F;i&gt; &lt;br&#x2F;&gt;笔记</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yutouwd.github.io/posts/3944650563/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="yutouwd">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="yutouwd">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">kaldi在Windows下的使用
+
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-02-26 20:49:11" itemprop="dateCreated datePublished" datetime="2019-02-26T20:49:11+08:00">2019-02-26</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2021-09-14 15:41:36" itemprop="dateModified" datetime="2021-09-14T15:41:36+08:00">2021-09-14</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/声纹识别/" itemprop="url" rel="index"><span itemprop="name">声纹识别</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/声纹识别/kaldi/" itemprop="url" rel="index"><span itemprop="name">kaldi</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <a href="/posts/3944650563/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/posts/3944650563/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+            <span id="/posts/3944650563/" class="leancloud_visitors" data-flag-title="kaldi在Windows下的使用">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读次数：</span>
+              
+                <span class="leancloud-visitors-count"></span>
+            </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="post.wordcount">
+                  3k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时间 &asymp;</span>
+                
+                <span title="post.min2read">
+                  12
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>其实不是特别推荐在Windows下使用kaldi，因为在egs下所有的脚本都无法运行，我也是弄了很久才在Windows下配置好kaldi，都一度差点弃坑。就连官方也说<strong>There is no commitment to support Windows. The Windows port of Kaldi is targeted at experienced developers who want to program their own apps using the kaldi libraries and are able to do the troubleshooting on their own.</strong>就让我来把坑填平那么一点点吧🧐<br><a id="more"></a></p>
+<h1 id="kaldi在Windows下的安装"><a href="#kaldi在Windows下的安装" class="headerlink" title="kaldi在Windows下的安装"></a>kaldi在Windows下的安装</h1><h2 id="工具准备"><a href="#工具准备" class="headerlink" title="工具准备"></a>工具准备</h2><ul>
+<li>git</li>
+<li>cmake</li>
+<li>Visual Studio 2017</li>
+</ul>
+<p>vs2017要注意安装win8.1 SDK，如果已经安装了vs2017，也可以在上方的菜单栏中的工具-&gt;获取工具和功能中来查看是否有安装。git和cmake的安装没有什么特别的，就不做介绍了。</p>
+<img src="/posts/3944650563/1.jpg">
+<h2 id="编译Openfst"><a href="#编译Openfst" class="headerlink" title="编译Openfst"></a>编译Openfst</h2><p>首先从github上将openfst clone下来。然后这里用cmake的方式来先编译出vs的工程文件，具体操作方法如下：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/kkm000/openfst.git</span><br><span class="line">cd openfst</span><br><span class="line">mkdir build64</span><br><span class="line">cd build64</span><br><span class="line">cmake -G "Visual Studio 15 2017 Win64" ../</span><br></pre></td></tr></table></figure>
+<p>如果这一步成功会显示以下提示：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">-- The C compiler identification is MSVC 19.11.25547.0</span><br><span class="line">-- The CXX compiler identification is MSVC 19.11.25547.0</span><br><span class="line">-- Check for working C compiler: C:/Program Files (x86)/Microsoft Visual Studio/2017/Community/VC/Tools/MSVC/14.11.25503/bin/Hostx86/x64/cl.exe</span><br><span class="line">-- Check for working C compiler: C:/Program Files (x86)/Microsoft Visual Studio/2017/Community/VC/Tools/MSVC/14.11.25503/bin/Hostx86/x64/cl.exe -- works</span><br><span class="line">-- Detecting C compiler ABI info</span><br><span class="line">-- Detecting C compiler ABI info - done</span><br><span class="line">-- Check for working CXX compiler: C:/Program Files (x86)/Microsoft Visual Studio/2017/Community/VC/Tools/MSVC/14.11.25503/bin/Hostx86/x64/cl.exe</span><br><span class="line">-- Check for working CXX compiler: C:/Program Files (x86)/Microsoft Visual Studio/2017/Community/VC/Tools/MSVC/14.11.25503/bin/Hostx86/x64/cl.exe -- works</span><br><span class="line">-- Detecting CXX compiler ABI info</span><br><span class="line">-- Detecting CXX compiler ABI info - done</span><br><span class="line">-- Detecting CXX compile features</span><br><span class="line">-- Detecting CXX compile features - done</span><br><span class="line">-- The following ICU libraries were not found:</span><br><span class="line">--   data (required)</span><br><span class="line">--   i18n (required)</span><br><span class="line">--   io (required)</span><br><span class="line">--   test (required)</span><br><span class="line">--   tu (required)</span><br><span class="line">--   uc (required)</span><br><span class="line">-- Failed to find all ICU components (missing: ICU_INCLUDE_DIR ICU_LIBRARY _ICU_REQUIRED_LIBS_FOUND)</span><br><span class="line">-- Could NOT find ZLIB (missing: ZLIB_LIBRARY ZLIB_INCLUDE_DIR)</span><br><span class="line">-- Configuring done</span><br><span class="line">-- Generating done</span><br><span class="line">-- Build files have been written to: C:/Users/jtrmal/Documents/openfst/build64</span><br></pre></td></tr></table></figure>
+<p>成功后会在build64目录下面生成一个openfst.sln文件，用vs2017打开这个文件，分别用Debug|x64和Release|x64来生成一遍，如下图，如果失败为0则代表编译通过。</p>
+<img src="/posts/3944650563/2.jpg">
+<h2 id="配置OpenBLAS"><a href="#配置OpenBLAS" class="headerlink" title="配置OpenBLAS"></a>配置OpenBLAS</h2><p>首先也是从github上先将kaldi clone下来</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/kaldi-asr/kaldi.git kaldi</span><br></pre></td></tr></table></figure>
+<p>然后我们就需要去配置线性代数库，这里有两个选择，一个是Intel MKL，一个是OpenBLAS。这里我选用OpenBLAS。用下面的命令来下载OpenBLAS的二进制包（在kaldi/tools目录下）：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">curl -L -O http://sourceforge.net/projects/openblas/files/v0.2.14/OpenBLAS-v0.2.14-Win64-int32.zip</span><br><span class="line">unzip OpenBLAS-v0.2.14-Win64-int32.zip</span><br></pre></td></tr></table></figure>
+<p><strong>注意这里要下载Win64-int32版本，而不是Win64-int64版本</strong></p>
+<h2 id="修改配置文件"><a href="#修改配置文件" class="headerlink" title="修改配置文件"></a>修改配置文件</h2><p>进入kaldi/windows路径先，将varialbe.props.dev复制一份重命名为variables.props，打开后将刚刚配置好的库修改为自己的路径：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- Change the following paths so they are correct on your machine --&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- Do not modify anything before this line --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">MKLDIR</span>&gt;</span>C:\Program Files\(x86)\IntelSWTools\compilers_and_libraries\windows\mkl\<span class="tag">&lt;/<span class="name">MKLDIR</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">OPENBLASDIR</span>&gt;</span>C:\Users\Yenda\Downloads\kaldi-svn\tools\OpenBLAS-v0.2.14-Win64-int32<span class="tag">&lt;/<span class="name">OPENBLASDIR</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">OPENFST</span>&gt;</span>C:\Users\jtrmal\Documents\openfst<span class="tag">&lt;/<span class="name">OPENFST</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">OPENFSTLIB</span>&gt;</span>C:\Users\jtrmal\Documents\openfst\build64<span class="tag">&lt;/<span class="name">OPENFSTLIB</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- Do not modify anything after this line --&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>我们需要将OpenBLAS和Openfst修改为自己的路径，因为没有用到MKL就不用修改了。下面就是我修改后的路径：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- Change the following paths so they are correct on your machine --&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- Do not modify anything before this line --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">MKLDIR</span>&gt;</span>C:\Program Files(x86)\IntelSWTools\compilers_and_libraries\windows\mkl\<span class="tag">&lt;/<span class="name">MKLDIR</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">OPENBLASDIR</span>&gt;</span>D:\git_home\kaldi\tools\OpenBLAS-v0.2.14-Win64-int32<span class="tag">&lt;/<span class="name">OPENBLASDIR</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">OPENFST</span>&gt;</span>D:\git_home\openfst<span class="tag">&lt;/<span class="name">OPENFST</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">OPENFSTLIB</span>&gt;</span>D:\git_home\openfst\build64<span class="tag">&lt;/<span class="name">OPENFSTLIB</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- Do not modify anything after this line --&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="产生工程文件"><a href="#产生工程文件" class="headerlink" title="产生工程文件"></a>产生工程文件</h2><p>同样还是在kaldi/windows路径下，因为我们是使用OpenBLAS所以就把kaldiwin_openblas.props复制一份重命名为kaldiwin.prosp。然后在windows路径下用git bash运行以下命令：<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">./generate_solution.pl --vsver vs2017 --enable-openblas</span><br><span class="line">./get_version.pl</span><br></pre></td></tr></table></figure></p>
+<h2 id="kaldi编译测试"><a href="#kaldi编译测试" class="headerlink" title="kaldi编译测试"></a>kaldi编译测试</h2><p>然后我们打开在kaldi/kaldiwin_vs2017_OPENBLAS这个新生成的文件夹，打卡里面的kaldiwin_vs2017.sln工程文件，这里面就包括了所有kaldi/src中*bin中的.cc文件。这时候需要来测试一下kaldi能否运行，首先要把Debug|Win32改为Debug|x64，然后右键选择online2-wav-nnet2-latgen-faster生成，如下图，如果生成成功则代表之前的工作都做对啦，kaldi已经配置好了✌️~exe文件会生成在kaldiwin_vs2017_OPENBLAS/x64/Debug中，不过当用命令行来运行刚刚生成的exe文件时，还是有可能会报错，如缺少dll等，解决方法见常见问题。</p>
+<img src="/posts/3944650563/11.jpg">
+<h1 id="kaldi在Windows下的调试"><a href="#kaldi在Windows下的调试" class="headerlink" title="kaldi在Windows下的调试"></a>kaldi在Windows下的调试</h1><h2 id="新建自己的kaldi项目"><a href="#新建自己的kaldi项目" class="headerlink" title="新建自己的kaldi项目"></a>新建自己的kaldi项目</h2><p>在配置好kaldi之后，就可以开始调试和编写自己的使用kaldi的程序了。不过原来的kaldi项目中有630个项目或者称为解决方案，每次打开都要加载很久。所以我们可以新建一个空项目：</p>
+<img src="/posts/3944650563/4.jpg">
+<h3 id="添加引用"><a href="#添加引用" class="headerlink" title="添加引用"></a>添加引用</h3><p>然后点击左上角文件-&gt;添加-&gt;现有项目，切换到kaldi/kaldiwin_vs2017_OPENBLAS/kaldiwin路径下。</p>
+<img src="/posts/3944650563/5.jpg">
+<p>最好把所有以kaldi开头的项目都添加进去（点进去具体的文件夹，添加.vcxproj文件），包含test的不用。不过如果你清楚你用的项目要用到哪些具体的引用，那么只添加特定的项目即可。那么要怎么看需要用到那些引用呢，这时就要回到之前那个包含630个项目的vs中去。</p>
+<img src="/posts/3944650563/6.jpg">
+<p>比如说我想要提取mfcc特征，就可以去看看compute-mfcc-feats这个项目中以用了那些项目，然后在自己的项目提取mfcc特征项目中，也要以用相同的项目，那么就把对应的项目添加到自己的项目中，如下图：</p>
+<img src="/posts/3944650563/7.jpg">
+<h3 id="添加工程属性表"><a href="#添加工程属性表" class="headerlink" title="添加工程属性表"></a>添加工程属性表</h3><p>配置好引用还需要我们去添加刚才配置好的vs工程属性表，点开左上菜单栏中的视图-&gt;其他窗口-&gt;属性管理器。</p>
+<img src="/posts/3944650563/8.jpg">
+<p>然后在自己的项目的Debug|64中添加variables.props kaldiwin.props openfst_debug.props（如果要release则添加对应的release版本）</p>
+<h3 id="修改附加包含目录"><a href="#修改附加包含目录" class="headerlink" title="修改附加包含目录"></a>修改附加包含目录</h3><p>还差一步就大功告成，首先要在自己的项目中添加一个cpp文件，然后右键属性-&gt;C/C++-&gt;所有选项-&gt;附加包含目录，需要把kaldi/src目录添加进去</p>
+<img src="/posts/3944650563/10.jpg">
+<p>配置好之后，就可以写自己的调用kaldi的程序了，之后也可以按照这样的方式来。总结一下：</p>
+<ul>
+<li>在当前项目中文件-&gt;添加-&gt;新建项目</li>
+<li>添加需要用到的引用</li>
+<li>添加已经配置好的工程属性表</li>
+<li>最后把kaldi/src添加到附加包含目录就可以了</li>
+<li><strong>另外要记住调试模式要切换成Debug|x64</strong></li>
+</ul>
+<h2 id="写自己的kaldi程序"><a href="#写自己的kaldi程序" class="headerlink" title="写自己的kaldi程序"></a>写自己的kaldi程序</h2><p>如果想写自己的调用kaldi的程序要怎么开始呢，最好的办法就是去看run.sh中用到了哪些命令，然后在看命令中C++代码是怎么做的。以提取mfcc特征为例，在声纹识别中，一般都是下面几条命令用来提取mfcc特征：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> run.sh</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> Now make MFCC features.</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> mfccdir should be some place with a largish disk <span class="built_in">where</span> you</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> want to store MFCC features.</span></span><br><span class="line">mfccdir=mfcc</span><br><span class="line">for x in train test; do</span><br><span class="line">  steps/make_mfcc.sh --cmd "$train_cmd" --nj 10 data/$x exp/make_mfcc/$x $mfccdir</span><br><span class="line">  sid/compute_vad_decision.sh --nj 10 --cmd "$train_cmd" data/$x exp/make_mfcc/$x $mfccdir</span><br><span class="line">  utils/fix_data_dir.sh data/$x</span><br><span class="line">done</span><br></pre></td></tr></table></figure>
+<p>具体的提取mfcc的特征程序就在steps/make_mfcc.sh中了</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> make_mfcc.sh</span></span><br><span class="line"><span class="meta">$</span><span class="bash">cmd JOB=1:<span class="variable">$nj</span> <span class="variable">$logdir</span>/make_mfcc_<span class="variable">$&#123;name&#125;</span>.JOB.log \</span></span><br><span class="line">  extract-segments scp,p:$scp $logdir/segments.JOB ark:- \| \</span><br><span class="line">  compute-mfcc-feats $vtln_opts --verbose=2 --config=$mfcc_config ark:- ark:- \| \</span><br><span class="line">  copy-feats --compress=$compress $write_num_frames_opt ark:- \</span><br><span class="line">  ark,scp:$mfccdir/raw_mfcc_$name.JOB.ark,$mfccdir/raw_mfcc_$name.JOB.scp \</span><br><span class="line">  || exit 1;</span><br></pre></td></tr></table></figure>
+<p>里面具体提取mfcc特征的命令就应该是steps/make_mfcc.sh了，看下make_mfcc.sh，在经过一系列处理后，使用compute-mfcc-feat这个命令来提取mfcc特征的。我们就可以去看在featbin下的compute-mfcc-feat.cc中是如何提取mfcc特征的，下面就贴上我的提取mfcc并写入一个txt文件的代码：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;fstream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">"feat/feature-mfcc.h"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">"feat/wave-reader.h"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">"base/kaldi-math.h"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">"matrix/kaldi-matrix-inl.h"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">"matrix/kaldi-vector.h"</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc,<span class="keyword">char</span> * argv[])</span></span>&#123;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        <span class="keyword">using</span> <span class="keyword">namespace</span> kaldi;   <span class="comment">//要记住使用namespace kaldi</span></span><br><span class="line">        <span class="keyword">const</span> <span class="keyword">char</span> * Usage =</span><br><span class="line">            <span class="string">"my_kaldi.exe [wav_filename] [mfcc_filename] \n"</span>;</span><br><span class="line">        </span><br><span class="line">        <span class="function">ParseOptions <span class="title">po</span><span class="params">(Usage)</span></span>;</span><br><span class="line">        po.Read(argc, argv);</span><br><span class="line">        <span class="keyword">if</span> (po.NumArgs() != <span class="number">2</span>) &#123;</span><br><span class="line">            po.PrintUsage();</span><br><span class="line">            <span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">std</span>::<span class="built_in">string</span> wav_filename = po.GetArg(<span class="number">1</span>);</span><br><span class="line">        <span class="built_in">std</span>::<span class="built_in">string</span> mfcc_filename = po.GetArg(<span class="number">2</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">/*读取wav文件*/</span></span><br><span class="line">        <span class="built_in">std</span>::ifstream wav_file;</span><br><span class="line">        wav_file.open(wav_filename, <span class="built_in">std</span>::ios_base::binary);</span><br><span class="line">        WaveData wave;</span><br><span class="line">        wave.Read(wav_file);</span><br><span class="line">        <span class="function">SubVector&lt;BaseFloat&gt; <span class="title">waveform</span><span class="params">(wave.Data(), <span class="number">0</span>)</span></span>;<span class="comment">//将wav文件数据放到waveform中</span></span><br><span class="line">              </span><br><span class="line">        <span class="comment">/*mfcc特征配置*/</span></span><br><span class="line">        MfccOptions mfcc_opts;</span><br><span class="line">        mfcc_opts.frame_opts.samp_freq = <span class="number">16000</span>;</span><br><span class="line">        mfcc_opts.frame_opts.frame_length_ms = <span class="number">25</span>;</span><br><span class="line">        mfcc_opts.frame_opts.frame_shift_ms = <span class="number">10</span>;</span><br><span class="line">        mfcc_opts.frame_opts.preemph_coeff = <span class="number">0.95</span>;</span><br><span class="line"></span><br><span class="line">        <span class="comment">/*提取mfcc特征*/</span></span><br><span class="line">        Matrix&lt;BaseFloat&gt; mfcc_feature;</span><br><span class="line">        <span class="function">Mfcc <span class="title">feat</span><span class="params">(mfcc_opts)</span></span>;</span><br><span class="line">        feat.ComputeFeatures(waveform, wave.SampFreq(), <span class="number">1.0</span>, &amp;mfcc_feature);</span><br><span class="line">              </span><br><span class="line">        <span class="comment">/*写入到文件中*/</span></span><br><span class="line">        WriteKaldiObject(mfcc_feature,mfcc,<span class="literal">false</span>);</span><br><span class="line">        <span class="comment">//kaldi中都可以使用WriteKaldiObject来写使用到的kaldi对象</span></span><br><span class="line">    &#125;</span><br><span class="line">       </span><br><span class="line">    <span class="keyword">catch</span> (<span class="keyword">const</span> <span class="built_in">std</span>::exception &amp;e) &#123;</span><br><span class="line">        <span class="built_in">std</span>::<span class="built_in">cerr</span> &lt;&lt; e.what();</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    &#125;   </span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="kaldi模型的读取"><a href="#kaldi模型的读取" class="headerlink" title="kaldi模型的读取"></a>kaldi模型的读取</h2><p>在windows上跑kaldi，不可避免地会用到kaldi中的I/O接口，比如读取在Linux下已经训练好的模型等。kaldi中的模型往往都是一个类，比如说声纹识别中用到的UBM类FullGmm，提取ivector的IvectorExtractor等等，对于这些类的提取都可以用ReadKaldiObject来完成</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> kaldi;</span><br><span class="line">FullGmm fgmm;                           <span class="comment">//首先要声明想要读取的模型的类</span></span><br><span class="line"><span class="built_in">std</span>::<span class="built_in">string</span> ubmFile = <span class="string">"final.ubm"</span>;    <span class="comment">//然后确定文件名</span></span><br><span class="line">ReadKaldiObject(ubmFile, &amp;fgmm);</span><br></pre></td></tr></table></figure>
+<p>对于其他的模型，也可以通过类似的方法来读取到内存中。如果想把模型等写出来也可以通过WriteKaldiObject来完成。</p>
+<h1 id="kaldi在Windows下的移植"><a href="#kaldi在Windows下的移植" class="headerlink" title="kaldi在Windows下的移植"></a>kaldi在Windows下的移植</h1><p>此处的移植指的是能够使kaldi在一台没有开发环境下的电脑中正常运行。刚开始要做的时候感觉可能会有各种的坑，不过实际中做要比想象中简单得多，如果上面配置基本没什么问题，移植的话也就没什么问题了。</p>
+<h2 id="生成exe"><a href="#生成exe" class="headerlink" title="生成exe"></a>生成exe</h2><p>生成exe其实很简单，在每次Debug的时候都会自动生成一个可执行文件，不过要想在一个没有开发环境的电脑上使用，要用Release来重新生成一下。我们可以用main(int argc, char * argv[])来读取命令行的参数，然后可以用ParseOptions po(Usage);来控制输入的参数，具体参考上面提取mfcc的代码，这里就不做过多的介绍了。在移植过程中还遇到的一个问题就是缺少一些dll，主要是mingw的一些dll，解决方法见下面遇到的问题。</p>
+<h2 id="生成dll"><a href="#生成dll" class="headerlink" title="生成dll"></a>生成dll</h2><p>如果想生成dll打包给其他程序用，就需要在头文件中想要导出的函数的前面加上declspec(dllexport)，并且右键右侧的项目属性栏，把常规中的项目默认值-&gt;配置类型改为动态库（.dll）</p>
+<h1 id="遇到的问题记录"><a href="#遇到的问题记录" class="headerlink" title="遇到的问题记录"></a>遇到的问题记录</h1><h2 id="cmake生成Openfst工程文件失败"><a href="#cmake生成Openfst工程文件失败" class="headerlink" title="cmake生成Openfst工程文件失败"></a>cmake生成Openfst工程文件失败</h2><img src="/posts/3944650563/9.jpg">
+<p>根据错误提示，应该是缺少了fst_test.h weight-tester.h algo_test.h，在openfst/src目录下搜索这几个文件，发现都在openfst\src\include\fst\test中，于是把几个文件都复制过来，然后再执行那条cmake的命令，就可以成功了~。</p>
+<h2 id="缺少libopenblas-dll"><a href="#缺少libopenblas-dll" class="headerlink" title="缺少libopenblas.dll"></a>缺少libopenblas.dll</h2><p>当在命令行或git bash中运行生成好的exe时，会报错缺少libopenblas.dll：</p>
+<img src="/posts/3944650563/3.png">
+<p>我们需要将之前下载的OpenBLAS中bin目录下的libopenblas.dll拷到和exe文件同一个文件夹中就可以执行了。</p>
+<h2 id="mingw-dll下载"><a href="#mingw-dll下载" class="headerlink" title="mingw dll下载"></a>mingw dll下载</h2><p>包括libgcc_s_seh-1.dll libgfortran-3.dll libquadmath-0.dll，下载后同样需要放到和exe同一目录下。<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">curl -L -O http://sourceforge.net/projects/openblas/files/v0.2.14/mingw64_dll.zip</span><br><span class="line">unzip mingw64_dll.zip</span><br></pre></td></tr></table></figure></p>
+<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p>官方Windows下安装指南：<br><a href="https://github.com/kaldi-asr/kaldi/blob/master/windows/INSTALL.md" target="_blank" rel="noopener">https://github.com/kaldi-asr/kaldi/blob/master/windows/INSTALL.md</a><br>一个中文的安装说明：<br><a href="https://www.jianshu.com/p/5494d6607789" target="_blank" rel="noopener">https://www.jianshu.com/p/5494d6607789</a><br>Windows下安装常见的问题：<br><a href="https://blog.csdn.net/qq_25867649/article/details/78356474?locationNum=8&amp;fps=1" target="_blank" rel="noopener">https://blog.csdn.net/qq_25867649/article/details/78356474?locationNum=8&amp;fps=1</a><br>kaldi中IO接口介绍：<br><a href="http://kaldi-asr.org/doc/io.html" target="_blank" rel="noopener">http://kaldi-asr.org/doc/io.html</a></p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/kaldi/" rel="tag"><i class="menu-item-icon fa fa-fw fa-tags"></i> kaldi</a>
+          
+            <a href="/tags/声纹识别/" rel="tag"><i class="menu-item-icon fa fa-fw fa-tags"></i> 声纹识别</a>
+          
+            <a href="/tags/Visual-Studio/" rel="tag"><i class="menu-item-icon fa fa-fw fa-tags"></i> Visual Studio</a>
+          
+        </div>
+      
+
+      
+      
+        <div class="post-widgets">
+        
+
+        
+
+        
+          
+          <div class="social_share">
+            
+            
+              <div id="needsharebutton-postbottom">
+                <span class="btn">
+                  <i class="fa fa-share-alt" aria-hidden="true"></i>
+                </span>
+              </div>
+            
+          </div>
+        
+        </div>
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/posts/87e6cb09/" rel="next" title="博客折腾记录">
+                <i class="fa fa-chevron-left"></i> 博客折腾记录
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/posts/921238856/" rel="prev" title="成为一个「数据标记员」">
+                成为一个「数据标记员」 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">yutouwd</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">127</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">19</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">40</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/yutouwd" title="GitHub &amp;rarr; https:&#x2F;&#x2F;github.com&#x2F;yutouwd" rel="noopener" target="_blank">&lt;i class&#x3D;&quot;fa fa-fw fa-github&quot;&gt;&lt;&#x2F;i&gt;GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="mailto:yutouwd@gmail.com" title="E-Mail &amp;rarr; mailto:yutouwd@gmail.com" rel="noopener" target="_blank">&lt;i class&#x3D;&quot;fa fa-fw fa-envelope&quot;&gt;&lt;&#x2F;i&gt;E-Mail</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#kaldi在Windows下的安装"><span class="nav-text">kaldi在Windows下的安装</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#工具准备"><span class="nav-text">工具准备</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#编译Openfst"><span class="nav-text">编译Openfst</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置OpenBLAS"><span class="nav-text">配置OpenBLAS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#修改配置文件"><span class="nav-text">修改配置文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#产生工程文件"><span class="nav-text">产生工程文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#kaldi编译测试"><span class="nav-text">kaldi编译测试</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#kaldi在Windows下的调试"><span class="nav-text">kaldi在Windows下的调试</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#新建自己的kaldi项目"><span class="nav-text">新建自己的kaldi项目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#添加引用"><span class="nav-text">添加引用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#添加工程属性表"><span class="nav-text">添加工程属性表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修改附加包含目录"><span class="nav-text">修改附加包含目录</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#写自己的kaldi程序"><span class="nav-text">写自己的kaldi程序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#kaldi模型的读取"><span class="nav-text">kaldi模型的读取</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#kaldi在Windows下的移植"><span class="nav-text">kaldi在Windows下的移植</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#生成exe"><span class="nav-text">生成exe</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#生成dll"><span class="nav-text">生成dll</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#遇到的问题记录"><span class="nav-text">遇到的问题记录</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#cmake生成Openfst工程文件失败"><span class="nav-text">cmake生成Openfst工程文件失败</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#缺少libopenblas-dll"><span class="nav-text">缺少libopenblas.dll</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#mingw-dll下载"><span class="nav-text">mingw dll下载</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考资料"><span class="nav-text">参考资料</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">yutouwd</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">文字总数&#58;</span>
+    
+    <span title="post.totalcount">71k</span>
+  
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.0.0</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/src/utils.js?v=7.0.0"></script>
+
+  <script src="/js/src/motion.js?v=7.0.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/src/schemes/muse.js?v=7.0.0"></script>
+
+
+
+  
+  <script src="/js/src/scrollspy.js?v=7.0.0"></script>
+<script src="/js/src/post-details.js?v=7.0.0"></script>
+
+
+
+  
+
+
+  <script src="/js/src/bootstrap.js?v=7.0.0"></script>
+
+
+
+  
+  
+
+<script src="//cdn1.lncld.net/static/js/3.11.1/av-min.js"></script>
+
+
+
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+
+<script>
+  var GUEST = ['nick', 'mail', 'link'];
+  var guest = 'nick,mail,link';
+  guest = guest.split(',').filter(function(item) {
+    return GUEST.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#comments',
+    verify: true,
+    notify: true,
+    appId: 'IyLr0ozy6Xzdjq2JrDehrIn9-gzGzoHsz',
+    appKey: 'FEqRgVoI4cMfVIGolcQ46n6G',
+    placeholder: '快来评论吧 (๑•̀ㅂ•́)و✧',
+    avatar: 'mm',
+    meta: guest,
+    pageSize: '10' || 10,
+    visitor: true
+  });
+</script>
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+  <script>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+      }
+      else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+      }
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+  
+
+  
+  
+
+  
+  
+
+  
+
+
+  
+  
+  
+  <script src="/lib/needsharebutton/needsharebutton.js"></script>
+  <script>
+    
+      pbOptions = {};
+      
+        pbOptions.iconStyle = "box";
+      
+        pbOptions.boxForm = "horizontal";
+      
+        pbOptions.position = "bottomCenter";
+      
+        pbOptions.networks = "Weibo,Wechat,Douban,QQZone,Twitter,Facebook";
+      
+      new needShareButton('#needsharebutton-postbottom', pbOptions);
+    
+    
+  </script>
+
+
+  
+
+  
+  
+  
+  <script src="/lib/pangu/dist/pangu.min.js?v=3.3"></script>
+  <script>pangu.spacingPage();</script>
+
+
+  
+
+  
+
+  
+
+  
+  <style>
+    .copy-btn {
+      display: inline-block;
+      padding: 6px 12px;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 20px;
+      color: #333;
+      white-space: nowrap;
+      vertical-align: middle;
+      cursor: pointer;
+      background-color: #eee;
+      background-image: linear-gradient(#fcfcfc, #eee);
+      border: 1px solid #d5d5d5;
+      border-radius: 3px;
+      user-select: none;
+      outline: 0;
+    }
+
+    .highlight-wrap .copy-btn {
+      transition: opacity .3s ease-in-out;
+      opacity: 0;
+      padding: 2px 6px;
+      position: absolute;
+      right: 4px;
+      top: 8px;
+    }
+
+    .highlight-wrap:hover .copy-btn,
+    .highlight-wrap .copy-btn:focus {
+      opacity: 1
+    }
+
+    .highlight-wrap {
+      position: relative;
+    }
+  </style>
+  <script>
+    $('.highlight').each(function(i, e) {
+      var $wrap = $('<div>').addClass('highlight-wrap');
+      $(e).after($wrap);
+      $wrap.append($('<button>').addClass('copy-btn').append('复制').on('click', function(e) {
+        var code = $(this).parent().find('.code').find('.line').map(function(i, e) {
+          return $(e).text();
+        }).toArray().join('\n');
+        var ta = document.createElement('textarea');
+        var range = document.createRange(); //For Chrome
+        var sel = window.getSelection(); //For Chrome
+        var yPosition = window.pageYOffset || document.documentElement.scrollTop;
+        ta.style.top = yPosition + 'px'; //Prevent page scroll
+        ta.style.position = 'absolute';
+        ta.style.opacity = '0';
+        ta.value = code;
+        ta.textContent = code; //For FireFox
+        ta.contentEditable = true;
+        ta.readOnly = false;
+        document.body.appendChild(ta);
+        range.selectNode(ta);
+        sel.removeAllRanges();
+        sel.addRange(range);
+        ta.setSelectionRange(0, code.length);
+        var result = document.execCommand('copy');
+        
+          if (result) $(this).text('复制成功');
+          else $(this).text('复制失败');
+        
+        ta.blur(); //For iOS
+        $(this).blur();
+      })).on('mouseleave', function(e) {
+        var $b = $(this).find('.copy-btn');
+        setTimeout(function() {
+          $b.text('复制');
+        }, 300);
+      }).append(e);
+    })
+  </script>
+
+
+  
+
+</body>
+</html>
