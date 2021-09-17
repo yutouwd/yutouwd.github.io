@@ -114,7 +114,9 @@
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://yutouwd.github.io/posts/457064921/ProblemSet1-1.png">
 <meta property="og:image" content="http://yutouwd.github.io/posts/457064921/ProblemSet1-2.png">
-<meta property="og:updated_time" content="2021-09-16T02:40:58.390Z">
+<meta property="og:image" content="http://yutouwd.github.io/posts/457064921/ProblemSet2-1.png">
+<meta property="og:image" content="http://yutouwd.github.io/posts/457064921/ProblemSet2-2.png">
+<meta property="og:updated_time" content="2021-09-17T15:54:37.734Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Probability - Sample Space and Probability">
 <meta name="twitter:description" content="采样空间 “List” (set) of possible outcomes. List must be mutually exclusive (互斥的) and collectively exhaustive (穷尽的) 采样空间可以分为离散空间和连续空间。  概率论中的公理两个定义  事件：是采样空间的一个子集 每个事件都会有对应的概率  三个公理:  Nonnegativity 非负性：$P">
@@ -434,7 +436,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2021-09-16 10:40:58" itemprop="dateModified" datetime="2021-09-16T10:40:58+08:00">2021-09-16</time>
+                <time title="修改时间：2021-09-17 23:54:37" itemprop="dateModified" datetime="2021-09-17T23:54:37+08:00">2021-09-17</time>
               
             
           </span>
@@ -510,7 +512,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="post.wordcount">
-                  816
+                  972
                 </span>
               
 
@@ -526,7 +528,7 @@
                   <span class="post-meta-item-text">阅读时间 &asymp;</span>
                 
                 <span title="post.min2read">
-                  3
+                  4
                 </span>
               
             </div>
@@ -572,6 +574,9 @@
 <p>\begin{equation}<br>\begin{split}<br>P(B)&amp;=\sum_{i=1}^{n}P(B\cap A_i)\\<br>&amp;=\sum_{i=1}^{n}P(A_i)P(B|A_i)<br>\end{split}<br>\end{equation}</p>
 <h1 id="贝叶斯公式"><a href="#贝叶斯公式" class="headerlink" title="贝叶斯公式"></a>贝叶斯公式</h1><p>已知先验概率$P(A_i)$和$P(B|A_i)$，求$P(A_i|B)$。</p>
 <p>\begin{equation}<br>\begin{split}<br>P(A_i|B)&amp;=\frac{P(A_i\cap B)}{P(B)}\\<br>&amp;=\frac{P(A_i)P(B|A_i)}{\sum_{j=1}^{n}P(A_j)P(B|A_j)}<br>\end{split}<br>\end{equation}</p>
+<h1 id="独立事件"><a href="#独立事件" class="headerlink" title="独立事件"></a>独立事件</h1><p>定义：两个事件是独立的，指一次实验中一事件的发生不会影响到另一事件发生的概率。如果$P(B|A)=P(B)$或者$P(A\cap B)=P(A)P(B)$，就可以称A与B是互相独立的事件。</p>
+<p>“条件”可能会影响两个事件的独立性：Independency in original model does not imply independency in the conditional model. 反之也成立。</p>
+<h1 id="组合-Combinations"><a href="#组合-Combinations" class="headerlink" title="组合 Combinations"></a>组合 Combinations</h1><p>这里组合表示为<br>\begin{equation}<br>(^n_k)=\frac{n!}{k!(n-k)!}<br>\end{equation}<br>打出来有些难看，又不想打大括号复杂的公式，后面还是用$C_n^k$来表示吧。</p>
 <h1 id="Assignment"><a href="#Assignment" class="headerlink" title="Assignment"></a>Assignment</h1><h2 id="Problem-Set-1"><a href="#Problem-Set-1" class="headerlink" title="Problem Set 1"></a>Problem Set 1</h2><img src="/posts/457064921/ProblemSet1-1.png">
 <p>1:<br>(a) $A\cup B\cup C$<br>(b) $(A\cap B^c\cap C^c)\cup (A^c\cap B\cap C^c)\cup (A^c\cap B^c\cap C)\cup (A^c\cap B^c\cap C^c)$<br>(c) $(A\cup B\cup C)^c$<br>(d) $A\cap B\cap C$<br>(e) $(A\cap B^c\cap C^c)\cup (A^c\cap B\cap C^c)\cup (A^c\cap B^c\cap C)$<br>(f) $A\cap B\cap C^c$<br>(g) $A\cup B^c$<br>这里(g)做错了，应该是$A\cup (A^c\cap B^c)$。因为题目是A发生，或者当A不发生时，B也不发生。</p>
 <p>2:<br>(a) 1/8<br>(b) 1/8<br>(c) 3/8<br>(d) 1/2</p>
@@ -581,6 +586,8 @@
 <img src="/posts/457064921/ProblemSet1-2.png">
 <p>5:<br>(a) 圆的面积是半径平方乘以$\pi$，要等50分就要在1in里面，所以应该是1/100。<br>(b)30分是在1～3in这个空心圆中(9-1)/100=2/25<br>(c)对John来说，结果和Mike应该是一样的，因为左右半区并不会影响成绩。</p>
 <p>6:<br>这个真的想不到证明的方法。可以参考<a href="https://math.stackexchange.com/questions/2622714/prove-that-for-any-three-events-a-b-c-pabc-ge-pa-pb-pc-%E2%88%92-2" target="_blank" rel="noopener">https://math.stackexchange.com/questions/2622714/prove-that-for-any-three-events-a-b-c-pabc-ge-pa-pb-pc-%E2%88%92-2</a></p>
+<h2 id="Problem-Set-2"><a href="#Problem-Set-2" class="headerlink" title="Problem Set 2"></a>Problem Set 2</h2><img src="/posts/457064921/ProblemSet2-1.png">
+<img src="/posts/457064921/ProblemSet2-2.png">
 
       
     </div>
@@ -950,7 +957,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#采样空间"><span class="nav-text">采样空间</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#概率论中的公理"><span class="nav-text">概率论中的公理</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#条件概率"><span class="nav-text">条件概率</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#全概率公式"><span class="nav-text">全概率公式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#贝叶斯公式"><span class="nav-text">贝叶斯公式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Assignment"><span class="nav-text">Assignment</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Problem-Set-1"><span class="nav-text">Problem Set 1</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#采样空间"><span class="nav-text">采样空间</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#概率论中的公理"><span class="nav-text">概率论中的公理</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#条件概率"><span class="nav-text">条件概率</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#全概率公式"><span class="nav-text">全概率公式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#贝叶斯公式"><span class="nav-text">贝叶斯公式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#独立事件"><span class="nav-text">独立事件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#组合-Combinations"><span class="nav-text">组合 Combinations</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Assignment"><span class="nav-text">Assignment</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Problem-Set-1"><span class="nav-text">Problem Set 1</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Problem-Set-2"><span class="nav-text">Problem Set 2</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -984,7 +991,7 @@
     
       <span class="post-meta-item-text">文字总数&#58;</span>
     
-    <span title="post.totalcount">71.6k</span>
+    <span title="post.totalcount">71.7k</span>
   
 
   

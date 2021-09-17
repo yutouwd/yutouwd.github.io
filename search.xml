@@ -50,6 +50,9 @@
 <p>\begin{equation}<br>\begin{split}<br>P(B)&amp;=\sum_{i=1}^{n}P(B\cap A_i)\\<br>&amp;=\sum_{i=1}^{n}P(A_i)P(B|A_i)<br>\end{split}<br>\end{equation}</p>
 <h1 id="贝叶斯公式"><a href="#贝叶斯公式" class="headerlink" title="贝叶斯公式"></a>贝叶斯公式</h1><p>已知先验概率$P(A_i)$和$P(B|A_i)$，求$P(A_i|B)$。</p>
 <p>\begin{equation}<br>\begin{split}<br>P(A_i|B)&amp;=\frac{P(A_i\cap B)}{P(B)}\\<br>&amp;=\frac{P(A_i)P(B|A_i)}{\sum_{j=1}^{n}P(A_j)P(B|A_j)}<br>\end{split}<br>\end{equation}</p>
+<h1 id="独立事件"><a href="#独立事件" class="headerlink" title="独立事件"></a>独立事件</h1><p>定义：两个事件是独立的，指一次实验中一事件的发生不会影响到另一事件发生的概率。如果$P(B|A)=P(B)$或者$P(A\cap B)=P(A)P(B)$，就可以称A与B是互相独立的事件。</p>
+<p>“条件”可能会影响两个事件的独立性：Independency in original model does not imply independency in the conditional model. 反之也成立。</p>
+<h1 id="组合-Combinations"><a href="#组合-Combinations" class="headerlink" title="组合 Combinations"></a>组合 Combinations</h1><p>这里组合表示为<br>\begin{equation}<br>(^n_k)=\frac{n!}{k!(n-k)!}<br>\end{equation}<br>打出来有些难看，又不想打大括号复杂的公式，后面还是用$C_n^k$来表示吧。</p>
 <h1 id="Assignment"><a href="#Assignment" class="headerlink" title="Assignment"></a>Assignment</h1><h2 id="Problem-Set-1"><a href="#Problem-Set-1" class="headerlink" title="Problem Set 1"></a>Problem Set 1</h2><img src="/posts/457064921/ProblemSet1-1.png">
 <p>1:<br>(a) $A\cup B\cup C$<br>(b) $(A\cap B^c\cap C^c)\cup (A^c\cap B\cap C^c)\cup (A^c\cap B^c\cap C)\cup (A^c\cap B^c\cap C^c)$<br>(c) $(A\cup B\cup C)^c$<br>(d) $A\cap B\cap C$<br>(e) $(A\cap B^c\cap C^c)\cup (A^c\cap B\cap C^c)\cup (A^c\cap B^c\cap C)$<br>(f) $A\cap B\cap C^c$<br>(g) $A\cup B^c$<br>这里(g)做错了，应该是$A\cup (A^c\cap B^c)$。因为题目是A发生，或者当A不发生时，B也不发生。</p>
 <p>2:<br>(a) 1/8<br>(b) 1/8<br>(c) 3/8<br>(d) 1/2</p>
@@ -59,6 +62,8 @@
 <img src="/posts/457064921/ProblemSet1-2.png">
 <p>5:<br>(a) 圆的面积是半径平方乘以$\pi$，要等50分就要在1in里面，所以应该是1/100。<br>(b)30分是在1～3in这个空心圆中(9-1)/100=2/25<br>(c)对John来说，结果和Mike应该是一样的，因为左右半区并不会影响成绩。</p>
 <p>6:<br>这个真的想不到证明的方法。可以参考<a href="https://math.stackexchange.com/questions/2622714/prove-that-for-any-three-events-a-b-c-pabc-ge-pa-pb-pc-%E2%88%92-2" target="_blank" rel="noopener">https://math.stackexchange.com/questions/2622714/prove-that-for-any-three-events-a-b-c-pabc-ge-pa-pb-pc-%E2%88%92-2</a></p>
+<h2 id="Problem-Set-2"><a href="#Problem-Set-2" class="headerlink" title="Problem Set 2"></a>Problem Set 2</h2><img src="/posts/457064921/ProblemSet2-1.png">
+<img src="/posts/457064921/ProblemSet2-2.png">
 ]]></content>
       <categories>
         <category>数学</category>
@@ -3194,11 +3199,11 @@
 <p>不过现在卡在百度的认证上了，下载认证文件放到next主题目录的路径下，会显示验证失败：“您的站点有链接未通过https校验“黑人问号？？？</p>
 <h2 id="leetcode文章归档"><a href="#leetcode文章归档" class="headerlink" title="leetcode文章归档"></a>leetcode文章归档</h2><p>想法是写leetcode的文章不会自动显示在主页上，然后新建一个page，里面专门收录写的关于leetcoede的文章。可以在scaffolds目录中新建一个leet.md，以后直接用hexo new leet [leet题目]这样方式来新建一个文章。将文章不显示在主页的方法参考这篇文章<a href="https://www.jianshu.com/p/79fe9fb9dfa0" target="_blank" rel="noopener">https://www.jianshu.com/p/79fe9fb9dfa0</a>，修改好之后，就在leet.md中加上notshow: true，以后新建就可以自动设置为不显示了。</p>
 <p>然后还想弄一个类似于github上个人主页那种日历表，如果有一天有做题的话，就会设置成绿色。找了下，发现可以通过baidu的echart或者google chart来实现。baidu的好处就是有中文的文档，google的例子似乎更好看一些，但是不知道会不会被emmmm，就还是先试试百度的吧。只要<strong>npm install hexo-tag-echarts3 –save</strong>就可以来，下面是一个echart测试：</p>
-<div id="echarts1765" style="width: 85%;height: 400px;margin: 0 auto"></div>
+<div id="echarts2864" style="width: 85%;height: 400px;margin: 0 auto"></div>
 <script src="https://cdn.bootcss.com/echarts/3.8.0/echarts.common.min.js"></script>
 <script type="text/javascript">
         // 基于准备好的dom，初始化echarts实例
-        var myChart = echarts.init(document.getElementById('echarts1765'));
+        var myChart = echarts.init(document.getElementById('echarts2864'));
         // 指定图表的配置项和数据
         var option = {
     tooltip : {
@@ -3265,11 +3270,11 @@
         myChart.setOption(option);
 </script>
 <p>可以点击上方的利润、收入、支出来设置显示和不显示，还是很炫酷滴🕶️，接下来试下日历表：</p>
-<div id="echarts7100" style="width: 85%;height: 400px;margin: 0 auto"></div>
+<div id="echarts4183" style="width: 85%;height: 400px;margin: 0 auto"></div>
 <script src="https://cdn.bootcss.com/echarts/3.8.0/echarts.common.min.js"></script>
 <script type="text/javascript">
         // 基于准备好的dom，初始化echarts实例
-        var myChart = echarts.init(document.getElementById('echarts7100'));
+        var myChart = echarts.init(document.getElementById('echarts4183'));
         // 指定图表的配置项和数据
         var option = 
 option = {
