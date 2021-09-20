@@ -75,6 +75,8 @@
 <p>1:<br>(a)<br>A = {Forecast is rain}<br>B = {It is rain}<br>C = {It is winter}<br>D = {It is summer}<br>\begin{equation}<br>\begin{split}<br>P(A|B\cup C)&amp;=\frac{P(A\cup B\cup C)}{P(B\cup C)}=\frac{56}{59}<br>\end{split}<br>\end{equation}</p>
 <p>\begin{equation}<br>\begin{split}<br>P(A|B\cup D)&amp;=\frac{P(A\cup B\cup D)}{P(B\cup D)}=\frac{16}{24}<br>\end{split}<br>\end{equation}</p>
 <p>(b)</p>
+<p>2:<br>(a)<br>\begin{equation}<br>P(A) = \frac{1}{25} \\<br>P(B) = 1-\frac{16}{25}=\frac{9}{25} \\<br>P(C) = \frac{9}{25} \\<br>P(B|A)=1\neq P(B)<br>P(C|A)=0\neq P(C)<br>\end{equation}<br>所以，A与B或C都不独立。</p>
+<p>(b)<br>\begin{equation}<br>P(D) = \frac{4}{25}\\<br>P(E) = \frac{8}{25}\\<br>P(F) = \frac{10}{25}\\<br>P(F|E) = \frac{1}{2} \neq P(F)<br>P(E|D) = \frac{1}{2}<br>P(F|D) = \frac{1}{2}<br>P(E\cap F |D)=\frac{1}{4}=P(E|D)P(F|D)<br>\end{equation}<br>(i) 因为$P(F|E)\neq P(F)$，所以他们是相关的<br>(ii) 但是在D发生的条件下，他们是无关的。</p>
 <img src="/posts/457064921/ProblemSet2-2.png">
 ]]></content>
       <categories>
@@ -3212,11 +3214,11 @@
 <p>不过现在卡在百度的认证上了，下载认证文件放到next主题目录的路径下，会显示验证失败：“您的站点有链接未通过https校验“黑人问号？？？</p>
 <h2 id="leetcode文章归档"><a href="#leetcode文章归档" class="headerlink" title="leetcode文章归档"></a>leetcode文章归档</h2><p>想法是写leetcode的文章不会自动显示在主页上，然后新建一个page，里面专门收录写的关于leetcoede的文章。可以在scaffolds目录中新建一个leet.md，以后直接用hexo new leet [leet题目]这样方式来新建一个文章。将文章不显示在主页的方法参考这篇文章<a href="https://www.jianshu.com/p/79fe9fb9dfa0" target="_blank" rel="noopener">https://www.jianshu.com/p/79fe9fb9dfa0</a>，修改好之后，就在leet.md中加上notshow: true，以后新建就可以自动设置为不显示了。</p>
 <p>然后还想弄一个类似于github上个人主页那种日历表，如果有一天有做题的话，就会设置成绿色。找了下，发现可以通过baidu的echart或者google chart来实现。baidu的好处就是有中文的文档，google的例子似乎更好看一些，但是不知道会不会被emmmm，就还是先试试百度的吧。只要<strong>npm install hexo-tag-echarts3 –save</strong>就可以来，下面是一个echart测试：</p>
-<div id="echarts6677" style="width: 85%;height: 400px;margin: 0 auto"></div>
+<div id="echarts2883" style="width: 85%;height: 400px;margin: 0 auto"></div>
 <script src="https://cdn.bootcss.com/echarts/3.8.0/echarts.common.min.js"></script>
 <script type="text/javascript">
         // 基于准备好的dom，初始化echarts实例
-        var myChart = echarts.init(document.getElementById('echarts6677'));
+        var myChart = echarts.init(document.getElementById('echarts2883'));
         // 指定图表的配置项和数据
         var option = {
     tooltip : {
@@ -3283,11 +3285,11 @@
         myChart.setOption(option);
 </script>
 <p>可以点击上方的利润、收入、支出来设置显示和不显示，还是很炫酷滴🕶️，接下来试下日历表：</p>
-<div id="echarts9130" style="width: 85%;height: 400px;margin: 0 auto"></div>
+<div id="echarts1819" style="width: 85%;height: 400px;margin: 0 auto"></div>
 <script src="https://cdn.bootcss.com/echarts/3.8.0/echarts.common.min.js"></script>
 <script type="text/javascript">
         // 基于准备好的dom，初始化echarts实例
-        var myChart = echarts.init(document.getElementById('echarts9130'));
+        var myChart = echarts.init(document.getElementById('echarts1819'));
         // 指定图表的配置项和数据
         var option = 
 option = {
