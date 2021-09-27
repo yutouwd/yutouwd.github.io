@@ -1,6 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>解码方法 1 &amp; 2</title>
+    <url>/posts/4143396234/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><h1 id="解码方法1"><a href="#解码方法1" class="headerlink" title="解码方法1"></a>解码方法1</h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p><a href="https://leetcode-cn.com/problems/decode-ways/" target="_blank" rel="noopener">https://leetcode-cn.com/problems/decode-ways/</a><br>一条包含字母 A-Z 的消息通过以下映射进行了 编码 ：</p>
+<p>‘A’ -&gt; 1<br>‘B’ -&gt; 2<br>…<br>‘Z’ -&gt; 26<br>要 解码 已编码的消息，所有数字必须基于上述映射的方法，反向映射回字母（可能有多种方法）。例如，”11106” 可以映射为：</p>
+<p>“AAJF” ，将消息分组为 (1 1 10 6)<br>“KJF” ，将消息分组为 (11 10 6)<br>注意，消息不能分组为  (1 11 06) ，因为 “06” 不能映射为 “F” ，这是由于 “6” 和 “06” 在映射中并不等价。</p>
+<p>给你一个只含数字的 非空 字符串 s ，请计算并返回 解码 方法的 总数 。<br>题目数据保证答案肯定是一个 32 位 的整数。</p>
+<p>示例 1：<br>输入：s = “12”<br>输出：2<br>解释：它可以解码为 “AB”（1 2）或者 “L”（12）。</p>
+<p>示例 2：<br>输入：s = “226”<br>输出：3<br>解释：它可以解码为 “BZ” (2 26), “VF” (22 6), 或者 “BBF” (2 2 6) 。</p>
+<p>示例 3：<br>输入：s = “0”<br>输出：0<br>解释：没有字符映射到以 0 开头的数字。<br>含有 0 的有效映射是 ‘J’ -&gt; “10” 和 ‘T’-&gt; “20” 。<br>由于没有字符，因此没有有效的方法对此进行解码，因为所有数字都需要映射。</p>
+<p>示例 4：<br>输入：s = “06”<br>输出：0<br>解释：”06” 不能映射到 “F” ，因为字符串含有前导 0（”6” 和 “06” 在映射中并不等价）。</p>
+<p>提示：<br>1 &lt;= s.length &lt;= 100<br>s 只包含数字，并且可能包含前导零。</p>
+<h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><p>一开始写了好多if else，结果总有通不过的用例。看了题解真的简洁明了，只需要考虑两种情况：第一种是只考虑当前字符；另外一种考虑当前字符和前面一个字符。其实有些像加上了一些判断条件的爬楼梯。</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">numDecodings</span><span class="params">(<span class="built_in">string</span> s)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> n = s.size();</span><br><span class="line">        <span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; <span class="title">dp</span><span class="params">(n+<span class="number">1</span>, <span class="number">0</span>)</span></span>;</span><br><span class="line">        <span class="keyword">if</span> (n == <span class="number">0</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        dp[<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;=n ; i++)&#123;</span><br><span class="line">            <span class="keyword">if</span> (s[i<span class="number">-1</span>] != <span class="string">'0'</span>)</span><br><span class="line">                dp[i] += dp[i<span class="number">-1</span>];</span><br><span class="line">            <span class="keyword">if</span> (i &gt; <span class="number">1</span> &amp;&amp; s[i<span class="number">-2</span>] != <span class="string">'0'</span> &amp;&amp; (s[i<span class="number">-2</span>]-<span class="string">'0'</span>)*<span class="number">10</span> + (s[i<span class="number">-1</span>]-<span class="string">'0'</span>) &lt;= <span class="number">26</span>)</span><br><span class="line">                dp[i] += dp[i<span class="number">-2</span>];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> dp[n];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h1 id="解码方法2"><a href="#解码方法2" class="headerlink" title="解码方法2"></a>解码方法2</h1><h2 id="题目描述-1"><a href="#题目描述-1" class="headerlink" title="题目描述"></a>题目描述</h2><p><a href="https://leetcode-cn.com/problems/decode-ways-ii/" target="_blank" rel="noopener">https://leetcode-cn.com/problems/decode-ways-ii/</a><br>一条包含字母 A-Z 的消息通过以下的方式进行了编码：</p>
+<p>‘A’ -&gt; 1<br>‘B’ -&gt; 2<br>…<br>‘Z’ -&gt; 26<br>要 解码 一条已编码的消息，所有的数字都必须分组，然后按原来的编码方案反向映射回字母（可能存在多种方式）。例如，”11106” 可以映射为：</p>
+<p>“AAJF” 对应分组 (1 1 10 6)<br>“KJF” 对应分组 (11 10 6)<br>注意，像 (1 11 06) 这样的分组是无效的，因为 “06” 不可以映射为 ‘F’ ，因为 “6” 与 “06” 不同。</p>
+<p>除了 上面描述的数字字母映射方案，编码消息中可能包含 ‘<em>‘ 字符，可以表示从 ‘1’ 到 ‘9’ 的任一数字（不包括 ‘0’）。例如，编码字符串 “1</em>“ 可以表示 “11”、”12”、”13”、”14”、”15”、”16”、”17”、”18” 或 “19” 中的任意一条消息。对 “1*” 进行解码，相当于解码该字符串可以表示的任何编码消息。</p>
+<p>给你一个字符串 s ，由数字和 ‘*’ 字符组成，返回 解码 该字符串的方法 数目 。</p>
+<p>由于答案数目可能非常大，返回对 109 + 7 取余 的结果。</p>
+<p>示例 1：<br>输入：s = “<em>“<br>输出：9<br>解释：这一条编码消息可以表示 “1”、”2”、”3”、”4”、”5”、”6”、”7”、”8” 或 “9” 中的任意一条。<br>可以分别解码成字符串 “A”、”B”、”C”、”D”、”E”、”F”、”G”、”H” 和 “I” 。<br>因此，”</em>“ 总共有 9 种解码方法。</p>
+<p>示例 2：<br>输入：s = “1<em>“<br>输出：18<br>解释：这一条编码消息可以表示 “11”、”12”、”13”、”14”、”15”、”16”、”17”、”18” 或 “19” 中的任意一条。<br>每种消息都可以由 2 种方法解码（例如，”11” 可以解码成 “AA” 或 “K”）。<br>因此，”1</em>“ 共有 9 * 2 = 18 种解码方法。</p>
+<p>示例 3：<br>输入：s = “2<em>“<br>输出：15<br>解释：这一条编码消息可以表示 “21”、”22”、”23”、”24”、”25”、”26”、”27”、”28” 或 “29” 中的任意一条。<br>“21”、”22”、”23”、”24”、”25” 和 “26” 由 2 种解码方法，但 “27”、”28” 和 “29” 仅有 1 种解码方法。<br>因此，”2</em>“ 共有 (6 <em> 2) + (3 </em> 1) = 12 + 3 = 15 种解码方法。</p>
+<p>提示：<br>1 &lt;= s.length &lt;= 105<br>s[i] 是 0 - 9 中的一位数字或字符 ‘*’</p>
+<h2 id="解题思路-1"><a href="#解题思路-1" class="headerlink" title="解题思路"></a>解题思路</h2><p>这题有更多的情况，不过大致思路还是和解码方法1一样，考虑一个字符和两个字符。</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">constexpr</span> <span class="keyword">int</span> mod = <span class="number">1000000007</span>;</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">numDecodings</span><span class="params">(<span class="built_in">string</span> s)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">auto</span> check1digit = [](<span class="keyword">char</span> c) -&gt; <span class="keyword">int</span> &#123;</span><br><span class="line">            <span class="keyword">if</span> (c == <span class="string">'0'</span>)</span><br><span class="line">                <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">return</span> c == <span class="string">'*'</span> ? <span class="number">9</span> : <span class="number">1</span>;</span><br><span class="line">        &#125;;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">auto</span> check2digit = [](<span class="keyword">char</span> c0, <span class="keyword">char</span> c1) -&gt; <span class="keyword">int</span> &#123;</span><br><span class="line">            <span class="keyword">if</span> (c0 == <span class="string">'*'</span> &amp;&amp; c1 == <span class="string">'*'</span>)</span><br><span class="line">                <span class="keyword">return</span> <span class="number">15</span>;</span><br><span class="line">            <span class="keyword">if</span> (c0 == <span class="string">'*'</span>)</span><br><span class="line">                <span class="keyword">return</span> c1 &lt;= <span class="string">'6'</span> ? <span class="number">2</span> : <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">if</span> (c1 == <span class="string">'*'</span>)&#123;</span><br><span class="line">                <span class="keyword">return</span> c0 == <span class="string">'1'</span> ? <span class="number">9</span> : c0 == <span class="string">'2'</span> ? <span class="number">6</span> : <span class="number">0</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> c0 != <span class="string">'0'</span> &amp;&amp; (c0 - <span class="string">'0'</span>) * <span class="number">10</span> + (c1 - <span class="string">'0'</span>) &lt;= <span class="number">26</span>;</span><br><span class="line">        &#125;;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">int</span> n = s.size();</span><br><span class="line">        <span class="keyword">if</span> (n == <span class="number">0</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> pre2 = <span class="number">0</span>, pre1 = <span class="number">1</span>, curr = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;=n ; i++)&#123;</span><br><span class="line">            curr = (<span class="keyword">long</span> <span class="keyword">long</span>)pre1 * check1digit(s[i<span class="number">-1</span>]) % mod;</span><br><span class="line">            <span class="keyword">if</span> (i &gt; <span class="number">1</span>)</span><br><span class="line">                curr = (curr + (<span class="keyword">long</span> <span class="keyword">long</span>)pre2 * check2digit(s[i<span class="number">-2</span>],s[i<span class="number">-1</span>])) % mod;</span><br><span class="line">            pre2 = pre1;</span><br><span class="line">            pre1 = curr;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> curr;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>leetcode</category>
+        <category>hard</category>
+      </categories>
+      <tags>
+        <tag>leetcode</tag>
+        <tag>string</tag>
+        <tag>动态规划</tag>
+        <tag>lambda表达式</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>725.Split LinkedList in Parts</title>
     <url>/posts/3339355851/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><h1 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h1><p>给你一个头结点为 head 的单链表和一个整数 k ，请你设计一个算法将链表分隔为 k 个连续的部分。<br>每部分的长度应该尽可能的相等：任意两部分的长度差距不能超过 1 。这可能会导致有些部分为 null 。<br>这 k 个部分应该按照在链表中出现的顺序排列，并且排在前面的部分的长度应该大于或等于排在后面的长度。<br>返回一个由上述 k 部分组成的数组。</p>
@@ -51,6 +89,7 @@
         <tag>string</tag>
         <tag>前缀树</tag>
         <tag>trees</tag>
+        <tag>lambda表达式</tag>
       </tags>
   </entry>
   <entry>
@@ -3242,11 +3281,11 @@
 <p>不过现在卡在百度的认证上了，下载认证文件放到next主题目录的路径下，会显示验证失败：“您的站点有链接未通过https校验“黑人问号？？？</p>
 <h2 id="leetcode文章归档"><a href="#leetcode文章归档" class="headerlink" title="leetcode文章归档"></a>leetcode文章归档</h2><p>想法是写leetcode的文章不会自动显示在主页上，然后新建一个page，里面专门收录写的关于leetcoede的文章。可以在scaffolds目录中新建一个leet.md，以后直接用hexo new leet [leet题目]这样方式来新建一个文章。将文章不显示在主页的方法参考这篇文章<a href="https://www.jianshu.com/p/79fe9fb9dfa0" target="_blank" rel="noopener">https://www.jianshu.com/p/79fe9fb9dfa0</a>，修改好之后，就在leet.md中加上notshow: true，以后新建就可以自动设置为不显示了。</p>
 <p>然后还想弄一个类似于github上个人主页那种日历表，如果有一天有做题的话，就会设置成绿色。找了下，发现可以通过baidu的echart或者google chart来实现。baidu的好处就是有中文的文档，google的例子似乎更好看一些，但是不知道会不会被emmmm，就还是先试试百度的吧。只要<strong>npm install hexo-tag-echarts3 –save</strong>就可以来，下面是一个echart测试：</p>
-<div id="echarts3711" style="width: 85%;height: 400px;margin: 0 auto"></div>
+<div id="echarts2707" style="width: 85%;height: 400px;margin: 0 auto"></div>
 <script src="https://cdn.bootcss.com/echarts/3.8.0/echarts.common.min.js"></script>
 <script type="text/javascript">
         // 基于准备好的dom，初始化echarts实例
-        var myChart = echarts.init(document.getElementById('echarts3711'));
+        var myChart = echarts.init(document.getElementById('echarts2707'));
         // 指定图表的配置项和数据
         var option = {
     tooltip : {
@@ -3313,11 +3352,11 @@
         myChart.setOption(option);
 </script>
 <p>可以点击上方的利润、收入、支出来设置显示和不显示，还是很炫酷滴🕶️，接下来试下日历表：</p>
-<div id="echarts4874" style="width: 85%;height: 400px;margin: 0 auto"></div>
+<div id="echarts3569" style="width: 85%;height: 400px;margin: 0 auto"></div>
 <script src="https://cdn.bootcss.com/echarts/3.8.0/echarts.common.min.js"></script>
 <script type="text/javascript">
         // 基于准备好的dom，初始化echarts实例
-        var myChart = echarts.init(document.getElementById('echarts4874'));
+        var myChart = echarts.init(document.getElementById('echarts3569'));
         // 指定图表的配置项和数据
         var option = 
 option = {
