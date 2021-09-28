@@ -104,18 +104,18 @@
 
 
 
-  <meta name="description" content="题目描述我的解法解题思路实现代码高票解法实现代码代码分析知识总结">
-<meta name="keywords" content="leetcode">
+  <meta name="description" content="路径总和1题目描述给你二叉树的根节点 root 和一个表示目标和的整数 targetSum ，判断该树中是否存在 根节点到叶子节点 的路径，这条路径上所有节点值相加等于目标和 targetSum 。叶子节点 是指没有子节点的节点。 示例 1：输入：root = [5,4,8,11,null,13,4,7,2,null,null,null,1], targetSum = 22输出：true 示例 2">
+<meta name="keywords" content="leetcode,tree,深度优先,回溯法">
 <meta property="og:type" content="article">
-<meta property="og:title" content="A112-Path-Sum">
+<meta property="og:title" content="路径总和 1&amp;2&amp;3">
 <meta property="og:url" content="http://yutouwd.github.io/posts/171992954/index.html">
 <meta property="og:site_name" content="yutouwd">
-<meta property="og:description" content="题目描述我的解法解题思路实现代码高票解法实现代码代码分析知识总结">
+<meta property="og:description" content="路径总和1题目描述给你二叉树的根节点 root 和一个表示目标和的整数 targetSum ，判断该树中是否存在 根节点到叶子节点 的路径，这条路径上所有节点值相加等于目标和 targetSum 。叶子节点 是指没有子节点的节点。 示例 1：输入：root = [5,4,8,11,null,13,4,7,2,null,null,null,1], targetSum = 22输出：true 示例 2">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2021-09-28T08:51:46.105Z">
+<meta property="og:updated_time" content="2021-09-28T11:48:53.985Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="A112-Path-Sum">
-<meta name="twitter:description" content="题目描述我的解法解题思路实现代码高票解法实现代码代码分析知识总结">
+<meta name="twitter:title" content="路径总和 1&amp;2&amp;3">
+<meta name="twitter:description" content="路径总和1题目描述给你二叉树的根节点 root 和一个表示目标和的整数 targetSum ，判断该树中是否存在 根节点到叶子节点 的路径，这条路径上所有节点值相加等于目标和 targetSum 。叶子节点 是指没有子节点的节点。 示例 1：输入：root = [5,4,8,11,null,13,4,7,2,null,null,null,1], targetSum = 22输出：true 示例 2">
 
 
 
@@ -134,7 +134,7 @@
   };
 </script>
 
-  <title>A112-Path-Sum | yutouwd</title>
+  <title>路径总和 1&2&3 | yutouwd</title>
   
 
 
@@ -388,7 +388,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">A112-Path-Sum
+          <h2 class="post-title" itemprop="name headline">路径总和 1&2&3
 
               
             
@@ -414,9 +414,13 @@
                 
               
 
-              <time title="创建时间：2021-09-28 16:51:46" itemprop="dateCreated datePublished" datetime="2021-09-28T16:51:46+08:00">2021-09-28</time>
+              <time title="创建时间：2021-09-28 16:51:46 / 修改时间：19:48:53" itemprop="dateCreated datePublished" datetime="2021-09-28T16:51:46+08:00">2021-09-28</time>
             
 
+            
+              
+
+              
             
           </span>
 
@@ -433,6 +437,13 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/leetcode/" itemprop="url" rel="index"><span itemprop="name">leetcode</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/leetcode/medium/" itemprop="url" rel="index"><span itemprop="name">medium</span></a></span>
 
                 
                 
@@ -459,7 +470,7 @@
 
           
           
-            <span id="/posts/171992954/" class="leancloud_visitors" data-flag-title="A112-Path-Sum">
+            <span id="/posts/171992954/" class="leancloud_visitors" data-flag-title="路径总和 1&2&3">
               <span class="post-meta-divider">|</span>
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
@@ -484,7 +495,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="post.wordcount">
-                  32
+                  906
                 </span>
               
 
@@ -500,7 +511,7 @@
                   <span class="post-meta-item-text">阅读时间 &asymp;</span>
                 
                 <span title="post.min2read">
-                  1
+                  4
                 </span>
               
             </div>
@@ -523,7 +534,28 @@
       
 
       
-        <h1 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h1><h1 id="我的解法"><a href="#我的解法" class="headerlink" title="我的解法"></a>我的解法</h1><h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><h2 id="实现代码"><a href="#实现代码" class="headerlink" title="实现代码"></a>实现代码</h2><h1 id="高票解法"><a href="#高票解法" class="headerlink" title="高票解法"></a>高票解法</h1><h2 id="实现代码-1"><a href="#实现代码-1" class="headerlink" title="实现代码"></a>实现代码</h2><h2 id="代码分析"><a href="#代码分析" class="headerlink" title="代码分析"></a>代码分析</h2><h1 id="知识总结"><a href="#知识总结" class="headerlink" title="知识总结"></a>知识总结</h1>
+        <h1 id="路径总和1"><a href="#路径总和1" class="headerlink" title="路径总和1"></a>路径总和1</h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>给你二叉树的根节点 root 和一个表示目标和的整数 targetSum ，判断该树中是否存在 根节点到叶子节点 的路径，这条路径上所有节点值相加等于目标和 targetSum 。<br>叶子节点 是指没有子节点的节点。</p>
+<p>示例 1：<br>输入：root = [5,4,8,11,null,13,4,7,2,null,null,null,1], targetSum = 22<br>输出：true</p>
+<p>示例 2：<br>输入：root = [1,2,3], targetSum = 5<br>输出：false</p>
+<p>示例 3：<br>输入：root = [1,2], targetSum = 0<br>输出：false</p>
+<p>提示：<br>树中节点的数目在范围 [0, 5000] 内<br>-1000 &lt;= Node.val &lt;= 1000<br>-1000 &lt;= targetSum &lt;= 1000</p>
+<h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><p>深度优先搜索，递归版<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">hasPathSum</span><span class="params">(TreeNode* root, <span class="keyword">int</span> targetSum)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (root == <span class="literal">nullptr</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        <span class="keyword">if</span> (root -&gt; left == <span class="literal">nullptr</span> &amp;&amp; root -&gt; right == <span class="literal">nullptr</span>)</span><br><span class="line">            <span class="keyword">return</span> targetSum - root -&gt; val == <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">return</span> hasPathSum(root -&gt; left, targetSum - root -&gt; val) || hasPathSum(root -&gt; right, targetSum - root -&gt; val);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<p>迭代版，使用栈来记录节点和当前路径的和。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">hasPathSum</span><span class="params">(TreeNode* root, <span class="keyword">int</span> targetSum)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (!root) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        <span class="built_in">stack</span>&lt;pair&lt;TreeNode*, <span class="keyword">int</span>&gt;&gt; s;</span><br><span class="line">        s.push(make_pair(root, root -&gt; val));</span><br><span class="line">        <span class="keyword">int</span> curr = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span>(!s.empty())&#123;</span><br><span class="line">            <span class="keyword">auto</span> t = s.top();</span><br><span class="line">            s.pop();</span><br><span class="line">            <span class="keyword">if</span> (t.first -&gt; right)&#123;</span><br><span class="line">                s.push(make_pair(t.first -&gt; right, t.second + t.first -&gt; right -&gt; val));</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (t.first -&gt; left)&#123;</span><br><span class="line">                s.push(make_pair(t.first -&gt; left, t.second + t.first -&gt; left -&gt; val));</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (t.first-&gt;left == <span class="literal">nullptr</span> &amp;&amp; t.first-&gt;right == <span class="literal">nullptr</span> &amp;&amp; t.second==targetSum)</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h1 id="路径总和2"><a href="#路径总和2" class="headerlink" title="路径总和2"></a>路径总和2</h1><h2 id="题目描述-1"><a href="#题目描述-1" class="headerlink" title="题目描述"></a>题目描述</h2><p>给你二叉树的根节点 root 和一个整数目标和 targetSum ，找出所有 从根节点到叶子节点 路径总和等于给定目标和的路径。</p>
+<p>叶子节点 是指没有子节点的节点。</p>
+<p>示例 1：<br>输入：root = [5,4,8,11,null,13,4,7,2,null,null,5,1], targetSum = 22<br>输出：[[5,4,11,2],[5,8,4,5]]</p>
+<p>示例 2：<br>输入：root = [1,2,3], targetSum = 5<br>输出：[]</p>
+<p>示例 3：<br>输入：root = [1,2], targetSum = 0<br>输出：[]</p>
+<p>提示：<br>树中节点总数在范围 [0, 5000] 内<br>-1000 &lt;= Node.val &lt;= 1000<br>-1000 &lt;= targetSum &lt;= 1000</p>
+<h2 id="解题思路-1"><a href="#解题思路-1" class="headerlink" title="解题思路"></a>解题思路</h2><p>深度优先递归，感觉可以看成是回溯法。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; res;</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; vec;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">dfs</span><span class="params">(TreeNode* node, <span class="keyword">int</span> targetSum)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (node == <span class="literal">nullptr</span>)</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        vec.push_back(node -&gt; val);</span><br><span class="line">        <span class="keyword">if</span> (targetSum - node -&gt; val == <span class="number">0</span> &amp;&amp; node-&gt;left == <span class="literal">nullptr</span> &amp;&amp; node-&gt;right==<span class="literal">nullptr</span>)&#123;</span><br><span class="line">            res.push_back(vec);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (node-&gt; left) dfs(node-&gt; left, targetSum - node-&gt;val);</span><br><span class="line">        <span class="keyword">if</span> (node-&gt;right) dfs(node-&gt;right, targetSum - node-&gt;val);</span><br><span class="line">        vec.pop_back();</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; <span class="title">pathSum</span><span class="params">(TreeNode* root, <span class="keyword">int</span> targetSum)</span> </span>&#123;</span><br><span class="line">        dfs(root,targetSum);</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h1 id="路径总和3"><a href="#路径总和3" class="headerlink" title="路径总和3"></a>路径总和3</h1><h2 id="题目描述-2"><a href="#题目描述-2" class="headerlink" title="题目描述"></a>题目描述</h2><p>给定一个二叉树的根节点 root ，和一个整数 targetSum ，求该二叉树里节点值之和等于 targetSum 的 路径 的数目。<br>路径 不需要从根节点开始，也不需要在叶子节点结束，但是路径方向必须是向下的（只能从父节点到子节点）。</p>
+<p>示例 1：<br>输入：root = [10,5,-3,3,2,null,11,3,-2,null,1], targetSum = 8<br>输出：3<br>解释：和等于 8 的路径有 3 条，如图所示。</p>
+<p>示例 2：<br>输入：root = [5,4,8,11,null,13,4,7,2,null,null,5,1], targetSum = 22<br>输出：3</p>
+<p>提示:<br>二叉树的节点个数的范围是 [0,1000]<br>-109 &lt;= Node.val &lt;= 109<br>-1000 &lt;= targetSum &lt;= 1000 </p>
+<h2 id="解题思路-2"><a href="#解题思路-2" class="headerlink" title="解题思路"></a>解题思路</h2><p>路径不需要一定从根节点开始。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="built_in">unordered_map</span>&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt; m;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">dfs</span><span class="params">(TreeNode* root, <span class="keyword">long</span> <span class="keyword">long</span> curr, <span class="keyword">int</span> targetSum)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (!root)</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> ret = <span class="number">0</span>;</span><br><span class="line">        curr += root -&gt; val;</span><br><span class="line">        <span class="keyword">if</span> (m.count(curr - targetSum))</span><br><span class="line">            ret = m[curr - targetSum];</span><br><span class="line"></span><br><span class="line">        m[curr]++;</span><br><span class="line">        ret += dfs(root -&gt; left, curr, targetSum);</span><br><span class="line">        ret += dfs(root -&gt; right,curr, targetSum);</span><br><span class="line">        m[curr]--;</span><br><span class="line">        <span class="keyword">return</span> ret;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">pathSum</span><span class="params">(TreeNode* root, <span class="keyword">int</span> targetSum)</span> </span>&#123;</span><br><span class="line">        m[<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">return</span> dfs(root, <span class="number">0</span>, targetSum);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -547,6 +579,12 @@
         <div class="post-tags">
           
             <a href="/tags/leetcode/" rel="tag"><i class="menu-item-icon fa fa-fw fa-tags"></i> leetcode</a>
+          
+            <a href="/tags/tree/" rel="tag"><i class="menu-item-icon fa fa-fw fa-tags"></i> tree</a>
+          
+            <a href="/tags/深度优先/" rel="tag"><i class="menu-item-icon fa fa-fw fa-tags"></i> 深度优先</a>
+          
+            <a href="/tags/回溯法/" rel="tag"><i class="menu-item-icon fa fa-fw fa-tags"></i> 回溯法</a>
           
         </div>
       
@@ -888,7 +926,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#题目描述"><span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#我的解法"><span class="nav-text">我的解法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#解题思路"><span class="nav-text">解题思路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实现代码"><span class="nav-text">实现代码</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#高票解法"><span class="nav-text">高票解法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#实现代码-1"><span class="nav-text">实现代码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码分析"><span class="nav-text">代码分析</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#知识总结"><span class="nav-text">知识总结</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#路径总和1"><span class="nav-text">路径总和1</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#题目描述"><span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解题思路"><span class="nav-text">解题思路</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#路径总和2"><span class="nav-text">路径总和2</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#题目描述-1"><span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解题思路-1"><span class="nav-text">解题思路</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#路径总和3"><span class="nav-text">路径总和3</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#题目描述-2"><span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解题思路-2"><span class="nav-text">解题思路</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -922,7 +960,7 @@
     
       <span class="post-meta-item-text">文字总数&#58;</span>
     
-    <span title="post.totalcount">75.4k</span>
+    <span title="post.totalcount">76.3k</span>
   
 
   
