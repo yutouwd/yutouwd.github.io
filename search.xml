@@ -37,7 +37,7 @@
       </tags>
   </entry>
   <entry>
-    <title>解码方法 1 &amp; 2</title>
+    <title>解码方法 1&amp;2</title>
     <url>/posts/4143396234/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><h1 id="解码方法1"><a href="#解码方法1" class="headerlink" title="解码方法1"></a>解码方法1</h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p><a href="https://leetcode-cn.com/problems/decode-ways/" target="_blank" rel="noopener">https://leetcode-cn.com/problems/decode-ways/</a><br>一条包含字母 A-Z 的消息通过以下映射进行了 编码 ：</p>
 <p>‘A’ -&gt; 1<br>‘B’ -&gt; 2<br>…<br>‘Z’ -&gt; 26<br>要 解码 已编码的消息，所有数字必须基于上述映射的方法，反向映射回字母（可能有多种方法）。例如，”11106” 可以映射为：</p>
@@ -175,7 +175,7 @@
 <p>(b)<br>\begin{equation}<br>\rm<br>P(D) = \frac{4}{25}\\<br>P(E) = \frac{8}{25}\\<br>P(F) = \frac{10}{25}\\<br>P(F|E) = \frac{1}{2} \neq P(F)<br>P(E|D) = \frac{1}{2}<br>P(F|D) = \frac{1}{2}<br>P(E\cap F |D)=\frac{1}{4}=P(E|D)P(F|D)<br>\end{equation}<br>(i) 因为$P(F|E)\neq P(F)$，所以他们是相关的<br>(ii) 但是在D发生的条件下，他们是无关的。</p>
 <p>3:<br>(a)<br>\begin{equation}<br>\rm<br>P = \frac{1}{2}*0.15^2+\frac{1}{2}*0.05^2<br>\end{equation}<br>看了下答案，发现这里其实是一个没有放回的抽取，所以不能直接用平方。<br>(b)<br>\begin{equation}<br>\begin{split}<br>\rm<br>P(old|two\ defective)&amp;=\frac{\rm P(old)P(two\ defective)*P(old)}{\rm P(old)P(two\ defective|old)+P(new)P(two\ defective|new)}<br>\end{split}<br>\end{equation}</p>
 <img src="/posts/457064921/ProblemSet2-2.png">
-<p>4:<br>(a)<br>$\rm P(A)=0.4,\ P(B)=0.6,\ P(find|A)=0.25,\ P(find|B)=0.15$<br>$\rm P(A\cap find)=P(find|A)P(A)=0.1$<br>$\rm P(B\cap find)=P(find|B)P(B)=0.09$<br>所以第一天应该选A森林<br>(b)<br>\begin{equation}<br>\begin{split}<br>\rm<br>P(A|not\ find\ in\ A)<br>&amp;=\rm \frac{\rm P(not\ find\ in\ A|A)P(A)}{\rm P(not\ find\ in\ A)}\\<br>&amp;=\rm \frac{\rm P(not\ find\ in\ A|A)P(A)}{\rm P(not\ find\ in\ A|A)P(A)+P(not\ find\ in\ A|B)P(B)}\\<br>&amp;=\rm \frac{\rm 0.75*0.4}{0.75*0.4+1*0.6}=\frac{1}{3}<br>\end{split}<br>\end{equation}<br>(c)<br>\begin{equation}<br>\begin{split}<br>\rm P(looked\ in\ A|find\ dog)&amp;=<br>\end{split}<br>\end{equation}</p>
+<p>4:<br>(a)<br>$\rm P(A)=0.4,\ P(B)=0.6,\ P(find|A)=0.25,\ P(find|B)=0.15$<br>$\rm P(A\cap find)=P(find|A)P(A)=0.1$<br>$\rm P(B\cap find)=P(find|B)P(B)=0.09$<br>所以第一天应该选A森林<br>(b)<br>\begin{equation}<br>\begin{split}<br>\rm<br>P(A|not\ find\ in\ A)<br>&amp;=\rm \frac{\rm P(not\ find\ in\ A|A)P(A)}{\rm P(not\ find\ in\ A)}\\<br>&amp;=\rm \frac{\rm P(not\ find\ in\ A|A)P(A)}{\rm P(not\ find\ in\ A|A)P(A)+P(not\ find\ in\ A|B)P(B)}\\<br>&amp;=\rm \frac{\rm 0.75*0.4}{0.75*0.4+1*0.6}=\frac{1}{3}<br>\end{split}<br>\end{equation}<br>(c)<br>\begin{equation}<br>\begin{split}<br>\rm P(looked\ in\ A|find\ dog)&amp;=\frac{\rm P(find\ dog|looked\ in\ A)P(looked\ in\ A)}{\rm P(find dog)}\\<br>&amp;=\rm \frac{0.25*0.4*0.5}{0.25*0.4*0.5+0.15*0.6*0.5}<br>\end{split}<br>\end{equation}</p>
 ]]></content>
       <categories>
         <category>数学</category>
@@ -1247,8 +1247,8 @@
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>vector</tag>
         <tag>math</tag>
+        <tag>vector</tag>
       </tags>
   </entry>
   <entry>
@@ -1643,8 +1643,8 @@
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>hashmap</tag>
         <tag>math</tag>
+        <tag>hashmap</tag>
       </tags>
   </entry>
   <entry>
@@ -2195,8 +2195,8 @@
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>vector</tag>
         <tag>math</tag>
+        <tag>vector</tag>
       </tags>
   </entry>
   <entry>
@@ -2850,8 +2850,8 @@
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>hashmap</tag>
         <tag>math</tag>
+        <tag>hashmap</tag>
       </tags>
   </entry>
   <entry>
@@ -3319,11 +3319,11 @@
 <p>不过现在卡在百度的认证上了，下载认证文件放到next主题目录的路径下，会显示验证失败：“您的站点有链接未通过https校验“黑人问号？？？</p>
 <h2 id="leetcode文章归档"><a href="#leetcode文章归档" class="headerlink" title="leetcode文章归档"></a>leetcode文章归档</h2><p>想法是写leetcode的文章不会自动显示在主页上，然后新建一个page，里面专门收录写的关于leetcoede的文章。可以在scaffolds目录中新建一个leet.md，以后直接用hexo new leet [leet题目]这样方式来新建一个文章。将文章不显示在主页的方法参考这篇文章<a href="https://www.jianshu.com/p/79fe9fb9dfa0" target="_blank" rel="noopener">https://www.jianshu.com/p/79fe9fb9dfa0</a>，修改好之后，就在leet.md中加上notshow: true，以后新建就可以自动设置为不显示了。</p>
 <p>然后还想弄一个类似于github上个人主页那种日历表，如果有一天有做题的话，就会设置成绿色。找了下，发现可以通过baidu的echart或者google chart来实现。baidu的好处就是有中文的文档，google的例子似乎更好看一些，但是不知道会不会被emmmm，就还是先试试百度的吧。只要<strong>npm install hexo-tag-echarts3 –save</strong>就可以来，下面是一个echart测试：</p>
-<div id="echarts4016" style="width: 85%;height: 400px;margin: 0 auto"></div>
+<div id="echarts1926" style="width: 85%;height: 400px;margin: 0 auto"></div>
 <script src="https://cdn.bootcss.com/echarts/3.8.0/echarts.common.min.js"></script>
 <script type="text/javascript">
         // 基于准备好的dom，初始化echarts实例
-        var myChart = echarts.init(document.getElementById('echarts4016'));
+        var myChart = echarts.init(document.getElementById('echarts1926'));
         // 指定图表的配置项和数据
         var option = {
     tooltip : {
@@ -3390,11 +3390,11 @@
         myChart.setOption(option);
 </script>
 <p>可以点击上方的利润、收入、支出来设置显示和不显示，还是很炫酷滴🕶️，接下来试下日历表：</p>
-<div id="echarts5889" style="width: 85%;height: 400px;margin: 0 auto"></div>
+<div id="echarts2787" style="width: 85%;height: 400px;margin: 0 auto"></div>
 <script src="https://cdn.bootcss.com/echarts/3.8.0/echarts.common.min.js"></script>
 <script type="text/javascript">
         // 基于准备好的dom，初始化echarts实例
-        var myChart = echarts.init(document.getElementById('echarts5889'));
+        var myChart = echarts.init(document.getElementById('echarts2787'));
         // 指定图表的配置项和数据
         var option = 
 option = {
