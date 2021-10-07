@@ -1,9 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>第261场周赛</title>
+    <title>数据结构与算法-单调栈</title>
+    <url>/posts/1598960452/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><h1 id="单调栈思路"><a href="#单调栈思路" class="headerlink" title="单调栈思路"></a>单调栈思路</h1><p>栈是一种先进后出的数据结构，单调栈指的是一个栈内的数据一直保持单调递增或者单调递减，一般用于实现下一个更大元素和找字典序最小的题目。大致的模版如下：</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="built_in">stack</span>&lt;<span class="keyword">char</span>&gt; s;</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; str.size(); i++)&#123;</span><br><span class="line">    <span class="keyword">while</span> (!s.empty() &amp;&amp; s.top() &lt; str[i])&#123;</span><br><span class="line">        s.pop();</span><br><span class="line">    &#125;</span><br><span class="line">    s.push(str[i]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="单调栈题目"><a href="#单调栈题目" class="headerlink" title="单调栈题目"></a>单调栈题目</h1><h2 id="316-去除重复字母"><a href="#316-去除重复字母" class="headerlink" title="316.去除重复字母"></a>316.去除重复字母</h2><p>给你一个字符串 s ，请你去除字符串中重复的字母，使得每个字母只出现一次。需保证 返回结果的字典序最小（要求不能打乱其他字符的相对位置）。</p>
+<p>示例 1：<br>输入：s = “bcabc”<br>输出：”abc”</p>
+<p>示例 2：<br>输入：s = “cbacdcbc”<br>输出：”acdb”</p>
+<p>提示：<br>1 &lt;= s.length &lt;= 104<br>s 由小写英文字母组成</p>
+<p>来源：力扣（LeetCode）<br>链接：<a href="https://leetcode-cn.com/problems/remove-duplicate-letters" target="_blank" rel="noopener">https://leetcode-cn.com/problems/remove-duplicate-letters</a><br>著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。</p>
+<p>将一个字符串去重，并且要保证字典序最小。用一个整型数组来记录每个字符出现的次数，一个布尔数组来记录每个字符有没有进入到栈里。</p>
+<p>一开始栈是空的，然后不断将符合条件字符加入进去，并且需要判断栈顶元素是否可以删除。<br>在栈中的字符可以跳过；不在栈中的字符就需要一直判断栈顶的字符是否可以删除，然后再把字符加入栈中。</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="built_in">string</span> <span class="title">removeDuplicateLetters</span><span class="params">(<span class="built_in">string</span> s)</span> </span>&#123;</span><br><span class="line">        <span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; <span class="title">num</span><span class="params">(<span class="number">26</span>,<span class="number">0</span>)</span></span>;    <span class="comment">// 记录字符出现次数</span></span><br><span class="line">        <span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">bool</span>&gt; <span class="title">exist</span><span class="params">(<span class="number">26</span>,<span class="number">0</span>)</span></span>; <span class="comment">// 记录字符是否在栈中</span></span><br><span class="line">        <span class="comment">// 统计出现次数</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">char</span> c : s)</span><br><span class="line">            num[c - <span class="string">'a'</span>]++;</span><br><span class="line">        <span class="comment">// 可以直接用string来模拟栈</span></span><br><span class="line">        <span class="built_in">string</span> ans = <span class="string">""</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">char</span> c : s)&#123;</span><br><span class="line">            <span class="comment">// 如果在栈中，就跳过，并且出现次数减一</span></span><br><span class="line">            <span class="comment">// 如果不在栈中，就需要一直判断栈顶的字符是否可以删除，然后再把字符加入栈中</span></span><br><span class="line">            <span class="comment">// 可以删除的条件是 栈顶字符要比现在的字符大，并且栈顶字符后面出现的次数要大于0</span></span><br><span class="line">            <span class="comment">// 这样就可以保证最小字典序</span></span><br><span class="line">            <span class="keyword">if</span> (!exist[c - <span class="string">'a'</span>])&#123;</span><br><span class="line">                <span class="keyword">while</span>(ans.size() &amp;&amp; ans.back() &gt; c &amp;&amp; num[ans.back() - <span class="string">'a'</span>] &gt; <span class="number">0</span>)&#123;</span><br><span class="line">                    exist[ans.back() - <span class="string">'a'</span>] = <span class="literal">false</span>;</span><br><span class="line">                    ans.pop_back();</span><br><span class="line">                &#125;</span><br><span class="line">                ans.push_back(c);</span><br><span class="line">                exist[c - <span class="string">'a'</span>] = <span class="literal">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            num[c - <span class="string">'a'</span>]--;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="402-移掉k位数字"><a href="#402-移掉k位数字" class="headerlink" title="402.移掉k位数字"></a>402.移掉k位数字</h2><p>给你一个以字符串表示的非负整数 num 和一个整数 k ，移除这个数中的 k 位数字，使得剩下的数字最小。请你以字符串形式返回这个最小的数字。</p>
+<p>示例 1 ：<br>输入：num = “1432219”, k = 3<br>输出：”1219”<br>解释：移除掉三个数字 4, 3, 和 2 形成一个新的最小的数字 1219 。</p>
+<p>示例 2 ：<br>输入：num = “10200”, k = 1<br>输出：”200”<br>解释：移掉首位的 1 剩下的数字为 200. 注意输出不能有任何前导零。</p>
+<p>示例 3 ：<br>输入：num = “10”, k = 2<br>输出：”0”<br>解释：从原数字移除所有的数字，剩余为空就是 0 。</p>
+<p>提示：<br>1 &lt;= k &lt;= num.length &lt;= 105<br>num 仅由若干位数字（0 - 9）组成<br>除了 0 本身之外，num 不含任何前导零</p>
+<p>来源：力扣（LeetCode）<br>链接：<a href="https://leetcode-cn.com/problems/remove-k-digits" target="_blank" rel="noopener">https://leetcode-cn.com/problems/remove-k-digits</a><br>著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。</p>
+<p>将一个字符串去掉k个字符并使剩下的数字最小。</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="built_in">string</span> <span class="title">removeKdigits</span><span class="params">(<span class="built_in">string</span> num, <span class="keyword">int</span> k)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">string</span> ans;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; num.size(); i++)&#123;</span><br><span class="line">            <span class="comment">// 保证前面的字符尽可能小</span></span><br><span class="line">            <span class="keyword">while</span> (!ans.empty() &amp;&amp; k &gt; <span class="number">0</span> &amp;&amp; ans.back() &gt; num[i])&#123;</span><br><span class="line">                ans.pop_back();</span><br><span class="line">                k--;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">// 如果剩下的字符数等于k，那么需要都删掉</span></span><br><span class="line">            <span class="keyword">if</span> (num.size() - i &gt; k)</span><br><span class="line">                ans.push_back(num[i]);</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                k--;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 去除前导零</span></span><br><span class="line">        <span class="keyword">int</span> i = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span>(ans[i] == <span class="string">'0'</span>) i++;</span><br><span class="line">        ans = ans.substr(i);</span><br><span class="line">        <span class="comment">// 需要判断是不是空字符</span></span><br><span class="line">        <span class="keyword">return</span> ans == <span class="string">""</span> ? <span class="string">"0"</span> : ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>leetcode</category>
+        <category>算法总结</category>
+      </categories>
+      <tags>
+        <tag>leetcode</tag>
+        <tag>string</tag>
+        <tag>stack</tag>
+        <tag>单调栈</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Leetcode - 第261场周赛</title>
     <url>/posts/3858692559/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><p>做出来两道题</p>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><p>做出来两道题<br><a href="https://leetcode-cn.com/contest/weekly-contest-261/" target="_blank" rel="noopener">https://leetcode-cn.com/contest/weekly-contest-261/</a></p>
 <h1 id="转换字符串的最少操作次数"><a href="#转换字符串的最少操作次数" class="headerlink" title="转换字符串的最少操作次数"></a>转换字符串的最少操作次数</h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>给你一个字符串 s ，由 n 个字符组成，每个字符不是 ‘X’ 就是 ‘O’ 。<br>一次 操作 定义为从 s 中选出 三个连续字符 并将选中的每个字符都转换为 ‘O’ 。注意，如果字符已经是 ‘O’ ，只需要保持 不变 。<br>返回将 s 中所有字符均转换为 ‘O’ 需要执行的 最少 操作次数。</p>
 <p>示例 1：<br>输入：s = “XXX”<br>输出：1<br>解释：XXX -&gt; OOO<br>一次操作，选中全部 3 个字符，并将它们转换为 ‘O’ 。</p>
 <p>示例 2：<br>输入：s = “XXOX”<br>输出：2<br>解释：XXOX -&gt; OOOX -&gt; OOOO<br>第一次操作，选择前 3 个字符，并将这些字符转换为 ‘O’ 。<br>然后，选中后 3 个字符，并执行转换。最终得到的字符串全由字符 ‘O’ 组成。</p>
@@ -3394,11 +3426,11 @@
 <p>不过现在卡在百度的认证上了，下载认证文件放到next主题目录的路径下，会显示验证失败：“您的站点有链接未通过https校验“黑人问号？？？</p>
 <h2 id="leetcode文章归档"><a href="#leetcode文章归档" class="headerlink" title="leetcode文章归档"></a>leetcode文章归档</h2><p>想法是写leetcode的文章不会自动显示在主页上，然后新建一个page，里面专门收录写的关于leetcoede的文章。可以在scaffolds目录中新建一个leet.md，以后直接用hexo new leet [leet题目]这样方式来新建一个文章。将文章不显示在主页的方法参考这篇文章<a href="https://www.jianshu.com/p/79fe9fb9dfa0" target="_blank" rel="noopener">https://www.jianshu.com/p/79fe9fb9dfa0</a>，修改好之后，就在leet.md中加上notshow: true，以后新建就可以自动设置为不显示了。</p>
 <p>然后还想弄一个类似于github上个人主页那种日历表，如果有一天有做题的话，就会设置成绿色。找了下，发现可以通过baidu的echart或者google chart来实现。baidu的好处就是有中文的文档，google的例子似乎更好看一些，但是不知道会不会被emmmm，就还是先试试百度的吧。只要<strong>npm install hexo-tag-echarts3 –save</strong>就可以来，下面是一个echart测试：</p>
-<div id="echarts5" style="width: 85%;height: 400px;margin: 0 auto"></div>
+<div id="echarts7049" style="width: 85%;height: 400px;margin: 0 auto"></div>
 <script src="https://cdn.bootcss.com/echarts/3.8.0/echarts.common.min.js"></script>
 <script type="text/javascript">
         // 基于准备好的dom，初始化echarts实例
-        var myChart = echarts.init(document.getElementById('echarts5'));
+        var myChart = echarts.init(document.getElementById('echarts7049'));
         // 指定图表的配置项和数据
         var option = {
     tooltip : {
@@ -3465,11 +3497,11 @@
         myChart.setOption(option);
 </script>
 <p>可以点击上方的利润、收入、支出来设置显示和不显示，还是很炫酷滴🕶️，接下来试下日历表：</p>
-<div id="echarts7565" style="width: 85%;height: 400px;margin: 0 auto"></div>
+<div id="echarts5880" style="width: 85%;height: 400px;margin: 0 auto"></div>
 <script src="https://cdn.bootcss.com/echarts/3.8.0/echarts.common.min.js"></script>
 <script type="text/javascript">
         // 基于准备好的dom，初始化echarts实例
-        var myChart = echarts.init(document.getElementById('echarts7565'));
+        var myChart = echarts.init(document.getElementById('echarts5880'));
         // 指定图表的配置项和数据
         var option = 
 option = {
