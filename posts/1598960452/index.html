@@ -112,7 +112,7 @@
 <meta property="og:site_name" content="yutouwd">
 <meta property="og:description" content="单调栈思路栈是一种先进后出的数据结构，单调栈指的是一个栈内的数据一直保持单调递增或者单调递减，一般用于实现下一个更大元素和找字典序最小的题目。大致的模版如下： 1234567stack&amp;lt;char&amp;gt; s;for (int i = 0; i &amp;lt; str.size(); i++)&amp;#123;    while (!s.empty() &amp;amp;&amp;amp; s.top() &amp;lt; st">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2021-10-08T07:59:29.770Z">
+<meta property="og:updated_time" content="2021-10-10T15:38:37.116Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="数据结构与算法-单调栈">
 <meta name="twitter:description" content="单调栈思路栈是一种先进后出的数据结构，单调栈指的是一个栈内的数据一直保持单调递增或者单调递减，一般用于实现下一个更大元素和找字典序最小的题目。大致的模版如下： 1234567stack&amp;lt;char&amp;gt; s;for (int i = 0; i &amp;lt; str.size(); i++)&amp;#123;    while (!s.empty() &amp;amp;&amp;amp; s.top() &amp;lt; st">
@@ -431,7 +431,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2021-10-08 15:59:29" itemprop="dateModified" datetime="2021-10-08T15:59:29+08:00">2021-10-08</time>
+                <time title="修改时间：2021-10-10 23:38:37" itemprop="dateModified" datetime="2021-10-10T23:38:37+08:00">2021-10-10</time>
               
             
           </span>
@@ -507,7 +507,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="post.wordcount">
-                  2.1k
+                  2.9k
                 </span>
               
 
@@ -523,7 +523,7 @@
                   <span class="post-meta-item-text">阅读时间 &asymp;</span>
                 
                 <span title="post.min2read">
-                  9
+                  12
                 </span>
               
             </div>
@@ -578,8 +578,24 @@
 <p>示例 1:<br>输入: [1,2,1]<br>输出: [2,-1,2]<br>解释: 第一个 1 的下一个更大的数是 2；<br>数字 2 找不到下一个更大的数；<br>第二个 1 的下一个最大的数需要循环搜索，结果也是 2。<br>注意: 输入数组的长度不会超过 10000。</p>
 <p>来源：力扣（LeetCode）<br>链接：<a href="https://leetcode-cn.com/problems/next-greater-element-ii" target="_blank" rel="noopener">https://leetcode-cn.com/problems/next-greater-element-ii</a><br>著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。</p>
 <p>对一个循环数组求下一个更大元素，可以循环两次数组，并且取模来模拟循环数组。<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; <span class="title">nextGreaterElements</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> n = nums.size();</span><br><span class="line">        <span class="built_in">stack</span>&lt;<span class="keyword">int</span>&gt; s;</span><br><span class="line">        <span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; <span class="title">res</span><span class="params">(n, <span class="number">-1</span>)</span></span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n * <span class="number">2</span> - <span class="number">1</span>; i++)&#123;</span><br><span class="line">            <span class="keyword">while</span> (!s.empty() &amp;&amp; nums[s.top()] &lt; nums[i % n])&#123;</span><br><span class="line">                res[s.top()] = nums[i % n];</span><br><span class="line">                s.pop();</span><br><span class="line">            &#125;</span><br><span class="line">            s.push(i % n);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<h2 id="2030-含特定字母的最小序列"><a href="#2030-含特定字母的最小序列" class="headerlink" title="2030.含特定字母的最小序列"></a>2030.含特定字母的最小序列</h2><p>给你一个字符串 s ，一个整数 k ，一个字母 letter 以及另一个整数 repetition 。<br>返回 s 中长度为 k 且 字典序最小 的子序列，该子序列同时应满足字母 letter 出现 至少 repetition 次。生成的测试用例满足 letter 在 s 中出现 至少 repetition 次。<br>子序列 是由原字符串删除一些（或不删除）字符且不改变剩余字符顺序得到的剩余字符串。<br>字符串 a 字典序比字符串 b 小的定义为：在 a 和 b 出现不同字符的第一个位置上，字符串 a 的字符在字母表中的顺序早于字符串 b 的字符。</p>
+<p>示例 1：<br>输入：s = “leet”, k = 3, letter = “e”, repetition = 1<br>输出：”eet”<br>解释：存在 4 个长度为 3 ，且满足字母 ‘e’ 出现至少 1 次的子序列：</p>
+<ul>
+<li>“lee”（”leet”）</li>
+<li>“let”（”leet”）</li>
+<li>“let”（”leet”）</li>
+<li>“eet”（”leet”）<br>其中字典序最小的子序列是 “eet” 。</li>
+</ul>
+<p>示例 2：<br>输入：s = “leetcode”, k = 4, letter = “e”, repetition = 2<br>输出：”ecde”<br>解释：”ecde” 是长度为 4 且满足字母 “e” 出现至少 2 次的字典序最小的子序列。</p>
+<p>示例 3：<br>输入：s = “bb”, k = 2, letter = “b”, repetition = 2<br>输出：”bb”<br>解释：”bb” 是唯一一个长度为 2 且满足字母 “b” 出现至少 2 次的子序列。</p>
+<p>提示：<br>1 &lt;= repetition &lt;= k &lt;= s.length &lt;= 5 * 104<br>s 由小写英文字母组成<br>letter 是一个小写英文字母，在 s 中至少出现 repetition 次</p>
+<p>来源：力扣（LeetCode）<br>链接：<a href="https://leetcode-cn.com/problems/smallest-k-length-subsequence-with-occurrences-of-a-letter" target="_blank" rel="noopener">https://leetcode-cn.com/problems/smallest-k-length-subsequence-with-occurrences-of-a-letter</a><br>著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。</p>
+<p>第261场周赛的最后一题，题目的要求比较多。首先要求最小字典序，那么就要用到单调栈了。然后字符长度要是k，并且有一个字母必须要出现一定次数。</p>
+<p>为了实现一个字母必须出现一定次书，我们首先要统计它的总共出现次数，求出可以删除的数量。然后在使用单调栈道过程中需要加上这个字母的判断。求完最小字典序之后，还需要将字符压缩到k的长度。因为已经是最小字典序了，所以我们要从后面删除字符，并且统计删除了指定字符的次数。最后在字符的后面补上特定字符。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="built_in">string</span> <span class="title">smallestSubsequence</span><span class="params">(<span class="built_in">string</span> s, <span class="keyword">int</span> k, <span class="keyword">char</span> letter, <span class="keyword">int</span> repetition)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">string</span> ans;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 统计该字符出现次数，和需要删除字符的数量</span></span><br><span class="line">        <span class="keyword">int</span> cnt = <span class="number">0</span>, toDel = s.size() - k;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">char</span> c : s)&#123;</span><br><span class="line">            <span class="keyword">if</span> (c == letter)</span><br><span class="line">                cnt++;</span><br><span class="line">        &#125;</span><br><span class="line">        cnt -= repetition;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 求最小字典序</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">char</span> c : s)&#123;</span><br><span class="line">            <span class="keyword">while</span> (!ans.empty() &amp;&amp; toDel &amp;&amp; c &lt; ans.back())&#123;</span><br><span class="line">                <span class="keyword">if</span> (ans.back() == letter)&#123;</span><br><span class="line">                    <span class="keyword">if</span> (cnt)</span><br><span class="line">                        cnt--;</span><br><span class="line">                    <span class="keyword">else</span></span><br><span class="line">                        <span class="keyword">break</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                toDel--;</span><br><span class="line">                ans.pop_back();</span><br><span class="line">            &#125;</span><br><span class="line">            ans.push_back(c);</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 删除多余的字符，并且统计删除的特定字符数量</span></span><br><span class="line">        <span class="keyword">while</span> (ans.size() &gt; k)&#123;</span><br><span class="line">            <span class="keyword">if</span> (ans.back() == letter) </span><br><span class="line">                cnt--;</span><br><span class="line">            ans.pop_back();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 在字符串的最后补上该字符</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = k - <span class="number">1</span>; cnt &lt; <span class="number">0</span>; i--)&#123;</span><br><span class="line">            <span class="keyword">if</span> (ans[i] != letter)&#123;</span><br><span class="line">                ans[i] = letter;</span><br><span class="line">                cnt++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p><a href="https://leetcode-cn.com/problems/remove-k-digits/solution/yi-zhao-chi-bian-li-kou-si-dao-ti-ma-ma-zai-ye-b-5/" target="_blank" rel="noopener">https://leetcode-cn.com/problems/remove-k-digits/solution/yi-zhao-chi-bian-li-kou-si-dao-ti-ma-ma-zai-ye-b-5/</a></p>
 <p><a href="https://github.com/labuladong/fucking-algorithm/blob/master/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%B3%BB%E5%88%97/%E5%8D%95%E8%B0%83%E6%A0%88.md" target="_blank" rel="noopener">https://github.com/labuladong/fucking-algorithm/blob/master/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%B3%BB%E5%88%97/%E5%8D%95%E8%B0%83%E6%A0%88.md</a></p>
+<p><a href="https://leetcode-cn.com/problems/smallest-k-length-subsequence-with-occurrences-of-a-letter/solution/lt-mo-ni-by-landen-zql8/" target="_blank" rel="noopener">https://leetcode-cn.com/problems/smallest-k-length-subsequence-with-occurrences-of-a-letter/solution/lt-mo-ni-by-landen-zql8/</a></p>
 
       
     </div>
@@ -955,7 +971,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#单调栈思路"><span class="nav-text">单调栈思路</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#单调栈题目"><span class="nav-text">单调栈题目</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#316-去除重复字母"><span class="nav-text">316.去除重复字母</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#402-移掉k位数字"><span class="nav-text">402.移掉k位数字</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#496-下一个更大元素"><span class="nav-text">496.下一个更大元素</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#503-下一个更大元素-II"><span class="nav-text">503.下一个更大元素 II</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考资料"><span class="nav-text">参考资料</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#单调栈思路"><span class="nav-text">单调栈思路</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#单调栈题目"><span class="nav-text">单调栈题目</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#316-去除重复字母"><span class="nav-text">316.去除重复字母</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#402-移掉k位数字"><span class="nav-text">402.移掉k位数字</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#496-下一个更大元素"><span class="nav-text">496.下一个更大元素</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#503-下一个更大元素-II"><span class="nav-text">503.下一个更大元素 II</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2030-含特定字母的最小序列"><span class="nav-text">2030.含特定字母的最小序列</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考资料"><span class="nav-text">参考资料</span></a></li></ol></div>
             
 
           </div>
@@ -989,7 +1005,7 @@
     
       <span class="post-meta-item-text">文字总数&#58;</span>
     
-    <span title="post.totalcount">80.4k</span>
+    <span title="post.totalcount">81.3k</span>
   
 
   
