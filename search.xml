@@ -88,6 +88,7 @@
 <p>来源：力扣（LeetCode）<br>链接：<a href="https://leetcode-cn.com/problems/find-missing-observations" target="_blank" rel="noopener">https://leetcode-cn.com/problems/find-missing-observations</a><br>著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。</p>
 <h2 id="解题思路-1"><a href="#解题思路-1" class="headerlink" title="解题思路"></a>解题思路</h2><p>先要判断有没有答案。</p>
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; <span class="title">missingRolls</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; rolls, <span class="keyword">int</span> mean, <span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; res;</span><br><span class="line">        <span class="keyword">int</span> m = rolls.size();</span><br><span class="line">        <span class="keyword">long</span> <span class="keyword">long</span> sum = mean * (n + m);</span><br><span class="line">        <span class="keyword">int</span> m_sum = accumulate(rolls.begin(), rolls.end(), <span class="number">0</span>);</span><br><span class="line">        <span class="keyword">int</span> n_sum = sum - m_sum;</span><br><span class="line">        <span class="keyword">if</span> (m_sum &gt; sum) <span class="keyword">return</span> res;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">int</span> mod = n_sum % n;</span><br><span class="line">        <span class="keyword">int</span> num = n_sum / n;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> (num &gt; <span class="number">6</span> || (num == <span class="number">6</span> &amp;&amp; mod &gt; <span class="number">0</span>)) <span class="keyword">return</span> res;</span><br><span class="line">        <span class="keyword">if</span> (num == <span class="number">0</span> &amp;&amp; mod &lt; n) <span class="keyword">return</span> res;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)&#123;</span><br><span class="line">            <span class="keyword">int</span> cur = num;</span><br><span class="line">            <span class="keyword">if</span> (mod)&#123;</span><br><span class="line">                cur++;</span><br><span class="line">                mod--;</span><br><span class="line">            &#125;</span><br><span class="line">            res.push_back(cur);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h1 id="含特定字母的最小序列"><a href="#含特定字母的最小序列" class="headerlink" title="含特定字母的最小序列"></a>含特定字母的最小序列</h1><p><a href="https://yutouwd.github.io/posts/1598960452">https://yutouwd.github.io/posts/1598960452</a></p>
 ]]></content>
       <categories>
         <category>leetcode</category>
@@ -95,6 +96,7 @@
       </categories>
       <tags>
         <tag>leetcode</tag>
+        <tag>string</tag>
       </tags>
   </entry>
   <entry>
@@ -1390,8 +1392,8 @@
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>math</tag>
         <tag>vector</tag>
+        <tag>math</tag>
       </tags>
   </entry>
   <entry>
@@ -1786,8 +1788,8 @@
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>math</tag>
         <tag>hashmap</tag>
+        <tag>math</tag>
       </tags>
   </entry>
   <entry>
@@ -1808,7 +1810,7 @@
 ]]></content>
       <categories>
         <category>leetcode</category>
-        <category>medium</category>
+        <category>算法总结</category>
       </categories>
       <tags>
         <tag>leetcode</tag>
@@ -2338,8 +2340,8 @@
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>math</tag>
         <tag>vector</tag>
+        <tag>math</tag>
       </tags>
   </entry>
   <entry>
@@ -2993,8 +2995,8 @@
       </categories>
       <tags>
         <tag>leetcode</tag>
-        <tag>math</tag>
         <tag>hashmap</tag>
+        <tag>math</tag>
       </tags>
   </entry>
   <entry>
@@ -3462,11 +3464,11 @@
 <p>不过现在卡在百度的认证上了，下载认证文件放到next主题目录的路径下，会显示验证失败：“您的站点有链接未通过https校验“黑人问号？？？</p>
 <h2 id="leetcode文章归档"><a href="#leetcode文章归档" class="headerlink" title="leetcode文章归档"></a>leetcode文章归档</h2><p>想法是写leetcode的文章不会自动显示在主页上，然后新建一个page，里面专门收录写的关于leetcoede的文章。可以在scaffolds目录中新建一个leet.md，以后直接用hexo new leet [leet题目]这样方式来新建一个文章。将文章不显示在主页的方法参考这篇文章<a href="https://www.jianshu.com/p/79fe9fb9dfa0" target="_blank" rel="noopener">https://www.jianshu.com/p/79fe9fb9dfa0</a>，修改好之后，就在leet.md中加上notshow: true，以后新建就可以自动设置为不显示了。</p>
 <p>然后还想弄一个类似于github上个人主页那种日历表，如果有一天有做题的话，就会设置成绿色。找了下，发现可以通过baidu的echart或者google chart来实现。baidu的好处就是有中文的文档，google的例子似乎更好看一些，但是不知道会不会被emmmm，就还是先试试百度的吧。只要<strong>npm install hexo-tag-echarts3 –save</strong>就可以来，下面是一个echart测试：</p>
-<div id="echarts9133" style="width: 85%;height: 400px;margin: 0 auto"></div>
+<div id="echarts6021" style="width: 85%;height: 400px;margin: 0 auto"></div>
 <script src="https://cdn.bootcss.com/echarts/3.8.0/echarts.common.min.js"></script>
 <script type="text/javascript">
         // 基于准备好的dom，初始化echarts实例
-        var myChart = echarts.init(document.getElementById('echarts9133'));
+        var myChart = echarts.init(document.getElementById('echarts6021'));
         // 指定图表的配置项和数据
         var option = {
     tooltip : {
@@ -3533,11 +3535,11 @@
         myChart.setOption(option);
 </script>
 <p>可以点击上方的利润、收入、支出来设置显示和不显示，还是很炫酷滴🕶️，接下来试下日历表：</p>
-<div id="echarts1214" style="width: 85%;height: 400px;margin: 0 auto"></div>
+<div id="echarts6158" style="width: 85%;height: 400px;margin: 0 auto"></div>
 <script src="https://cdn.bootcss.com/echarts/3.8.0/echarts.common.min.js"></script>
 <script type="text/javascript">
         // 基于准备好的dom，初始化echarts实例
-        var myChart = echarts.init(document.getElementById('echarts1214'));
+        var myChart = echarts.init(document.getElementById('echarts6158'));
         // 指定图表的配置项和数据
         var option = 
 option = {
