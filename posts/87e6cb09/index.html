@@ -112,7 +112,7 @@
 <meta property="og:site_name" content="yutouwd">
 <meta property="og:description" content="之前一直没有记录修改&amp;amp;优化博客的过程，其实这是一个不太好的习惯，现在都忘了自己修改过哪些地方了(虽然vscode可以标出来)，哪些修改对应了网站哪些变化。所以还是要记录一下修改的记录，为方便日后对博客持续优化。 things to do  修改站点下博客文章存放目录  侧边栏toc自动展开  评论系统更换为valine  站点自动备份系统  文章分类、归档页面优化  代码块优化  next">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2021-09-20T15:03:53.415Z">
+<meta property="og:updated_time" content="2021-11-20T15:34:26.598Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="博客折腾记录">
 <meta name="twitter:description" content="之前一直没有记录修改&amp;amp;优化博客的过程，其实这是一个不太好的习惯，现在都忘了自己修改过哪些地方了(虽然vscode可以标出来)，哪些修改对应了网站哪些变化。所以还是要记录一下修改的记录，为方便日后对博客持续优化。 things to do  修改站点下博客文章存放目录  侧边栏toc自动展开  评论系统更换为valine  站点自动备份系统  文章分类、归档页面优化  代码块优化  next">
@@ -431,7 +431,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2021-09-20 23:03:53" itemprop="dateModified" datetime="2021-09-20T23:03:53+08:00">2021-09-20</time>
+                <time title="修改时间：2021-11-20 23:34:26" itemprop="dateModified" datetime="2021-11-20T23:34:26+08:00">2021-11-20</time>
               
             
           </span>
@@ -500,7 +500,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="post.wordcount">
-                  3.3k
+                  3.4k
                 </span>
               
 
@@ -553,7 +553,7 @@
 <li style="list-style: none"><input type="checkbox" checked> 不再使用notshow来隐藏文章</li>
 <li style="list-style: none"><input type="checkbox" checked> 设置git代理和取消</li>
 <li style="list-style: none"><input type="checkbox" checked> menu中自定义中文页面</li>
-<li style="list-style: none"><input type="checkbox"> hexo g之后不能正常生成内容<a id="more"></a>
+<li style="list-style: none"><input type="checkbox" checked> hexo g之后不能正常生成内容<a id="more"></a>
 </li>
 </ul>
 <h2 id="修改站点下博客文章存放目录"><a href="#修改站点下博客文章存放目录" class="headerlink" title="修改站点下博客文章存放目录"></a>修改站点下博客文章存放目录</h2><p>这个其实是在找解决如何将侧边栏toc自动展开时，找到一篇<a href="https://blog.dongleizhang.com/posts/32005d86/" target="_blank" rel="noopener">博客</a>无意中发现的。原来那种年/月/日…的方式真的太挫了，于是就按照他的这种方式，生成一个永久链接。<br>首先安装hexo-abbrlink插件，使用命令 npm install hexo-abbrlink –save 即可。然后需要在站点配置文件，即hexo目录下的_config.yml文件中修改 permalink: :year/:month/:day/:title/ 为一下内容：</p>
@@ -572,11 +572,11 @@
 <p>不过现在卡在百度的认证上了，下载认证文件放到next主题目录的路径下，会显示验证失败：“您的站点有链接未通过https校验“黑人问号？？？</p>
 <h2 id="leetcode文章归档"><a href="#leetcode文章归档" class="headerlink" title="leetcode文章归档"></a>leetcode文章归档</h2><p>想法是写leetcode的文章不会自动显示在主页上，然后新建一个page，里面专门收录写的关于leetcoede的文章。可以在scaffolds目录中新建一个leet.md，以后直接用hexo new leet [leet题目]这样方式来新建一个文章。将文章不显示在主页的方法参考这篇文章<a href="https://www.jianshu.com/p/79fe9fb9dfa0" target="_blank" rel="noopener">https://www.jianshu.com/p/79fe9fb9dfa0</a>，修改好之后，就在leet.md中加上notshow: true，以后新建就可以自动设置为不显示了。</p>
 <p>然后还想弄一个类似于github上个人主页那种日历表，如果有一天有做题的话，就会设置成绿色。找了下，发现可以通过baidu的echart或者google chart来实现。baidu的好处就是有中文的文档，google的例子似乎更好看一些，但是不知道会不会被emmmm，就还是先试试百度的吧。只要<strong>npm install hexo-tag-echarts3 –save</strong>就可以来，下面是一个echart测试：</p>
-<div id="echarts7117" style="width: 85%;height: 400px;margin: 0 auto"></div>
+<div id="echarts3312" style="width: 85%;height: 400px;margin: 0 auto"></div>
 <script src="https://cdn.bootcss.com/echarts/3.8.0/echarts.common.min.js"></script>
 <script type="text/javascript">
         // 基于准备好的dom，初始化echarts实例
-        var myChart = echarts.init(document.getElementById('echarts7117'));
+        var myChart = echarts.init(document.getElementById('echarts3312'));
         // 指定图表的配置项和数据
         var option = {
     tooltip : {
@@ -643,11 +643,11 @@
         myChart.setOption(option);
 </script>
 <p>可以点击上方的利润、收入、支出来设置显示和不显示，还是很炫酷滴🕶️，接下来试下日历表：</p>
-<div id="echarts3235" style="width: 85%;height: 400px;margin: 0 auto"></div>
+<div id="echarts4354" style="width: 85%;height: 400px;margin: 0 auto"></div>
 <script src="https://cdn.bootcss.com/echarts/3.8.0/echarts.common.min.js"></script>
 <script type="text/javascript">
         // 基于准备好的dom，初始化echarts实例
-        var myChart = echarts.init(document.getElementById('echarts3235'));
+        var myChart = echarts.init(document.getElementById('echarts4354'));
         // 指定图表的配置项和数据
         var option = 
 option = {
@@ -708,6 +708,8 @@ option = {
 <p>NexT v7.4.1 及之前的版本在 Hexo 4.0 下会出现图标被转义无法显示的问题（见 &lt;theme-next/hexo-theme-next#1175&gt;），需更新到 v7.4.2 以上版本。</p>
 </blockquote>
 <p>于是就看了一下这个commit，只改了两行代码，马上试一试发现真的可以！图标又能显示啦。具体修改的代码是:<br><a href="https://github.com/theme-next/hexo-theme-next/pull/1175/commits/7d6272274afcc88edcefe3504e452a502c05329f" target="_blank" rel="noopener">https://github.com/theme-next/hexo-theme-next/pull/1175/commits/7d6272274afcc88edcefe3504e452a502c05329f</a></p>
+<p>需要改两个文件，第一个是next主题目录下<code>layout/_partials/pagination.swig</code>中，将<code>mid_size=1</code>改成<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mid_size : 1,</span><br><span class="line">escape   : false</span><br></pre></td></tr></table></figure></p>
+<p>然后是<code>scripts/helpers/next-url.js</code>中的第69行，需要将返回值最后多加一个false:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">return</span> htmlTag(tag, attrs, text, <span class="literal">false</span>);</span><br></pre></td></tr></table></figure></p>
 <p>直接照着改一下就可以了。</p>
 <p>现在还没有太大的升级的动力，收藏两篇升级8.x用的文章，立一个flag等着<code>hexo g</code>超过30秒就把主题更新了。</p>
 <p><a href="https://github.com/next-theme/hexo-theme-next/issues/4" target="_blank" rel="noopener">https://github.com/next-theme/hexo-theme-next/issues/4</a><br><a href="https://www.imczw.com/post/tech/hexo5-next8-updated.html" target="_blank" rel="noopener">https://www.imczw.com/post/tech/hexo5-next8-updated.html</a></p>
@@ -1123,7 +1125,7 @@ option = {
     
       <span class="post-meta-item-text">文字总数&#58;</span>
     
-    <span title="post.totalcount">83.2k</span>
+    <span title="post.totalcount">83.3k</span>
   
 
   
